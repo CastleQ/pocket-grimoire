@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캐릭터 받기 - Pocket Grimoire</title>
+<style>
+  :root { --bg:#d9d6cf; --text:#1c1c1c; --btn:#7ba7cc; --btn-border:#46637e; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+  .wrap { width:100%; max-width:420px; text-align:center; }
+  .title { font-size:1.6rem; font-weight:800; line-height:1.4; margin-bottom:28px; }
+  .btn { display:block; width:100%; padding:16px; font-size:1.1rem; font-weight:700; color:#10222f; background:var(--btn); border:3px solid var(--btn-border); border-radius:8px; cursor:pointer; margin-top:14px; }
+  .btn:disabled { opacity:.5; cursor:default; }
+  .btn-row { display:flex; gap:12px; }
+  .btn-row .btn { margin-top:0; }
+  .hidden { display:none !important; }
+  .char-icon { width:140px; height:140px; margin:0 auto 16px; border-radius:12px; background:rgba(0,0,0,.06); opacity:0; transition:opacity 3.5s ease-in; display:flex; align-items:center; justify-content:center; }
+  .char-icon.show { opacity:1; }
+  .char-icon img { max-width:100%; max-height:100%; }
+  .char-name { font-size:1.8rem; font-weight:800; margin-bottom:10px; }
+  .char-ability { font-size:1.05rem; line-height:1.6; margin-bottom:24px; }
+  .name-label { font-size:1.3rem; font-weight:800; margin:18px 0 10px; }
+  .name-input { width:100%; padding:14px; font-size:1.1rem; border:3px solid #333; border-radius:6px; text-align:center; }
+  .msg { font-size:1.15rem; line-height:1.7; }
+  .overlay { position:fixed; inset:0; background:rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; padding:24px; }
+  .modal { background:var(--bg); border:3px solid var(--btn-border); border-radius:10px; padding:24px; max-width:340px; width:100%; text-align:center; }
+  .modal p { font-size:1.1rem; line-height:1.5; margin:0 0 20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="screen-gate">
+    <div class="title">실제로 플레이 할<br>사람만 확인 해주세요!</div>
+    <button class="btn" id="btn-reveal">내 캐릭터 확인하기</button>
+  </div>
+  <div id="screen-char" class="hidden">
+    <div class="char-icon" id="char-icon"></div>
+    <div class="char-name" id="char-name"></div>
+    <div class="char-ability" id="char-ability"></div>
+    <div class="name-label">이름 입력</div>
+    <input class="name-input" id="player-name" type="text" placeholder="이름을 입력하세요" autocomplete="off">
+    <button class="btn" id="btn-submit">이야기꾼에게 보내기</button>
+  </div>
+  <div id="screen-done" class="hidden">
+    <div class="msg" id="done-msg"></div>
+  </div>
+</div>
+<div id="confirm-overlay" class="overlay hidden">
+  <div class="modal">
+    <p>정말 확인하시겠어요?<br>캐릭터는 <b>한 번만</b> 볼 수 있어요.</p>
+    <div class="btn-row">
+      <button class="btn" id="confirm-no">아니오</button>
+      <button class="btn" id="confirm-yes">네</button>
+    </div>
+  </div>
+</div>
+<script>
+const SUPABASE_URL = "https://kxttcvygubixhfwhvyqa.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4dHRjdnlndWJpeGhmd2h2eXFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzOTE3NjIsImV4cCI6MjA5Nzk2Nzc2Mn0.6lo08bfZ9_RDo8V7y6H8WJJByFgfM2IYZonLRoOW7iI";
+const CHAR_DATA_URL = "/ko_KR/data/characters";
+
+const params = new URLSearchParams(window.location.search);
+const gameId = params.get("game");
+const STORAGE_KEY = "pg_claim_" + gameId;
+const el = function (id) { return document.getElementById(id); };
+let claimState = null;
+let unloadGuardActive = false;
+
+function show(id) {
+  ["screen-gate", "screen-char", "screen-done"].forEach(function (s) { el(s).classList.add("hidden"); });
+  el(id).classList.remove("hidden");
+}
+function loadState() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) { return null; } }
+function saveState(s) { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }
+function sbHeaders() { return { "apikey": SUPABASE_ANON_KEY, "Authorization": "Bearer " + SUPABASE_ANON_KEY, "Content-Type": "application/json" }; }
+
+function claimSlot(token) {
+  return fetch(SUPABASE_URL + "/rest/v1/rpc/claim_slot", { method: "POST", headers: sbHeaders(), body: JSON.stringify({ p_game_id: gameId, p_player_token: token }) })
+    .then(function (res) { if (!res.ok) { return res.text().then(function (t) { throw new Error("claim 실패 (" + res.status + "): " + t); }); } return res.json(); })
+    .then(function (rows) { return rows && rows.length ? rows[0] : null; });
+}
+function fetchCharacter(charId) {
+  return fetch(CHAR_DATA_URL).then(function (res) { if (!res.ok) { throw new Error("캐릭터 데이터 로드 실패 (" + res.status + ")"); } return res.json(); })
+    .then(function (list) { for (let i = 0; i < list.length; i += 1) { if (list[i].id === charId) { return list[i]; } } return null; });
+}
+function submitName(slotId, name) {
+  return fetch(SUPABASE_URL + "/rest/v1/slots?id=eq." + slotId, { method: "PATCH", headers: Object.assign(sbHeaders(), { "Prefer": "return=minimal" }), body: JSON.stringify({ player_name: name, submitted: true, submitted_at: new Date().toISOString() }) })
+    .then(function (res) { if (!res.ok) { return res.text().then(function (t) { throw new Error("제출 실패 (" + res.status + "): " + t); }); } });
+}
+function showCharacter(character) {
+  el("char-icon").classList.remove("hidden");
+  el("char-name").textContent = character ? character.name : claimState.characterId;
+  el("char-ability").textContent = character ? character.ability : "";
+  const icon = el("char-icon");
+  icon.innerHTML = "";
+  if (character && character.image) {
+    const img = document.createElement("img");
+    img.src = character.image; img.alt = "";
+    img.onerror = function () { img.remove(); };
+    icon.appendChild(img);
+  }
+  show("screen-char");
+  requestAnimationFrame(function () { icon.classList.add("show"); });
+  unloadGuardActive = true;
+}
+function showRecover() {
+  el("char-icon").classList.add("hidden");
+  el("char-name").textContent = "이미 캐릭터를 확인하셨습니다";
+  el("char-ability").textContent = "아직 이름을 안 보내셨다면 아래에 입력 후 보내주세요. (캐릭터는 다시 표시되지 않습니다)";
+  show("screen-char");
+  unloadGuardActive = true;
+}
+function blockScreen(msg) {
+  unloadGuardActive = false;
+  el("done-msg").innerHTML = msg;
+  show("screen-done");
+}
+function init() {
+  if (!gameId) { blockScreen("잘못된 링크입니다.<br>게임 정보가 없습니다."); return; }
+  const st = loadState();
+  if (st && st.submitted) { blockScreen("이미 캐릭터를 확인하고<br>이야기꾼에게 보냈습니다.<br><br>이 링크는 다시 사용할 수 없습니다."); return; }
+  if (st && st.claimed) { claimState = st; showRecover(); return; }
+  show("screen-gate");
+}
+el("btn-reveal").addEventListener("click", function () { el("confirm-overlay").classList.remove("hidden"); });
+el("confirm-no").addEventListener("click", function () { el("confirm-overlay").classList.add("hidden"); try { history.back(); } catch (e) {} });
+el("confirm-yes").addEventListener("click", function () {
+  el("confirm-overlay").classList.add("hidden");
+  el("btn-reveal").disabled = true; el("btn-reveal").textContent = "확인 중...";
+  const token = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : (Date.now() + "-" + Math.random());
+  claimSlot(token).then(function (slot) {
+    if (!slot) { blockScreen("가방에 남은 캐릭터가 없습니다.<br>이야기꾼에게 문의하세요."); return; }
+    claimState = { token: token, slotId: slot.slot_id, characterId: slot.character_id, claimed: true, submitted: false };
+    saveState(claimState);
+    return fetchCharacter(slot.character_id).then(function (character) { showCharacter(character); });
+  }).catch(function (err) {
+    el("btn-reveal").disabled = false; el("btn-reveal").textContent = "내 캐릭터 확인하기";
+    window.alert("문제가 발생했습니다:\n" + err.message);
+  });
+});
+el("btn-submit").addEventListener("click", function () {
+  const name = el("player-name").value.trim();
+  if (!name) { window.alert("이름을 입력해주세요."); return; }
+  el("btn-submit").disabled = true; el("btn-submit").textContent = "보내는 중...";
+  submitName(claimState.slotId, name).then(function () {
+    claimState.submitted = true; saveState(claimState);
+    blockScreen("✅ 이야기꾼에게 전달했습니다!<br><br>" + name + " 님, 게임이 곧 시작됩니다.<br>이 창은 닫으셔도 됩니다.");
+  }).catch(function (err) {
+    el("btn-submit").disabled = false; el("btn-submit").textContent = "이야기꾼에게 보내기";
+    window.alert("문제가 발생했습니다:\n" + err.message);
+  });
+});
+window.addEventListener("beforeunload", function (e) { if (unloadGuardActive) { e.preventDefault(); e.returnValue = ""; } });
+init();
+</script>
+</body>
+</html>

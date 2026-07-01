@@ -27,3 +27,5 @@ import "./processes/notes.js";
 import "./processes/acknowledgements.js";
 
 import "./processes/store.js";
+
+import "./processes/setup/distribute.js";
