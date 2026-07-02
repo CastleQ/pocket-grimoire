@@ -1,0 +1,726 @@
+[
+  {
+    "id": "steward",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/steward_g.webp"
+  },
+  {
+    "id": "knight",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/knight_g.webp"
+  },
+  {
+    "id": "chef",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/chef_g.webp"
+  },
+  {
+    "id": "noble",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/noble_g.webp"
+  },
+  {
+    "id": "investigator",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/investigator_g.webp"
+  },
+  {
+    "id": "washerwoman",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/washerwoman_g.webp"
+  },
+  {
+    "id": "clockmaker",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/clockmaker_g.webp"
+  },
+  {
+    "id": "grandmother",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/grandmother_g.webp"
+  },
+  {
+    "id": "librarian",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/librarian_g.webp"
+  },
+  {
+    "id": "shugenja",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/shugenja_g.webp"
+  },
+  {
+    "id": "pixie",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/pixie_g.webp"
+  },
+  {
+    "id": "bountyhunter",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/bountyhunter_g.webp"
+  },
+  {
+    "id": "empath",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/empath_g.webp"
+  },
+  {
+    "id": "highpriestess",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/highpriestess_g.webp"
+  },
+  {
+    "id": "sailor",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/sailor_g.webp"
+  },
+  {
+    "id": "balloonist",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/balloonist_g.webp"
+  },
+  {
+    "id": "general",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/general_g.webp"
+  },
+  {
+    "id": "preacher",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/preacher_g.webp"
+  },
+  {
+    "id": "chambermaid",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/chambermaid_g.webp"
+  },
+  {
+    "id": "villageidiot",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/villageidiot_g.webp"
+  },
+  {
+    "id": "snakecharmer",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/snakecharmer_g.webp"
+  },
+  {
+    "id": "mathematician",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/mathematician_g.webp"
+  },
+  {
+    "id": "king",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/king_g.webp"
+  },
+  {
+    "id": "dreamer",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/dreamer_g.webp"
+  },
+  {
+    "id": "fortuneteller",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/fortuneteller_g.webp"
+  },
+  {
+    "id": "cultleader",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/cultleader_g.webp"
+  },
+  {
+    "id": "flowergirl",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/flowergirl_g.webp"
+  },
+  {
+    "id": "towncrier",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/towncrier_g.webp"
+  },
+  {
+    "id": "oracle",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/oracle_g.webp"
+  },
+  {
+    "id": "undertaker",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/undertaker_g.webp"
+  },
+  {
+    "id": "innkeeper",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/innkeeper_g.webp"
+  },
+  {
+    "id": "monk",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/monk_g.webp"
+  },
+  {
+    "id": "gambler",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/gambler_g.webp"
+  },
+  {
+    "id": "acrobat",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/acrobat_g.webp"
+  },
+  {
+    "id": "exorcist",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/exorcist_g.webp"
+  },
+  {
+    "id": "lycanthrope",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/lycanthrope_g.webp"
+  },
+  {
+    "id": "gossip",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/gossip_g.webp"
+  },
+  {
+    "id": "savant",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/savant_g.webp"
+  },
+  {
+    "id": "alsaahir",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/alsaahir_g.webp"
+  },
+  {
+    "id": "engineer",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/engineer_g.webp"
+  },
+  {
+    "id": "nightwatchman",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/nightwatchman_g.webp"
+  },
+  {
+    "id": "courtier",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/courtier_g.webp"
+  },
+  {
+    "id": "seamstress",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/seamstress_g.webp"
+  },
+  {
+    "id": "philosopher",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/philosopher_g.webp"
+  },
+  {
+    "id": "huntsman",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/huntsman_g.webp"
+  },
+  {
+    "id": "professor",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/professor_g.webp"
+  },
+  {
+    "id": "artist",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/artist_g.webp"
+  },
+  {
+    "id": "slayer",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/slayer_g.webp"
+  },
+  {
+    "id": "fisherman",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/fisherman_g.webp"
+  },
+  {
+    "id": "princess",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/princess_g.webp"
+  },
+  {
+    "id": "juggler",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/juggler_g.webp"
+  },
+  {
+    "id": "soldier",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/soldier_g.webp"
+  },
+  {
+    "id": "alchemist",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/alchemist_g.webp"
+  },
+  {
+    "id": "cannibal",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/cannibal_g.webp"
+  },
+  {
+    "id": "amnesiac",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/amnesiac_g.webp"
+  },
+  {
+    "id": "farmer",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/farmer_g.webp"
+  },
+  {
+    "id": "minstrel",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/minstrel_g.webp"
+  },
+  {
+    "id": "ravenkeeper",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/ravenkeeper_g.webp"
+  },
+  {
+    "id": "sage",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/sage_g.webp"
+  },
+  {
+    "id": "choirboy",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/choirboy_g.webp"
+  },
+  {
+    "id": "banshee",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/banshee_g.webp"
+  },
+  {
+    "id": "tealady",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/tealady_g.webp"
+  },
+  {
+    "id": "mayor",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/mayor_g.webp"
+  },
+  {
+    "id": "fool",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/fool_g.webp"
+  },
+  {
+    "id": "virgin",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/virgin_g.webp"
+  },
+  {
+    "id": "magician",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/magician_g.webp"
+  },
+  {
+    "id": "poppygrower",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/poppygrower_g.webp"
+  },
+  {
+    "id": "pacifist",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/pacifist_g.webp"
+  },
+  {
+    "id": "atheist",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/atheist_g.webp"
+  },
+  {
+    "id": "hermit",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/hermit_g.webp"
+  },
+  {
+    "id": "butler",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/butler_g.webp"
+  },
+  {
+    "id": "goon",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/goon_g.webp"
+  },
+  {
+    "id": "ogre",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/ogre_g.webp"
+  },
+  {
+    "id": "lunatic",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/lunatic_g.webp"
+  },
+  {
+    "id": "drunk",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/drunk_g.webp"
+  },
+  {
+    "id": "tinker",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/tinker_g.webp"
+  },
+  {
+    "id": "recluse",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/recluse_g.webp"
+  },
+  {
+    "id": "golem",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/golem_g.webp"
+  },
+  {
+    "id": "sweetheart",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/sweetheart_g.webp"
+  },
+  {
+    "id": "plaguedoctor",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/plaguedoctor_g.webp"
+  },
+  {
+    "id": "klutz",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/klutz_g.webp"
+  },
+  {
+    "id": "moonchild",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/moonchild_g.webp"
+  },
+  {
+    "id": "saint",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/saint_g.webp"
+  },
+  {
+    "id": "barber",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/barber_g.webp"
+  },
+  {
+    "id": "hatter",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/hatter_g.webp"
+  },
+  {
+    "id": "mutant",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/mutant_g.webp"
+  },
+  {
+    "id": "politician",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/politician_g.webp"
+  },
+  {
+    "id": "zealot",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/zealot_g.webp"
+  },
+  {
+    "id": "damsel",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/damsel_g.webp"
+  },
+  {
+    "id": "snitch",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/snitch_g.webp"
+  },
+  {
+    "id": "heretic",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/heretic_g.webp"
+  },
+  {
+    "id": "puzzlemaster",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/puzzlemaster_g.webp"
+  },
+  {
+    "id": "mezepheles",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/mezepheles_g.webp"
+  },
+  {
+    "id": "godfather",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/godfather_g.webp"
+  },
+  {
+    "id": "poisoner",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/poisoner_g.webp"
+  },
+  {
+    "id": "devilsadvocate",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/devilsadvocate_g.webp"
+  },
+  {
+    "id": "spy",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/spy_g.webp"
+  },
+  {
+    "id": "harpy",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/harpy_g.webp"
+  },
+  {
+    "id": "witch",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/witch_g.webp"
+  },
+  {
+    "id": "cerenovus",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/cerenovus_g.webp"
+  },
+  {
+    "id": "fearmonger",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/fearmonger_g.webp"
+  },
+  {
+    "id": "pithag",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/pithag_g.webp"
+  },
+  {
+    "id": "psychopath",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/psychopath_g.webp"
+  },
+  {
+    "id": "assassin",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/assassin_g.webp"
+  },
+  {
+    "id": "wizard",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/wizard_g.webp"
+  },
+  {
+    "id": "widow",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/widow_g.webp"
+  },
+  {
+    "id": "xaan",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/xaan_g.webp"
+  },
+  {
+    "id": "marionette",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/marionette_g.webp"
+  },
+  {
+    "id": "wraith",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/wraith_g.webp"
+  },
+  {
+    "id": "summoner",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/summoner_g.webp"
+  },
+  {
+    "id": "eviltwin",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/eviltwin_g.webp"
+  },
+  {
+    "id": "goblin",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/goblin_g.webp"
+  },
+  {
+    "id": "boomdandy",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/boomdandy_g.webp"
+  },
+  {
+    "id": "mastermind",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/mastermind_g.webp"
+  },
+  {
+    "id": "scarletwoman",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/scarletwoman_g.webp"
+  },
+  {
+    "id": "vizier",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/vizier_g.webp"
+  },
+  {
+    "id": "organgrinder",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/organgrinder_g.webp"
+  },
+  {
+    "id": "boffin",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/boffin_g.webp"
+  },
+  {
+    "id": "baron",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/baron_g.webp"
+  },
+  {
+    "id": "yaggababble",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/yaggababble_g.webp"
+  },
+  {
+    "id": "pukka",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/pukka_g.webp"
+  },
+  {
+    "id": "lilmonsta",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/lilmonsta_g.webp"
+  },
+  {
+    "id": "nodashii",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/nodashii_g.webp"
+  },
+  {
+    "id": "imp",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/imp_g.webp"
+  },
+  {
+    "id": "shabaloth",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/shabaloth_g.webp"
+  },
+  {
+    "id": "ojo",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/ojo_g.webp"
+  },
+  {
+    "id": "kazali",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/kazali_g.webp"
+  },
+  {
+    "id": "po",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/po_g.webp"
+  },
+  {
+    "id": "zombuul",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/zombuul_g.webp"
+  },
+  {
+    "id": "vigormortis",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/vigormortis_g.webp"
+  },
+  {
+    "id": "vortox",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/vortox_g.webp"
+  },
+  {
+    "id": "legion",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/legion_g.webp"
+  },
+  {
+    "id": "fanggu",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/fanggu_g.webp"
+  },
+  {
+    "id": "lordoftyphon",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/lordoftyphon_g.webp"
+  },
+  {
+    "id": "lleech",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/lleech_g.webp"
+  },
+  {
+    "id": "alhadikhia",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/alhadikhia_g.webp"
+  },
+  {
+    "id": "riot",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/riot_g.webp"
+  },
+  {
+    "id": "leviathan",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/leviathan_g.webp"
+  },
+  {
+    "id": "thief",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/thief.webp"
+  },
+  {
+    "id": "bureaucrat",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/bureaucrat.webp"
+  },
+  {
+    "id": "barista",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/barista.webp"
+  },
+  {
+    "id": "harlot",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/harlot.webp"
+  },
+  {
+    "id": "butcher",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/butcher.webp"
+  },
+  {
+    "id": "cacklejack",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/cacklejack.webp"
+  },
+  {
+    "id": "gunslinger",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/gunslinger.webp"
+  },
+  {
+    "id": "matron",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/matron.webp"
+  },
+  {
+    "id": "gangster",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/gangster.webp"
+  },
+  {
+    "id": "bonecollector",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/bonecollector.webp"
+  },
+  {
+    "id": "judge",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/judge.webp"
+  },
+  {
+    "id": "apprentice",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/apprentice.webp"
+  },
+  {
+    "id": "beggar",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/beggar.webp"
+  },
+  {
+    "id": "deviant",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/snv/deviant.webp"
+  },
+  {
+    "id": "scapegoat",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/tb/scapegoat.webp"
+  },
+  {
+    "id": "gnome",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/gnome.webp"
+  },
+  {
+    "id": "bishop",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/bishop.webp"
+  },
+  {
+    "id": "voudon",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/bmr/voudon.webp"
+  },
+  {
+    "id": "duchess",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/duchess.webp"
+  },
+  {
+    "id": "fibbin",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/fibbin.webp"
+  },
+  {
+    "id": "fiddler",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/fiddler.webp"
+  },
+  {
+    "id": "doomsayer",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/doomsayer.webp"
+  },
+  {
+    "id": "spiritofivory",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/spiritofivory.webp"
+  },
+  {
+    "id": "djinn",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/djinn.webp"
+  },
+  {
+    "id": "sentinel",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/sentinel.webp"
+  },
+  {
+    "id": "toymaker",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/toymaker.webp"
+  },
+  {
+    "id": "buddhist",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/buddhist.webp"
+  },
+  {
+    "id": "hellslibrarian",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/hellslibrarian.webp"
+  },
+  {
+    "id": "deusexfiasco",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/deusexfiasco.webp"
+  },
+  {
+    "id": "ferryman",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/carousel/ferryman.webp"
+  },
+  {
+    "id": "angel",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/angel.webp"
+  },
+  {
+    "id": "revolutionary",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/fabled/revolutionary.webp"
+  },
+  {
+    "id": "zenomancer",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/zenomancer.webp"
+  },
+  {
+    "id": "godofug",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/godofug.webp"
+  },
+  {
+    "id": "ventriloquist",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/ventriloquist.webp"
+  },
+  {
+    "id": "gardener",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/gardener.webp"
+  },
+  {
+    "id": "pope",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/pope.webp"
+  },
+  {
+    "id": "hindu",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/hindu.webp"
+  },
+  {
+    "id": "knaves",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/knaves.webp"
+  },
+  {
+    "id": "tor",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/tor.webp"
+  },
+  {
+    "id": "bootlegger",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/bootlegger.webp"
+  },
+  {
+    "id": "stormcatcher",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/stormcatcher.webp"
+  },
+  {
+    "id": "bigwig",
+    "image": "https://script.bloodontheclocktower.com/src/assets/icons/loric/bigwig.webp"
+  }
+]

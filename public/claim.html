@@ -58,7 +58,6 @@
 <script>
 const SUPABASE_URL = "https://kxttcvygubixhfwhvyqa.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4dHRjdnlndWJpeGhmd2h2eXFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzOTE3NjIsImV4cCI6MjA5Nzk2Nzc2Mn0.6lo08bfZ9_RDo8V7y6H8WJJByFgfM2IYZonLRoOW7iI";
-const CHAR_DATA_URL = "/ko_KR/data/characters";
 
 const params = new URLSearchParams(window.location.search);
 const gameId = params.get("game");
@@ -80,23 +79,25 @@ function claimSlot(token) {
     .then(function (res) { if (!res.ok) { return res.text().then(function (t) { throw new Error("claim 실패 (" + res.status + "): " + t); }); } return res.json(); })
     .then(function (rows) { return rows && rows.length ? rows[0] : null; });
 }
-function fetchCharacter(charId) {
-  return fetch(CHAR_DATA_URL).then(function (res) { if (!res.ok) { throw new Error("캐릭터 데이터 로드 실패 (" + res.status + ")"); } return res.json(); })
-    .then(function (list) { for (let i = 0; i < list.length; i += 1) { if (list[i].id === charId) { return list[i]; } } return null; });
+function fetchSlotDetails(slotId) {
+  return fetch(SUPABASE_URL + "/rest/v1/slots?id=eq." + slotId + "&select=character_id,character_name,character_ability,character_image", { headers: sbHeaders() })
+    .then(function (res) { if (!res.ok) { throw new Error("슬롯 정보 로드 실패 (" + res.status + ")"); } return res.json(); })
+    .then(function (rows) { return rows && rows.length ? rows[0] : null; });
 }
 function submitName(slotId, name) {
   return fetch(SUPABASE_URL + "/rest/v1/slots?id=eq." + slotId, { method: "PATCH", headers: Object.assign(sbHeaders(), { "Prefer": "return=minimal" }), body: JSON.stringify({ player_name: name, submitted: true, submitted_at: new Date().toISOString() }) })
     .then(function (res) { if (!res.ok) { return res.text().then(function (t) { throw new Error("제출 실패 (" + res.status + "): " + t); }); } });
 }
-function showCharacter(character) {
+function showCharacter(detail) {
   el("char-icon").classList.remove("hidden");
-  el("char-name").textContent = character ? character.name : claimState.characterId;
-  el("char-ability").textContent = character ? character.ability : "";
+  el("char-name").textContent = (detail && detail.character_name) ? detail.character_name : (claimState ? claimState.characterId : "");
+  el("char-ability").textContent = (detail && detail.character_ability) ? detail.character_ability : "";
   const icon = el("char-icon");
   icon.innerHTML = "";
-  if (character && character.image) {
+  const imgUrl = detail ? detail.character_image : "";
+  if (imgUrl) {
     const img = document.createElement("img");
-    img.src = character.image; img.alt = "";
+    img.src = imgUrl; img.alt = "";
     img.onerror = function () { img.remove(); };
     icon.appendChild(img);
   }
@@ -133,7 +134,7 @@ el("confirm-yes").addEventListener("click", function () {
     if (!slot) { blockScreen("가방에 남은 캐릭터가 없습니다.<br>이야기꾼에게 문의하세요."); return; }
     claimState = { token: token, slotId: slot.slot_id, characterId: slot.character_id, claimed: true, submitted: false };
     saveState(claimState);
-    return fetchCharacter(slot.character_id).then(function (character) { showCharacter(character); });
+    return fetchSlotDetails(slot.slot_id).then(function (detail) { showCharacter(detail); });
   }).catch(function (err) {
     el("btn-reveal").disabled = false; el("btn-reveal").textContent = "내 캐릭터 확인하기";
     window.alert("문제가 발생했습니다:\n" + err.message);

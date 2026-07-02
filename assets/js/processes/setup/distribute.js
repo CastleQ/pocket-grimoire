@@ -1,4 +1,5 @@
 // 캐릭터 배포 기능 (A: 배포+링크) + (B: 그리모어 실시간 자동 채우기)
+// v4: 배포 시 캐릭터 이름/능력/이미지를 슬롯에 함께 저장 (공식+커스텀 스크립트 모두 지원)
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase-config.js";
 import TokenStore from "../../classes/TokenStore.js";
 
@@ -152,38 +153,59 @@ function handleDistributeClick() {
         button.textContent = "배포 중...";
     }
 
-    let createdGame = null;
-    supabaseInsert("games", [{ script_name: "" }])
-        .then(function (games) {
-            createdGame = games[0];
-            const slotRows = slotCharacters.map(function (characterId) {
-                return { game_id: createdGame.id, character_id: characterId };
-            });
-            return supabaseInsert("slots", slotRows);
-        })
-        .then(function () {
-            startWatching(createdGame.id);
-            const link = window.location.origin + "/claim.html?game=" + createdGame.id;
-            return navigator.clipboard.writeText(link).then(function () {
-                window.alert(
-                    "✅ 배포 준비 완료! 공유 링크가 클립보드에 복사되었습니다.\n\n"
-                    + link + "\n\n"
-                    + "가방 캐릭터 수: " + slotCharacters.length + "개\n\n"
-                    + "이제 플레이어가 제출하면, 이 그리모어에 자동으로 토큰이 채워집니다."
-                );
-            }).catch(function () {
-                window.prompt("자동 복사 실패. 아래 링크를 직접 복사하세요:", link);
-            });
-        })
-        .catch(function (err) {
-            window.alert("문제가 발생했습니다:\n" + err.message);
-        })
-        .then(function () {
-            if (button) {
-                button.disabled = false;
-                button.textContent = "캐릭터 배포";
-            }
+    function restoreButton() {
+        if (button) {
+            button.disabled = false;
+            button.textContent = "캐릭터 배포";
+        }
+    }
+
+    TokenStore.ready(function (tokenStore) {
+        // 각 캐릭터의 이름/능력/이미지를 지금(배포 시점) 확보 — 공식+커스텀 모두 동작
+        const slotData = slotCharacters.map(function (id) {
+            const ch = tokenStore.getCharacter(id);
+            return {
+                character_id: id,
+                character_name: ch ? ch.getName() : id,
+                character_ability: ch ? ch.getAbility() : "",
+                character_image: ch ? ch.getImage() : ""
+            };
         });
+
+        let createdGame = null;
+        supabaseInsert("games", [{ script_name: "" }])
+            .then(function (games) {
+                createdGame = games[0];
+                const slotRows = slotData.map(function (d) {
+                    return {
+                        game_id: createdGame.id,
+                        character_id: d.character_id,
+                        character_name: d.character_name,
+                        character_ability: d.character_ability,
+                        character_image: d.character_image
+                    };
+                });
+                return supabaseInsert("slots", slotRows);
+            })
+            .then(function () {
+                startWatching(createdGame.id);
+                const link = window.location.origin + "/claim.html?game=" + createdGame.id;
+                return navigator.clipboard.writeText(link).then(function () {
+                    window.alert(
+                        "✅ 배포 준비 완료! 공유 링크가 클립보드에 복사되었습니다.\n\n"
+                        + link + "\n\n"
+                        + "가방 캐릭터 수: " + slotCharacters.length + "개\n\n"
+                        + "이제 플레이어가 제출하면, 이 그리모어에 자동으로 토큰이 채워집니다."
+                    );
+                }).catch(function () {
+                    window.prompt("자동 복사 실패. 아래 링크를 직접 복사하세요:", link);
+                });
+            })
+            .catch(function (err) {
+                window.alert("문제가 발생했습니다:\n" + err.message);
+            })
+            .then(restoreButton);
+    });
 }
 
 document.addEventListener("click", function (event) {
