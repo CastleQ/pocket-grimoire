@@ -256,36 +256,17 @@ function processJSON({
 
         const normalised = normaliseHomebrew(json);
 
-        setFormLoadingState(form, true);
+        // 정적 호스팅(GitHub Pages): 서버 저장(homebrew POST)을 건너뛰고
+        // 브라우저에서 커스텀 캐릭터를 바로 생성해 로드한다.
+        announceScript(
+            extractMetaEntry(normalised),
+            normalised.map((item) => (
+                store.getOfficialCharacter(convertCharacterId(item))
+                || store.createCustomCharacter(item)
+            ))
+        );
 
-        return post(URLS.homebrew, normalised)
-            .then(({ success, game, message, reasons }) => {
-
-                setFormLoadingState(form, false);
-
-                if (success) {
-
-                    announceScript(
-                        extractMetaEntry(normalised),
-                        normalised.map((item) => (
-                            store.getOfficialCharacter(convertCharacterId(item))
-                            || store.createCustomCharacter(item)
-                        )),
-                        game
-                    );
-                    Dialog.create(lookupOneCached("#edition-list")).hide();
-
-                } else {
-
-                    if (reasons && reasons.length) {
-                        message += "\n\n" + reasons.join("\n");
-                    }
-
-                    showInputError(input, message);
-
-                }
-
-        });
+        return Promise.resolve();
 
     }
 
