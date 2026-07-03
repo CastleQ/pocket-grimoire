@@ -189,7 +189,14 @@ function handleDistributeClick() {
             })
             .then(function () {
                 startWatching(createdGame.id);
-                const link = window.location.origin + "/claim.html?game=" + createdGame.id;
+                // claim.html 링크 생성:
+                // - 정적 배포(예: /pocket-grimoire/): 그리모어와 같은 폴더의 claim.html
+                // - 개발 환경(/ko_KR/ 등 로케일 경로): public 루트의 /claim.html
+                var pathname = window.location.pathname;
+                var claimBase = /\/[a-z]{2}_[A-Z]{2}(\/|$)/.test(pathname)
+                    ? "/"
+                    : pathname.replace(/[^/]*$/, "");
+                const link = window.location.origin + claimBase + "claim.html?game=" + createdGame.id;
                 return navigator.clipboard.writeText(link).then(function () {
                     window.alert(
                         "✅ 배포 준비 완료! 공유 링크가 클립보드에 복사되었습니다.\n\n"

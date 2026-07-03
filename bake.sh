@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Pocket Grimoire 정적 빌드 스크립트 (GitHub Pages 배포용 docs/ 생성)
-# 사용법: bash bake.sh
+# 사용법: export COREPACK_ENABLE_DOWNLOAD_PROMPT=0 && bash bake.sh
 set -e
 cd /workspaces/pocket-grimoire
 BASE="/pocket-grimoire"   # ← GitHub Pages 프로젝트 경로 (저장소 이름과 동일해야 함)
@@ -45,10 +45,11 @@ fs.writeFileSync(p,h);
 console.log("   URLS characters/jinxes/game -> 정적 JSON 교체 완료");
 ' "$BASE"
 
-echo "▶ 6/7 빌드 자원 복사 + Jekyll 비활성화..."
+echo "▶ 6/7 빌드 자원 + claim.html 복사 + Jekyll 비활성화..."
 rm -rf docs/build && cp -r public/build docs/build
+cp public/claim.html docs/claim.html
 touch docs/.nojekyll
-echo "   docs/build 복사 완료"
+echo "   docs/build + docs/claim.html 복사 완료"
 
 echo "▶ 7/7 개발용 빌드 복구 (publicPath=/build)..."
 if yarn dev >/tmp/bake_devrestore.log 2>&1; then echo "   개발 빌드 복구됨"; else echo "   (복구 실패 — 나중에 'yarn dev' 수동 실행)"; fi
