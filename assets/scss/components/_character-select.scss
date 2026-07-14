@@ -118,6 +118,11 @@
         .is-show-duplicates .is-selected > & {
             display: block;
         }
+
+        // bag-duplicate 캐릭터: 전역 토글과 무관하게, 선택되면 +/- 조절기 노출.
+        .is-bag-duplicate.is-selected > & {
+            display: block;
+        }
     }
 }
 

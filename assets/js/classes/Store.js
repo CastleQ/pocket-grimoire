@@ -405,6 +405,32 @@ export default class Store {
     }
 
     /**
+     * Persists the image variant index (0 = default, 1 = alternate) for the
+     * given token.
+     *
+     * @param {CharacterToken} token
+     *        Character token whose image index should be stored.
+     * @param {Number} imageIndex
+     *        Image index to store.
+     */
+    setImageIndex(token, imageIndex) {
+
+        const {
+            data,
+            tokens
+        } = this;
+        let index = tokens.indexOf(token);
+
+        if (index < 0) {
+            return;
+        }
+
+        data.tokens[index].imageIndex = imageIndex;
+        this.write();
+
+    }
+
+    /**
      * Sets the player name for the given character.
      *
      * @param {CharacterToken} token

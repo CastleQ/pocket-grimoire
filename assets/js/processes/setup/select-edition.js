@@ -123,12 +123,11 @@ function normaliseHomebrew(json) {
             entry[key] = map[entry[key]] || entry[key];
         });
 
-        if (Array.isArray(entry.image)) {
-            entry.image = entry.image[0];
-        }
+        // 배열 이미지(선/악 두 URL)는 그대로 보존한다. CharacterToken이 배열을
+        // 처리하여 기본값으로 [0]을 사용하고, 향후 선/악 토글의 토대가 된다.
 
-        if (entry.team && !entry.image) {
-            entry.image = `/build/img/icons/${entry.team}.png`;
+        if (entry.team && (!entry.image || (Array.isArray(entry.image) && entry.image.length === 0))) {
+            entry.image = __webpack_public_path__ + `img/icons/${entry.team}.webp`;
         }
 
         return entry;

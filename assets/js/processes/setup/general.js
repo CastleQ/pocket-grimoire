@@ -17,9 +17,27 @@ import {
 import {
     LANGUAGE
 } from "../../constants/language.js";
+import roleImages from "../../../data/role-images.json";
 
 const store = Store.create("pocket-grimoire");
 const gameObserver = Observer.create("game");
+
+// 공식 캐릭터 이미지를 마스터 데이터(role-images.json)로 교체한다.
+// 키 정규화: 소문자 + [-_] 제거 + 끝 숫자 제거 (예: "Steward1" -> "steward").
+// 매칭되는 캐릭터는 image를 [기본, 반대] 배열로 덮어써서 팀별 올바른 색(선=파랑/악=빨강)을
+// 기본값으로 삼고, 선/악 토글(향후)의 토대를 만든다. 매칭 안 되는 캐릭터는 원본 유지.
+function roleImageKey(id) {
+    return String(id).toLowerCase().replace(/[-_]/g, "").replace(/\d+$/, "");
+}
+
+function applyRoleImages(characters) {
+    return characters.map((character) => {
+        const images = roleImages[roleImageKey(character.id)];
+        return (images && images.length)
+            ? { ...character, image: images }
+            : character;
+    });
+}
 
 fetchFromStore(`characters_${LANGUAGE}`, URLS.characters, store).then((characters) => {
     gameObserver.trigger("characters-loaded", { characters });
@@ -69,21 +87,21 @@ Promise.all([
                 ability: I18N.emptyCharacterAbility,
                 [CharacterToken.empty]: true,
             },
-            ...characters
+            ...applyRoleImages(characters)
         ],
         reminders: [
             {
                 id: TokenStore.EMPTY,
                 name: "",
                 text: I18N.goodTeam,
-                image: "/build/img/icons/townsfolk.webp",
+                image: __webpack_public_path__ + "img/icons/townsfolk.webp",
                 isGlobal: true
             },
             {
                 id: TokenStore.EMPTY,
                 name: "",
                 text: I18N.evilTeam,
-                image: "/build/img/icons/demon.webp",
+                image: __webpack_public_path__ + "img/icons/demon.webp",
                 isGlobal: true
             }
         ],

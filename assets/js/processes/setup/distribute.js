@@ -141,12 +141,6 @@ function handleDistributeClick() {
         window.alert("아직 선택된 캐릭터가 없습니다.\n먼저 배포할 캐릭터를 체크해 주세요.");
         return;
     }
-    const slotCharacters = [];
-    characters.forEach(function (c) {
-        for (let i = 0; i < c.count; i += 1) {
-            slotCharacters.push(c.id);
-        }
-    });
     const button = document.querySelector("#player-select-distribute");
     if (button) {
         button.disabled = true;
@@ -161,6 +155,39 @@ function handleDistributeClick() {
     }
 
     TokenStore.ready(function (tokenStore) {
+
+        // bag-disabled: 가방에 넣을 수 없는 캐릭터(예: 드렁크/마리오네트)는 배포에서
+        // 제외하고 이야기꾼에게 안내한다. (배포 대상이 아니라 직접 배치하는 캐릭터)
+        const bagDisabledNames = [];
+        const distributable = characters.filter(function (c) {
+            const ch = tokenStore.getCharacter(c.id);
+            if (ch && ch.hasSpecialData("selection", "bag-disabled")) {
+                bagDisabledNames.push(ch.getName());
+                return false;
+            }
+            return true;
+        });
+        if (bagDisabledNames.length) {
+            window.alert(
+                "다음 캐릭터는 가방에 넣을 수 없어 배포에서 제외됩니다.\n"
+                + "이야기꾼이 직접 배치하세요:\n\n- "
+                + bagDisabledNames.join("\n- ")
+            );
+        }
+        if (distributable.length === 0) {
+            window.alert("배포할 수 있는 캐릭터가 없습니다.");
+            restoreButton();
+            return;
+        }
+
+        // 카운트만큼 슬롯으로 펼치기 (bag-duplicate 대응)
+        const slotCharacters = [];
+        distributable.forEach(function (c) {
+            for (let i = 0; i < c.count; i += 1) {
+                slotCharacters.push(c.id);
+            }
+        });
+
         // 각 캐릭터의 이름/능력/이미지를 지금(배포 시점) 확보 — 공식+커스텀 모두 동작
         const slotData = slotCharacters.map(function (id) {
             const ch = tokenStore.getCharacter(id);

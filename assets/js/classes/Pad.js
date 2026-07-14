@@ -425,6 +425,53 @@ export default class Pad {
     }
 
     /**
+     * Toggles the good/evil image variant for the given character, updating the
+     * token image in place and persisting via the "image-toggle" event.
+     *
+     * @param {CharacterToken} character
+     *        The character whose image should be toggled.
+     * @param {Number} [imageIndex]
+     *        Optional explicit image index.
+     */
+    toggleImage(character, imageIndex) {
+
+        const {
+            token
+        } = this.getInfoByCharacter(character) || {};
+
+        if (!token) {
+            return;
+        }
+
+        const index = character.toggleImage(imageIndex);
+        const element = this.constructor.getToken(token);
+        const image = element && element.querySelector(".js--character--image");
+
+        if (image) {
+            image.src = character.getImage();
+        }
+
+        this.observer.trigger("image-toggle", {
+            imageIndex: index,
+            token,
+            character
+        });
+
+    }
+
+    /**
+     * Helper to toggle the image variant by token element.
+     *
+     * @param {Element} token
+     *        Element whose associated character should have its image toggled.
+     * @param {Number} [imageIndex]
+     *        Optional explicit image index.
+     */
+    toggleImageByToken(token, imageIndex) {
+        this.toggleImage(this.getCharacterByToken(token), imageIndex);
+    }
+
+    /**
      * Gets the player name for the character that's been given.
      *
      * @param  {CharacterToken} character

@@ -100,6 +100,14 @@ lookupOne("#character-rotate").addEventListener("click", ({ target }) => {
 
 });
 
+const imageToggleButton = lookupOne("#character-image-toggle");
+if (imageToggleButton) {
+    imageToggleButton.addEventListener("click", ({ target }) => {
+        pad.toggleImageByToken(getToken(target));
+        hideDialog(target);
+    });
+}
+
 lookupOne("#character-reminder").addEventListener("click", ({ target }) => {
 
     const reminder = lookupOneCached("#reminder-list");
@@ -158,6 +166,7 @@ const replaceOnPadProcess = {
                 const oldCharacter = pad.getCharacterByToken(lookupOne(token));
                 pad.toggleDead(character, oldCharacter.getIsDead());
                 pad.rotate(character, oldCharacter.getIsUpsideDown());
+                pad.toggleImage(character, oldCharacter.getImageIndex());
                 pad.setPlayerName(character, pad.getPlayerName(oldCharacter));
                 pad.removeCharacter(oldCharacter);
                 pad.moveToken(newToken, x, y, z);

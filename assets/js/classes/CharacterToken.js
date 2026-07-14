@@ -95,6 +95,14 @@ export default class CharacterToken extends Token {
         this.isUpsideDown = false;
 
         /**
+         * Index of the image variant currently shown. 0 = default (the team's
+         * own colour), 1 = alternate (opposite alignment colour) when the
+         * character has both good/evil images.
+         * @type {Number}
+         */
+        this.imageIndex = 0;
+
+        /**
          * A flag showing whether or not the character has a ghost vote.
          * @type {Boolean}
          */
@@ -450,17 +458,79 @@ export default class CharacterToken extends Token {
      * @return {DocumentFragment}
      *         Populated token.
      */
+    /**
+     * Resolves the stored image to a single URL string. The image may be a
+     * string or an array of [default, alternate] URLs (good/evil variants);
+     * this returns the variant for the current (or given) image index.
+     *
+     * @param  {Number} [index]
+     *         Optional image index. Defaults to the token's current index.
+     * @return {String}
+     *         Image URL.
+     */
+    getImage(index) {
+
+        const { image } = this.data;
+        const i = (index === undefined) ? (this.imageIndex || 0) : index;
+
+        if (Array.isArray(image)) {
+            return image[i] || image[0] || "";
+        }
+
+        return image || "";
+
+    }
+
+    /**
+     * Gets the current image variant index (0 = default, 1 = alternate).
+     *
+     * @return {Number}
+     *         Current image index.
+     */
+    getImageIndex() {
+        return this.imageIndex || 0;
+    }
+
+    /**
+     * Toggles (or sets) the image variant, switching between the default and
+     * alternate (good/evil) images. Does nothing if only one image exists.
+     *
+     * @param  {Number} [index]
+     *         Optional explicit index. If omitted, toggles 0 <-> 1.
+     * @return {Number}
+     *         The resulting image index.
+     */
+    toggleImage(index) {
+
+        const { image } = this.data;
+        const count = Array.isArray(image) ? image.length : 1;
+
+        if (count < 2) {
+            this.imageIndex = 0;
+            return this.imageIndex;
+        }
+
+        if (index === undefined) {
+            index = (this.imageIndex || 0) === 0 ? 1 : 0;
+        }
+
+        this.imageIndex = index;
+
+        return this.imageIndex;
+
+    }
+
     drawToken() {
 
         const {
             name,
-            image,
             reminders = [],
             remindersGlobal = [],
             firstNight,
             otherNight,
             setup
         } = this.data;
+        const image = this.getImage();
 
         return this.constructor.templates.token.draw({
             ".js--character--leaves"(element) {
@@ -517,10 +587,11 @@ export default class CharacterToken extends Token {
         const {
             id,
             name,
-            image,
             ability,
             setup
         } = this.data;
+        const image = this.getImage();
+        const isBagDuplicate = this.hasSpecialData("selection", "bag-duplicate");
 
         return this.constructor.templates.select.draw({
             ".js--character-select--image"(element) {
@@ -546,6 +617,13 @@ export default class CharacterToken extends Token {
                 element.name += id;
                 element.dataset.for = id;
 
+                // bag-duplicate 캐릭터는 전역 토글과 무관하게 +/- 조절기를 쓸 수 있도록
+                // 래퍼에 표식 클래스를 남긴다 (CSS에서 선택 시 조절기를 노출).
+                const wrapper = element.closest(".js--character-select");
+                if (wrapper) {
+                    wrapper.classList.toggle("is-bag-duplicate", isBagDuplicate);
+                }
+
             }
         });
 
@@ -565,12 +643,12 @@ export default class CharacterToken extends Token {
         const {
             id,
             name,
-            image,
             firstNight,
             firstNightReminder,
             otherNight,
             otherNightReminder
         } = this.data;
+        const image = this.getImage();
 
         return this.constructor.templates.nightOrder.draw({
             ".js--night-info--wrapper"(element) {
