@@ -689,6 +689,54 @@ export default class Pad {
     }
 
     /**
+     * 특정 캐릭터에 속한 (글로벌이 아닌) 리마인더 개수를 센다.
+     *
+     * @param  {CharacterToken} character
+     * @return {Number}
+     */
+    getCharacterReminderCount(character) {
+
+        if (!character) {
+            return 0;
+        }
+
+        const norm = (id) => String(id).replace(/[-_]/g, "").toLowerCase();
+        const target = norm(character.getId());
+
+        return this.reminders.filter((info) => (
+            !info.reminder.getIsGlobal()
+            && norm(info.reminder.getCharacterId()) === target
+        )).length;
+
+    }
+
+    /**
+     * 특정 캐릭터에 속한 (글로벌이 아닌) 리마인더를 모두 제거하고 개수를 반환한다.
+     *
+     * @param  {CharacterToken} character
+     * @return {Number}
+     *         제거된 리마인더 개수.
+     */
+    removeCharacterReminders(character) {
+
+        if (!character) {
+            return 0;
+        }
+
+        const norm = (id) => String(id).replace(/[-_]/g, "").toLowerCase();
+        const target = norm(character.getId());
+        const matches = this.reminders.filter((info) => (
+            !info.reminder.getIsGlobal()
+            && norm(info.reminder.getCharacterId()) === target
+        ));
+
+        matches.forEach((info) => this.removeReminder(info.reminder));
+
+        return matches.length;
+
+    }
+
+    /**
      * Gets the {@link ReminderToken} that's associated with the given element.
      * If no match can be found, undefined is returned.
      *

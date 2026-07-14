@@ -22,6 +22,51 @@ const characterShowDialog = Dialog.create(lookupOneCached("#character-show"));
 const tokenDialog = TokenDialog.get();
 tokenDialog.setEntryTemplate(new Template(lookupOne("#token-entry-template")));
 
+// ── 작업 5: 사망/제거/변경 시 관련 리마인더 자동 제거 ─────────────────────────
+// 캐릭터의 ability에 "죽어도(사망 후에도) 효과가 유지"됨을 뜻하는 문구가 있으면
+// 리마인더를 남겨야 하므로 확인창을 띄우지 않는다. (공식/커스텀 JSON 공통 적용)
+const DEATH_PERSIST_PATTERNS = [
+    /당신이[^.。\n]{0,15}사망/,      // 당신이 사망하면 / 당신이 (조건) 사망할 때 / 사망하더라도
+    /당신이[^.。\n]{0,15}죽/,        // 당신이 죽으면
+    /당신을[^.。\n]{0,12}죽이/,      // 당신을 죽이면
+    /[(（][^)）]{0,20}(사망|죽)[^)）]{0,20}[)）]/  // (사망한 상태에서도)/(죽었더라도)/(죽은 뒤에도) 등
+];
+
+function deathMattersAbility(ability) {
+
+    if (!ability) {
+        return false;
+    }
+
+    return DEATH_PERSIST_PATTERNS.some((pattern) => pattern.test(ability));
+
+}
+
+// 캐릭터의 관련 리마인더(글로벌 제외)를 확인창을 거쳐 제거한다.
+// ability가 "사망 후에도 유효" 문구를 포함하면 확인창 자체를 띄우지 않는다.
+function maybeRemoveReminders(character) {
+
+    if (!character || deathMattersAbility(character.getAbility())) {
+        return;
+    }
+
+    const count = pad.getCharacterReminderCount(character);
+
+    if (count < 1) {
+        return;
+    }
+
+    const name = character.getName() || "이 캐릭터";
+    const confirmed = window.confirm(
+        `${name}의 관련 리마인더 ${count}개도 함께 제거할까요?\n(글로벌 리마인더는 유지됩니다)`
+    );
+
+    if (confirmed) {
+        pad.removeCharacterReminders(character);
+    }
+
+}
+
 // Set up the token dialog when a character token is clicked.
 tokenObserver.on("character-click", ({ detail }) => {
 
@@ -88,8 +133,15 @@ TokenStore.ready(() => {
 
 lookupOne("#character-shroud-toggle").addEventListener("click", ({ target }) => {
 
-    pad.toggleDeadByToken(getToken(target));
+    const token = getToken(target);
+    const character = pad.getCharacterByToken(token);
+    pad.toggleDeadByToken(token);
     hideDialog(target);
+
+    // 사망 상태로 "전환"된 경우에만 리마인더 제거를 확인한다.
+    if (character && character.getIsDead()) {
+        maybeRemoveReminders(character);
+    }
 
 });
 
@@ -168,6 +220,7 @@ const replaceOnPadProcess = {
                 pad.rotate(character, oldCharacter.getIsUpsideDown());
                 pad.toggleImage(character, oldCharacter.getImageIndex());
                 pad.setPlayerName(character, pad.getPlayerName(oldCharacter));
+                maybeRemoveReminders(oldCharacter);
                 pad.removeCharacter(oldCharacter);
                 pad.moveToken(newToken, x, y, z);
 
@@ -282,7 +335,14 @@ characterShowDialog.on(Dialog.HIDE, () => {
 
 lookupOne("#character-remove").addEventListener("click", ({ target }) => {
 
-    pad.removeCharacterByToken(getToken(target));
+    const token = getToken(target);
+    const character = pad.getCharacterByToken(token);
+
+    if (character) {
+        maybeRemoveReminders(character);
+    }
+
+    pad.removeCharacterByToken(token);
     hideDialog(target);
 
 });
