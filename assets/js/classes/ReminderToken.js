@@ -83,6 +83,8 @@ export default class ReminderToken extends Token {
             text,
             characterName
         } = this.data;
+        // image가 선/악 배열이면 기본색([0])을 사용한다.
+        const src = Array.isArray(image) ? (image[0] || "") : (image || "");
 
         return this.constructor.templates.token.draw({
             ".js--reminder--name"(element) {
@@ -92,7 +94,7 @@ export default class ReminderToken extends Token {
                 element.textContent = text;
             },
             ".js--reminder--image"(element) {
-                element.src = image;
+                element.src = src;
             }
         });
 

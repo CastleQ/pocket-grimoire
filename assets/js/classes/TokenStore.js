@@ -187,6 +187,9 @@ export default class TokenStore {
             reminders = [],
             remindersGlobal = []
         } = data;
+        // 리마인더는 캐릭터의 "기본" 이미지(선/악 배열의 [0])를 사용한다.
+        // 리마인더는 정렬(선/악)을 토글하지 않으므로 항상 기본색 아이콘을 보여준다.
+        const reminderImage = Array.isArray(image) ? (image[0] || "") : (image || "");
         const id = this.constructor.normaliseId(data.id);
         const character = new CharacterToken(data);
 
@@ -198,7 +201,7 @@ export default class TokenStore {
                     this.createReminder({
                         id,
                         name,
-                        image,
+                        image: reminderImage,
                         text,
                         isGlobal: remindersGlobal.includes(text)
                     }, index)
