@@ -41,8 +41,9 @@ let h=fs.readFileSync(p,"utf8");
 h=h.replace(/characters:\s*"[^"]*"/, "characters: \"" + base + "/data/characters.json\"");
 h=h.replace(/jinxes:\s*"[^"]*"/,     "jinxes: \"" + base + "/data/jinx.json\"");
 h=h.replace(/game:\s*"[^"]*"/,       "game: \"" + base + "/data/game.json\"");
+h=h.replace(/src="\/build\//g,       "src=\"" + base + "/build/");
 fs.writeFileSync(p,h);
-console.log("   URLS characters/jinxes/game -> 정적 JSON 교체 완료");
+console.log("   URLS characters/jinxes/game + /build 이미지 경로 교체 완료");
 ' "$BASE"
 
 echo "▶ 6/7 빌드 자원 + claim.html 복사 + Jekyll 비활성화..."
