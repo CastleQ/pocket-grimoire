@@ -13,6 +13,21 @@
     font-family: var(--serif-font);
     text-shadow: 0.1em 0.1em 0.1em rgb(0 0 0 / 80%);
     cursor: pointer;
+    position: relative;
+}
+
+// 헤더 우측에 부가 컨트롤(예: 토큰 잠금 토글)을 얹기 위한 슬롯.
+// summary의 기본 펼침/접힘 마커(▼)는 그대로 유지된다.
+.details__summary-aside {
+    position: absolute;
+    top: 50%;
+    right: 0.25em;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: 0.85em;
+    cursor: auto;
 }
 
 .details__heading {

@@ -14,6 +14,7 @@
 <details {{ attributes|join(' ')|raw }}>
     <summary class="details__summary">
         <h2 class="details__heading">{% block summary %}{{ summary|default('') }}{% endblock %}</h2>
+        {% block summary_aside %}{% endblock %}
     </summary>
     <div class="details__body">
         {% block body %}

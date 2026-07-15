@@ -82,6 +82,31 @@ lookupOne("#show-night-order").addEventListener("change", ({ target }) => {
 
 });
 
+// 토큰 잠금 (작업 6): 마도서 헤더의 스위치로 모든 토큰(캐릭터·리마인더)의 드래그
+// 이동을 막는다. 클릭(다이얼로그 열기)은 그대로 동작한다.
+const lockToggle = lookupOne("#lock-tokens");
+
+if (lockToggle) {
+
+    lockToggle.addEventListener("change", ({ target }) => {
+        pad.tokens.setLocked(target.checked);
+    });
+
+    // 이 스위치는 <summary> 안에 있으므로, 클릭이 마도서(details)를 접거나 펼치지
+    // 않도록 기본 동작을 막고 체크 상태만 수동으로 토글한다.
+    const lockAside = lockToggle.closest(".details__summary-aside");
+
+    if (lockAside) {
+        lockAside.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            lockToggle.checked = !lockToggle.checked;
+            lockToggle.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+    }
+
+}
+
 gameObserver.on("clear", () => pad.reset());
 
 // Character and Reminder token sizes.

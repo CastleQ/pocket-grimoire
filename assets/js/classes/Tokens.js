@@ -32,6 +32,13 @@ export default class Tokens {
          */
         this.observer = observer;
 
+        /**
+         * 토큰 이동 잠금 플래그. true면 드래그가 시작되지 않는다.
+         * (클릭으로 다이얼로그를 여는 동작은 그대로 유지된다.)
+         * @type {Boolean}
+         */
+        this.isLocked = false;
+
         this.reset();
         this.updatePadDimensions();
         this.addListeners();
@@ -216,6 +223,25 @@ export default class Tokens {
     }
 
     /**
+     * 토큰 이동 잠금을 설정한다.
+     *
+     * @param {Boolean} state
+     *        true면 잠금(드래그 불가), false면 해제.
+     */
+    setLocked(state) {
+        this.isLocked = Boolean(state);
+    }
+
+    /**
+     * 토큰 이동 잠금 상태를 반환한다.
+     *
+     * @return {Boolean}
+     */
+    getLocked() {
+        return this.isLocked;
+    }
+
+    /**
      * Handles a mouse down or touch start event.
      *
      * @param {Element} token
@@ -226,6 +252,11 @@ export default class Tokens {
     onMousedown(token, e) {
 
         if (!token) {
+            return;
+        }
+
+        // 잠금 상태에서는 드래그를 시작하지 않는다 (클릭 동작은 유지).
+        if (this.isLocked) {
             return;
         }
 
@@ -305,6 +336,11 @@ export default class Tokens {
      */
     startDrag(element, event) {
 
+        // 잠금 상태에서는 드래그를 시작하지 않는다.
+        if (this.isLocked) {
+            return;
+        }
+
         const {
             type,
             clientX,
@@ -346,6 +382,11 @@ export default class Tokens {
      *        The mouse move or touch move event.
      */
     dragObject(element, event) {
+
+        // 잠금 상태에서는 이동을 무시한다 (이중 안전장치).
+        if (this.isLocked) {
+            return;
+        }
 
         event.preventDefault();
 

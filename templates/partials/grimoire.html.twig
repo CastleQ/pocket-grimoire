@@ -3,6 +3,18 @@
     id: 'grimoire'
 } %}
     {% import 'macros/forms.html.twig' as forms %}
+
+    {% block summary_aside %}
+    <span class="details__summary-aside">
+        {{ forms.switch({
+            node: 'span',
+            label: '토큰 잠금',
+            name: 'lock-tokens',
+            id: 'lock-tokens'
+        }) }}
+    </span>
+    {% endblock %}
+
     {% block body %}
     <div class="pad-wrapper">
         <div class="pad pad--growable js--pad"></div>
@@ -35,6 +47,7 @@
                     checked: true
                 }) }}
             </div>
+
 
             <div class="mt-4">
                 {{ forms.range({
