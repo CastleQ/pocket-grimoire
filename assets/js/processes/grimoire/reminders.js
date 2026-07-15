@@ -127,20 +127,57 @@ TokenStore.ready((tokenStore) => {
     const reminderDialog = Dialog.create(lookupOne("#reminder-show"));
     const reminderHolder = lookupOne("#reminder-show-token");
 
+    const customEdit = lookupOneCached("#reminder-custom-edit");
+    const customText = lookupOne("#reminder-custom-text");
+
     // Populate the reminder dialog as a reminder is clicked.
     tokenObserver.on("reminder-click", ({ detail }) => {
 
         const {
             element
         } = detail;
-        const reminder = tokenStore.getReminder(element.dataset.reminder);
+        // 배치된 실제 인스턴스를 우선 사용한다 (커스텀 알림은 인스턴스별 텍스트 보유).
+        const reminder = pad.getReminderByToken(element)
+            || tokenStore.getReminder(element.dataset.reminder);
 
         empty(reminderHolder).append(reminder.drawToken());
         reminderHolder.dataset.token = `#${identify(element)}`;
         lookupOneCached("#reminder-show-orphan").hidden = (
             !element.classList.contains("is-orphan")
         );
+
+        // 커스텀 알림이면 텍스트 편집창을 열고 현재 내용을 채운다.
+        const isCustom = Boolean(reminder && reminder.data && reminder.data.isCustom);
+        customEdit.hidden = !isCustom;
+        if (isCustom) {
+            customText.value = reminder.data.text || "";
+        }
+
         reminderDialog.show();
+
+    });
+
+    // 커스텀 알림 텍스트 편집: 입력할 때마다 토큰·미리보기를 갱신하고 저장한다.
+    customText.addEventListener("input", () => {
+
+        const token = lookupOne(reminderHolder.dataset.token);
+
+        if (!token) {
+            return;
+        }
+
+        const reminder = pad.getReminderByToken(token);
+
+        if (!reminder || !reminder.data.isCustom) {
+            return;
+        }
+
+        pad.setReminderText(reminder, customText.value);
+        empty(reminderHolder).append(reminder.drawToken());
+        tokenObserver.trigger("reminder-text", {
+            reminder,
+            text: customText.value
+        });
 
     });
 

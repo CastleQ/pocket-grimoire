@@ -10,7 +10,7 @@ block. This allows some of the meta includes to reference the contents while
 also allowing developers to create a unique title if they need to.
 #}
 <title>{% set whole_title -%}
-    {% block whole_title %}{% block title %}{% endblock %} - {{ 'title'|trans }}{% endblock %}
+    {% block whole_title %}{{ 'share_title'|trans }}{% endblock %}
 {% endset -%}{{ whole_title }}</title>
 {% block meta -%}
     {%- include 'includes/meta/tags.html.twig' -%}

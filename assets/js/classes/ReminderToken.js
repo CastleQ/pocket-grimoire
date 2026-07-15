@@ -51,6 +51,24 @@ export default class ReminderToken extends Token {
     }
 
     /**
+     * 시트와 무관하게 항상 존재하는 "커스텀 알림" 리마인더를 만든다.
+     * 이미지가 없고, 이야기꾼이 자유롭게 텍스트를 적을 수 있다.
+     *
+     * @return {ReminderToken}
+     */
+    static createCustom() {
+        return new this({
+            id: "custom-alert:0",
+            characterId: "custom-alert",
+            characterName: "커스텀 알림",
+            text: "",
+            image: "",
+            isGlobal: true,
+            isCustom: true
+        });
+    }
+
+    /**
      * @inheritDoc
      */
     processData(data) {
@@ -65,9 +83,21 @@ export default class ReminderToken extends Token {
             characterId: "",
             characterName: "",
             isGlobal: false,
+            isCustom: false,
             ...data
         };
 
+    }
+
+    /**
+     * 커스텀 알림의 텍스트를 갱신한다.
+     *
+     * @param  {String} text
+     * @return {ReminderToken}
+     */
+    setText(text) {
+        this.data.text = text;
+        return this;
     }
 
     /**
@@ -81,20 +111,30 @@ export default class ReminderToken extends Token {
         const {
             image,
             text,
-            characterName
+            characterName,
+            isCustom
         } = this.data;
         // image가 선/악 배열이면 기본색([0])을 사용한다.
         const src = Array.isArray(image) ? (image[0] || "") : (image || "");
+        // 커스텀 알림: 내용이 비어 있으면 "커스텀 알림" 라벨을 대신 보여준다.
+        const customLabel = (text && text.trim()) ? text : "커스텀 알림";
 
         return this.constructor.templates.token.draw({
             ".js--reminder--name"(element) {
-                element.textContent = characterName;
+                element.textContent = isCustom ? "" : characterName;
             },
             ".js--reminder--text"(element) {
-                element.textContent = text;
+                element.textContent = isCustom ? "" : text;
+            },
+            ".js--reminder--custom"(element) {
+                element.textContent = isCustom ? customLabel : "";
             },
             ".js--reminder--image"(element) {
                 element.src = src;
+                const root = element.closest(".reminder");
+                if (root) {
+                    root.classList.toggle("is-custom", Boolean(isCustom));
+                }
             }
         });
 

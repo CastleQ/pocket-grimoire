@@ -136,6 +136,15 @@ export default class TokenStore {
             ReminderToken.addGlobal(this.createReminder(reminder, index));
         });
 
+        // 커스텀 알림 (작업 9): 시트와 무관하게 항상 존재하는 빈 리마인더.
+        // 스토어가 다시 만들어져도 글로벌 목록에 중복되지 않도록 기존 커스텀을 제거 후 등록.
+        const customReminder = ReminderToken.createCustom();
+        this.reminders[customReminder.getId()] = customReminder;
+        ReminderToken.global = ReminderToken.getGlobal().filter(
+            (reminder) => !reminder.data.isCustom
+        );
+        ReminderToken.addGlobal(customReminder);
+
         /**
          * A collection of all jinxes.
          * @type {Array.<Jinx>}

@@ -27,7 +27,19 @@
     align-items: center;
     gap: 0.4em;
     font-size: 0.85em;
-    cursor: auto;
+    cursor: pointer;
+    padding: 0.2em 0.25em;
+
+    // 헤더 안에서는 라벨이 전체 너비를 먹지 않도록(레이아웃 눌림 방지) 자동 폭으로.
+    .switch {
+        align-items: center;
+    }
+
+    .switch__label {
+        width: auto;
+        white-space: nowrap;
+        cursor: pointer;
+    }
 }
 
 .details__heading {

@@ -431,6 +431,29 @@ export default class Store {
     }
 
     /**
+     * 커스텀 알림 토큰의 텍스트를 저장한다.
+     *
+     * @param {Token} token
+     * @param {String} text
+     */
+    setReminderText(token, text) {
+
+        const {
+            data,
+            tokens
+        } = this;
+        let index = tokens.indexOf(token);
+
+        if (index < 0) {
+            index = this.addToken(token);
+        }
+
+        data.tokens[index].text = text;
+        this.write();
+
+    }
+
+    /**
      * Sets the player name for the given character.
      *
      * @param {CharacterToken} token

@@ -126,6 +126,7 @@
                 <textPath xlink:href="#curve-base" style="fill: currentColor;" class="js--reminder--text"></textPath>
             </text>
         </svg>
+        <span class="reminder__custom js--reminder--custom" aria-hidden="true"></span>
     </span>
 </template>
 
@@ -192,6 +193,9 @@
     {% block title %}<span id="reminder-show-name">{{ 'grimoire.reminder_show.title'|trans }}</span>{% endblock %}
     {% block body %}
     <div id="reminder-show-token" class="character-show__token"></div>
+    <p id="reminder-custom-edit" class="mt-4" hidden>
+        <textarea id="reminder-custom-text" class="reminder-custom-text" rows="3" maxlength="100" placeholder="커스텀 알림 내용을 입력하세요 (최대 100자)"></textarea>
+    </p>
     <p id="reminder-show-orphan" class="mt-4" hidden><strong class="character-show__orphan">{{ 'grimoire.character_show.orphan'|trans }}</strong></p>
     <p class="mt-4"><button type="button" class="button button--warning" id="reminder-remove">{{ 'grimoire.reminder_show.remove'|trans }}</button></p>
     {% endblock %}

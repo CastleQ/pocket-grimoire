@@ -63,6 +63,10 @@ tokenObserver.on("reminder-remove", ({ detail }) => {
     store.removeToken(detail.reminder);
 });
 
+tokenObserver.on("reminder-text", ({ detail }) => {
+    store.setReminderText(detail.reminder, detail.text);
+});
+
 tokenObserver.on("move", ({ detail }) => {
 
     const {
@@ -218,7 +222,8 @@ TokenStore.ready((tokenStore) => {
         isUpsideDown,
         imageIndex,
         playerName,
-        ghostVote
+        ghostVote,
+        text
     }) => {
 
         const isCharacter = TokenStore.isCharacterId(id);
@@ -229,7 +234,8 @@ TokenStore.ready((tokenStore) => {
         );
         const {
             token,
-            character
+            character,
+            reminder
         } = info;
 
         pad.moveToken(token, left, top, zIndex);
@@ -241,6 +247,11 @@ TokenStore.ready((tokenStore) => {
             pad.toggleImage(character, imageIndex || 0);
             pad.setPlayerName(character, playerName);
             pad.setGhostVote(character, Boolean(ghostVote));
+
+        } else if (text !== undefined && reminder && reminder.data.isCustom) {
+
+            // 커스텀 알림 텍스트 복원.
+            pad.setReminderText(reminder, text);
 
         }
 

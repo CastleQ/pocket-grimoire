@@ -737,6 +737,39 @@ export default class Pad {
     }
 
     /**
+     * 배치된 커스텀 알림의 텍스트를 갱신하고 해당 토큰을 다시 그린다.
+     *
+     * @param {ReminderToken} reminder
+     *        갱신할 리마인더 인스턴스.
+     * @param {String} text
+     *        새 텍스트.
+     */
+    setReminderText(reminder, text) {
+
+        if (!reminder) {
+            return;
+        }
+
+        reminder.setText(text);
+
+        const info = this.reminders.find((item) => item.reminder === reminder);
+
+        if (info && info.token) {
+
+            const fresh = reminder.drawToken();
+            const old = info.token.querySelector(".reminder");
+
+            if (old) {
+                old.replaceWith(fresh);
+            } else {
+                info.token.append(fresh);
+            }
+
+        }
+
+    }
+
+    /**
      * Gets the {@link ReminderToken} that's associated with the given element.
      * If no match can be found, undefined is returned.
      *

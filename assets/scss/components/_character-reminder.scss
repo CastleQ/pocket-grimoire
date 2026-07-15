@@ -239,3 +239,46 @@
 .reminder__icon {
     width: 70%;
 }
+
+// 커스텀 알림 (작업 9): 곡선 텍스트 대신 원 중앙에 평범한 텍스트로 표시.
+// 내용이 길어 원을 다소 넘쳐도 잘리지 않고 보이도록 한다.
+.reminder__custom {
+    grid-area: 1 / -1;
+    display: none;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    width: 120%;
+    text-align: center;
+    font-size: 0.42em;
+    line-height: 1.15;
+    color: #fff;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.reminder.is-custom {
+    overflow: visible;
+}
+
+.reminder.is-custom .reminder__image,
+.reminder.is-custom .reminder__text {
+    display: none;
+}
+
+.reminder.is-custom .reminder__custom {
+    display: flex;
+}
+
+// 커스텀 알림 편집용 textarea (#reminder-show 다이얼로그)
+.reminder-custom-text {
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    font: inherit;
+    padding: 0.4em;
+    border-radius: 0.3em;
+}
