@@ -172,12 +172,9 @@ TokenStore.ready((tokenStore) => {
             return;
         }
 
+        // pad.setReminderText가 토큰 재렌더 + 저장 이벤트(reminder-text)까지 처리한다.
         pad.setReminderText(reminder, customText.value);
         empty(reminderHolder).append(reminder.drawToken());
-        tokenObserver.trigger("reminder-text", {
-            reminder,
-            text: customText.value
-        });
 
     });
 

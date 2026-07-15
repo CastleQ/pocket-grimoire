@@ -767,6 +767,14 @@ export default class Pad {
 
         }
 
+        // 이미지 인덱스(image-toggle)와 동일한 방식으로 저장 이벤트를 발생시킨다.
+        // 이렇게 해야 편집 시는 물론, 복원 시(addToken이 텍스트를 덮어쓴 뒤에도)
+        // 자동으로 다시 저장되어 새로고침 후에도 텍스트가 유지된다.
+        this.observer.trigger("reminder-text", {
+            reminder,
+            text
+        });
+
     }
 
     /**

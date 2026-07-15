@@ -118,6 +118,9 @@ export default class ReminderToken extends Token {
         const src = Array.isArray(image) ? (image[0] || "") : (image || "");
         // 커스텀 알림: 내용이 비어 있으면 "커스텀 알림" 라벨을 대신 보여준다.
         const customLabel = (text && text.trim()) ? text : "커스텀 알림";
+        // 커스텀은 이미지가 없다. 빈 src("")는 레이아웃 박스를 만들지 못해 목록에서
+        // 토큰이 작아지므로, 투명 1x1 이미지를 넣어 다른 리마인더와 같은 크기를 확보한다.
+        const TRANSPARENT_PIXEL = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
         return this.constructor.templates.token.draw({
             ".js--reminder--name"(element) {
@@ -130,7 +133,7 @@ export default class ReminderToken extends Token {
                 element.textContent = isCustom ? customLabel : "";
             },
             ".js--reminder--image"(element) {
-                element.src = src;
+                element.src = isCustom ? TRANSPARENT_PIXEL : src;
                 const root = element.closest(".reminder");
                 if (root) {
                     root.classList.toggle("is-custom", Boolean(isCustom));
