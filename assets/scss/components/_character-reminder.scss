@@ -251,7 +251,7 @@
     justify-content: center;
     width: 120%;
     text-align: center;
-    font-size: 0.42em;
+    font-size: 0.84em;
     line-height: 1.15;
     color: #fff;
     overflow-wrap: anywhere;
@@ -264,9 +264,14 @@
     overflow: visible;
 }
 
-.reminder.is-custom .reminder__image,
+/* 커스텀은 곡선 텍스트만 숨긴다. 이미지 박스는 유지해 목록에서 다른 리마인더와
+   같은 크기가 되도록 하고, 빈 아이콘만 숨긴다. */
 .reminder.is-custom .reminder__text {
     display: none;
+}
+
+.reminder.is-custom .reminder__icon {
+    visibility: hidden;
 }
 
 .reminder.is-custom .reminder__custom {

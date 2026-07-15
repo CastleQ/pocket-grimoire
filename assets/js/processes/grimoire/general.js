@@ -92,23 +92,18 @@ if (lockToggle) {
         pad.tokens.setLocked(target.checked);
     });
 
-    // 스위치가 <summary> 안에 있으므로, 스위치 영역(노브/텍스트 어디든) 클릭이
-    // 마도서(details)를 접거나 펼치지 않도록 summary 단계에서 가로채고, 체크 상태만
-    // 직접 토글한다. summary에 위임하면 작은 노브를 정확히 누르지 않아도 동작한다.
-    const lockSummary = lockToggle.closest("summary");
+    // 스위치 컨테이너(노브/텍스트/여백 어디든) 클릭 시 잠금을 토글한다.
+    // 하위 요소는 CSS로 pointer-events:none 처리돼 클릭 대상이 항상 이 컨테이너가
+    // 되므로, 작은 노브를 정확히 누르지 않아도 동작한다. 마도서(details) 접힘은 막고
+    // 체크 상태만 직접 토글한다(네이티브 토글과 겹쳐 상쇄되는 문제도 방지).
+    const lockAside = lockToggle.closest(".details__summary-aside");
 
-    if (lockSummary) {
-        lockSummary.addEventListener("click", (e) => {
-
-            if (!e.target.closest(".details__summary-aside")) {
-                return;
-            }
-
+    if (lockAside) {
+        lockAside.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
             lockToggle.checked = !lockToggle.checked;
             lockToggle.dispatchEvent(new Event("change", { bubbles: true }));
-
         });
     }
 
