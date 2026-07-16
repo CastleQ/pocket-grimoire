@@ -11,10 +11,10 @@
   ],
   "homebrew": [
     { "file": "fall-of-rome.json", "name": "Fall of Rome", "author": "Alex S" },
-    { "file": "pokemon-gen-1.json", "name": "Pokemon: 위대한 1세대", "author": "Castle Q" },
-    { "file": "fellowship-of-the-ring.json", "name": "반지의 제왕_반지 원정대", "author": "CastleQ" },
-    { "file": "star-cradled-moon.json", "name": "별이 품은 달", "author": "幺丁" },
-    { "file": "lost-in-wonderland.json", "name": "이상한 나라에서 길을 잃어버리다.", "author": "Tom R" }
+    { "file": "pokemon-gen-1.json", "name": "🦊Pokemon: 위대한 1세대", "author": "Castle Q" },
+    { "file": "fellowship-of-the-ring.json", "name": "💍반지의 제왕_반지 원정대", "author": "CastleQ" },
+    { "file": "star-cradled-moon.json", "name": "★별이 품은 달", "author": "幺丁" },
+    { "file": "lost-in-wonderland.json", "name": "🐈‍이상한 나라에서 길을 잃어버리다.", "author": "Tom R" }
   ],
   "teensyville": []
 }
