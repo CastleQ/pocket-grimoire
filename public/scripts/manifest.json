@@ -1,0 +1,11 @@
+{
+  "custom": [
+    { "file": "social-psychology.json", "name": "심리사회 v1.1", "author": "DAVE B" },
+    { "file": "ballad-of-seat-7.json", "name": "7번 시트의 발라드 v6.0.0", "author": "TrashWarlock" }
+  ],
+  "homebrew": [
+    { "file": "fall-of-rome.json", "name": "Fall of Rome", "author": "Alex S" },
+    { "file": "fellowship-of-the-ring.json", "name": "반지의 제왕_반지 원정대", "author": "CastleQ" }
+  ],
+  "teensyville": []
+}

@@ -60,3 +60,27 @@
     padding-top: 1em;
     padding-bottom: 0.5em;
 }
+
+// 시나리오 선택 다이얼로그의 카테고리 드롭다운 (작업 12)
+.edition-group {
+    margin-bottom: 0.5em;
+    border: 0.1em solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.25em;
+    overflow: hidden;
+}
+
+.edition-group__summary {
+    cursor: pointer;
+    padding: 0.45em 0.7em;
+    font-weight: bold;
+    user-select: none;
+}
+
+.edition-group__list {
+    padding: 0.3em 0.7em 0.6em;
+}
+
+.edition-group__empty {
+    opacity: 0.6;
+    padding: 0.3em 0;
+}

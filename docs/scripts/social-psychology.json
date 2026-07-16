@@ -1,0 +1,514 @@
+[
+  {
+    "id": "_meta",
+    "author": "DAVE B",
+    "name": "심리사회 v1.1",
+    "logo": "https://www.bloodstar.xyz/p/kotpgus/SocialPsychology/_meta.png",
+    "hideTitle": true,
+    "firstNight": [
+      "dusk",
+      "10demon",
+      "22town",
+      "60town",
+      "62town",
+      "minioninfo",
+      "19_out",
+      "demoninfo",
+      "33town",
+      "17_min1",
+      "12_out",
+      "town",
+      "1town",
+      "14town",
+      "40town",
+      "42town",
+      "59town",
+      "dawn"
+    ],
+    "otherNight": [
+      "dusk",
+      "22town",
+      "62town",
+      "33town",
+      "17_min1",
+      "demon",
+      "1demon",
+      "10demon",
+      "9_min1",
+      "5_out",
+      "12_out",
+      "10town",
+      "14town",
+      "42town",
+      "59town",
+      "dawn"
+    ]
+  },
+  {
+    "id": "40town",
+    "name": "기사",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/40_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/57_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "당신은 악마가 아닌 참가자 2명을 알고 시작합니다.",
+    "flavor": "사람이 거짓을 입에 담는 것은, 세상의 일부를 죽이는 것이다.",
+    "firstNight": 63,
+    "otherNight": 0,
+    "firstNightReminder": "기사를 깨워 악마가 아닌 참가자 2명을 알려주세요",
+    "reminders": [
+      "알고 있음",
+      "알고 있음"
+    ]
+  },
+  {
+    "id": "town",
+    "name": "세탁부",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "당신은 참가자 2명 중 1명이 특정 마을주민 캐릭터임을 알고 시작합니다.(이야기꾼 선택)",
+    "flavor": "예복에 묻은 게 핏자국이냐고요? 오, 아뇨. 이건 그냥 요리에 쓰는 와인이에요. 어찌나 칠칠치 못한지",
+    "firstNight": 51,
+    "otherNight": 0,
+    "firstNightReminder": "참가 중인 마을주민 토큰과 참가자 2명을 알려주세요.",
+    "reminders": [
+      "마을주민",
+      "거짓",
+      "거짓"
+    ]
+  },
+  {
+    "id": "1town",
+    "name": "사서",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/1_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/1_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "당신은 참가자 2명 중 1명이 특정 이방인 캐릭터임을 알고 시작합니다.이방인이 없다면 이방인 없음 가능 합니다. (이야기꾼 선택)",
+    "flavor": "물론입니다, 부인. 원칙대로라면 사악한 마도서의 사본을 대출하시는 게 가능합니다만, 부인께서는... 유감스럽게도 저희쪽 회원이 아니신 듯 하군요.",
+    "firstNight": 52,
+    "otherNight": 0,
+    "firstNightReminder": "참가 중인 이방인 토큰과 참가자 2명을 알려주세요.",
+    "reminders": [
+      "이방인",
+      "거짓",
+      "거짓"
+    ]
+  },
+  {
+    "id": "14town",
+    "name": "몽상가",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/14_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/14_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 밤, 당신은 참가자 1명을(본인 제외) 선택합니다. 이야기꾼은 캐릭터(선,악) 2개를 보여줍니다. 그 중 1개는 선택한 참가자 캐릭터입니다.",
+    "flavor": "나는 시계공을 보았어요. 하늘은 온통 붉었고, 기하학적인 삼각형들이 비처럼 쏟아졌고... 또, 보글거리는 소리와 함께 풍겨온 제비꽃 향기, 그리고 수염 난 여인은 눈을 번뜩이며 하늘을 향해 쉬익거리고 있었어요. 그리고 나는... 깨어났어요.",
+    "firstNight": 60,
+    "otherNight": 78,
+    "firstNightReminder": "몽상가에게 참가자를 선택하게 하세요. 캐릭터(선,악) 2개를 보여주세요. 둘 중 하나는 선택한 참가자의 캐릭터여야합니다.(본인, 여행자 제외)",
+    "otherNightReminder": "몽상가에게 참가자를 선택하게 하세요. 캐릭터(선,악) 2개를 보여주세요. 둘 중 하나는 선택한 참가자의 캐릭터여야합니다.(본인, 여행자 제외)"
+  },
+  {
+    "id": "42town",
+    "name": "열기구 조종사",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/42_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/44_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 밤, 당신은 어젯밤과 다른 캐릭터 유형(마을주민, 이방인, 하수인, 악마, 여행자-순서 임의)의 참가자를 알게 됩니다.[+0~1 이방인]",
+    "flavor": "불꽃을 더 키워! 높게, 더 높게! 하늘에서 내려다보는 세상은 정말 아름답지. 저기 버드나무 아래서 낚시하는 아이들이며, 서커스 천막 기둥에 마주쳐 부서지는 햇살들까지... 잠깐, 저건 뭐지? 포도밭에 노인 하나가 쓰러져있잖나! 불길을 낮춰, 어서!",
+    "firstNight": 65,
+    "otherNight": 84,
+    "firstNightReminder": "어젯밤과 다른 유형의 참가자를 기구 조종사한테 알려주세요(마을주민, 이방인, 하수인, 악마, 여행자)",
+    "otherNightReminder": "어젯밤과 다른 유형의 참가자를 열기구 조종사한테 알려주세요(마을주민, 이방인, 하수인, 악마, 여행자-순서는 임의)",
+    "reminders": [
+      "마을주민",
+      "이방인",
+      "하수인",
+      "악마",
+      "여행자"
+    ],
+    "setup": true
+  },
+  {
+    "id": "61town",
+    "name": "알사히르",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/61_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/41_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 낮에 공개적으로, 누가 하수인이고 누가 악마인지 추측할 수 있습니다. 전부 맞다면 선한 팀이 승리합니다.",
+    "flavor": "나 여기 있음은 그대 때문이요, 그대 여기 있음은 나 때문이네.",
+    "firstNight": 0,
+    "otherNight": 0
+  },
+  {
+    "id": "59town",
+    "name": "야간 경비대",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/59_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/60_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "게임 중 한 번, 밤에 참가자 1명을 선택합니다. 선택된 참가자에게 당신이 누구인지 알려 줍니다.",
+    "flavor": "밤은 춥고 외롭지. 하지만 달과 별, 그리고 상쾌한 바람이 곁을 지켜주네. 그리고 자갈길을 걷는 가죽 장화의 부드러운 울림까지... 저기, 흐릿한 창문 너머로 촛불이 일렁이네.",
+    "firstNight": 69,
+    "otherNight": 88,
+    "firstNightReminder": "능력 사용 여부를 물어보세요. 사용한다면, 야간 경비대가 선택한 참가자에게 야간 경비대가 누구인지 알려줍니다.",
+    "otherNightReminder": "능력 사용 여부를 물어보세요. 사용한다면, 야간 경비대가 선택한 참가자에게 야간 경비대가 누구인지 알려줍니다.",
+    "reminders": [
+      "능력 없음"
+    ]
+  },
+  {
+    "id": "33town",
+    "name": "궁정신하",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/33_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/33_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "게임 중 한번, 밤에 캐릭터를 선택합니다. 그 캐릭터를 가진 참가자는 지금부터 3일 동안 ‘취함’ 상태가 됩니다.",
+    "flavor": "양 한 마리가 이끄는 백 마리의 사자 떼보다 사자 한 마리가 이끄는 백 마리의 양 떼가 훨씬 두렵다.",
+    "firstNight": 34,
+    "otherNight": 17,
+    "firstNightReminder": "매일 밤 궁정신하를 깨워 능력 사용을 물어보세요, 능력을 사용한다면 선택한 캐릭터 참가자를 3일간 취하게 만듭니다.\n1일 밤-2일 밤-3일 밤",
+    "otherNightReminder": "매일 밤 궁정신하를 깨워 능력 사용을 물어보세요, 능력을 사용한다면 선택한 캐릭터 참가자를 3일간 취하게 만듭니다.3일 이후 '취함'토큰을 제거합니다.",
+    "reminders": [
+      "취함(1일)",
+      "취함(2일)",
+      "취함(3일)",
+      "능력 없음"
+    ]
+  },
+  {
+    "id": "58town",
+    "name": "어부",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/58_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/52_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "게임 중 한 번, 낮에 이야기꾼을 찾아가서 당신의 팀의 승리에 도움이 되는 조언을 얻을 수 있습니다.",
+    "flavor": "이 곳은 내가 이 강에서 가장 좋아하던 곳이라네... 햇살이 수도원에서 시장까지 무지개를 그리는 것이 보이나? 큰 물고기를 잡기엔 여기가 최고였지. 그리고 내가 나이를 먹을수록, 그놈들 크기도 점점 커지더군.",
+    "firstNight": 0,
+    "otherNight": 0,
+    "reminders": [
+      "능력 없음"
+    ]
+  },
+  {
+    "id": "22town",
+    "name": "철학자",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/22_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/22_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "게임 중 한번, 밤에 당신이 선한 캐릭터 하나를 선택하면, 당신은 선택한 선한 캐릭터 능력을 얻게 됩니다. 선택한 캐릭터가 이미 참가중이라면, 그 캐릭터 참가자는 '취함' 상태가 됩니다.",
+    "flavor": "무언가 실존하는 것이라곤 바로 이 맥주 뿐이라네. 자, 마시게나. 내일이 되면 사라질지도 모르는 인생이여.",
+    "firstNight": 14,
+    "otherNight": 10,
+    "firstNightReminder": "철학자에게 능력 사용 여부를 물어보세요. 사용한다면, 철학자가 선한 캐릭터를 선택하게 하세요. 선택한 캐릭터가 참가중이라면, 그 참가자에게 '취함' 토큰을 넣고 철학자는 그 능력을 얻습니다. 참가중이지 않으면, 철학자는 해당 캐릭터 능력을 얻습니다.",
+    "otherNightReminder": "철학자에게 능력 사용 여부를 물어보세요. 사용한다면, 철학자가 선한 캐릭터를 선택하게 하세요. 선택한 캐릭터가 참가중이라면, 그 참가자에게 '취함' 토큰을 넣고 철학자는 그 능력을 얻습니다. 참가중이지 않으면, 철학자는 해당 캐릭터 능력을 얻습니다.",
+    "reminders": [
+      "취함",
+      "능력 없음"
+    ]
+  },
+  {
+    "id": "60town",
+    "name": "연금술사",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/60_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/40_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "당신은 하수인 능력을 가지고 시작합니다. 해당 하수인의 능력 사용 시점에, 연금술사가 그 능력을 사용합니다. 이야기꾼은 다른 선택을 하도록 유도 할 수 있습니다.",
+    "flavor": "지구의 내면을 탐험하라. 정제를 거듭하여 숨겨진 돌을 찾으리라. 금 너머에는, 붉은 것이 놓여있다. 말쿠트 속의 케테르여.",
+    "firstNight": 15,
+    "otherNight": 0,
+    "firstNightReminder": "하수인 능력을 가지고 시작합니다. 해당 하수인의 능력 사용 시점에, 연금술사가 그 능력을 사용합니다.이야기꾼은 다른 선택을 하도록 유도 할 수 있습니다.",
+    "reminders": [
+      "하수인 능력"
+    ],
+    "jinxes": [
+      {
+        "id": "12_min1",
+        "reason": "연금술사가 과학자 능력을 가지고 있으면, 연금술사는 악마가 어떤 능력을 가지고 있는지 알지 못합니다."
+      },
+      {
+        "id": "16_min1",
+        "reason": "연금술사 꼭두각시는 꼭두각시 능력이 없으며 꼭두각시가 참여 중 입니다."
+      },
+      {
+        "id": "10_min1",
+        "reason": "연금술사 배후의 인물은 배후의 인물 능력이 없으며 배후의 인물이 참여 중이지 않습니다."
+      },
+      {
+        "id": "23_min1",
+        "reason": "연금술사가 오르간 연주자 능력을 가지고 있다면 오르간 연주자가 참여중이며 연금술사와 오르간 연주자가 모두 술에 취한 상태가 아니라면, 둘 다 술에 취한 상태 입니다."
+      },
+      {
+        "id": "1_min1",
+        "reason": "연금술사가 스파이 능력을 가지고 있다면, 그렇지 않고 스파이가 참여중 입니다. 매일 처형 단계가 끝난 후,살아있는 연금술사는 살아있는 참가자들 중 한명을 스파이로 공개적으로 추측할 수 있습니다. 만약 맞다면, 악마는 오늘 밤 스파이를 선택해야 합니다."
+      },
+      {
+        "id": "21_min1",
+        "reason": "연금술사 소환사는 블러프를 받지 않고 어떤 악마를 선택하지만 어떤 참가자는 선택하지 않습니다. 이런 일이 일어나기 전에 죽으면 악이 승리합니다. [악마 금지]"
+      },
+      {
+        "id": "26_min1",
+        "reason": "연금술사가 레이스 능력을 가지고 있다면, 그렇지 않고 레이스가 참여 중 입니다. 매일 처형 단계가 끝난 후, 살아있는 연금술사는 살아있는 참가자들 중 한명을 레이스로 공개적으로 추측할 수 있습니다. 만약 맞다면, 악마는 오늘 밤 레이스를 선택해야 합니다."
+      },
+      {
+        "id": "15_min1",
+        "reason": "연금술사가 과부 능력을 가지고 있다면, 그렇지 않고 과부가 참여중 입니다. 매일 처형 단계가 끝난 후, 살아있는 연금술사는 살아있는 참가자 1명을 과부로 공개적으로 추측할 수 있습니다. 만약 맞다면, 악마는 오늘 밤 과부를 선택해야 합니다."
+      }
+    ]
+  },
+  {
+    "id": "10town",
+    "name": "까마귀 사육사",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/10_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/10_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "당신이 밤에 사망한다면, 깨어나고 당신이 선택한(사망한 사람도 가능) 참가자의 캐릭터를 알게됩니다.",
+    "flavor": "나의 새들이 내 복수를 가져오리라! 날아가거라, 나의 사랑스럽고 충직한 아이들아! 저택과 강가, 골목과 연회장! 그 어디로든!",
+    "firstNight": 0,
+    "otherNight": 74,
+    "otherNightReminder": "까마귀사육사가 밤에 죽었다면, 그를 깨워 참가자를 선택하게 하세요. 참가자의 캐릭터를 알려줍니다."
+  },
+  {
+    "id": "62town",
+    "name": "양귀비 재배자",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgusv7/town/62_town.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvTown/63_evtown.png"
+    ],
+    "team": "townsfolk",
+    "ability": "악마와 하수인은 서로를 모른 채 시작합니다. 당신이 '사망'했다면, 그날 밤, 악마와 하수인은 서로를 알게 됩니다.",
+    "flavor": "깊은 숲 속, 은밀한 덤불 속에는 검은 양귀비가 살고 있습니다. 그 흐드러진 모습을 눈에 담으면 혼이 미혹되고, 그 짙은 향기를 마신다면 영원히 길을 잃게 되니, 빛과 어둠의 신들에게 가둬지는 것입니다.",
+    "firstNight": 16,
+    "otherNight": 11,
+    "firstNightReminder": "악마와 하수인은 서로를 모른 채 시작합니다.",
+    "otherNightReminder": "'사망' 했다면, 악마와 하수인에게 서로를 알려줍니다.",
+    "reminders": [
+      "악이 깨어남"
+    ]
+  },
+  {
+    "id": "19_out",
+    "name": "고자질 쟁이",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/out/19_out.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvOut/21_evout.png"
+    ],
+    "team": "outsider",
+    "ability": "참가중인 하수인은 참가 중이지 않은 선한 캐릭터 3개를 알고 게임을 시작합니다.",
+    "flavor": "존이 그랬어.",
+    "firstNight": 20,
+    "otherNight": 0,
+    "firstNightReminder": "각 하수인에게 참가 중이지 않은 선한 캐릭터 3개를 알려줍니다.\n(각 하수인들은 악마나 다른 하수인이 알고 있는 것과 동일한 캐릭터 3개일 수도 있고, \n다른 캐릭터 3개를 알 수도 있습니다.)"
+  },
+  {
+    "id": "4_out",
+    "name": "돌연변이",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/out/4_out.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvOut/4_evout.png"
+    ],
+    "team": "outsider",
+    "ability": "당신은 이방인 이라는 '광기'에 미치면 처형당할 수 있습니다.",
+    "flavor": "난 괴물이 아니에요! 나도 인간이라고요! 자비를 베풀어주세요!",
+    "firstNight": 0,
+    "otherNight": 0
+  },
+  {
+    "id": "5_out",
+    "name": "이발사",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/out/5_out.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvOut/6_evout.png"
+    ],
+    "team": "outsider",
+    "ability": "만약 당신이 '사망' 했다면, 오늘 밤 악마는 참가자 두 명을 선택해 캐릭터를 서로 교체할 수 있습니다.(다른 악마 제외)",
+    "flavor": "외과 수술과 이발이 한때는 같은 일이었다는 사실을 알고 있었나? 몰랐다고? 뭐, 이제는 알게 됐군.",
+    "firstNight": 0,
+    "otherNight": 59,
+    "otherNightReminder": "이발사가 '사망' 했다면, 악마는 참가자 2명을 선택해 캐릭터를 교체 할 수 있습니다.(악마와 하수인 서로 교체 가능합니다.)",
+    "reminders": [
+      "머리 짜름"
+    ]
+  },
+  {
+    "id": "12_out",
+    "name": "아가씨",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/out/12_out.png",
+      "https://www.bloodstar.xyz/p/kotpgus/EvOut/12_evout.png"
+    ],
+    "team": "outsider",
+    "ability": "게임 중 한 번, 낮에 하수인 중 1명이 공개적으로 당신을 선택하고 아가씨라고 선언한다면, 당신의 팀은 패배합니다. 하수인들은 아가씨가 참가중인 사실을 알고 시작 합니다.",
+    "flavor": "내 머리에 손대지 말아요, 자기.",
+    "firstNight": 49,
+    "otherNight": 67,
+    "firstNightReminder": "모든 하수인을 깨워, 아가씨가 있음을 알려주세요",
+    "otherNightReminder": "사냥꾼이 아가씨를 찾는다면, 아가씨 토큰을 참가중이지 않은 마을주민 토큰으로 바꿉니다.",
+    "reminders": [
+      "추측 사용됨"
+    ]
+  },
+  {
+    "id": "17_min1",
+    "name": "공포 조장가",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/MIN1/17_min1.png",
+      "https://www.bloodstar.xyz/p/kotpgus/GoodMin/14_goodmin.png"
+    ],
+    "team": "minion",
+    "ability": "매일 밤, 당신은 참가자 1명을 선택합니다. 다음 날 낮에 당신이 밤에 선택한 참가자를 당신이 지명한 후 처형이 실행(처형으로 인해 사망하지 않아도) 된다면, 해당 참가자의 팀은 패배합니다. 모든 참가자는 당신의 존재와 밤에 누군가를 선택했음을 알게 됩니다.",
+    "flavor": "심연을 너무 오래 들여다보지 않도록 조심하라. 그렇지 않다면 심연 또한 당신을 들여다볼 것이다.",
+    "firstNight": 43,
+    "otherNight": 29,
+    "firstNightReminder": "공포 조장가에게 참가자 1명을 선택 하라고 하세요 \n선택한 참가자에게 공포 토큰을 올려놓으세요\n모두에게 공포조장가가 참가자를 선택 했을을 알려줍니다.\n(어떤 참가자인지 알려주지 않음)",
+    "otherNightReminder": "공포 조장가에게 참가자 1명을 선택 하라고 하세요 \n선택한 참가자에게 공포 토큰을 올려놓으세요\n모두에게 공포조장가가 참가자를 선택 했을을 알려줍니다.\n(어떤 참가자인지 알려주지 않음)",
+    "reminders": [
+      "공포"
+    ]
+  },
+  {
+    "id": "22_min1",
+    "name": "사이코패스",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/MIN1/22_min1.png",
+      "https://www.bloodstar.xyz/p/kotpgus/GoodMin/20_goodmin.png"
+    ],
+    "team": "minion",
+    "ability": "매일 낮, 첫 지명되기 전에 공개적으로 참가자 1명을 선택하면 해당 참가자는 사망합니다.당신이 지명되어서 처형될 경우, 자신을 지명한 참가자와 비공개 가위 바위 보를 합니다. 가위 바위 보 패배 시 당신은 처형으로 사망합니다.",
+    "flavor": "서프라이즈!",
+    "firstNight": 0,
+    "otherNight": 0
+  },
+  {
+    "id": "13_min1",
+    "name": "고블린",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/MIN1/13_min1.png",
+      "https://www.bloodstar.xyz/p/kotpgus/GoodMin/15_goodmin.png"
+    ],
+    "team": "minion",
+    "ability": "당신이 지명되었을 때, 공개적으로 자신이 고블린이라고 주장한 후, 처형된다면 당신의 팀이 승리합니다. 당신이 지명될 때마다, 공개적으로 자신이 고블린임을 주장하지 않는다면, 능력은 발동되지 않습니다.",
+    "flavor": "당신께서도 고블린들을 모욕하고 싶진 않으시겠죠. 정말, 정말로요. 그나저나... 케이크 한 조각 더 먹어도 될까요?",
+    "firstNight": 0,
+    "otherNight": 0,
+    "reminders": [
+      "나야, 고블린"
+    ]
+  },
+  {
+    "id": "9_min1",
+    "name": "암살자",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/MIN1/9_min1.png",
+      "https://www.bloodstar.xyz/p/kotpgus/GoodMin/10_goodmin.png"
+    ],
+    "team": "minion",
+    "ability": "게임 중 한 번, 밤에* 당신이 선택한 참가자는 무조건 '사망'합니다.",
+    "flavor": "...",
+    "firstNight": 0,
+    "otherNight": 55,
+    "otherNightReminder": "암살자를 깨워 능력 사용 여부를 물어보세요, 능력을 사용 한다면, 선택한 참가자에게 '거부할 수 없는 사망'을 선사하세요.",
+    "reminders": [
+      "암살",
+      "능력 없음"
+    ]
+  },
+  {
+    "id": "20_min1",
+    "name": "붐댄디",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/MIN1/20_min1.png",
+      "https://www.bloodstar.xyz/p/kotpgus/GoodMin/13_goodmin.png"
+    ],
+    "team": "minion",
+    "ability": "붐댄디가 처형당하면, 폭발하여 이야기꾼이 선택한  악마 포함 3명을 제외하고 모두 사망합니다. 10초 동안 모든 참가자는 생존자중 1명을 지명합니다(10초 동안 변경 가능). 가장 많이 지명된 참가자가 사망합니다.",
+    "flavor": "틱... 틱... 틱... 톡.",
+    "firstNight": 0,
+    "otherNight": 0,
+    "special": [
+      {
+        "type": "ability",
+        "name": "pointing",
+        "time": "day"
+      }
+    ]
+  },
+  {
+    "id": "10demon",
+    "name": "카잘리",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/DEMon/10_demon.png",
+      "https://www.bloodstar.xyz/p/kotpgus/GoodEv/10_goodev.png"
+    ],
+    "team": "demon",
+    "ability": "매일 밤*(첫날 제외), 당신이 선택한 참가자는 1명은 '사망'합니다. 첫날 밤, 당신이 참가자 1명과 하수인 캐릭터를 선택하면, 그 참가자는 해당 하수인이 됩니다. (설정에 맞는 하수인 수 도달 할 때까지 반복 진행)  [±? 이방인]",
+    "flavor": "곤+잘))Zㅔ스. 주의§ㅎr라. me커ㄴI즘 오RRRRRㄹㄹ류/- 발생. {ㅈH구tjd}중.",
+    "firstNight": 7,
+    "otherNight": 54,
+    "firstNightReminder": "하수인을 마을주민이나 이방인으로 변경해서 세팅하세요. 이후 카잘리에게 참가자를 하수인으로 바꾸게 만드세요(하수인 수만큼) 카잘리의 선택의 면역되는 캐릭터는 없습니다.(군인 선택 가능)",
+    "otherNightReminder": "카잘리가 선택한 참가자를 1명을 '사망'시키세요",
+    "reminders": [
+      "사망"
+    ],
+    "setup": true
+  },
+  {
+    "id": "demon",
+    "name": "임프",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/DEMon/_demon.png",
+      "https://www.bloodstar.xyz/p/kotpgus/GoodEv/_goodev.png"
+    ],
+    "team": "demon",
+    "ability": "매일 밤*(첫날 제외), 당신이 선택한 참가자 1명은 사망합니다. 이 방법으로 자신을 선택했다면 자신은 죽고 살아있는 하수인이 임프가 됩니다.",
+    "flavor": "우리는 지혜를 더 예리하게 가꾸고 칼날을 더 날카롭게 갈아야 합니다. 악은 우리 사이에 숨어들어 우리처럼 선량한 이들을 파괴하려 합니다. 아무도 믿지 마십시오. 하지만 정 누군가를 믿어야 한다면, 저를 믿으세요.",
+    "firstNight": 0,
+    "otherNight": 39,
+    "otherNightReminder": "임프가 에게 참가자 1명을 선택하게 하세요 그 참가자에게 '사망' 토큰을 놓으세요. 임프를 선택한다면, 임프를 '사망'시키고 살아있는 하수인에게 임프가 되었음을 알려주세요",
+    "reminders": [
+      "사망"
+    ]
+  },
+  {
+    "id": "1demon",
+    "name": "팡구",
+    "image": [
+      "https://www.bloodstar.xyz/p/kotpgus/DEMon/1_demon.png",
+      "https://www.bloodstar.xyz/p/kotpgus/GoodEv/1_goodev.png"
+    ],
+    "team": "demon",
+    "ability": "매일 밤*(첫날 제외), 참가자 1명을 선택해 '사망'시킵니다. 선택한 참가자가 팡구의 의해서 죽은 첫번째 이방인이라면 당신이 대신 '사망'하고 선택받은 참가자는 새로운 사악한 팡구가 됩니다. [이방인+1]",
+    "flavor": "너희의 성벽과 무기들은 꿈 속의 환영에 불과하다.",
+    "firstNight": 0,
+    "otherNight": 44,
+    "otherNightReminder": "참가자 1명을 선택해 '사망'시킵니다. 선택한 참가자가 팡구가 선택한 첫번째 이방인이라면, 팡구가 죽고, 이방인을 깨워 사악한 팡구가 되었음을 알려주세요 (게임당 1번 적용)",
+    "reminders": [
+      "사망",
+      "사악한 팡구"
+    ],
+    "setup": true
+  },
+  "bootlegger"
+]

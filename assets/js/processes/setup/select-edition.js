@@ -88,6 +88,12 @@ function announceScript(name, characters, game = null) {
  */
 function showInputError(input, error) {
 
+    // 내장 시트는 연결된 입력 필드가 없다(input === null). 이 경우 알림으로 대체.
+    if (!input) {
+        window.alert(error);
+        return;
+    }
+
     input.setCustomValidity(error);
     input.form.reportValidity();
 
@@ -326,18 +332,90 @@ const uploader = lookupOne("#custom-script");
 const radios = lookup("[name=\"edition\"]", form);
 const customInputs = [fileInput, urlInput, pasteInput];
 
-radios.forEach((radio) => {
+// 라디오는 매니페스트로 동적 추가되므로, 폼 위임으로 처리한다.
+// custom(직접 입력)만 업로드 영역을 열고, 그 외(공식/내장)는 닫는다.
+form.addEventListener("input", ({ target }) => {
 
-    radio.addEventListener("input", ({ target }) => {
+    if (!target || target.name !== "edition") {
+        return;
+    }
 
-        const isCustom = target.value === "custom";
+    const isCustom = target.value === "custom";
 
-        uploader.hidden = !isCustom;
-        setFieldsValidity(customInputs, isCustom);
-
-    });
+    uploader.hidden = !isCustom;
+    setFieldsValidity(customInputs, isCustom);
 
 });
+
+// 내장 시나리오(커스텀/홈브류/틴시빌)를 매니페스트에서 읽어 드롭다운을 채운다.
+const scriptsBase = (typeof URLS !== "undefined" && URLS.scriptsBase) || "/scripts/";
+
+function escapeHtml(value) {
+    return String(value == null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
+
+function renderBuiltinSheets() {
+
+    fetch(scriptsBase + "manifest.json")
+        .then((response) => response.json())
+        .then((manifest) => {
+
+            lookup(".js--edition-list", form).forEach((list) => {
+
+                const category = list.dataset.category;
+                const sheets = (manifest && manifest[category]) || [];
+
+                list.innerHTML = "";
+
+                if (!sheets.length) {
+                    const li = document.createElement("li");
+                    li.className = "edition-group__empty";
+                    li.textContent = "(준비 중)";
+                    list.append(li);
+                    return;
+                }
+
+                sheets.forEach((sheet) => {
+
+                    // 라벨: 시트 이름(볼드) + " by " + 저자. 값이 없으면 해당 부분 공란.
+                    const nameHTML = "<strong>" + escapeHtml(sheet.name) + "</strong>";
+                    const authorHTML = sheet.author ? " by " + escapeHtml(sheet.author) : "";
+                    const value = "sheet:" + sheet.file;
+                    const id = "edition-" + String(sheet.file).replace(/[^a-z0-9]+/gi, "-");
+
+                    const li = document.createElement("li");
+                    li.innerHTML = (
+                        '<label for="' + id + '" class="radio">'
+                        + '<span class="radio__wrapper">'
+                        + '<input type="radio" name="edition" value="' + escapeHtml(value) + '" id="' + id + '" class="radio__input">'
+                        + '<span class="radio__render"></span>'
+                        + '</span>'
+                        + '<span class="radio__label">' + nameHTML + authorHTML + '</span>'
+                        + '</label>'
+                    );
+                    list.append(li);
+
+                });
+
+            });
+
+        })
+        .catch(() => {
+
+            lookup(".js--edition-list", form).forEach((list) => {
+                list.innerHTML = '<li class="edition-group__empty">목록을 불러오지 못했습니다.</li>';
+            });
+
+        });
+
+}
+
+renderBuiltinSheets();
 
 customInputs.forEach((input) => {
 
@@ -358,7 +436,8 @@ form.addEventListener("submit", (e) => {
         return;
     }
 
-    const radio = radios.find(({ checked }) => checked);
+    // 내장 라디오는 동적 추가되므로 제출 시점에 다시 조회한다.
+    const radio = lookup("[name=\"edition\"]", form).find(({ checked }) => checked);
     const edition = radio?.value;
 
     if (!edition) {
@@ -452,6 +531,35 @@ form.addEventListener("submit", (e) => {
                 })
 
             }
+
+        } else if (edition.startsWith("sheet:")) {
+
+            // 내장 시나리오: 개별 JSON 파일을 fetch해 기존 파이프라인으로 로드.
+            setFormLoadingState(form, true);
+
+            const file = edition.slice("sheet:".length);
+
+            fetch(scriptsBase + file)
+                .then((response) => response.json())
+                .catch(() => {
+                    window.alert(I18N.invalidScript);
+                    setFormLoadingState(form, false);
+                    return null;
+                })
+                .then((json) => {
+
+                    if (json === null) {
+                        return;
+                    }
+
+                    processJSON({
+                        form,
+                        json,
+                        input: null,
+                        store: tokenStore
+                    }).then(() => setFormLoadingState(form, false));
+
+                });
 
         } else {
 

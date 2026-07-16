@@ -10,39 +10,67 @@
 
     <form id="select-edition-form" enctype="multipart/form-data">
 
-        <ul class="no-list mb-4">
-            <li>
-                {{ forms.radio({
-                    name: 'edition',
-                    value: 'tb',
-                    label: 'setup.editions.trouble_brewing'|trans,
-                    required: true
-                }) }}
-            </li>
-            <li>
-                {{ forms.radio({
-                    name: 'edition',
-                    value: 'bmr',
-                    label: 'setup.editions.bad_moon_rising'|trans
-                }) }}
-            </li>
-            <li>
-                {{ forms.radio({
-                    name: 'edition',
-                    value: 'snv',
-                    label: 'setup.editions.sects_and_violets'|trans
-                }) }}
-            </li>
-            <li>
-                {{ forms.radio({
-                    name: 'edition',
-                    value: 'custom',
-                    label: 'setup.editions.custom_script'|trans
-                }) }}
-            </li>
-        </ul>
+        <details class="edition-group" open>
+            <summary class="edition-group__summary">공식 시트</summary>
+            <ul class="no-list edition-group__list">
+                <li>
+                    {{ forms.radio({
+                        name: 'edition',
+                        value: 'tb',
+                        label: 'setup.editions.trouble_brewing'|trans
+                    }) }}
+                </li>
+                <li>
+                    {{ forms.radio({
+                        name: 'edition',
+                        value: 'bmr',
+                        label: 'setup.editions.bad_moon_rising'|trans
+                    }) }}
+                </li>
+                <li>
+                    {{ forms.radio({
+                        name: 'edition',
+                        value: 'snv',
+                        label: 'setup.editions.sects_and_violets'|trans
+                    }) }}
+                </li>
+            </ul>
+        </details>
 
-        <div id="custom-script" class="mb-4" hidden>
+        <details class="edition-group">
+            <summary class="edition-group__summary">커스텀 시트</summary>
+            <ul class="no-list edition-group__list js--edition-list" data-category="custom">
+                <li class="edition-group__empty">불러오는 중…</li>
+            </ul>
+        </details>
+
+        <details class="edition-group">
+            <summary class="edition-group__summary">홈브류 시트</summary>
+            <ul class="no-list edition-group__list js--edition-list" data-category="homebrew">
+                <li class="edition-group__empty">불러오는 중…</li>
+            </ul>
+        </details>
+
+        <details class="edition-group">
+            <summary class="edition-group__summary">틴시빌 시트</summary>
+            <ul class="no-list edition-group__list js--edition-list" data-category="teensyville">
+                <li class="edition-group__empty">불러오는 중…</li>
+            </ul>
+        </details>
+
+        <details class="edition-group">
+            <summary class="edition-group__summary">직접 입력 (파일·URL·붙여넣기)</summary>
+            <ul class="no-list edition-group__list">
+                <li>
+                    {{ forms.radio({
+                        name: 'edition',
+                        value: 'custom',
+                        label: 'setup.editions.custom_script'|trans
+                    }) }}
+                </li>
+            </ul>
+
+            <div id="custom-script" class="mb-4" hidden>
             <p>{{ 'setup.editions.custom_note'|trans }} <strong>{{ 'setup.editions.custom_warning'|trans }}</strong></p>
             <p>
                 <label for="custom-script-upload">{{ 'setup.editions.upload'|trans }}</label>
@@ -60,7 +88,8 @@
                 <label for="custom-script-paste">{{ 'setup.editions.paste'|trans }}</label>
                 <textarea name="custom-script-paste" id="custom-script-paste" class="input" placeholder='["washerwoman","investigator","librarian","chef"]'></textarea>
             </p>
-        </div>
+            </div>
+        </details>
 
         <p>
             <button type="submit" class="button">

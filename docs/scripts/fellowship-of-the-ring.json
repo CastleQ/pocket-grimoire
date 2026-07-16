@@ -1,0 +1,425 @@
+[
+  {
+    "id": "_meta",
+    "name": "반지의 제왕_반지 원정대",
+    "author": "CastleQ",
+    "background": null,
+    "logo": null,
+    "hideTitle": true,
+    "isOfficial": false,
+    "firstNight": [
+      "dusk",
+      "onering1",
+      "nazgul1",
+      "witchking1",
+      "shelob1",
+      "pippin1",
+      "elrond1",
+      "sam1",
+      "merry1",
+      "dawn"
+    ],
+    "otherNight": [
+      "dusk",
+      "onering1",
+      "nazgul1",
+      "witchking1",
+      "shelob1",
+      "saruman1",
+      "sauron1",
+      "balrog1",
+      "urukhai1",
+      "boromir1",
+      "denethor1",
+      "gandalf1",
+      "pippin1",
+      "gimli1",
+      "faramir1",
+      "elrond1",
+      "whitegandalf1",
+      "legolas1",
+      "eowyn1",
+      "sam1",
+      "merry1",
+      "tolkien1",
+      "dawn"
+    ],
+    "bootlegger": [
+      "타락이란; 중독 / 사망(원인모름) / 승리불가 / 투표불가(총합에서 제외) 중 하나의 패널티를 받는 것.",
+      "당사자는 타락했다는 사실만 알 뿐, 넷 중 어떤 효과를 적용 받는지는 모릅니다.",
+      "타락한 참가자가 더 이상 반지를 운반하지 않으면, 타락도 해제됩니다.",
+      "※물리적인 몸수색을 금지합니다.※"
+    ]
+  },
+  {
+    "id": "pippin1",
+    "name": "피핀",
+    "image": "https://i.imgur.com/qubBEJt.png",
+    "team": "townsfolk",
+    "firstNight": 55,
+    "firstNightReminder": "피핀에게 *함께 사망* 리마인더를 둡니다. 운반자에 *운반자* 리마인더를 둡니다. 현재 운반자를 가리켜 피핀에게 알려줍니다.",
+    "otherNight": 64,
+    "otherNightReminder": "운반자가 악마에게 죽었다면, 피핀도 사망합니다. 피핀이 사망할 때, 운반자가 살아있다면 운반자를 악팀에게 공개합니다.",
+    "reminders": [
+      "함께 사망",
+      "운반자"
+    ],
+    "setup": false,
+    "ability": "운반자를 알고 시작합니다. 피핀이 운반자보다 먼저 사망하면 현재 운반자가 악팀에게 공개되고, 운반자가 악마에게 사망하면 당신도 함께 사망합니다. 반지를 운반할 수 없습니다."
+  },
+  {
+    "id": "elrond1",
+    "name": "엘론드",
+    "image": "https://i.imgur.com/cg6Jify.png",
+    "team": "townsfolk",
+    "firstNight": 63,
+    "firstNightReminder": "아직 일어나지 않은 일을 노트 등에 적어 알려줍니다.",
+    "otherNight": 77,
+    "otherNightReminder": "첫째날 밤에 알려준 예언이 실제로 일어났다면, *예언 실현* 리마인더를 둡니다. 깨워서 새로운 예언을 알려준 뒤 리마인더를 제거합니다.",
+    "reminders": [
+      "예언 실현"
+    ],
+    "setup": false,
+    "ability": "게임 시작 시 예언 하나를 알게 됩니다. 그 예언이 실제로 일어나면, 밤에 다시 일어나 새로운 예언을 알게 됩니다."
+  },
+  {
+    "id": "sam1",
+    "name": "샘",
+    "image": "https://i.imgur.com/LivpNpw.png",
+    "team": "townsfolk",
+    "firstNight": 70,
+    "firstNightReminder": "샘이 운반 중이 아니라면, 인접 참가자 중 악마 또는 운반자가 있는지 고개신호로 알려줍니다.",
+    "otherNight": 87,
+    "otherNightReminder": "샘이 운반 중이 아니라면, 인접 참가자 중 악마 또는 운반자가 있는지 고개신호로 알려줍니다.",
+    "setup": false,
+    "ability": "타락하지 않습니다. 매일 밤, 운반하지 않는 동안 살아있는 이웃한 참가자 중 악마 또는 운반자가 있는지 압니다."
+  },
+  {
+    "id": "merry1",
+    "name": "메리",
+    "image": "https://i.imgur.com/9dsdoRc.png",
+    "team": "townsfolk",
+    "firstNight": 72,
+    "firstNightReminder": "선한 참가자가 운반 중이라면, 메리에게 거짓인 명제 1개를 전달합니다. 악한 참가자가 운반 중이라면 참인 명제를 전달합니다.",
+    "otherNight": 89,
+    "otherNightReminder": "선한 참가자가 운반 중이라면, 메리에게 거짓인 명제 1개를 전달합니다. 악한 참가자가 운반 중이라면 참인 명제를 전달합니다.",
+    "setup": false,
+    "ability": "매일 밤, 거짓인 명제를 알게 됩니다. 악한 참가자가 반지를 운반하면 사실인 명제를 알게 됩니다."
+  },
+  {
+    "id": "whitegandalf1",
+    "name": "백색의 간달프",
+    "image": "https://i.imgur.com/2XSMgPt.png",
+    "team": "townsfolk",
+    "firstNight": 71,
+    "firstNightReminder": "현재 운반자와 이웃한 캐릭터 하나를 알려줍니다.",
+    "otherNight": 79,
+    "otherNightReminder": "현재 운반자와 이웃한 캐릭터 하나를 알려줍니다.",
+    "setup": true,
+    "ability": "매일 밤, 현재 운반자와 이웃한 캐릭터 하나를 압니다. [-간달프]"
+  },
+  {
+    "id": "gimli1",
+    "name": "김리",
+    "image": "https://i.imgur.com/Zmw2oPr.png",
+    "team": "townsfolk",
+    "otherNight": 68,
+    "otherNightReminder": "운반자가 사망했다면, 김리에게 그 죽음에 가장 책임이 큰 캐릭터 토큰을 보여줍니다.",
+    "setup": false,
+    "ability": "매일 밤*, 운반자가 사망했다면 그 사망에 가장 큰 책임이 있는 캐릭터를 압니다."
+  },
+  {
+    "id": "faramir1",
+    "name": "파라미르",
+    "image": "https://i.imgur.com/11nDVpu.png",
+    "team": "townsfolk",
+    "otherNight": 75,
+    "otherNightReminder": "파라미르가 운반 중이라면, 사망한 참가자 1명을 선택하게 하고 그의 캐릭터 토큰을 보여줍니다.",
+    "setup": false,
+    "ability": "운반 중이라면 매일 밤*, 사망한 참가자를 선택해 그의 캐릭터를 알게 됩니다."
+  },
+    {
+    "id": "legolas1",
+    "name": "레골라스",
+    "image": "https://i.imgur.com/PdPMSmh.png",
+    "team": "townsfolk",
+    "otherNight": 81,
+    "otherNightReminder": "레골라스를 깨워 주민이 반지를 운반중이라면 고개를 젓습니다. 아니라면, 끄덕입니다.",
+    "reminders": [
+      "간주됨"
+    ],
+    "setup": false,
+    "ability": "매일 밤*, 악한 참가자가 반지를 운반하고 있는지를 알게 됩니다. 당신에게 악하게 보이는 선한 참가자가 1명 있습니다."
+  },
+  {
+    "id": "eowyn1",
+    "name": "에오윈",
+    "image": "https://i.imgur.com/2Alqwm9.png",
+    "team": "townsfolk",
+    "otherNight": 83,
+    "otherNightReminder": "반지를 1번이라도 운반한 참가자에게 '운반함' 리마인더를 놓습니다. 에오윈을 깨워 능력 사용 여부를 확인합니다. 사용한다면: '운반함' 리마인더가 있던 참가자들의 캐릭터 토큰을 모두 보여줍니다. 악한 참가자 토큰이 있다면, 하나의 캐릭터를 틀리게 보여줍니다.",
+    "reminders": [
+      "사용됨",
+      "운반함"
+    ],
+    "setup": false,
+    "ability": "게임 중 1번 밤에, 지금까지 밤에 반지를 손에 넣었던 참가자들의 캐릭터를 무작위 순서로 압니다. 그 중 악한 참가자가 있었다면 한 캐릭터를 잘못 압니다."
+  },
+  {
+    "id": "tolkien1",
+    "name": "J.R.R.톨킨",
+    "image": "https://i.imgur.com/r2VREc0.png",
+    "team": "townsfolk",
+    "otherNight": 91,
+    "otherNightReminder": "톨킨이 정한 능력의 조건을 리마인더로 표시합니다. 밤 순서를 변경한다면, *밤 순서 변경* 리마인더를 둡니다. 밤에 톨킨을 깨워 정한 능력을 사용합니다.",
+    "reminders": [
+      "매일 밤*",
+      "게임 중 1번",
+      "사망 시",
+      "처형 시",
+      "운반 중에",
+      "특정 조건",
+      "밤 순서 변경"
+    ],
+    "setup": false,
+    "ability": "첫번째 낮에 공개적으로, 자신의 능력을 스스로 정합니다. 발동 조건과 시점, 밤 순서는 이야기꾼이 정하며 톨킨은 알지 못합니다."
+  },
+  {
+    "id": "boromir1",
+    "name": "보로미르",
+    "image": "https://i.imgur.com/5dAymLJ.png",
+    "team": "townsfolk",
+    "otherNight": 58,
+    "otherNightReminder": "운반자가 낮 또는 밤에 죽게 되면, 운반자 대신 보로미르가 죽습니다.",
+    "reminders": [
+      "대신 사망"
+    ],
+    "setup": false,
+    "ability": "운반자가 죽을 때, 죽지 않고 당신이 대신 죽습니다. 당신이 반지를 운반하면 하루 만에 타락합니다."
+  },
+  {
+    "id": "gandalf1",
+    "name": "간달프",
+    "image": "https://i.imgur.com/KfYDDkH.png",
+    "team": "townsfolk",
+    "otherNight": 62,
+    "otherNightReminder": "간달프가 운반 중 밤에 죽었다면, 죽지 않고 백색의 간달프 토큰으로 교체합니다.",
+    "setup": true,
+    "ability": "밤에 사망하면, 죽지 않고 백색의 간달프가 됩니다. [-백색의 간달프]"
+  },
+  {
+    "id": "frodo1",
+    "name": "프로도",
+    "image": "https://i.imgur.com/aGU6Mq3.png",
+    "team": "townsfolk",
+    "setup": true,
+    "ability": "운반 중 최후 4인까지 생존 시 선팀이 즉시 승리합니다. 게임 중 1번, 당신이 타락하면 선한 참가자 1명이 영구히 악한 진영이 됩니다. [운반자로 게임을 시작합니다.]"
+  },
+  {
+    "id": "aragorn1",
+    "name": "아라곤",
+    "image": "https://i.imgur.com/1jWClh4.png",
+    "team": "townsfolk",
+    "otherNight": 0,
+    "otherNightReminder": "악마가 아니라면, 운반자는 죽지 않습니다. 아라곤이 운반 중이라면, 이웃한 살아있는 참가자가 모두 선할 때만 이 능력이 발동됩니다.",
+    "reminders": [
+      "보호"
+    ],
+    "setup": false,
+    "ability": "악마가 아니라면, 운반자는 죽지 않습니다. 당신이 운반 중이라면, 이웃한 살아있는 참가자가 모두 선해야 이 능력이 발동됩니다."
+  },
+  {
+    "id": "denethor1",
+    "name": "데네소르 2세",
+    "image": "https://i.imgur.com/Q8RGYu8.png",
+    "team": "outsider",
+    "otherNight": 60,
+    "otherNightReminder": "데네소르 2세가 처형으로 사망했을 때 운반중이지 않다면, 악한 참가자 중 1명을 깨워 그리모어를 잠시 보여줍니다. 얼마나 잠시일지는 이야기꾼이 정합니다.",
+    "setup": false,
+    "ability": "운반하지 않을 때 처형으로 사망하면, 그날 밤 악한 참가자 중 1명이 그리모어를 \"잠시\" 봅니다."
+  },
+  {
+    "id": "gollum1",
+    "name": "골룸",
+    "image": "https://i.imgur.com/KEYeqH3.png",
+    "team": "outsider",
+    "otherNight": 20,
+    "otherNightReminder": "데네소르 2세가 처형으로 사망했을 때 운반중이지 않다면, 악한 참가자 중 1명을 깨워 그리모어를 잠시 보여줍니다. 얼마나 잠시일지는 이야기꾼이 정합니다.",
+    "setup": true,
+    "ability": "매일 밤* 참가자 1명을 선택해 운반중이라면 반지를 뺏어옵니다. 운반 중 최후의 4인까지 생존 시 단독 승리합니다." 
+  },
+  {
+    "id": "treebeard1",
+    "name": "나무수염",
+    "image": "https://i.imgur.com/6qVN6FW.png",
+    "team": "outsider",
+    "setup": false,
+    "ability": "당신은 반지를 운반하고 있지 않으면 투표할 수 없습니다."
+  },
+  {
+    "id": "bilbo1",
+    "name": "빌보",
+    "image": "https://i.imgur.com/b9DoPI2.png",
+    "team": "outsider",
+    "firstNight": 3,
+    "firstNightReminder": "빌보는 운반자로 게임을 시작할 수 없습니다.",
+    "remindersGlobal": [
+      "악"
+    ],
+    "setup": true,
+    "ability": "운반 중엔 악한 진영이 됩니다. 타락하지 않습니다.[운반자로 시작할 수 없습니다.]"
+  },
+  {
+    "id": "oathbreakers1",
+    "name": "맹세를 어긴 자들",
+    "image": "https://i.imgur.com/GzGHy4Y.png",
+    "team": "outsider",
+    "remindersGlobal": [
+      "착각",
+      "이미 사망"
+    ],
+    "setup": false,
+    "ability": "스스로 주민으로 착각하고 있습니다. 밤에 죽었을 때, 살아있는 것 처럼 보이지만 죽은 상태입니다. 죽음과 관련한 다른 상호작용은 모두 정상 작동합니다.",
+    "special": [
+      {
+        "name": "bag-disabled",
+        "type": "selection"
+      },
+      {
+        "type": "reveal",
+        "name": "replace-character"
+      }
+    ]
+  },
+  {
+    "id": "nazgul1",
+    "name": "나즈굴",
+    "image": "https://i.imgur.com/ARNaJ8y.png",
+    "team": "minion",
+    "firstNight": 32,
+    "firstNightReminder": "나즈굴이 1명을 선택합니다. 그가 운반 중이 아니라면 중독시키고, 운반 중이라면 반지를 빼앗아 나즈굴에게 줍니다.(반지를 받았으나 빼앗겼다고 낮에 누구나 주장할 수 있습니다.)",
+    "otherNight": 24,
+    "otherNightReminder": "나즈굴이 1명을 선택합니다. 그가 운반 중이 아니라면 중독시키고, 운반 중이라면 반지를 빼앗아 나즈굴에게 줍니다.",
+    "reminders": [
+      "중독"
+    ],
+    "setup": false,
+    "ability": "매일 밤, 참가자 1명을 선택합니다. 그가 운반 중이 아니라면, 하루 동안 중독됩니다. 운반 중이라면, 그에게 반지를 뺏어옵니다."
+  },
+  {
+    "id": "witchking1",
+    "name": "마술사왕",
+    "image": "https://i.imgur.com/4XjI5cR.png",
+    "team": "minion",
+    "otherNight": 41,
+    "otherNightReminder": "마술사왕의 이웃에 운반자가 있다면, 깨워서 참가자를 선택해 죽입니다. 선한 운반자가 사망한 상태라면 반지를 악한 참가자에게 옮깁니다.",
+    "reminders": [
+      "사망"
+    ],
+    "setup": false,
+    "ability": "매일 밤*, 마술사왕의 이웃에 운반자가 있다면, 일어나 참가자 중 1명을 선택해 죽입니다. 게임 중 선한 운반자가 죽을 때 마다, 악한 참가자에게 반지를 뺏깁니다."
+  },
+  {
+    "id": "urukhai1",
+    "name": "우루크하이",
+    "image": "https://i.imgur.com/0OZKklH.png",
+    "team": "minion",
+    "otherNight": 47,
+    "otherNightReminder": "악마가 낮이나 밤에 죽었다면, 우루크하이를 깨워 지금부터 새로운 악마임을 알려줍니다.",
+    "reminders": [
+      "악마가 됨"
+    ],
+    "setup": false,
+    "ability": "악마가 운반 중 사망하면, 지금부터 우루크하이가 새로운 악마가 되어 밤에 1명씩 죽입니다."
+  },
+  {
+    "id": "grima1",
+    "name": "그리마 뱀혓바닥",
+    "image": "https://i.imgur.com/1bwxdhM.png",
+    "team": "minion",
+    "reminders": [
+      "간주됨"
+    ],
+    "setup": true,
+    "ability": "악한 참가자가 운반하는 동안 마을주민은 모두 잘못된 정보를 받습니다. 선한 참가자가 운반하는 동안 그는 악마 또는 하수인으로 간주될 수 있습니다. [+1 외지인]"
+  },
+  {
+    "id": "shelob1",
+    "name": "쉴로브",
+    "image": "https://i.imgur.com/oF7A18u.png",
+    "team": "demon",
+    "firstNight": 46,
+    "firstNightReminder": "쉴로브가 1명을 선택해 중독시킵니다.",
+    "otherNight": 42,
+    "otherNightReminder": "이전에 중독된 참가자가 사망하고 건강해집니다. 이때 그 참가자가 운반중이라면, 악팀이 승리합니다. 아니라면, 쉴로브가 1명을 선택해 중독시킵니다.",
+    "reminders": [
+      "중독",
+      "사망"
+    ],
+    "setup": true,
+    "ability": "매일 밤, 참가자 1명을 선택합니다. 그는 중독되며 다음 날 밤에 사망하고 건강해집니다. 운반 중인 참가자를 쉴로브가 죽이면 악팀이 승리합니다. [+프로도]"
+  },
+  {
+    "id": "saruman1",
+    "name": "사루만",
+    "image": "https://i.imgur.com/AMNYdee.png",
+    "team": "demon",
+    "otherNight": 44,
+    "otherNightReminder": "사루만이 1명을 선택해 죽입니다. 낮에 운반자가 운반중임을 공개적으로 주장하지 않으면, 그에게 *광기X* 리마인더를 둡니다. 밤에 참가자 1명이 추가로 사망할 수 있습니다.",
+    "reminders": [
+      "사망",
+      "광기X",
+      "추가 사망"
+    ],
+    "setup": false,
+    "ability": "매일 밤*, 참가자 1명을 선택해 죽입니다. 낮에, 운반자가 운반중임을 공개적으로 주장하지 않으면, 밤에 참가자 1명이 추가로 사망할 수도 있습니다."
+  },
+  {
+    "id": "sauron1",
+    "name": "사우론",
+    "image": "https://i.imgur.com/l5oPMzZ.png",
+    "team": "demon",
+    "otherNight": 45,
+    "otherNightReminder": "사우론이 1명을 선택해 죽입니다. 낮에 처형된 선한 참가자가 반지를 가지고 있었다면, 악팀이 즉시 승리합니다.",
+    "reminders": [
+      "사망",
+      "처형 시 종료"
+    ],
+    "setup": false,
+    "ability": "매일 밤*, 참가자 1명을 선택해 죽입니다. 운반 중인 선한 참가자가 낮에 처형되면(사망하지 않더라도) 악팀이 승리합니다."
+  },
+  {
+    "id": "balrog1",
+    "name": "발록",
+    "image": "https://i.imgur.com/xnsR9Ng.png",
+    "team": "demon",
+    "otherNight": 46,
+    "otherNightReminder": "발록이 1명을 선택해 죽입니다. 그날 낮에 하수인이 처형됐다면 운반자도 추가로 사망합니다.",
+    "reminders": [
+      "사망",
+      "하수인 처형"
+    ],
+    "setup": false,
+    "ability": "매일 밤*, 참가자 1명을 선택해 죽입니다. 하수인이 처형으로 사망하면 운반자는 밤에 추가로 사망합니다."
+  },
+  {
+    "id": "onering1",
+    "name": "절대 반지",
+    "image": "https://i.imgur.com/0oyQKsa.png",
+    "team": "fabled",
+    "firstNight": 2,
+    "firstNightReminder": "선한 참가자 중 1명이 절대반지를 운반합니다. *운반 1일차* 리마인더를 올려둡니다.",
+    "otherNight": 3,
+    "otherNightReminder": "현재 운반중인 참가자를 공개적으로 불러, 조용히 손을 들게 합니다. *운반 1일차* 리마인더가 있었다면 *운반 2일차* 리마인더로, *운반2일차* 리마인더가 있었다면 *타락* 리마인더로 변경하고 깨워서 알려줍니다.",
+    "remindersGlobal": [
+      "운반1일차",
+      "운반2일차",
+      "타락-중독",
+      "타락-사망",
+      "타락-승리불가",
+      "타락-투표불가"
+    ],
+    "setup": false,
+    "ability": "게임 시작 시 선한 참가자 중 1명이 절대반지를 운반합니다. 같은 참가자가 2일 낮 연속으로 반지를 운반하면, 그날 밤 부터 타락합니다. 운반자는 밀담시간 동안 서로 원한다면 누구에게나 반지를 건네줄 수 있습니다."
+  }
+]
