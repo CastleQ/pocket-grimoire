@@ -38,39 +38,32 @@
         </details>
 
         <details class="edition-group">
-            <summary class="edition-group__summary">커스텀 시트</summary>
+            <summary class="edition-group__summary">인기 커스텀 시트</summary>
             <ul class="no-list edition-group__list js--edition-list" data-category="custom">
                 <li class="edition-group__empty">불러오는 중…</li>
             </ul>
         </details>
 
         <details class="edition-group">
-            <summary class="edition-group__summary">홈브류 시트</summary>
+            <summary class="edition-group__summary">인기 홈브류 시트</summary>
             <ul class="no-list edition-group__list js--edition-list" data-category="homebrew">
                 <li class="edition-group__empty">불러오는 중…</li>
             </ul>
         </details>
 
         <details class="edition-group">
-            <summary class="edition-group__summary">틴시빌 시트</summary>
+            <summary class="edition-group__summary">인기 틴시빌 시트</summary>
             <ul class="no-list edition-group__list js--edition-list" data-category="teensyville">
                 <li class="edition-group__empty">불러오는 중…</li>
             </ul>
         </details>
 
-        <details class="edition-group">
+        <details class="edition-group" id="edition-direct">
             <summary class="edition-group__summary">직접 입력 (파일·URL·붙여넣기)</summary>
-            <ul class="no-list edition-group__list">
-                <li>
-                    {{ forms.radio({
-                        name: 'edition',
-                        value: 'custom',
-                        label: 'setup.editions.custom_script'|trans
-                    }) }}
-                </li>
-            </ul>
-
-            <div id="custom-script" class="mb-4" hidden>
+            <!-- 직접 입력은 선택지가 하나뿐이라 라디오 단계를 생략한다.
+                 드롭다운을 열면 아래 입력 영역이 바로 보이고, 숨김 라디오로 제출 시 custom을 식별한다. -->
+            <input type="radio" name="edition" value="custom" id="edition-custom" hidden>
+            <div id="custom-script" class="mb-4">
             <p>{{ 'setup.editions.custom_note'|trans }} <strong>{{ 'setup.editions.custom_warning'|trans }}</strong></p>
             <p>
                 <label for="custom-script-upload">{{ 'setup.editions.upload'|trans }}</label>

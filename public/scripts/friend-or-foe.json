@@ -1,0 +1,485 @@
+[
+  {
+    "id": "_meta",
+    "author": "CastleQ",
+    "name": "피아식별",
+    "logo": "https://i.imgur.com/xMSg9Qx.png",
+    "hideTitle": true,
+    "background": "https://i.imgur.com/PBkGIcy.gif",
+    "firstNight": [
+      "dusk",
+      "philosopher1",
+      "poppygrower1",
+      "minioninfo",
+      "lunatic1",
+      "demoninfo",
+      "poisoner1",
+      "snakecharmer1",
+      "pixie1",
+      "investigator1",
+      "clockmaker1",
+      "seamstress1",
+      "noble1",
+      "spy1",
+      "chambermaid1",
+      "dawn"
+    ],
+    "otherNight": [
+      "dusk",
+      "philosopher1",
+      "poppygrower1",
+      "poisoner1",
+      "innkeeper1",
+      "snakecharmer1",
+      "scarletwoman1",
+      "lunatic1",
+      "imp1",
+      "nodashii1",
+      "vigormortis1",
+      "towncrier1",
+      "seamstress1",
+      "spy1",
+      "chambermaid1",
+      "dawn"
+    ],
+    "bootlegger": [
+      "제노맨서가 플레이 중입니다: 1명 이상의 참가자가 목표를 가지고 있습니다. 목표를 달성하면 그 참가자는 진실된 정보를 얻습니다."
+    ]
+  },
+  {
+    "id": "noble1",
+    "name": "귀족",
+    "image": [
+      "https://botc.app/assets/noble_g-B0vksP8B.webp",
+      "https://botc.app/assets/noble_e-BFJBeujm.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "참가자 3명을 알고 시작합니다. 그중 1명은 악한 진영입니다.",
+    "firstNight": 64,
+    "otherNight": 0,
+    "firstNightReminder": "악한 참가자 1명 포함, 참가자 3명을 알려줍니다.",
+    "reminders": [
+      "알고있음",
+      "알고있음",
+      "알고있음"
+    ]
+  },
+  {
+    "id": "investigator1",
+    "name": "조사관",
+    "image": [
+      "https://botc.app/assets/investigator_g-DWSOiA6Q.webp",
+      "https://botc.app/assets/investigator_e-CR-lRqwj.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "참가자 2명 중 1명이 특정 하수인이라는 걸 알고 시작합니다.",
+    "firstNight": 53,
+    "otherNight": 0,
+    "firstNightReminder": "참가자 2명과 하수인 캐릭터를 알려줍니다.",
+    "reminders": [
+      "하수인",
+      "거짓"
+    ]
+  },
+  {
+    "id": "clockmaker1",
+    "name": "시계공",
+    "image": [
+      "https://botc.app/assets/clockmaker_g-z-gzmkzc.webp",
+      "https://botc.app/assets/clockmaker_e-De0CuxuO.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "악마와 가장 가까운 하수인이 몇 칸 떨어져 있는지 알고 게임을 시작합니다.",
+    "firstNight": 59,
+    "otherNight": 0,
+    "firstNightReminder": "악마에서 가장 가까운 하수인까지의 거리에 대한 손 신호(1, 2, 3 등)를 보여줍니다."
+  },
+  {
+    "id": "pixie1",
+    "name": "픽시",
+    "image": [
+      "https://botc.app/assets/pixie_g-B1xIo6Bx.webp",
+      "https://botc.app/assets/pixie_e-Dknojw1x.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "참가 중인 마을주민 캐릭터 1개를 알고 시작합니다. 만약 당신이 이 캐릭터에 \"광기\"했다면, 그가 죽은 뒤 그 캐릭터의 능력을 얻습니다.",
+    "firstNight": 47,
+    "otherNight": 0,
+    "firstNightReminder": "게임에 참가 중인 마을주민 캐릭터 1개를 알려줍니다.",
+    "reminders": [
+      "광기",
+      "능력 있음"
+    ]
+  },
+  {
+    "id": "chambermaid1",
+    "name": "하녀",
+    "image": [
+      "https://botc.app/assets/chambermaid_g-DAtPnmSz.webp",
+      "https://botc.app/assets/chambermaid_e-CdqkTS11.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 밤, 본인을 제외하고 살아있는 참가자 2명을 선택합니다. 본인의 능력으로 오늘 밤 깨어난 참가자가 몇 명인지 알게 됩니다.",
+    "firstNight": 75,
+    "otherNight": 94,
+    "firstNightReminder": "살아있는 참가자를 2명 선택합니다. 본인의 능력으로 오늘 밤 깨어난 참가자가 몇 명인지 알려줍니다.",
+    "otherNightReminder": "살아있는 참가자를 2명 선택합니다. 본인의 능력으로 오늘 밤 깨어난 참가자가 몇 명인지 알려줍니다."
+  },
+  {
+    "id": "snakecharmer1",
+    "name": "뱀조련사",
+    "image": [
+      "https://botc.app/assets/snakecharmer_g-DYwjThVr.webp",
+      "https://botc.app/assets/snakecharmer_e-D6CrPRGR.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 밤, 살아있는 참가자를 1명 선택합니다. 악마라면, 당신과 진영 및 캐릭터를 바꾸고, 그 후 해당 참가자는 중독됩니다.",
+    "firstNight": 36,
+    "otherNight": 22,
+    "firstNightReminder": "선택한 참가자가 악마라면, 뱀조련사와 진영 및 캐릭터를 바꾸고, 새로운 뱀조련사에게 이를 알린 후 중독시킵니다.",
+    "otherNightReminder": "선택한 참가자가 악마라면, 뱀조련사와 진영 및 캐릭터를 바꾸고, 새로운 뱀조련사에게 이를 알린 후 중독시킵니다.",
+    "reminders": [
+      "중독"
+    ]
+  },
+  {
+    "id": "towncrier1",
+    "name": "포고꾼",
+    "image": [
+      "https://botc.app/assets/towncrier_g-D9dERfO2.webp",
+      "https://botc.app/assets/towncrier_e-BzUGp1JT.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 밤*, 오늘 낮에 하수인이 지명했는지 알게 됩니다.",
+    "firstNight": 0,
+    "otherNight": 80,
+    "otherNightReminder": "오늘 낮에 하수인이 지명했는지 알려줍니다.",
+    "reminders": [
+      "하수인 지명 O",
+      "하수인 지명 X"
+    ],
+    "special": [
+      {
+        "type": "signal",
+        "name": "card",
+        "time": "otherNight",
+        "value": "오늘 지명 했습니까?",
+        "global": "minion"
+      }
+    ]
+  },
+  {
+    "id": "innkeeper1",
+    "name": "여관주인",
+    "image": [
+      "https://botc.app/assets/innkeeper_g-B_YjhWTM.webp",
+      "https://botc.app/assets/innkeeper_e-dzanyuqI.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 밤*, 참가자 2명을 선택합니다. 해당 참가자들은 오늘 밤엔 죽지 않지만, 2명 중 1명은 다음 날 황혼까지 취합니다.",
+    "firstNight": 0,
+    "otherNight": 18,
+    "otherNightReminder": "참가자 2명을 선택합니다. 해당 참가자들은 오늘 밤엔 죽지 않지만, 2명 중 1명은 다음 날 황혼까지 취합니다.",
+    "reminders": [
+      "보호",
+      "보호",
+      "만취"
+    ]
+  },
+  {
+    "id": "seamstress1",
+    "name": "재봉사",
+    "image": [
+      "https://botc.app/assets/seamstress_g-B4RHsroR.webp",
+      "https://botc.app/assets/seamstress_e-BfBRBNhv.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "게임 중 한번, 밤에 참가자 2명을 선택할 수 있습니다(본인제외). 해당 참가자들이 같은 진영인지 알게 됩니다.",
+    "firstNight": 61,
+    "otherNight": 82,
+    "firstNightReminder": "참가자 2명을 선택했다면, 해당 참가자들이 같은 진영인지 알려줍니다.",
+    "otherNightReminder": "참가자 2명을 선택했다면, 해당 참가자들이 같은 진영인지 알려줍니다.",
+    "reminders": [
+      "능력없음"
+    ]
+  },
+  {
+    "id": "philosopher1",
+    "name": "철학자",
+    "image": [
+      "https://botc.app/assets/philosopher_g-DOk3eWqe.webp",
+      "https://botc.app/assets/philosopher_e-sc5zSJy2.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "게임 중 한번, 밤에 선한 캐릭터를 선택하여 그 능력을 얻을 수 있습니다. 해당 캐릭터가 참가 중이라면, 그 캐릭터의 참가자는 취합니다.",
+    "firstNight": 14,
+    "otherNight": 10,
+    "firstNightReminder": "능력을 사용하고 캐릭터를 선택하면, 해당 캐릭터 토큰으로 교체하고, '철학자' 알림 토큰으로 표시합니다. 해당 캐릭터가 참가 중이라면, 그 캐릭터의 참가자는 취합니다.",
+    "otherNightReminder": "능력을 사용하고 캐릭터를 선택하면, 해당 캐릭터 토큰으로 교체하고, '철학자' 알림 토큰으로 표시합니다. 해당 캐릭터가 참가 중이라면, 그 캐릭터의 참가자는 취합니다.",
+    "reminders": [
+      "만취"
+    ],
+    "remindersGlobal": [
+      "철학자"
+    ],
+    "special": [
+      {
+        "type": "reveal",
+        "name": "replace-character"
+      }
+    ]
+  },
+  {
+    "id": "soldier1",
+    "name": "군인",
+    "image": [
+      "https://botc.app/assets/soldier_g-Baq_oQFs.webp",
+      "https://botc.app/assets/soldier_e-CvaeglsK.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "당신은 악마로부터 안전합니다.",
+    "firstNight": 0,
+    "otherNight": 0
+  },
+  {
+    "id": "mayor1",
+    "name": "시장",
+    "image": [
+      "https://botc.app/assets/mayor_g-BQeJ8Z2E.webp",
+      "https://botc.app/assets/mayor_e-Bc2mKeJ3.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "만약 참가자가 3명만 살아있고, 그날 낮에 처형이 발생하지 않으면, 당신의 진영이 승리합니다. 만약 당신이 밤에 죽으면, 다른 참가자가 대신 죽을 수도 있습니다.",
+    "firstNight": 0,
+    "otherNight": 0
+  },
+  {
+    "id": "poppygrower1",
+    "name": "양귀비 재배자",
+    "image": [
+      "https://botc.app/assets/poppygrower_g-BeRDzj2D.webp",
+      "https://botc.app/assets/poppygrower_e-BPf4mjjt.webp"
+    ],
+    "team": "townsfolk",
+    "ability": "하수인과 악마는 서로를 모릅니다. 만약 당신이 죽으면, 그들은 그날 밤에 서로가 누구인지 알게 됩니다.",
+    "firstNight": 16,
+    "otherNight": 11,
+    "firstNightReminder": "악마와 하수인의 정보 단계에 서로를 알려주지 않습니다.",
+    "otherNightReminder": "죽으면, 악마와 하수인에게 서로를 알려주세요.",
+    "reminders": [
+      "악이 기상함"
+    ]
+  },
+  {
+    "id": "goon1",
+    "name": "깡패",
+    "image": [
+      "https://botc.app/assets/goon_g-qCN1CxKh.webp",
+      "https://botc.app/assets/goon_e-DmCcVOv-.webp"
+    ],
+    "team": "outsider",
+    "ability": "매일 밤, 자신의 능력으로 당신을 선택한 첫번째 참가자는 다음 날 황혼까지 취합니다. 당신은 해당 참가자의 진영이 됩니다.",
+    "firstNight": 0,
+    "otherNight": 0,
+    "reminders": [
+      "만취"
+    ]
+  },
+  {
+    "id": "lunatic1",
+    "name": "미치광이",
+    "image": [
+      "https://botc.app/assets/lunatic_g-Bz2ai2Da.webp",
+      "https://botc.app/assets/lunatic_e-D53Boxpa.webp"
+    ],
+    "team": "outsider",
+    "ability": "당신은 자신이 악마 캐릭터라고 생각하지만, 그렇지 않습니다. 악마는 당신이 누구인지, 그리고 당신이 밤에 누구를 선택하는지 알고 있습니다.",
+    "firstNight": 21,
+    "otherNight": 34,
+    "firstNightReminder": "미치광이에게 하수인과, 블러핑 캐릭터 3개를 알려주세요. 악마에게도 미치광이를 알려줍니다.",
+    "otherNightReminder": "미치광이를 깨워 참가자를 선택하게 하고, 공격토큰을 배치하세요. 이후 악마에게 미치광이가 누구를 공격했는지 알려주세요.",
+    "reminders": [
+      "선택",
+      "선택",
+      "선택"
+    ]
+  },
+  {
+    "id": "saint1",
+    "name": "성자",
+    "image": [
+      "https://botc.app/assets/saint_g-BU0hab0E.webp",
+      "https://botc.app/assets/saint_e-CnQBC4rO.webp"
+    ],
+    "team": "outsider",
+    "ability": "만약 당신이 처형으로 죽으면, 당신의 진영이 패배합니다.",
+    "firstNight": 0,
+    "otherNight": 0
+  },
+  {
+    "id": "puzzlemaster1",
+    "name": "퍼즐마스터",
+    "image": [
+      "https://botc.app/assets/puzzlemaster_g-C7roEIMq.webp",
+      "https://botc.app/assets/puzzlemaster_e-BeIjkcep.webp"
+    ],
+    "team": "outsider",
+    "ability": "1명의 참가자가 당신으로 인해 취했으며 당신이 죽어도 지속됩니다. 그가 누구인지 맞추면(1번) 악마가 누군지 알게 되지만, 틀리면 거짓 정보를 얻습니다.",
+    "firstNight": 0,
+    "otherNight": 0,
+    "reminders": [
+      "만취",
+      "추측"
+    ]
+  },
+  {
+    "id": "poisoner1",
+    "name": "독약꾼",
+    "image": [
+      "https://botc.app/assets/poisoner_e-Usf7TcoY.webp",
+      "https://botc.app/assets/poisoner_g-DHNIHhxZ.webp"
+    ],
+    "team": "minion",
+    "ability": "매일 밤, 참가자를 1명 선택합니다. 해당 참가자는 다음 날 황혼까지 중독됩니다.",
+    "firstNight": 32,
+    "otherNight": 16,
+    "firstNightReminder": "참가자를 1명 선택합니다. 해당 참가자는 다음 날 황혼까지 중독됩니다.",
+    "otherNightReminder": "참가자를 1명 선택합니다. 해당 참가자는 다음 날 황혼까지 중독됩니다.",
+    "reminders": [
+      "중독"
+    ]
+  },
+  {
+    "id": "spy1",
+    "name": "스파이",
+    "image": [
+      "https://botc.app/assets/spy_e-DU0tdGGe.webp",
+      "https://botc.app/assets/spy_g-7hnV_AFT.webp"
+    ],
+    "team": "minion",
+    "ability": "매일 밤, 그리모어를 봅니다. 당신은 죽어도 마을주민이나 외부인으로 보일 수 있습니다.",
+    "firstNight": 71,
+    "otherNight": 91,
+    "firstNightReminder": "스파이에게 그리모어를 보여주세요.",
+    "otherNightReminder": "스파이에게 그리모어를 보여주세요.",
+    "jinxes": [
+      {
+        "id": "poppygrower1",
+        "reason": "양귀비 재배자가 능력이 있다면, 스파이는 그리모어를 볼 수 없습니다."
+      },
+      {
+        "id": "damsel1",
+        "reason": "스파이가 참가 중이거나 이전에 참가 했었다면, 아가씨는 중독됩니다."
+      },
+      {
+        "id": "ogre1",
+        "reason": "스파이는 오우거에게 악한 진영으로 취급됩니다."
+      }
+    ],
+    "special": [
+      {
+        "type": "signal",
+        "name": "grimoire",
+        "time": "night"
+      }
+    ]
+  },
+  {
+    "id": "scarletwoman1",
+    "name": "부정한 여인",
+    "image": [
+      "https://botc.app/assets/scarletwoman_e-BP5Fv_Ne.webp",
+      "https://botc.app/assets/scarletwoman_g-CM50XIwn.webp"
+    ],
+    "team": "minion",
+    "ability": "만약 살아있는 참가자가 5명 이상이라면, 악마가 죽으면 당신은 악마가 됩니다. 여행자는 세지 않습니다.",
+    "firstNight": 0,
+    "otherNight": 32,
+    "otherNightReminder": "살아있는 참가자가 5명 이상일 때 악마가 죽으면, 부정한 여인에게 악마가 되었음을 알려줍니다.",
+    "reminders": [
+      "악마"
+    ],
+    "jinxes": [
+      {
+        "id": "alhadikhia1",
+        "reason": "부정한 여인이었던 악마를 포함하여 2명의 악마가 있게 된다면, 부정한 여인은 다시 부정한 여인이 됩니다."
+      },
+      {
+        "id": "fanggu1",
+        "reason": "부정한 여인이었던 악마를 포함하여 2명의 악마가 있게 된다면, 부정한 여인은 부정한 여인으로 남습니다."
+      }
+    ]
+  },
+  {
+    "id": "baron1",
+    "name": "남작",
+    "image": [
+      "https://botc.app/assets/baron_e-CH4q2C6-.webp",
+      "https://botc.app/assets/baron_g-DSaQcH7D.webp"
+    ],
+    "team": "minion",
+    "ability": "외부인 2명이 추가됩니다. [외부인 +2]",
+    "firstNight": 0,
+    "otherNight": 0,
+    "setup": true
+  },
+  {
+    "id": "nodashii1",
+    "name": "노다시",
+    "image": [
+      "https://botc.app/assets/nodashii_e-Dt8UO6rj.webp",
+      "https://botc.app/assets/nodashii_g-jI2LJQhL.webp"
+    ],
+    "team": "demon",
+    "ability": "매일 밤*, 참가자를 1명 선택합니다. 해당 참가자는 죽습니다. 당신의 가장 가까운 마을주민 참가자들은 중독됩니다.",
+    "firstNight": 0,
+    "otherNight": 45,
+    "otherNightReminder": "참가자를 1명 선택합니다. 해당 참가자는 죽습니다.",
+    "reminders": [
+      "죽음",
+      "중독",
+      "중독"
+    ]
+  },
+  {
+    "id": "imp1",
+    "name": "임프",
+    "image": [
+      "https://botc.app/assets/imp_e-DNpveOPY.webp",
+      "https://botc.app/assets/imp_g-D-G7pJEY.webp"
+    ],
+    "team": "demon",
+    "ability": "매일 밤*, 1명의 참가자를 선택해 죽입니다. 이 능력으로 자결할 경우, 하수인 중 1명이 새로운 임프가 됩니다.",
+    "firstNight": 0,
+    "otherNight": 39,
+    "otherNightReminder": "참가자 한명을 선택해 '사망'시킵니다.",
+    "reminders": [
+      "죽음"
+    ]
+  },
+  {
+    "id": "vigormortis1",
+    "name": "비고모르티스",
+    "image": [
+      "https://botc.app/assets/vigormortis_e-0VJIslwJ.webp",
+      "https://botc.app/assets/vigormortis_g-DP1UY2Jk.webp"
+    ],
+    "team": "demon",
+    "ability": "매일 밤*, 참가자를 1명 선택합니다. 해당 참가자는 죽습니다. 당신이 죽인 하수인은 능력을 유지하고 이웃 참가자가 마을주민이라면 그중 1명을 중독시킵니다. [-1 외부인]",
+    "firstNight": 0,
+    "otherNight": 48,
+    "otherNightReminder": "참가자를 1명 선택합니다. 해당 참가자는 죽습니다. 하수인을 죽이면 해당 하수인의 능력은 유지됩니다. 그리고 이웃 참가자가 마을주민이라면 그중 1명을 중독시킵니다.",
+    "reminders": [
+      "죽음",
+      "능력있음",
+      "능력있음",
+      "능력있음",
+      "중독",
+      "중독",
+      "중독"
+    ],
+    "setup": true
+  },
+  "zenomancer",
+  "bootlegger"
+]

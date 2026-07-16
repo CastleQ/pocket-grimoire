@@ -332,8 +332,11 @@ const uploader = lookupOne("#custom-script");
 const radios = lookup("[name=\"edition\"]", form);
 const customInputs = [fileInput, urlInput, pasteInput];
 
-// 라디오는 매니페스트로 동적 추가되므로, 폼 위임으로 처리한다.
-// custom(직접 입력)만 업로드 영역을 열고, 그 외(공식/내장)는 닫는다.
+// 직접 입력 드롭다운(선택지 하나뿐)은 라디오 단계 없이, 열면 즉시 custom 선택으로 처리한다.
+const editionDirect = lookupOne("#edition-direct");
+const customRadio = lookupOne("#edition-custom");
+
+// 라디오는 매니페스트로 동적 추가되므로 폼 위임으로 처리한다.
 form.addEventListener("input", ({ target }) => {
 
     if (!target || target.name !== "edition") {
@@ -342,10 +345,30 @@ form.addEventListener("input", ({ target }) => {
 
     const isCustom = target.value === "custom";
 
-    uploader.hidden = !isCustom;
     setFieldsValidity(customInputs, isCustom);
 
+    // 공식/내장 시트를 고르면 열려 있던 직접 입력 드롭다운을 닫는다.
+    if (!isCustom && editionDirect && editionDirect.open) {
+        editionDirect.open = false;
+    }
+
 });
+
+// 직접 입력 드롭다운을 열면 즉시 custom 라디오를 선택하고 입력 영역을 활성화한다.
+if (editionDirect && customRadio) {
+
+    editionDirect.addEventListener("toggle", () => {
+
+        if (editionDirect.open) {
+            customRadio.checked = true;
+            setFieldsValidity(customInputs, true);
+        } else {
+            setFieldsValidity(customInputs, false);
+        }
+
+    });
+
+}
 
 // 내장 시나리오(커스텀/홈브류/틴시빌)를 매니페스트에서 읽어 드롭다운을 채운다.
 const scriptsBase = (typeof URLS !== "undefined" && URLS.scriptsBase) || "/scripts/";

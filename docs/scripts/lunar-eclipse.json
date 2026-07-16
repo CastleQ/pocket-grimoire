@@ -1,0 +1,601 @@
+[
+  {
+    "id": "_meta",
+    "name": "월식",
+    "author": "Ekin",
+    "background": "https://i.imgur.com/H7MUdBm.png",
+    "logo": "https://i.imgur.com/yIFrcQd.png",
+    "hideTitle": true,
+    "isOfficial": false
+  },
+  {
+    "id": "grandmother1",
+    "name": "할머니",
+    "image": [
+      "https://botc.app/assets/grandmother_g-CjEyeFLi.webp",
+      "https://botc.app/assets/grandmother_e-BLCIA5TL.webp"
+    ],
+    "ability": "선한 플레이어 1명과 그 캐릭터를 알고 시작합니다. 악마가 해당 플레이어를 죽이면 당신도 죽습니다.",
+    "firstNight": 58,
+    "firstNightReminder": "선한 플레이어 1명과 그 캐릭터를 알려주세요.",
+    "otherNight": 72,
+    "otherNightReminder": "손주 플레이어가 죽으면, 할머니도 죽습니다.",
+    "reminders": [
+      "죽음",
+      "손주"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "pixie1",
+    "name": "픽시",
+    "image": [
+      "https://botc.app/assets/pixie_g-B1xIo6Bx.webp",
+      "https://botc.app/assets/pixie_e-Dknojw1x.webp"
+    ],
+    "ability": "게임에 참가 중인 주민 캐릭터 1개를 알고 시작합니다. 만약 당신이 그 캐릭터라고 \"광기\"했다면, 해당 캐릭터의 플레이어가 죽고 나서 그 캐릭터의 능력을 얻을 수도 있습니다.",
+    "firstNight": 47,
+    "firstNightReminder": "게임에 참가 중인 주민 캐릭터 1개를 알려줍니다.",
+    "reminders": [
+      "광기",
+      "능력 있음"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "sailor1",
+    "name": "선원",
+    "image": [
+      "https://botc.app/assets/sailor_g-MdYxQ8zf.webp",
+      "https://botc.app/assets/sailor_e-DfZBdaxk.webp"
+    ],
+    "ability": "매일 밤, 살아있는 플레이어를 1명 선택합니다. 본인이나 해당 플레이어 중 1명은 다음 날 황혼까지 취합니다. 당신은 죽을 수 없습니다.",
+    "firstNight": 25,
+    "firstNightReminder": "살아있는 플레이어를 1명 선택합니다. 선원이나 해당 플레이어 중 1명은 다음 날 황혼까지 취합니다.",
+    "otherNight": 12,
+    "otherNightReminder": "살아있는 플레이어를 1명 선택합니다. 선원이나 해당 플레이어 중 1명은 다음 날 황혼까지 취합니다.",
+    "reminders": [
+      "만취"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "chambermaid1",
+    "name": "하녀",
+    "image": [
+      "https://botc.app/assets/chambermaid_g-DAtPnmSz.webp",
+      "https://botc.app/assets/chambermaid_e-CdqkTS11.webp"
+    ],
+    "ability": "매일 밤, 본인을 제외하고 살아있는 플레이어 2명을 선택합니다. 본인의 능력으로 오늘 밤 깨어난 플레이어가 몇 명인지 알게 됩니다.",
+    "firstNight": 75,
+    "firstNightReminder": "살아있는 플레이어를 2명 선택합니다. 본인의 능력으로 오늘 밤 깨어난 플레이어가 몇 명인지 알려줍니다.",
+    "otherNight": 94,
+    "otherNightReminder": "살아있는 플레이어를 2명 선택합니다. 본인의 능력으로 오늘 밤 깨어난 플레이어가 몇 명인지 알려줍니다.",
+    "team": "townsfolk"
+  },
+  {
+    "id": "mathematician1",
+    "name": "수학자",
+    "image": [
+      "https://botc.app/assets/mathematician_g-CYQ5a9XP.webp",
+      "https://botc.app/assets/mathematician_e-DOTUnrYp.webp"
+    ],
+    "ability": "매일 밤, 다른 캐릭터의 능력으로 인해 능력이 비정상적으로 작동한 플레이어의 수를 알게 됩니다.",
+    "firstNight": 76,
+    "firstNightReminder": "다른 캐릭터의 능력으로 인해 능력이 비정상적으로 작동한 플레이어의 수를 알려줍니다.",
+    "otherNight": 95,
+    "otherNightReminder": "다른 캐릭터의 능력으로 인해 능력이 비정상적으로 작동한 플레이어의 수를 알려줍니다.",
+    "reminders": [
+      "비정상",
+      "비정상",
+      "비정상",
+      "비정상",
+      "비정상"
+    ],
+    "team": "townsfolk",
+    "jinxes": [
+      {
+        "id": "chambermaid1",
+        "reason": "하녀가 먼저 깨어나더라도 하녀는 수학자가 오늘 밤 깨어나는지 여부를 알 수 있습니다."
+      },
+      {
+        "id": "drunk1",
+        "reason": "수학자는 주정뱅이의 능력이 잘못 작동하거나 거짓 정보를 받았을 때, 이를 감지할 수도 있습니다."
+      },
+      {
+        "id": "lunatic1",
+        "reason": "수학자는 미치광이가 선택한 사람이 악마가 실제로 공격한 사람과 다를 경우 이를 감지할 수도 있습니다."
+      },
+      {
+        "id": "marionette1",
+        "reason": "수학자는 꼭두각시의 능력이 잘못 작동하거나 거짓 정보를 받았을 때, 이를 감지할 수도 있습니다."
+      }
+    ]
+  },
+  {
+    "id": "innkeeper1",
+    "name": "여관 주인",
+    "image": [
+      "https://botc.app/assets/innkeeper_g-B_YjhWTM.webp",
+      "https://botc.app/assets/innkeeper_e-dzanyuqI.webp"
+    ],
+    "ability": "매일 밤*, 플레이어 2명을 선택합니다. 해당 플레이어들은 오늘 밤엔 죽지 않지만, 2명 중 1명은 다음 날 황혼까지 취합니다.",
+    "otherNight": 18,
+    "otherNightReminder": "플레이어 2명을 선택합니다. 해당 플레이어들은 오늘 밤엔 죽지 않지만, 2명 중 1명은 다음 날 황혼까지 취합니다.",
+    "reminders": [
+      "보호",
+      "보호",
+      "만취"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "lycanthrope1",
+    "name": "늑대인간",
+    "image": [
+      "https://botc.app/assets/lycanthrope_g-BGOyDOkb.webp",
+      "https://botc.app/assets/lycanthrope_e-n_edx2Mg.webp"
+    ],
+    "ability": "매일 밤*, 살아있는 플레이어를 1명 선택합니다. 선하다면 죽지만, 오늘 밤엔 해당 플레이어만 죽습니다. 선한 플레이어 중 1명은 악하게 보입니다.",
+    "otherNight": 36,
+    "otherNightReminder": "살아있는 플레이어를 1명 선택합니다. 선하다면 죽지만, 오늘 밤엔 해당 플레이어만 죽습니다.",
+    "reminders": [
+      "죽음",
+      "가짜 발자국"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "savant1",
+    "name": "서번트",
+    "image": [
+      "https://botc.app/assets/savant_g-n6x1YgAZ.webp",
+      "https://botc.app/assets/savant_e-5neUO4oK.webp"
+    ],
+    "ability": "매일 낮, 이야기꾼을 방문하여 비밀리에 2가지 명제를 들을 수 있습니다. 그중 하나는 사실이고 하나는 거짓입니다.",
+    "team": "townsfolk"
+  },
+  {
+    "id": "artist1",
+    "name": "예술가",
+    "image": [
+      "https://botc.app/assets/artist_g-CyRrA7cN.webp",
+      "https://botc.app/assets/artist_e-CpwoIhpV.webp"
+    ],
+    "ability": "게임당 한 번, 낮에 비밀리에 이야기꾼에게 예/아니오로 대답할 수 있는 질문을 물어볼 수 있습니다.",
+    "reminders": [
+      "무능력"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "cannibal1",
+    "name": "식인종",
+    "image": [
+      "https://botc.app/assets/cannibal_g-eP3mwaD2.webp",
+      "https://botc.app/assets/cannibal_e-PuVaqnSr.webp"
+    ],
+    "ability": "당신은 최근에 처형으로 죽은 플레이어의 능력을 가지고 있습니다. (무슨 능력인지는 모릅니다.) 해당 플레이어가 악하다면, 선한 플레이어가 처형으로 죽을 때까지 중독됩니다.",
+    "reminders": [
+      "점심",
+      "중독"
+    ],
+    "team": "townsfolk",
+    "jinxes": [
+      {
+        "id": "butler1",
+        "reason": "식인종이 집사의 능력을 얻었다면, 식인종은 이 사실을 알게 됩니다."
+      },
+      {
+        "id": "juggler1",
+        "reason": "저글러가 첫 날에 추측하고 처형되어 죽을 경우, 살아있는 식인종은 저글러가 한 추측의 결과를 알게 됩니다."
+      },
+      {
+        "id": "princess1",
+        "reason": "식인종이 공주를 지명하고 처형한다면, 악마는 오늘 밤 플레이어를 죽일 수 없습니다."
+      },
+      {
+        "id": "zealot1",
+        "reason": "식인종이 광신도의 능력을 얻는다면, 식인종은 이 사실을 알게 됩니다."
+      }
+    ]
+  },
+  {
+    "id": "tealady1",
+    "name": "찻집 여인",
+    "image": [
+      "https://botc.app/assets/tealady_g-C6X-kuq2.webp",
+      "https://botc.app/assets/tealady_e-CZT3s07k.webp"
+    ],
+    "ability": "만약 당신의 살아있는 이웃이 모두 선한 진영이라면, 해당 플레이어들은 죽을 수 없습니다.",
+    "reminders": [
+      "죽지 않음",
+      "죽지 않음"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "mayor1",
+    "name": "시장",
+    "image": [
+      "https://botc.app/assets/mayor_g-BQeJ8Z2E.webp",
+      "https://botc.app/assets/mayor_e-Bc2mKeJ3.webp"
+    ],
+    "ability": "만약 플레이어가 3명만 살아있고, 그날 낮에 처형이 발생하지 않으면, 당신의 진영이 승리합니다. 만약 당신이 밤에 죽으면, 다른 플레이어가 대신 죽을 수도 있습니다.",
+    "team": "townsfolk"
+  },
+  {
+    "id": "magician1",
+    "name": "마술사",
+    "image": [
+      "https://botc.app/assets/magician_g-DXz3Ajt8.webp",
+      "https://botc.app/assets/magician_e-BMchX9vJ.webp"
+    ],
+    "ability": "악마는 당신이 하수인이라고 생각합니다. 하수인은 당신이 악마라고 생각합니다.",
+    "firstNight": 18,
+    "firstNightReminder": "하수인과 악마의 정보 단계에 마술사를 포함하여 알려줍니다.",
+    "team": "townsfolk",
+    "jinxes": [
+      {
+        "id": "marionette1",
+        "reason": "마술사가 살아있다면, 악마는 어느 이웃이 꼭두각시인지 알 수 없습니다."
+      },
+      {
+        "id": "spy1",
+        "reason": "스파이가 마도서를 볼 때, 악마와 마술사의 캐릭터 토큰은 제거됩니다."
+      },
+      {
+        "id": "vizier1",
+        "reason": "수상이 참가 중이라면, 마술사는 능력이 없지만 수상의 능력에 면역입니다."
+      },
+      {
+        "id": "widow1",
+        "reason": "과부가 마도서를 볼 때, 악마와 마술사의 캐릭터 토큰은 제거됩니다."
+      },
+      {
+        "id": "wraith1",
+        "reason": "매일 처형 단계 후, 살아있는 마술사는 레이스를 공개적으로 추측할 수 있습니다. 맞다면, 악마는 오늘 밤 레이스를 선택해야 합니다."
+      },
+      {
+        "id": "legion1",
+        "reason": "마술사는 군단과 함께 일어나며, 악하게 보일 수 있습니다. 군단은 마술사가 참가 중임을 알고 있지만, 누가 마술사인지는 모릅니다."
+      }
+    ]
+  },
+  {
+    "id": "goon1",
+    "name": "깡패",
+    "image": [
+      "https://botc.app/assets/goon_g-qCN1CxKh.webp",
+      "https://botc.app/assets/goon_e-DmCcVOv-.webp"
+    ],
+    "ability": "매일 밤, 자신의 능력으로 당신을 선택한 첫번째 플레이어는 다음 날 황혼까지 취합니다. 당신은 해당 플레이어의 진영이 됩니다.",
+    "reminders": [
+      "만취"
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "lunatic1",
+    "name": "미치광이",
+    "image": [
+      "https://botc.app/assets/lunatic_g-Bz2ai2Da.webp",
+      "https://botc.app/assets/lunatic_e-D53Boxpa.webp"
+    ],
+    "ability": "당신은 자신이 악마 캐릭터라고 생각하지만, 그렇지 않습니다. 악마는 당신이 누구인지, 그리고 당신이 밤에 누구를 선택하는지 알고 있습니다.",
+    "firstNight": 21,
+    "firstNightReminder": "미치광이에게 하수인과, 블러핑 캐릭터 3개를 알려주세요. 악마에게도 미치광이를 알려줍니다.",
+    "otherNight": 34,
+    "otherNightReminder": "미치광이를 깨워 참가자를 선택하게 하고, 공격토큰을 배치하세요. 이후 악마에게 미치광이가 누구를 공격했는지 알려주세요.",
+    "reminders": [
+      "선택",
+      "선택",
+      "선택"
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "barber1",
+    "name": "이발사",
+    "image": [
+      "https://botc.app/assets/barber_g-CP7mk8b9.webp",
+      "https://botc.app/assets/barber_e-BJbMUslE.webp"
+    ],
+    "ability": "만약 당신이 밤이나 낮에 죽었다면, 악마는 캐릭터를 맞바꿀 플레이어 2명(다른 악마 제외)을 선택할 수 있습니다.",
+    "otherNight": 59,
+    "otherNightReminder": "이발사가 죽은 날 밤, 악마를 깨워 플레이어(악마 제외)를 2명 선택하게 하고, 해당 플레이어들을 깨워 자신이 바뀐 캐릭터를 알려줍니다. 성향은 바뀌지 않습니다.",
+    "reminders": [
+      "오늘 이발"
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "puzzlemaster1",
+    "name": "퍼즐마스터",
+    "image": [
+      "https://botc.app/assets/puzzlemaster_g-C7roEIMq.webp",
+      "https://botc.app/assets/puzzlemaster_e-BeIjkcep.webp"
+    ],
+    "ability": "1명의 플레이어는 취해 있습니다. 이는 당신이 죽어도 유지됩니다. 당신은 해당 플레이어가 누구인지 한 번 추측할 수 있습니다. 맞다면 악마가 누구인지 알게 되지만, 틀리면 거짓 정보를 얻습니다.",
+    "reminders": [
+      "만취",
+      "추측"
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "godfather1",
+    "name": "대부",
+    "image": [
+      "https://botc.app/assets/godfather_e-CszxqtFl.webp",
+      "https://botc.app/assets/godfather_g-BHOpUHNN.webp"
+    ],
+    "ability": "참가 중인 모든 외지인의 캐릭터를 알고 시작합니다. 외지인이 낮에 죽었다면, 그날 밤에 플레이어 1명을 선택합니다. 해당 플레이어는 죽습니다. [-1 또는 +1 외지인]",
+    "firstNight": 37,
+    "firstNightReminder": "대부에게 참가 중인 모든 외지인 캐릭터를 알려줍니다.",
+    "otherNight": 56,
+    "otherNightReminder": "오늘 외지인이 죽었다면 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다.",
+    "reminders": [
+      "죽음",
+      "오늘 죽음"
+    ],
+    "team": "minion",
+    "setup": true
+  },
+  {
+    "id": "devilsadvocate1",
+    "name": "악마의 대변인",
+    "image": [
+      "https://botc.app/assets/devilsadvocate_e-6olcm7Cx.webp",
+      "https://botc.app/assets/devilsadvocate_g-DeyJHzxG.webp"
+    ],
+    "ability": "매일 밤, 어제와 다른 살아있는 플레이어를 1명 선택합니다. 해당 플레이어는 내일 처형되더라도 죽지 않습니다.",
+    "firstNight": 39,
+    "firstNightReminder": "살아있는 플레이어를 1명 선택합니다. 해당 플레이어는 내일 처형되더라도 죽지 않습니다.",
+    "otherNight": 25,
+    "otherNightReminder": "어제와 다른 살아있는 플레이어를 1명 선택합니다. 해당 플레이어는 내일 처형되더라도 죽지 않습니다.",
+    "reminders": [
+      "처형 불가"
+    ],
+    "team": "minion"
+  },
+  {
+    "id": "spy1",
+    "name": "스파이",
+    "image": [
+      "https://botc.app/assets/spy_e-DU0tdGGe.webp",
+      "https://botc.app/assets/spy_g-7hnV_AFT.webp"
+    ],
+    "ability": "매일 밤, 마도서를 봅니다. 당신은 죽어도 주민이나 외지인으로 보일 수 있습니다.",
+    "firstNight": 71,
+    "firstNightReminder": "스파이에게 마도서를 보여주세요.",
+    "otherNight": 91,
+    "otherNightReminder": "스파이에게 마도서를 보여주세요.",
+    "team": "minion",
+    "special": [
+      {
+        "type": "signal",
+        "name": "grimoire",
+        "time": "night"
+      }
+    ],
+    "jinxes": [
+      {
+        "id": "poppygrower1",
+        "reason": "양귀비 재배자가 능력이 있다면, 스파이는 마도서를 볼 수 없습니다."
+      },
+      {
+        "id": "damsel1",
+        "reason": "스파이가 참가 중이거나 이전에 참가 했었다면, 아가씨는 중독됩니다."
+      },
+      {
+        "id": "ogre1",
+        "reason": "스파이는 오우거에게 악한 진영으로 취급됩니다."
+      }
+    ]
+  },
+  {
+    "id": "assassin1",
+    "name": "암살자",
+    "image": [
+      "https://botc.app/assets/assassin_e-BDitHnVO.webp",
+      "https://botc.app/assets/assassin_g-D_zJwNaF.webp"
+    ],
+    "ability": "게임당 한 번, 밤*에 플레이어를 1명 선택합니다. 해당 플레이어는 죽지 않게 하는 모든 효과를 무시하고 반드시 죽습니다.",
+    "otherNight": 55,
+    "otherNightReminder": "플레이어를 선택했다면, 해당 플레이어는 죽고 암살자는 능력을 잃습니다.",
+    "reminders": [
+      "무능력",
+      "죽음"
+    ],
+    "team": "minion"
+  },
+  {
+    "id": "marionette1",
+    "name": "꼭두각시",
+    "image": [
+      "https://botc.app/assets/marionette_e-BVmqAITW.webp",
+      "https://botc.app/assets/marionette_g-XJqVphtg.webp"
+    ],
+    "ability": "당신은 자신이 선한 캐릭터라고 생각하지만, 그렇지 않습니다. 악마는 당신을 알고 있습니다. (하수인을 깨우는 능력 등에 일어나지 않습니다.) [악마는 당신의 이웃입니다.] ",
+    "firstNight": 26,
+    "firstNightReminder": "악마를 깨워, 꼭두각시 알림 토큰이 놓인 플레이어를 가리키고, '이 플레이어는' 정보 카드와 꼭두각시의 캐릭터 토큰을 보여줍니다.",
+    "remindersGlobal": [
+      "꼭두각시"
+    ],
+    "team": "minion",
+    "setup": true,
+    "special": [
+      {
+        "name": "bag-disabled",
+        "type": "selection"
+      },
+      {
+        "type": "reveal",
+        "name": "replace-character"
+      }
+    ],
+    "jinxes": [
+      {
+        "id": "balloonist1",
+        "reason": "꼭두각시가 자신을 열기구 조종사라고 생각한다면, 외지인이 1명 더 참가할 수도 있습니다."
+      },
+      {
+        "id": "huntsman1",
+        "reason": "꼭두각시가 자신을 사냥꾼이라고 생각한다면, 아가씨가 게임에 참가합니다."
+      },
+      {
+        "id": "summoner1",
+        "reason": "꼭두각시가 참가 예정이라면, 꼭두각시는 악마 이후에 등장하고 악마의 이웃으로 시작해야 합니다."
+      },
+      {
+        "id": "lilmonsta1",
+        "reason": "꼭두각시가 참가 예정이라면, 꼭두각시는 악마 이후에 등장하고 악마의 이웃으로 시작해야 합니다."
+      },
+      {
+        "id": "kazali1",
+        "reason": "꼭두각시가 참가 예정이라면, 꼭두각시는 악마 이후에 등장하고 악마의 이웃으로 시작해야 합니다."
+      }
+    ]
+  },
+  {
+    "id": "nodashii1",
+    "name": "노다시",
+    "image": [
+      "https://botc.app/assets/nodashii_e-Dt8UO6rj.webp",
+      "https://botc.app/assets/nodashii_g-jI2LJQhL.webp"
+    ],
+    "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 당신의 가장 가까운 주민 플레이어들은 중독됩니다.",
+    "otherNight": 45,
+    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다.",
+    "reminders": [
+      "죽음",
+      "중독",
+      "중독"
+    ],
+    "team": "demon"
+  },
+  {
+    "id": "zombuul1",
+    "name": "좀부울",
+    "image": [
+      "https://botc.app/assets/zombuul_e-DzySLzke.webp",
+      "https://botc.app/assets/zombuul_g-B4MTwk5-.webp"
+    ],
+    "ability": "매일 밤*, 만약 오늘 낮에 아무도 죽지 않았다면, 플레이어 1명을 선택합니다. 해당 플레이어는 죽습니다. 당신이 처음 죽을 때, 실제로는 살아있지만 죽은 것처럼 취급됩니다.",
+    "otherNight": 40,
+    "otherNightReminder": "오늘 낮에 아무도 죽지 않았다면, 플레이어 1명을 선택합니다.",
+    "reminders": [
+      "죽음",
+      "오늘 죽음"
+    ],
+    "team": "demon"
+  },
+  {
+    "id": "vigormortis1",
+    "name": "비고모르티스",
+    "image": [
+      "https://botc.app/assets/vigormortis_e-0VJIslwJ.webp",
+      "https://botc.app/assets/vigormortis_g-DP1UY2Jk.webp"
+    ],
+    "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 당신이 죽인 하수인은 능력을 유지하고 이웃 플레이어가 주민이라면 그중 1명을 중독시킵니다. [-1 외지인]",
+    "otherNight": 48,
+    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 하수인을 죽이면 해당 하수인의 능력은 유지됩니다. 그리고 이웃 플레이어가 주민이라면 그중 1명을 중독시킵니다.",
+    "reminders": [
+      "죽음",
+      "능력있음",
+      "능력있음",
+      "능력있음",
+      "중독",
+      "중독",
+      "중독"
+    ],
+    "team": "demon",
+    "setup": true
+  },
+  {
+    "id": "barista1",
+    "name": "바리스타",
+    "image": [
+      "https://botc.app/assets/barista-9RUmOrIt.webp",
+      "https://botc.app/assets/barista_g-IYOwLzUb.webp",
+      "https://botc.app/assets/barista_e-dh62LsHj.webp"
+    ],
+    "team": "traveller",
+    "ability": "매일 밤, 다음 날 황혼까지 플레이어 1명이 1) 건강(만취/중독 해제)하게 만들고 진실된 정보 만을 얻도록 하거나, 2) 능력을 두 번 발동하게 합니다. 해당 플레이어는 이 사실을 알게 됩니다.",
+    "firstNight": 10,
+    "firstNightReminder": "플레이어 1명을 건강하게 만들고 진실된 정보 만을 얻도록 하거나, 능력을 두 번 발동하게 합니다. 해당 플레이어에게 이를 알려줍니다.",
+    "otherNight": 5,
+    "otherNightReminder": "플레이어 1명을 건강하게 만들고 진실된 정보 만을 얻도록 하거나, 능력을 두 번 발동하게 합니다. 해당 플레이어에게 이를 알려줍니다.",
+    "reminders": [
+      "건강",
+      "행동 2번"
+    ]
+  },
+  {
+    "id": "harlot1",
+    "name": "매춘부",
+    "image": [
+      "https://botc.app/assets/harlot-aJaTZULk.webp",
+      "https://botc.app/assets/harlot_g-DfGUnLek.webp",
+      "https://botc.app/assets/harlot_e-CDyE0Kdh.webp"
+    ],
+    "team": "traveller",
+    "ability": "매일 밤*, 살아있는 플레이어를 1명 선택합니다. 해당 플레이어가 동의하면, 당신은 그 캐릭터를 알게 되지만, 둘 다 죽을 수도 있습니다.",
+    "otherNight": 8,
+    "otherNightReminder": "살아있는 플레이어를 1명 선택합니다. 선택된 플레이어를 깨우고 그 플레이어가 동의하면, 매춘부는 해당 플레이어를 캐릭터를 알게 되지만, 둘 다 죽을 수도 있습니다.",
+    "reminders": [
+      "죽음",
+      "죽음"
+    ]
+  },
+  {
+    "id": "apprentice1",
+    "name": "견습생",
+    "image": [
+      "https://botc.app/assets/apprentice-Dq5aGiYi.webp",
+      "https://botc.app/assets/apprentice_g-qVS2q4bN.webp",
+      "https://botc.app/assets/apprentice_e-BEpvFWvS.webp"
+    ],
+    "team": "traveller",
+    "ability": "첫날 밤, 당신은 마을 주민 능력(선한 경우) 또는 하수인 능력(악한 경우)을 얻습니다.",
+    "firstNight": 9,
+    "firstNightReminder": "주민 캐릭터(선한 경우) 또는 하수인 캐릭터(악한 경우)를 알려줍니다.",
+    "reminders": [
+      "견습생"
+    ]
+  },
+  {
+    "id": "begger1",
+    "name": "거지",
+    "image": [
+      "https://botc.app/assets/beggar-BpoW7fsL.webp",
+      "https://botc.app/assets/beggar_g-Cn5PE4nQ.webp",
+      "https://botc.app/assets/beggar_e-C3_HD_se.webp"
+    ],
+    "team": "traveller",
+    "ability": "당신은 투표 토큰이 있어야만 투표를 할 수 있습니다. 죽은 플레이어가 투표 토큰을 주면, 그들의 진영을 알게 됩니다. 당신은 항상 건강합니다."
+  },
+  {
+    "id": "voudon1",
+    "name": "부두술사",
+    "image": [
+      "https://botc.app/assets/voudon-CNiyV0sS.webp",
+      "https://botc.app/assets/voudon_g-D-tbnf_D.webp",
+      "https://botc.app/assets/voudon_e-D9qWXIyp.webp"
+    ],
+    "team": "traveller",
+    "ability": "당신과 죽은 자만 투표할 수 있습니다. 투표 토큰이 필요하지 않습니다. 50%의 과반수는 필요하지 않습니다."
+  },
+  { "id": "voudon" },
+  {
+    "id": "spritofivory1",
+    "name": "상아의 정령",
+    "image": "https://botc.app/assets/spiritofivory-8gBtDAQc.webp",
+    "team": "fabled",
+    "ability": "악한 플레이어는 1명까지만 추가될 수 있습니다.",
+    "reminders": [
+      "악 추가 X"
+    ]
+  }
+]
