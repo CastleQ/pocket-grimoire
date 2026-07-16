@@ -7,11 +7,14 @@
 <style>
   :root { --bg:#d9d6cf; --text:#1c1c1c; --btn:#7ba7cc; --btn-border:#46637e; }
   * { box-sizing: border-box; }
-  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background-color:var(--bg); background-image:url("build/img/background-img.webp"); background-repeat:repeat; color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
   .wrap { width:100%; max-width:420px; text-align:center; }
   .title { font-size:1.6rem; font-weight:800; line-height:1.4; margin-bottom:28px; }
-  .btn { display:block; width:100%; padding:16px; font-size:1.1rem; font-weight:700; color:#10222f; background:var(--btn); border:3px solid var(--btn-border); border-radius:8px; cursor:pointer; margin-top:14px; }
-  .btn:disabled { opacity:.5; cursor:default; }
+  /* ST앱 [캐릭터 배포](.button) 디자인 차용 — 크기(width/padding/font/margin)는 현행 유지 */
+  .btn { display:block; width:100%; padding:16px; font-size:1.1rem; font-weight:700; cursor:pointer; margin-top:14px;
+         color:#000; background-color:#679fd0; border:2px solid #000; border-radius:5px;
+         box-shadow: inset 2px 2px 4px rgba(255,255,255,.3), inset -2px -2px 4px rgba(0,0,0,.3), 2px 2px 4px rgba(0,0,0,.4); }
+  .btn:disabled { opacity:.7; box-shadow:none; color:#333; border-color:#333; filter:grayscale(.5); cursor:not-allowed; }
   .btn-row { display:flex; gap:12px; }
   .btn-row .btn { margin-top:0; }
   .hidden { display:none !important; }
@@ -24,7 +27,7 @@
   .name-input { width:100%; padding:14px; font-size:1.1rem; border:3px solid #333; border-radius:6px; text-align:center; }
   .msg { font-size:1.15rem; line-height:1.7; }
   .overlay { position:fixed; inset:0; background:rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; padding:24px; }
-  .modal { background:var(--bg); border:3px solid var(--btn-border); border-radius:10px; padding:24px; max-width:340px; width:100%; text-align:center; }
+  .modal { background-color:var(--bg); background-image:url("build/img/background-img.webp"); background-repeat:repeat; border:3px solid var(--btn-border); border-radius:10px; padding:24px; max-width:340px; width:100%; text-align:center; }
   .modal p { font-size:1.1rem; line-height:1.5; margin:0 0 20px; }
 </style>
 </head>
@@ -146,7 +149,7 @@ el("btn-submit").addEventListener("click", function () {
   el("btn-submit").disabled = true; el("btn-submit").textContent = "보내는 중...";
   submitName(claimState.slotId, name).then(function () {
     claimState.submitted = true; saveState(claimState);
-    blockScreen("✅ 이야기꾼에게 전달했습니다!<br><br>" + name + " 님, 게임이 곧 시작됩니다.<br>이 창은 닫으셔도 됩니다.");
+    blockScreen("이야기꾼에게 전달했습니다!<br><br>" + name + " 님, 게임이 곧 시작됩니다.<br>이 창은 닫으셔도 됩니다.");
   }).catch(function (err) {
     el("btn-submit").disabled = false; el("btn-submit").textContent = "이야기꾼에게 보내기";
     window.alert("문제가 발생했습니다:\n" + err.message);
