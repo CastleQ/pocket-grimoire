@@ -1,20 +1,93 @@
 {
   "custom": [
-    { "file": "social-psychology.json", "name": "심리사회 v1.1", "author": "DAVE B" },
-    { "file": "whale-bucket.json", "name": "대왕고래 양동이", "author": "할아버지(USIJ)" },
-    { "file": "ballad-of-seat-7.json", "name": "7번 시트의 발라드 v6.0.0", "author": "TrashWarlock" },
-    { "file": "trust.json", "name": "신뢰", "author": "Milk" },
-    { "file": "lunar-eclipse.json", "name": "월식", "author": "Ekin" },
-    { "file": "one-in-one-out.json", "name": "한 놈 들어오고, 한 놈 나가고", "author": "Baron von Klutz" },
-    { "file": "everyone-can-play.json", "name": "Everyone Can Play", "author": "Ben Burns" },
-    { "file": "friend-or-foe.json", "name": "피아식별", "author": "CastleQ" }
+    {
+      "file": "social-psychology.json",
+      "name": "심리사회 v1.1",
+      "author": "DAVE B"
+    },
+    {
+      "file": "whale-bucket.json",
+      "name": "대왕고래 양동이",
+      "author": "할아버지(USIJ)"
+    },
+    {
+      "file": "ballad-of-seat-7.json",
+      "name": "7번 시트의 발라드 v6.0.0",
+      "author": "TrashWarlock"
+    },
+    {
+      "file": "trust.json",
+      "name": "신뢰",
+      "author": "Milk"
+    },
+    {
+      "file": "lunar-eclipse.json",
+      "name": "월식",
+      "author": "Ekin"
+    },
+    {
+      "file": "one-in-one-out.json",
+      "name": "한 놈 들어오고, 한 놈 나가고",
+      "author": "Baron von Klutz"
+    },
+    {
+      "file": "everyone-can-play.json",
+      "name": "Everyone Can Play",
+      "author": "Ben Burns"
+    },
+    {
+      "file": "friend-or-foe.json",
+      "name": "피아식별",
+      "author": "CastleQ"
+    }
   ],
   "homebrew": [
-    { "file": "fall-of-rome.json", "name": "Fall of Rome", "author": "Alex S" },
-    { "file": "pokemon-gen-1.json", "name": "🦊Pokemon: 위대한 1세대", "author": "Castle Q" },
-    { "file": "fellowship-of-the-ring.json", "name": "💍반지의 제왕_반지 원정대", "author": "CastleQ" },
-    { "file": "star-cradled-moon.json", "name": "★별이 품은 달", "author": "幺丁" },
-    { "file": "lost-in-wonderland.json", "name": "🐈‍이상한 나라에서 길을 잃어버리다.", "author": "Tom R" }
+    {
+      "file": "fall-of-rome.json",
+      "name": "Fall of Rome",
+      "author": "Alex S"
+    },
+    {
+      "file": "pokemon-gen-1.json",
+      "name": "Pokemon: 위대한 1세대",
+      "author": "Castle Q"
+    },
+    {
+      "file": "fellowship-of-the-ring.json",
+      "name": "반지의 제왕_반지 원정대",
+      "author": "CastleQ"
+    },
+    {
+      "file": "star-cradled-moon.json",
+      "name": "별이 품은 달",
+      "author": "幺丁"
+    },
+    {
+      "file": "lost-in-wonderland.json",
+      "name": "이상한 나라에서 길을 잃어버리다.",
+      "author": "Tom R"
+    }
   ],
-  "teensyville": []
+  "teensyville": [
+    {
+      "file": "lollipop-legion.json",
+      "name": "롤리팝 군단",
+      "author": "Elixir"
+    },
+    {
+      "file": "unlucky-soldiers.json",
+      "name": "불행한 병사들",
+      "author": "Piranha"
+    },
+    {
+      "file": "comrade-demon.json",
+      "name": "악마 동지여",
+      "author": "Zets"
+    },
+    {
+      "file": "whos-the-flying-squirrel.json",
+      "name": "누가 날다람쥐야?",
+      "author": ""
+    }
+  ]
 }

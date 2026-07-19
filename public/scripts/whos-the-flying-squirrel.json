@@ -1,0 +1,117 @@
+[
+  {
+    "logo": "https://free.picui.cn/free/2025/09/21/68ced6167f9e5.png",
+    "author": "",
+    "name": "누가 날다람쥐야?","hideTitle": true,
+    "isOfficial": false,
+    "id": "_meta"
+  },
+  {
+    "id": "xiaoba01",
+    "name": "가르마",
+    "image": "https://free.picui.cn/free/2025/09/21/68ced660b9ca4.png",
+    "ability": "첫날 밤, 캐릭터 유형을 선택하고 연관된 정보를 배웁니다. 만약 당신의 이웃들의 캐릭터 유형이 다르다면 잘못된 정보를 받습니다.",
+    "firstNight": 40000,
+    "team": "townsfolk"
+  },
+  {
+    "id": "shisa11",
+    "name": "시사",
+    "image": "https://free.picui.cn/free/2025/09/21/68ced6605e456.png",
+    "ability": "첫날 밤, 원하는 수만큼의 참가자를 선택합니다. 그 참가자들이 몇 종류의 캐릭터 유형이 있는지 알려줍니다. 악마와 하수인을 둘다 선택했다면, 거짓을 배웁니다.",
+    "firstNight": 50000,
+    "team": "townsfolk"
+  },
+  {
+    "id": "jiyi01",
+    "name": "치이카와",
+    "image": "https://free.picui.cn/free/2025/09/21/68ced65d34494.png",
+    "ability": "매일 밤, 참가자 2명을 선택하고 사악한 참가자가 있는지 배웁니다. 홀수날 혹은 짝수날 당신의 정보는 거짓이 됩니다.",
+    "firstNight": 30000,
+    "otherNight": 30000,
+    "reminders": [
+      "정상",
+      "거짓"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "wusaqi01",
+    "name": "우사기",
+    "image": "https://free.picui.cn/free/2025/09/21/68ced6609c720.png",
+    "ability": "매일 밤, 당신은 두 개의 캐릭터를 선택합니다. 당신이 사망한 밤에 지금까지 선택한 캐릭터가 몇명이 참여중인지 배웁니다.",
+    "firstNight": 60000,
+    "otherNight": 20000,
+    "reminders": [
+      "배움"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "hait11a",
+    "name": "랏코",
+    "image": "https://free.picui.cn/free/2025/09/21/68ced65d624b9.png",
+    "ability": "만약 당신이 악한 참가자를 지명했고, 당신이 지목한 선한 참가자가 1명 이하라면, 당신의 진영이 즉시 승리합니다.",
+    "reminders": [
+      "지명","지명","지명"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "lizimantou11",
+    "name": "밤만쥬",
+    "image": "https://free.picui.cn/free/2025/09/21/68ced6601bff6.png",
+    "ability": "게임당 한 번, 낮에 공개적으로 *나는 밤만쥬다*라고 선언하면, 악마는 아무도 죽일 수 없습니다.",
+    "reminders": [
+      "죽지않아"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "dabaoba111o",
+    "name": "귀염둥이","special":[{"type":"selection", "name":"bag-disabled"}, {"type":"reveal", "name":"replace-character"}], "remindersGlobal": ["귀염둥이"],
+    "image": "https://free.picui.cn/free/2025/09/21/68ced65cd39aa.png",
+    "ability": "당신은 마을 주민이라고 알고있지만 사실은 아닙니다. 첫날 밤, 이야기꾼은 당신에게 *너는 날다람쥐야*이라고 알려줍니다. ",
+    "remindersGlobal": [
+      "귀염둥이"
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "xiaobaob11ao",
+    "name": "애새낑",
+    "image": "https://free.picui.cn/free/2025/09/21/68ced66291515.png",
+    "ability": "게임 시작 전에 이야기꾼은 이번 게임에 애새낑의 능력은 XXX입니다. 라고 공개적으로 발표합니다. 참여중이던 아니던 간에 발표합니다.",
+    "reminders": [
+      "귀염둥이새낑"
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "guben11",
+    "name": "카니",
+    "image": "https://free.picui.cn/free/2025/09/21/68ced65ce9d3e.png",
+    "ability": "첫날 밤, 악마는 당신은 날다람쥐라고 알게 됩니다. 당신은 참여중인 선한 캐릭터 2개를 배웁니다.",
+    "firstNight": 20000,
+    "team": "minion"
+  },
+  {
+    "id": "linzhongwupo11",
+    "name": "숲속마녀",
+    "image": "https://free.picui.cn/free/2025/09/21/68ced6602f17f.png",
+    "ability": "첫날 밤, 이야기꾼은 참가자 2명 중 날다람쥐가 있음을 알려줍니다. 참여중인 선한 캐릭터 2개를 배웁니다.",
+    "firstNight": 10000,
+    "team": "minion"
+  },
+  {
+    "id": "aman11iti",
+    "name": "날다람쥐","special":[{"type":"selection", "name":"bag-disabled"}, {"type":"reveal", "name":"replace-character"}], "remindersGlobal": ["날다람쥐"],
+    "image": "https://free.picui.cn/free/2025/09/21/68ced65d408fd.png",
+    "ability": "당신은 자신이 선한 참가자인줄 알고 있습니다. 하지만 악마입니다. 매일 밤(첫날 제외) 참가자 1명이 죽을 수도 있습니다.",
+    "otherNight": 10000,
+    "remindersGlobal": [
+      "악마"
+    ],
+    "team": "demon"
+  }
+]

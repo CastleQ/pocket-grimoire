@@ -1,0 +1,220 @@
+[
+  {
+    "id": "_meta",
+    "name": "불행한 병사들",
+    "author": "Piranha",
+    "background": "https://i.imgur.com/ORjS2Jt.png",
+    "logo": "https://i.imgur.com/yIFrcQd.png",
+    "hideTitle": true,
+    "isOfficial": false
+  },
+  {
+    "id": "steward1",
+    "name": "관리인",
+    "image": [
+      "https://botc.app/assets/steward_g-ASO14Teu.webp",
+      "https://botc.app/assets/steward_e-BJUqXXmp.webp"
+    ],
+    "ability": "선한 플레이어 1명을 알고 시작합니다.",
+    "firstNight": 62,
+    "firstNightReminder": "선한 플레이어 1명을 알려주세요.",
+    "reminders": [
+      "알고있음"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "villageidiot1",
+    "name": "바보",
+    "image": [
+      "https://botc.app/assets/villageidiot_g-CdZf6FkN.webp",
+      "https://botc.app/assets/villageidiot_e-D6AONnUX.webp"
+    ],
+    "ability": "매일 밤, 플레이어를 1명 선택합니다. 해당 플레이어의 진영을 알게 됩니다. [+0 ~ +2 바보. 바보가 2명 이상이라면 그중 1명이 취해 있습니다.]",
+    "firstNight": 67,
+    "firstNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어의 진영을 알려주세요.",
+    "otherNight": 85,
+    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어의 진영을 알려주세요.",
+    "reminders": [
+      "만취"
+    ],
+    "team": "townsfolk",
+    "setup": true,
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "lycanthrope1",
+    "name": "늑대인간",
+    "image": [
+      "https://botc.app/assets/lycanthrope_g-BGOyDOkb.webp",
+      "https://botc.app/assets/lycanthrope_e-n_edx2Mg.webp"
+    ],
+    "ability": "매일 밤*, 살아있는 플레이어를 1명 선택합니다. 선하다면 죽지만, 오늘 밤엔 해당 플레이어만 죽습니다. 선한 플레이어 중 1명은 악하게 보입니다.",
+    "otherNight": 36,
+    "otherNightReminder": "살아있는 플레이어를 1명 선택합니다. 선하다면 죽지만, 오늘 밤엔 해당 플레이어만 죽습니다.",
+    "reminders": [
+      "죽음",
+      "가짜 발자국"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "fisherman1",
+    "name": "어부",
+    "image": [
+      "https://botc.app/assets/fisherman_g-D4SVpSql.webp",
+      "https://botc.app/assets/fisherman_e-Da2Y5IG7.webp"
+    ],
+    "ability": "게임당 한 번, 낮에 이야기꾼을 방문해 당신의 진영의 승리에 도움이 되는 조언을 들을 수 있습니다.",
+    "reminders": [
+      "무능력"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "mayor1",
+    "name": "시장",
+    "image": [
+      "https://botc.app/assets/mayor_g-BQeJ8Z2E.webp",
+      "https://botc.app/assets/mayor_e-Bc2mKeJ3.webp"
+    ],
+    "ability": "만약 플레이어가 3명만 살아있고, 그날 낮에 처형이 발생하지 않으면, 당신의 진영이 승리합니다. 만약 당신이 밤에 죽으면, 다른 플레이어가 대신 죽을 수도 있습니다.",
+    "team": "townsfolk"
+  },
+  {
+    "id": "fool1",
+    "name": "광대",
+    "image": [
+      "https://botc.app/assets/fool_g-C-vzA630.webp",
+      "https://botc.app/assets/fool_e-CdlNFIsk.webp"
+    ],
+    "ability": "처음으로 죽게 될 때, 죽지 않습니다.",
+    "reminders": [
+      "무능력"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "drunk1",
+    "name": "주정뱅이",
+    "image": [
+      "https://botc.app/assets/drunk_g--QNmv0ZY.webp",
+      "https://botc.app/assets/drunk_e-bRjLB9FX.webp"
+    ],
+    "ability": "당신은 자신이 주정뱅이인 것을 모릅니다. 자신이 주민 캐릭터라고 생각하지만, 그렇지 않습니다.",
+    "remindersGlobal": [
+      "주정뱅이"
+    ],
+    "special": [
+      {
+        "name": "bag-disabled",
+        "type": "selection"
+      },
+      {
+        "type": "reveal",
+        "name": "replace-character"
+      }
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "klutz1",
+    "name": "얼간이",
+    "image": [
+      "https://botc.app/assets/klutz_g-DRcV_Rgl.webp",
+      "https://botc.app/assets/klutz_e-C-CdPEop.webp"
+    ],
+    "ability": "당신이 죽었다는 것을 알게 되면, 공개적으로 살아있는 플레이어 1명을 선택합니다. 악한 플레이어라면 당신의 진영은 패배합니다.",
+    "team": "outsider"
+  },
+  {
+    "id": "poisoner1",
+    "name": "독살범",
+    "image": [
+      "https://botc.app/assets/poisoner_e-Usf7TcoY.webp",
+      "https://botc.app/assets/poisoner_g-DHNIHhxZ.webp"
+    ],
+    "ability": "매일 밤, 플레이어를 1명 선택합니다. 해당 플레이어는 다음 날 저녁까지 중독됩니다.",
+    "firstNight": 32,
+    "firstNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 다음 날 저녁까지 중독됩니다.",
+    "otherNight": 16,
+    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 다음 날 저녁까지 중독됩니다.",
+    "reminders": [
+      "중독"
+    ],
+    "team": "minion"
+  },
+  {
+    "id": "devilsadvocate1",
+    "name": "악마의 대변인",
+    "image": [
+      "https://botc.app/assets/devilsadvocate_e-6olcm7Cx.webp",
+      "https://botc.app/assets/devilsadvocate_g-DeyJHzxG.webp"
+    ],
+    "ability": "매일 밤, 어제와 다른 살아있는 플레이어를 1명 선택합니다. 해당 플레이어는 내일 처형되더라도 죽지 않습니다.",
+    "firstNight": 39,
+    "firstNightReminder": "살아있는 플레이어를 1명 선택합니다. 해당 플레이어는 내일 처형되더라도 죽지 않습니다.",
+    "otherNight": 25,
+    "otherNightReminder": "어제와 다른 살아있는 플레이어를 1명 선택합니다. 해당 플레이어는 내일 처형되더라도 죽지 않습니다.",
+    "reminders": [
+      "처형 불가"
+    ],
+    "team": "minion"
+  },
+  {
+    "id": "imp1",
+    "name": "임프",
+    "image": [
+      "https://botc.app/assets/imp_e-DNpveOPY.webp",
+      "https://botc.app/assets/imp_g-D-G7pJEY.webp"
+    ],
+    "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 만약 자살하면 하수인이 임프가 됩니다.",
+    "otherNight": 39,
+    "otherNightReminder": "참가자 한명을 선택해 '사망'시킵니다.",
+    "reminders": [
+      "죽음"
+    ],
+    "team": "demon"
+  },
+  {
+    "id": "vigormortis1",
+    "name": "비고모르티스",
+    "image": [
+      "https://botc.app/assets/vigormortis_e-0VJIslwJ.webp",
+      "https://botc.app/assets/vigormortis_g-DP1UY2Jk.webp"
+    ],
+    "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 당신이 죽인 하수인은 능력을 유지하고 이웃 플레이어가 주민이라면 그중 1명을 중독시킵니다. [-1 외지인]",
+    "otherNight": 48,
+    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 하수인을 죽이면 해당 하수인의 능력은 유지됩니다. 그리고 이웃 플레이어가 주민이라면 그중 1명을 중독시킵니다.",
+    "reminders": [
+      "죽음",
+      "능력있음",
+      "능력있음",
+      "능력있음",
+      "중독",
+      "중독",
+      "중독"
+    ],
+    "team": "demon",
+    "setup": true
+  },
+  {
+    "id": "toymaker1",
+    "name": "장난감 제작자",
+    "image": "https://botc.app/assets/toymaker-DnUyVGxn.webp",
+    "team": "fabled",
+    "ability": "악마는 공격하지 않기로 선택할 수 있으며 게임당 최소 한 번은 이를 해야 합니다. 악한 플레이어는 평범한 시작 정보를 얻습니다.",
+    "firstNight": 4,
+    "firstNightReminder": "플레이어가 7명 미만인 경우에도 하수인 정보, 악마 정보 단계를 진행합니다.",
+    "otherNight": 3,
+    "otherNightReminder": "악마가 이번 밤에 일어나서 공격을 하면 게임이 끝나고, 악마에게 '마지막 밤: 공격 불가' 알림 토큰이 있다면, 그날 악마는 행동 할 수 없습니다. (악마를 깨우지 않습니다.) ",
+    "reminders": [
+      "마지막 밤: 공격 불가"
+    ]
+  }
+]

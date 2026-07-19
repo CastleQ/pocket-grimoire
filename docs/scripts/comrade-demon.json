@@ -1,0 +1,329 @@
+[
+  {
+    "id": "_meta",
+    "name": "악마 동지여",
+    "author": "Zets",
+    "background": "https://i.imgur.com/wwgv5U1.png",
+    "logo": "https://i.imgur.com/yIFrcQd.png",
+    "hideTitle": true,
+    "isOfficial": false
+  },
+  {
+    "id": "noble1",
+    "name": "귀족",
+    "image": [
+      "https://botc.app/assets/noble_g-B0vksP8B.webp",
+      "https://botc.app/assets/noble_e-BFJBeujm.webp"
+    ],
+    "ability": "플레이어 3명을 알고 시작합니다. 그중 1명은 악한 진영입니다.",
+    "firstNight": 64,
+    "firstNightReminder": "악한 플레이어 1명 포함, 플레이어 3명을 알려줍니다.",
+    "reminders": [
+      "알고있음",
+      "알고있음",
+      "알고있음"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "investigator1",
+    "name": "조사관",
+    "image": [
+      "https://botc.app/assets/investigator_g-DWSOiA6Q.webp",
+      "https://botc.app/assets/investigator_e-CR-lRqwj.webp"
+    ],
+    "ability": "플레이어 2명 중 1명이 특정 하수인이라는 걸 알고 시작합니다.",
+    "firstNight": 53,
+    "firstNightReminder": "플레이어 2명과 하수인 캐릭터를 알려줍니다.",
+    "reminders": [
+      "하수인",
+      "거짓"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "empath1",
+    "name": "초공감자",
+    "image": [
+      "https://botc.app/assets/empath_g-vVEkU0cf.webp",
+      "https://botc.app/assets/empath_e-CWeYvCJ9.webp"
+    ],
+    "ability": "매일 밤, 살아있는 이웃 플레이어 중 몇 명이 악한 진영인지 알게 됩니다.",
+    "firstNight": 55,
+    "firstNightReminder": "초공감자의 살아있는 이웃 2명 중 몇 명이 악한지 알려주세요.",
+    "otherNight": 75,
+    "otherNightReminder": "초공감자의 살아있는 이웃 2명 중 몇 명이 악한지 알려주세요.",
+    "team": "townsfolk"
+  },
+  {
+    "id": "dreamer1",
+    "name": "몽상가",
+    "image": [
+      "https://botc.app/assets/dreamer_g-CjKsf0eE.webp",
+      "https://botc.app/assets/dreamer_e-9zGefVKW.webp"
+    ],
+    "ability": "매일 밤, 본인을 제외하고 플레이어를 1명 선택합니다. 그리고 선한 캐릭터와 악한 캐릭터를 각 1개씩 알게 됩니다. 그중 1개가 해당 플레이어의 캐릭터입니다.",
+    "firstNight": 60,
+    "firstNightReminder": "플레이어를 1명 선택하면, 선한 캐릭터와 악한 캐릭터를 각 1개씩 알려줍니다.",
+    "otherNight": 78,
+    "otherNightReminder": "플레이어를 1명 선택하면, 선한 캐릭터와 악한 캐릭터를 각 1개씩 알려줍니다.",
+    "team": "townsfolk"
+  },
+  {
+    "id": "nightwatchman1",
+    "name": "야경단원",
+    "image": [
+      "https://botc.app/assets/nightwatchman_g-CaasqmRn.webp",
+      "https://botc.app/assets/nightwatchman_e-DcwB8vOD.webp"
+    ],
+    "ability": "게임당 한 번, 밤에 플레이어를 1명 선택합니다. 해당 플레이어는 당신이 누구인지 알게 됩니다.",
+    "firstNight": 69,
+    "firstNightReminder": "플레이어를 1명 선택했다면, 해당 플레이어에게 야경단원이 누구인지 알려줍니다.",
+    "otherNight": 88,
+    "otherNightReminder": "플레이어를 1명 선택했다면, 해당 플레이어에게 야경단원이 누구인지 알려줍니다.",
+    "reminders": [
+      "무능력"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "fisherman1",
+    "name": "어부",
+    "image": [
+      "https://botc.app/assets/fisherman_g-D4SVpSql.webp",
+      "https://botc.app/assets/fisherman_e-Da2Y5IG7.webp"
+    ],
+    "ability": "게임당 한 번, 낮에 이야기꾼을 방문해 당신의 진영의 승리에 도움이 되는 조언을 들을 수 있습니다.",
+    "reminders": [
+      "무능력"
+    ],
+    "team": "townsfolk"
+  },
+  {
+    "id": "lunatic1",
+    "name": "미치광이",
+    "image": [
+      "https://botc.app/assets/lunatic_g-Bz2ai2Da.webp",
+      "https://botc.app/assets/lunatic_e-D53Boxpa.webp"
+    ],
+    "ability": "당신은 자신이 악마 캐릭터라고 생각하지만, 그렇지 않습니다. 악마는 당신이 누구인지, 그리고 당신이 밤에 누구를 선택하는지 알고 있습니다.",
+    "firstNight": 21,
+    "firstNightReminder": "미치광이에게 하수인과, 블러핑 캐릭터 3개를 알려주세요. 악마에게도 미치광이를 알려줍니다.",
+    "otherNight": 34,
+    "otherNightReminder": "미치광이를 깨워 참가자를 선택하게 하고, 공격토큰을 배치하세요. 이후 악마에게 미치광이가 누구를 공격했는지 알려주세요.",
+    "reminders": [
+      "선택",
+      "선택",
+      "선택"
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "moonchild1",
+    "name": "달의 아이",
+    "image": [
+      "https://botc.app/assets/moonchild_g-DKURQEzF.webp",
+      "https://botc.app/assets/moonchild_e-D-P3dKVK.webp"
+    ],
+    "ability": "당신이 죽었다는 것을 알게 되면, 공개적으로 살아있는 플레이어 1명을 선택합니다. 해당 플레이어가 선한 진영이라면 오늘 밤 죽습니다.",
+    "otherNight": 71,
+    "otherNightReminder": "달의 아이가 선택한 플레이어를 죽입니다.",
+    "reminders": [
+      "죽음"
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "barber1",
+    "name": "이발사",
+    "image": [
+      "https://botc.app/assets/barber_g-CP7mk8b9.webp",
+      "https://botc.app/assets/barber_e-BJbMUslE.webp"
+    ],
+    "ability": "만약 당신이 밤이나 낮에 죽었다면, 악마는 캐릭터를 맞바꿀 플레이어 2명(다른 악마 제외)을 선택할 수 있습니다.",
+    "otherNight": 59,
+    "otherNightReminder": "이발사가 죽은 날 밤, 악마를 깨워 플레이어(악마 제외)를 2명 선택하게 하고, 해당 플레이어들을 깨워 자신이 바뀐 캐릭터를 알려줍니다. 성향은 바뀌지 않습니다.",
+    "reminders": [
+      "오늘 이발"
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "spy1",
+    "name": "스파이",
+    "image": [
+      "https://botc.app/assets/spy_e-DU0tdGGe.webp",
+      "https://botc.app/assets/spy_g-7hnV_AFT.webp"
+    ],
+    "ability": "매일 밤, 마도서를 봅니다. 당신은 죽어도 주민이나 외지인으로 보일 수 있습니다.",
+    "firstNight": 71,
+    "firstNightReminder": "스파이에게 마도서를 보여주세요.",
+    "otherNight": 91,
+    "otherNightReminder": "스파이에게 마도서를 보여주세요.",
+    "team": "minion",
+    "special": [
+      {
+        "type": "signal",
+        "name": "grimoire",
+        "time": "night"
+      }
+    ],
+    "jinxes": [
+      {
+        "id": "poppygrower1",
+        "reason": "양귀비 재배자가 능력이 있다면, 스파이는 마도서를 볼 수 없습니다."
+      },
+      {
+        "id": "damsel1",
+        "reason": "스파이가 참가 중이거나 이전에 참가 했었다면, 아가씨는 중독됩니다."
+      },
+      {
+        "id": "ogre1",
+        "reason": "스파이는 오우거에게 악한 진영으로 취급됩니다."
+      }
+    ]
+  },
+  {
+    "id": "marionette1",
+    "name": "꼭두각시",
+    "image": [
+      "https://botc.app/assets/marionette_e-BVmqAITW.webp",
+      "https://botc.app/assets/marionette_g-XJqVphtg.webp"
+    ],
+    "ability": "당신은 자신이 선한 캐릭터라고 생각하지만, 그렇지 않습니다. 악마는 당신을 알고 있습니다. (하수인을 깨우는 능력 등에 일어나지 않습니다.) [악마는 당신의 이웃입니다.] ",
+    "firstNight": 26,
+    "firstNightReminder": "악마를 깨워, 꼭두각시 알림 토큰이 놓인 플레이어를 가리키고, '이 플레이어는' 정보 카드와 꼭두각시의 캐릭터 토큰을 보여줍니다.",
+    "remindersGlobal": [
+      "꼭두각시"
+    ],
+    "team": "minion",
+    "setup": true,
+    "special": [
+      {
+        "name": "bag-disabled",
+        "type": "selection"
+      },
+      {
+        "type": "reveal",
+        "name": "replace-character"
+      }
+    ],
+    "jinxes": [
+      {
+        "id": "balloonist1",
+        "reason": "꼭두각시가 자신을 열기구 조종사라고 생각한다면, 외지인이 1명 더 참가할 수도 있습니다."
+      },
+      {
+        "id": "huntsman1",
+        "reason": "꼭두각시가 자신을 사냥꾼이라고 생각한다면, 아가씨가 게임에 참가합니다."
+      },
+      {
+        "id": "summoner1",
+        "reason": "꼭두각시가 참가 예정이라면, 꼭두각시는 악마 이후에 등장하고 악마의 이웃으로 시작해야 합니다."
+      },
+      {
+        "id": "lilmonsta1",
+        "reason": "꼭두각시가 참가 예정이라면, 꼭두각시는 악마 이후에 등장하고 악마의 이웃으로 시작해야 합니다."
+      },
+      {
+        "id": "kazali1",
+        "reason": "꼭두각시가 참가 예정이라면, 꼭두각시는 악마 이후에 등장하고 악마의 이웃으로 시작해야 합니다."
+      }
+    ]
+  },
+  {
+    "id": "pukka1",
+    "name": "푸카",
+    "image": [
+      "https://botc.app/assets/pukka_e-CmZzVHPM.webp",
+      "https://botc.app/assets/pukka_g-D7il5SFF.webp"
+    ],
+    "ability": "매일 밤, 플레이어를 1명 선택합니다. 해당 플레이어는 중독됩니다. 이전에 중독당한 플레이어는 죽고 건강해집니다.",
+    "firstNight": 46,
+    "firstNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 중독됩니다.",
+    "otherNight": 41,
+    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 중독됩니다. 이전에 중독당한 플레이어는 죽고 건강해집니다.",
+    "reminders": [
+      "죽음",
+      "중독"
+    ],
+    "team": "demon"
+  },
+  {
+    "id": "lilmonsta1",
+    "name": "릴몬스타",
+    "image": [
+      "https://botc.app/assets/lilmonsta_e-cdABFMUI.webp",
+      "https://botc.app/assets/lilmonsta_g-DD3Lbp-C.webp"
+    ],
+    "team": "demon",
+    "ability": "매일 밤, 하수인들은 누가 릴몬스타를 돌보고 악마가 될지 정합니다, 매일 밤*, 플레이어 1명이 죽을 수도 있습니다. [+1 하수인]",
+    "firstNight": 29,
+    "firstNightReminder": "모든 하수인을 깨워 누가 베이비시터가 될지 정하게 합니다.",
+    "otherNight": 52,
+    "otherNightReminder": "모든 하수인을 깨워 누가 베이비시터가 될지 정하게 합니다. 플레이어 1명이 죽을 수도 있습니다.",
+    "remindersGlobal": [
+      "릴몬스타",
+      "죽음"
+    ],
+    "setup": true,
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-disabled"
+      },
+      {
+        "type": "ability",
+        "name": "pointing",
+        "time": "night",
+        "global": "minion"
+      }
+    ],
+    "jinxes": [
+      {
+        "id": "poppygrower1",
+        "reason": "릴몬스타와 양귀비 재배자가 살아있다면, 하수인들은 그중 1명이 릴몬스타를 돌볼 때까지, 한 명씩 깨어납니다."
+      },
+      {
+        "id": "magician1",
+        "reason": "마술사가 살아있다면, 이야기꾼이 릴몬스타를 돌볼 플레이어를 선택합니다."
+      },
+      {
+        "id": "hatter1",
+        "reason": "악마가 릴몬스타를 선택한다면, 해당 플레이어는 자신이 변할 하수인 캐릭터도 선택해야 합니다."
+      },
+      {
+        "id": "psychopath1",
+        "reason": "싸이코패스가 릴몬스타를 돌보고 있다면, 처형으로 죽을 수 있습니다."
+      },
+      {
+        "id": "scarletwoman1",
+        "reason": "5명 이상의 플레이어가 살아있고 릴몬스타가 죽었다면, 부정한 여인이 나머지 게임 내내 릴몬스타를 돌봅니다."
+      },
+      {
+        "id": "vizier1",
+        "reason": "수상이 릴몬스타를 돌보고 있다면, 처형으로 죽을 수 있습니다."
+      }
+    ]
+  },
+  {
+    "id": "revolutionary1",
+    "name": "혁명가",
+    "image": "https://botc.app/assets/revolutionary-D1FL8eUK.webp",
+    "team": "fabled",
+    "ability": "이웃 플레이어 2명이 같은 진영으로 알려져 있습니다. 게임당 한 번, 그중 1명이 다른 진영으로 보입니다.",
+    "reminders": [
+      "연대",
+      "연대",
+      "오해?"
+    ]
+  },
+  {
+    "id": "sentinel1",
+    "name": "경비병",
+    "image": "https://botc.app/assets/sentinel-BaOVo1PE.webp",
+    "team": "fabled",
+    "ability": "외지인이 1명 더 참가하거나 1명 더 적을 수 있습니다.",
+    "setup": true
+  }
+]
