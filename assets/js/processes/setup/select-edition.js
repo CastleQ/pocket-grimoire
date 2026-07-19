@@ -1,6 +1,7 @@
 import Observer from "../../classes/Observer.js";
 import TokenStore from "../../classes/TokenStore.js";
 import Dialog from "../../classes/Dialog.js";
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase-config.js";
 import {
     lookup,
     lookupOne,
@@ -68,6 +69,13 @@ function containsHomebrew(json) {
  *        a game that only consists of recognised characters.
  */
 function announceScript(name, characters, game = null) {
+
+    // 배포(캐릭터 배포) 시 games.script_name + 플레이 빈도에 쓰기 위해 현재 시트 이름 저장.
+    try {
+        window.localStorage.setItem("pg_current_script", name || "");
+    } catch (ignore) {
+        // localStorage 사용 불가 시 무시
+    }
 
     Observer.create("game").trigger("characters-selected", {
         name,
@@ -373,72 +381,109 @@ if (editionDirect && customRadio) {
 // 내장 시나리오(커스텀/홈브류/틴시빌)를 매니페스트에서 읽어 드롭다운을 채운다.
 const scriptsBase = (typeof URLS !== "undefined" && URLS.scriptsBase) || "/scripts/";
 
+// 공식 시트: 파일 없이 tb/bmr/snv 에디션으로 로드. 이름은 앱 표기와 동일하게 유지.
+const OFFICIAL_SHEETS = [
+    { value: "tb", name: "Trouble Brewing(점철되는 혼란)" },
+    { value: "bmr", name: "Bad Moon Rising(피로 물든 달)" },
+    { value: "snv", name: "Sects and Violets(화단에 꽃피운 이단)" }
+];
+
 function escapeHtml(value) {
     return String(value == null ? "" : value)
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
-        .replace(/\"/g, "&quot;")
+        .replace(/"/g, "&quot;")
         .replace(/'/g, "&#39;");
 }
 
-function renderBuiltinSheets() {
-
-    fetch(scriptsBase + "manifest.json")
-        .then((response) => response.json())
-        .then((manifest) => {
-
-            lookup(".js--edition-list", form).forEach((list) => {
-
-                const category = list.dataset.category;
-                const sheets = (manifest && manifest[category]) || [];
-
-                list.innerHTML = "";
-
-                if (!sheets.length) {
-                    const li = document.createElement("li");
-                    li.className = "edition-group__empty";
-                    li.textContent = "(준비 중)";
-                    list.append(li);
-                    return;
-                }
-
-                sheets.forEach((sheet) => {
-
-                    // 라벨: 시트 이름(볼드) + " by " + 저자. 값이 없으면 해당 부분 공란.
-                    const nameHTML = "<strong>" + escapeHtml(sheet.name) + "</strong>";
-                    const authorHTML = sheet.author ? " by " + escapeHtml(sheet.author) : "";
-                    const value = "sheet:" + sheet.file;
-                    const id = "edition-" + String(sheet.file).replace(/[^a-z0-9]+/gi, "-");
-
-                    const li = document.createElement("li");
-                    li.innerHTML = (
-                        '<label for="' + id + '" class="radio">'
-                        + '<span class="radio__wrapper">'
-                        + '<input type="radio" name="edition" value="' + escapeHtml(value) + '" id="' + id + '" class="radio__input">'
-                        + '<span class="radio__render"></span>'
-                        + '</span>'
-                        + '<span class="radio__label">' + nameHTML + authorHTML + '</span>'
-                        + '</label>'
-                    );
-                    list.append(li);
-
-                });
-
+// Supabase에서 시트별 플레이 횟수를 읽어 { 이름: 횟수 } 맵으로 만든다. 실패해도 빈 맵.
+function fetchPlayCounts() {
+    return fetch(SUPABASE_URL + "/rest/v1/sheet_plays?select=name,play_count", {
+        headers: {
+            "apikey": SUPABASE_ANON_KEY,
+            "Authorization": "Bearer " + SUPABASE_ANON_KEY
+        }
+    })
+        .then((response) => (response.ok ? response.json() : []))
+        .then((rows) => {
+            const map = Object.create(null);
+            (rows || []).forEach((row) => {
+                map[row.name] = row.play_count || 0;
             });
-
+            return map;
         })
-        .catch(() => {
+        .catch(() => Object.create(null));
+}
 
-            lookup(".js--edition-list", form).forEach((list) => {
-                list.innerHTML = '<li class="edition-group__empty">목록을 불러오지 못했습니다.</li>';
+// 4개 카테고리(공식/커스텀/홈브류/틴시빌)를 데이터로 렌더한다.
+// 플레이 횟수를 병합해 인기순(내림차순)으로 정렬하고 라벨에 "(N회)"를 표시한다.
+function renderSheets() {
+
+    Promise.all([
+        fetch(scriptsBase + "manifest.json").then((r) => r.json()).catch(() => ({})),
+        fetchPlayCounts()
+    ]).then(([manifest, counts]) => {
+
+        lookup(".js--edition-list", form).forEach((list) => {
+
+            const category = list.dataset.category;
+            const isOfficial = category === "official";
+            const sheets = isOfficial
+                ? OFFICIAL_SHEETS.slice()
+                : ((manifest && manifest[category]) || []).slice();
+
+            list.innerHTML = "";
+
+            if (!sheets.length) {
+                const li = document.createElement("li");
+                li.className = "edition-group__empty";
+                li.textContent = "(준비 중)";
+                list.append(li);
+                return;
+            }
+
+            // 플레이 횟수 병합 후 인기순 정렬(동점은 원래 순서 유지).
+            sheets.forEach((sheet, index) => {
+                sheet.__count = counts[sheet.name] || 0;
+                sheet.__order = index;
+            });
+            sheets.sort((a, b) => (b.__count - a.__count) || (a.__order - b.__order));
+
+            sheets.forEach((sheet) => {
+
+                const value = isOfficial ? sheet.value : ("sheet:" + sheet.file);
+                const idBase = isOfficial ? sheet.value : sheet.file;
+                const id = "edition-" + String(idBase).replace(/[^a-z0-9]+/gi, "-");
+                const nameHTML = "<strong>" + escapeHtml(sheet.name) + "</strong>";
+                const authorHTML = sheet.author ? " by " + escapeHtml(sheet.author) : "";
+                const countHTML = " (" + sheet.__count + "회)";
+
+                const li = document.createElement("li");
+                li.innerHTML = (
+                    '<label for="' + id + '" class="radio">'
+                    + '<span class="radio__wrapper">'
+                    + '<input type="radio" name="edition" value="' + escapeHtml(value) + '" id="' + id + '" class="radio__input" data-sheet-name="' + escapeHtml(sheet.name) + '">'
+                    + '<span class="radio__render"></span>'
+                    + '</span>'
+                    + '<span class="radio__label">' + nameHTML + authorHTML + countHTML + '</span>'
+                    + '</label>'
+                );
+                list.append(li);
+
             });
 
         });
 
+    }).catch(() => {
+        lookup(".js--edition-list", form).forEach((list) => {
+            list.innerHTML = '<li class="edition-group__empty">목록을 불러오지 못했습니다.</li>';
+        });
+    });
+
 }
 
-renderBuiltinSheets();
+renderSheets();
 
 customInputs.forEach((input) => {
 
@@ -587,7 +632,7 @@ form.addEventListener("submit", (e) => {
         } else {
 
             announceScript(
-                getLabelText(radio),
+                radio.dataset.sheetName || getLabelText(radio),
                 tokenStore
                     .getAllCharacters()
                     .filter((character) => character.getEdition() === edition)

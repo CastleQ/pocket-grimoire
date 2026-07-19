@@ -199,8 +199,16 @@ function handleDistributeClick() {
             };
         });
 
+        // 현재 로드된 시트 이름 (select-edition.js가 로드 시 저장). games.script_name + 플레이 빈도에 사용.
+        let scriptName = "";
+        try {
+            scriptName = window.localStorage.getItem("pg_current_script") || "";
+        } catch (ignore) {
+            scriptName = "";
+        }
+
         let createdGame = null;
-        supabaseInsert("games", [{ script_name: "" }])
+        supabaseInsert("games", [{ script_name: scriptName }])
             .then(function (games) {
                 createdGame = games[0];
                 const slotRows = slotData.map(function (d) {
@@ -216,6 +224,15 @@ function handleDistributeClick() {
             })
             .then(function () {
                 startWatching(createdGame.id);
+
+                // 플레이 빈도 +1 (공식/내장/직접입력 모두 포함). 실패해도 배포에 영향 없음.
+                if (scriptName) {
+                    fetch(SUPABASE_URL + "/rest/v1/rpc/increment_sheet_play", {
+                        method: "POST",
+                        headers: sbHeaders(),
+                        body: JSON.stringify({ p_sheet_key: scriptName, p_name: scriptName })
+                    }).catch(function () {});
+                }
                 // claim.html 링크 생성:
                 // - 정적 배포(예: /pocket-grimoire/): 그리모어와 같은 폴더의 claim.html
                 // - 개발 환경(/ko_KR/ 등 로케일 경로): public 루트의 /claim.html

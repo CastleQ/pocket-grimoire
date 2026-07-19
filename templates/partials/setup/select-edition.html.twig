@@ -12,28 +12,8 @@
 
         <details class="edition-group" open>
             <summary class="edition-group__summary">공식 시트</summary>
-            <ul class="no-list edition-group__list">
-                <li>
-                    {{ forms.radio({
-                        name: 'edition',
-                        value: 'tb',
-                        label: 'setup.editions.trouble_brewing'|trans
-                    }) }}
-                </li>
-                <li>
-                    {{ forms.radio({
-                        name: 'edition',
-                        value: 'bmr',
-                        label: 'setup.editions.bad_moon_rising'|trans
-                    }) }}
-                </li>
-                <li>
-                    {{ forms.radio({
-                        name: 'edition',
-                        value: 'snv',
-                        label: 'setup.editions.sects_and_violets'|trans
-                    }) }}
-                </li>
+            <ul class="no-list edition-group__list js--edition-list" data-category="official">
+                <li class="edition-group__empty">불러오는 중…</li>
             </ul>
         </details>
 
