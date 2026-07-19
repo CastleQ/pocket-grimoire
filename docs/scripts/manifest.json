@@ -39,6 +39,11 @@
       "file": "friend-or-foe.json",
       "name": "피아식별",
       "author": "CastleQ"
+    },
+    {
+      "file": "grimm-brothers-choir.json",
+      "name": "그림 형제 합창단",
+      "author": "Zets"
     }
   ],
   "homebrew": [
@@ -88,6 +93,11 @@
       "file": "whos-the-flying-squirrel.json",
       "name": "누가 날다람쥐야?",
       "author": ""
+    },
+    {
+      "file": "nobody-move.json",
+      "name": "ㅅㅂ 아무도 움직이지마",
+      "author": "Brockwell"
     }
   ]
 }
