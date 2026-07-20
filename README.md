@@ -1,3 +1,19 @@
+> 이 저장소는 [Skateside/pocket-grimoire](https://github.com/Skateside/pocket-grimoire)를 포크하여 여러 부가 기능(캐릭터 배포 링크, 시나리오 선택, 그리모어 토큰 고정, 커스텀 리마인더 등)을 추가한 **포켓 그리모어 플러스+** 입니다.
+> - 이 프로젝트는 **비공식 팬 프로젝트**이며 The Pandemonium Institute(TPI)와 **관련이 없습니다**.
+> - *Blood on the Clocktower(시계탑의 흐른피)* 는 Steven Medway와 The Pandemonium Institute의 **상표**입니다.
+> - 공식 롤 아이콘·캐릭터 데이터는 TPI [Community Created Content 정책](https://bloodontheclocktower.com/pages/community-created-content-policy)에 따라 **비상업적**으로 사용하며, 앱스토어로 배포하지 않습니다.
+> - 코드는 원본과 동일하게 **GPL-3.0** 라이선스로 공개됩니다.
+> - 시계탑의 흐른피를 즐기신다면 [공식 제품 구매](https://bloodontheclocktower.com/)를 고려해 주세요.
+>
+> **English**
+> This repository is **Pocket Grimoire Plus+**, a fork of [Skateside/pocket-grimoire](https://github.com/Skateside/pocket-grimoire) with several added features (character-distribution links, scenario picker, grimoire token lock, custom reminders, and more).
+> - This is an **unofficial fan project** and is **not affiliated** with The Pandemonium Institute (TPI).
+> - *Blood on the Clocktower* is a **trademark** of Steven Medway and The Pandemonium Institute.
+> - Official role icons and character data are used **non-commercially** under TPI's [Community Created Content policy](https://bloodontheclocktower.com/pages/community-created-content-policy); this project is **not** distributed through app stores.
+> - The code is released under **GPL-3.0**, the same license as upstream.
+> - If you enjoy Blood on the Clocktower, please consider [buying the official product](https://bloodontheclocktower.com/).
+
+---
 # Pocket Grimoire
 
 [PocketGrimoire.co.uk](https://www.pocketgrimoire.co.uk)
