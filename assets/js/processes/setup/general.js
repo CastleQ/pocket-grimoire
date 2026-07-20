@@ -1,199 +1,191 @@
-import Store from "../../classes/Store.js";
+import Pad from "../../classes/Pad.js";
+import Positioner from "../../classes/Positioner.js";
 import Observer from "../../classes/Observer.js";
-import Template from "../../classes/Template.js";
-import CharacterToken from "../../classes/CharacterToken.js";
 import ReminderToken from "../../classes/ReminderToken.js";
-import TokenStore from "../../classes/TokenStore.js";
 import Dialog from "../../classes/Dialog.js";
-import Names from "../../classes/Names.js";
-import {
-    fetchFromStore
-} from "../../utils/fetch.js";
+import TokenStore from "../../classes/TokenStore.js";
 import {
     lookup,
     lookupOne,
-    lookupOneCached
+    lookupOneCached,
+    replaceContentsMany
 } from "../../utils/elements.js";
-import {
-    LANGUAGE
-} from "../../constants/language.js";
-import roleImages from "../../../data/role-images.json";
 
-const store = Store.create("pocket-grimoire");
 const gameObserver = Observer.create("game");
+const tokenObserver = Observer.create("token");
 
-// 공식 캐릭터 이미지를 마스터 데이터(role-images.json)로 교체한다.
-// 키 정규화: 소문자 + [-_] 제거 + 끝 숫자 제거 (예: "Steward1" -> "steward").
-// 매칭되는 캐릭터는 image를 [기본, 반대] 배열로 덮어써서 팀별 올바른 색(선=파랑/악=빨강)을
-// 기본값으로 삼고, 선/악 토글(향후)의 토대를 만든다. 매칭 안 되는 캐릭터는 원본 유지.
-function roleImageKey(id) {
-    return String(id).toLowerCase().replace(/[-_]/g, "").replace(/\d+$/, "");
-}
+const padElement = lookupOneCached(".js--pad");
+const pad = new Pad(padElement, tokenObserver);
+padElement.pad = pad;
 
-function applyRoleImages(characters) {
-    return characters.map((character) => {
-        const images = roleImages[roleImageKey(character.id)];
-        return (images && images.length)
-            ? { ...character, image: images }
-            : character;
+const styleObserver = new MutationObserver((mutations) => {
+
+    gameObserver.trigger("pad-height-change", {
+        height: mutations[0].target.style.height
     });
-}
 
-fetchFromStore(`characters_${LANGUAGE}`, URLS.characters, store).then((characters) => {
-    gameObserver.trigger("characters-loaded", { characters });
 });
 
-fetchFromStore(`jinxes_${LANGUAGE}`, URLS.jinxes, store).then((jinxes) => {
-    gameObserver.trigger("jinxes-loaded", { jinxes });
+styleObserver.observe(padElement, {
+    attributes: true,
+    attributeFilter: ["style"]
 });
 
-fetchFromStore("game", URLS.game, store).then((breakdown) => {
-    gameObserver.trigger("team-breakdown-loaded", { breakdown });
+// If the elements are within a closed <details> element then their height and
+// width will be 0. Listen for the pad becoming visible and update the class.
+lookup("details").forEach((details) => {
+
+    details.addEventListener("toggle", () => {
+        pad.updateDimensions();
+    });
+
 });
 
-CharacterToken.setTemplates({
-    token: Template.create(lookupOne("#character-template")),
-    list: Template.create(lookupOne("#character-list-template")),
-    select: Template.create(lookupOne("#character-select-template")),
-    nightOrder: Template.create(lookupOne("#night-info-template"))
-});
-ReminderToken.setTemplates({
-    token: Template.create(lookupOne("#reminder-template")),
-    list: Template.create(lookupOne("#reminder-list-template"))
-});
-Names.create()
-    .setTemplate(Template.create(lookupOne("#player-name-template")))
-    .setObserver(new Observer());
+gameObserver.on("characters-selected", ({ detail }) => {
 
-Promise.all([
-    new Promise((resolve) => {
-        gameObserver.on("characters-loaded", ({ detail }) => {
-            resolve(detail.characters);
+    const characters = detail.characters.filter((character) => {
+        const team = character.getTeam();
+        return team !== "traveller" && team !== "fabled" && team !== "loric";
+    });
+
+    replaceContentsMany(
+        lookupOneCached("#character-list__list"),
+        characters.map((character) => character.drawList())
+    );
+
+    const reminders = characters.reduce((reminders, character) => {
+        return reminders.concat(character.getReminders());
+    }, ReminderToken.getGlobal());
+
+    replaceContentsMany(
+        lookupOneCached("#reminder-list__list"),
+        reminders.map((reminder) => reminder.drawList())
+    );
+
+    lookupOneCached("#add-token").disabled = false;
+    lookupOneCached("#add-reminder").disabled = false;
+    lookupOneCached("#show-tokens").disabled = false;
+
+});
+
+gameObserver.on("character-drawn", ({ detail }) => {
+    pad.addNewCharacter(detail.character);
+});
+
+lookupOne("#show-night-order").addEventListener("change", ({ target }) => {
+
+    padElement.style[
+        target.checked
+        ? "removeProperty"
+        : "setProperty"
+    ]("--night-order-display", "none");
+
+});
+
+// 토큰 잠금 (작업 6): 마도서 헤더의 스위치로 모든 토큰(캐릭터·리마인더)의 드래그
+// 이동을 막는다. 클릭(다이얼로그 열기)은 그대로 동작한다.
+const lockToggle = lookupOne("#lock-tokens");
+
+if (lockToggle) {
+
+    lockToggle.addEventListener("change", ({ target }) => {
+        pad.tokens.setLocked(target.checked);
+    });
+
+    // 스위치 컨테이너(노브/텍스트/여백 어디든) 클릭 시 잠금을 토글한다.
+    // 하위 요소는 CSS로 pointer-events:none 처리돼 클릭 대상이 항상 이 컨테이너가
+    // 되므로, 작은 노브를 정확히 누르지 않아도 동작한다. 마도서(details) 접힘은 막고
+    // 체크 상태만 직접 토글한다(네이티브 토글과 겹쳐 상쇄되는 문제도 방지).
+    const lockAside = lockToggle.closest(".details__summary-aside");
+
+    if (lockAside) {
+        lockAside.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            lockToggle.checked = !lockToggle.checked;
+            lockToggle.dispatchEvent(new Event("change", { bubbles: true }));
         });
-    }),
-    new Promise((resolve) => {
-        gameObserver.on("jinxes-loaded", ({ detail }) => {
-            resolve(detail.jinxes);
-        });
-    })
-]).then(([ characters, jinxes ]) => {
+    }
 
-    TokenStore.create({
-        characters: [
-            // Create an empty character which we can use as a token placeholder.
-            {
-                id: TokenStore.EMPTY,
-                image: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
-                ability: I18N.emptyCharacterAbility,
-                [CharacterToken.empty]: true,
-            },
-            ...applyRoleImages(characters)
-        ],
-        reminders: [
-            {
-                id: TokenStore.EMPTY,
-                name: "",
-                text: I18N.goodTeam,
-                image: __webpack_public_path__ + "img/icons/townsfolk.webp",
-                isGlobal: true
-            },
-            {
-                id: TokenStore.EMPTY,
-                name: "",
-                text: I18N.evilTeam,
-                image: __webpack_public_path__ + "img/icons/demon.webp",
-                isGlobal: true
+    // 게임 중 새 토큰(캐릭터·리마인더)이 추가되면 잠금을 자동 해제한다.
+    // (추가 직후 자연스럽게 옮기는 흐름이므로, 수동으로 잠금을 끄는 동작을 없앤다.)
+    // 잠긴 상태일 때만 해제하며, change 이벤트로 기존 핸들러를 재사용해 상태를 동기화한다.
+    // 교체(replace)는 tokenObserver.suppressAutoUnlock 플래그로 제외한다(순수 추가만 해제).
+    ["character-add", "reminder-add"].forEach((eventName) => {
+        tokenObserver.on(eventName, () => {
+            if (tokenObserver.suppressAutoUnlock) {
+                return;
             }
-        ],
-        jinxes
+            if (lockToggle.checked) {
+                lockToggle.checked = false;
+                lockToggle.dispatchEvent(new Event("change", { bubbles: true }));
+            }
+        });
     });
 
+}
+
+gameObserver.on("clear", () => pad.reset());
+
+// Character and Reminder token sizes.
+
+const html = document.documentElement;
+
+lookupOne("#token-size").addEventListener("input", ({ target }) => {
+    html.style.setProperty("--token-size", target.value);
 });
 
-// Delegate this event for two reasons:
-// 1. We can add dialogs dynamically and they'll still work.
-// 2. It's more efficient to only create the instance when it's needed.
-document.body.addEventListener("click", ({ target }) => {
+lookupOne("#reminder-size").addEventListener("input", ({ target }) => {
+    html.style.setProperty("--reminder-size", target.value);
+});
 
-    if (target.hasAttribute("data-dialog") && !target.dialog) {
+// Token auto-placements.
 
-        target.dialog = Dialog.createFromTrigger(target);
-        target.dialog.show();
+pad.setPositioner(new Positioner());
 
+const tokenLayout = lookupOne("#token-layout");
+
+pad.updatePositioner({
+    layout: tokenLayout.value,
+    // At this stage, most of the positioner probably hasn't been set up so we'd
+    // get a few issues if we try to generate the co-ordinates. Better to just
+    // give the positioner some data and generate the co-ordinates later.
+    generate: false
+});
+
+tokenLayout.addEventListener("change", () => {
+    pad.updatePositioner({ layout: tokenLayout.value });
+});
+
+gameObserver.on("player-count", ({ detail }) => {
+    pad.updatePositioner({ total: detail.count });
+});
+
+gameObserver.on("pad-height-change", () => {
+    pad.updatePositioner({ container: true });
+});
+
+Dialog.create(lookupOneCached("#character-select")).on(Dialog.SHOW, () => {
+
+    const grimoireSection = lookupOneCached("#grimoire");
+    const isOpen = grimoireSection.open;
+
+    if (!isOpen) {
+        grimoireSection.open = true;
+    }
+
+    pad.updatePositioner({
+        container: true,
+        tokens: true,
+        total: lookupOneCached("#player-count").value
+    });
+
+    if (!isOpen) {
+        grimoireSection.open = false;
     }
 
 });
 
-lookup("input[data-filter-list]").forEach((input) => {
-
-    input.addEventListener("change", ({ target }) => {
-
-        const list = lookupOneCached(target.dataset.filterList);
-
-        if (!list) {
-            return;
-        }
-
-        list.classList.toggle("is-show-all", target.checked);
-
-    });
-
-});
-
-lookupOne("#locale-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    window.location.href = lookupOneCached("#select-locale").value;
-});
-
-lookupOneCached("#select-locale").addEventListener("change", ({ target }) => {
-    target.form.requestSubmit();
-});
-
-function setTrackWidth(input) {
-
-    const {
-        min,
-        max,
-        value
-    } = input;
-
-    input.style.setProperty(
-        "--size",
-        ((value - min) * 100) / (max - min)
-    );
-
-}
-
-const rangeObserver = new MutationObserver((entries) => {
-
-    entries.forEach(({ type, target }) => {
-
-        if (type == "attributes") {
-            setTrackWidth(target);
-        }
-
-    });
-
-});
-
-lookup("input[type=\"range\"][data-output]").forEach((input) => {
-
-    const output = lookupOne(input.dataset.output);
-
-    input.addEventListener("input", () => {
-
-        setTrackWidth(input);
-
-        if (output) {
-            output.value = input.value
-        }
-
-    });
-
-    setTrackWidth(input);
-    rangeObserver.observe(input, {
-        attributes: true,
-        attributeFilter: ["min", "max", "value"]
-    });
-
+TokenStore.ready((tokenStore) => {
+    pad.setTokenStore(tokenStore);
 });

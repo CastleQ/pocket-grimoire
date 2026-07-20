@@ -199,7 +199,15 @@ const replaceOnPadProcess = {
             const {
                 character,
                 token: newToken
-            } = pad.addCharacter(tokenStore.getCharacterClone(tokenId));
+            } = (() => {
+                // 교체는 자동 잠금해제 대상에서 제외한다(순수 추가만 해제).
+                tokenObserver.suppressAutoUnlock = true;
+                try {
+                    return pad.addCharacter(tokenStore.getCharacterClone(tokenId));
+                } finally {
+                    tokenObserver.suppressAutoUnlock = false;
+                }
+            })();
             const {
                 data
             } = this;
