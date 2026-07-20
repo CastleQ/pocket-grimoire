@@ -107,6 +107,22 @@ if (lockToggle) {
         });
     }
 
+    // 게임 중 새 토큰(캐릭터·리마인더)이 추가되면 잠금을 자동 해제한다.
+    // (추가 직후 자연스럽게 옮기는 흐름이므로, 수동으로 잠금을 끄는 동작을 없앤다.)
+    // 잠긴 상태일 때만 해제하며, change 이벤트로 기존 핸들러를 재사용해 상태를 동기화한다.
+    // 교체(replace)는 tokenObserver.suppressAutoUnlock 플래그로 제외한다(순수 추가만 해제).
+    ["character-add", "reminder-add"].forEach((eventName) => {
+        tokenObserver.on(eventName, () => {
+            if (tokenObserver.suppressAutoUnlock) {
+                return;
+            }
+            if (lockToggle.checked) {
+                lockToggle.checked = false;
+                lockToggle.dispatchEvent(new Event("change", { bubbles: true }));
+            }
+        });
+    });
+
 }
 
 gameObserver.on("clear", () => pad.reset());
