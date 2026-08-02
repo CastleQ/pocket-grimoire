@@ -2,7 +2,7 @@
 # Pocket Grimoire 정적 빌드 스크립트 (GitHub Pages 배포용 docs/ 생성)
 # 사용법: export COREPACK_ENABLE_DOWNLOAD_PROMPT=0 && bash bake.sh
 set -e
-cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd /workspaces/pocket-grimoire
 BASE="/pocket-grimoire"   # ← GitHub Pages 프로젝트 경로 (저장소 이름과 동일해야 함)
 
 echo "▶ 1/7 서버 기동 (HTML/데이터 렌더용)..."
