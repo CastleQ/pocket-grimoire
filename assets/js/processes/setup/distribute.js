@@ -2,6 +2,7 @@
 // v4: 배포 시 캐릭터 이름/능력/이미지를 슬롯에 함께 저장 (공식+커스텀 스크립트 모두 지원)
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase-config.js";
 import TokenStore from "../../classes/TokenStore.js";
+import { archivePendingScript } from "./script-archive.js";
 
 const WATCH_GAME_KEY = "pg_watch_game";
 let watchTimer = null;
@@ -233,6 +234,11 @@ function handleDistributeClick() {
                         body: JSON.stringify({ p_sheet_key: scriptName, p_name: scriptName })
                     }).catch(function () {});
                 }
+
+                // N-1: 직접 입력된 커스텀 시트라면 JSON 원문을 아카이브한다.
+                // select-edition.js가 예약해 둔 것만 전송되며, 내장 시트는 예약이 없어 아무 일도 하지 않는다.
+                // 실패해도 배포에는 영향을 주지 않는다.
+                archivePendingScript();
                 // claim.html 링크 생성:
                 // - 정적 배포(예: /pocket-grimoire/): 그리모어와 같은 폴더의 claim.html
                 // - 개발 환경(/ko_KR/ 등 로케일 경로): public 루트의 /claim.html

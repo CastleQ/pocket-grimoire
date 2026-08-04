@@ -1,4 +1,5 @@
 import Observer from "../../classes/Observer.js";
+import { rememberCustomScript, forgetCustomScript } from "./script-archive.js";
 import TokenStore from "../../classes/TokenStore.js";
 import Dialog from "../../classes/Dialog.js";
 import {
@@ -254,8 +255,17 @@ function processJSON({
     form,
     json,
     input,
-    store
+    store,
+    isCustom = false
 }) {
+
+    // N-1: 직접 입력(URL/파일/붙여넣기)된 시트만 아카이브 대상으로 예약한다.
+    // 내장 시트를 고르면 이전 예약을 지워 잘못 수집되는 일을 막는다.
+    if (isCustom) {
+        rememberCustomScript(json);
+    } else {
+        forgetCustomScript();
+    }
 
     if (!isScriptJson(json)) {
 
@@ -524,7 +534,8 @@ form.addEventListener("submit", (e) => {
                             form,
                             json: json.data,
                             input: urlInput,
-                            store: tokenStore
+                            store: tokenStore,
+                            isCustom: true
                         }).then(() => setFormLoadingState(form, false));
 
                     });
@@ -547,7 +558,8 @@ form.addEventListener("submit", (e) => {
                         form,
                         json,
                         input: fileInput,
-                        store: tokenStore
+                        store: tokenStore,
+                        isCustom: true
                     })
 
                 });
@@ -568,7 +580,8 @@ form.addEventListener("submit", (e) => {
                     form,
                     json,
                     input: pasteInput,
-                    store: tokenStore
+                    store: tokenStore,
+                    isCustom: true
                 })
 
             }
@@ -597,7 +610,8 @@ form.addEventListener("submit", (e) => {
                         form,
                         json,
                         input: null,
-                        store: tokenStore
+                        store: tokenStore,
+                        isCustom: false
                     }).then(() => setFormLoadingState(form, false));
 
                 });
