@@ -1,5 +1,5 @@
 import Observer from "../../classes/Observer.js";
-import { rememberCustomScript, forgetCustomScript } from "./script-archive.js";
+import { archiveCustomScript } from "./script-archive.js";
 import TokenStore from "../../classes/TokenStore.js";
 import Dialog from "../../classes/Dialog.js";
 import {
@@ -259,12 +259,11 @@ function processJSON({
     isCustom = false
 }) {
 
-    // N-1: 직접 입력(URL/파일/붙여넣기)된 시트만 아카이브 대상으로 예약한다.
-    // 내장 시트를 고르면 이전 예약을 지워 잘못 수집되는 일을 막는다.
+    // N-1: 직접 입력(URL/파일/붙여넣기)된 시트는 불러오는 즉시 아카이브한다.
+    // 내장 시트는 이미 저장소에 있으므로 수집하지 않는다.
+    // 아카이브는 비동기로 진행되며 실패해도 시트 로드에 영향을 주지 않는다.
     if (isCustom) {
-        rememberCustomScript(json);
-    } else {
-        forgetCustomScript();
+        archiveCustomScript(json);
     }
 
     if (!isScriptJson(json)) {
