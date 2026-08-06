@@ -1,5 +1,6 @@
 import Observer from "../../classes/Observer.js";
 import { archiveCustomScript } from "./script-archive.js";
+import { sortByOfficialOrder } from "../../data/official-order.js";
 import TokenStore from "../../classes/TokenStore.js";
 import Dialog from "../../classes/Dialog.js";
 import {
@@ -617,11 +618,16 @@ form.addEventListener("submit", (e) => {
 
         } else {
 
+            // 공식 3종(tb/bmr/snv)은 시트 JSON 없이 DB에서 직접 읽어오므로 영문
+            // id 알파벳순으로 나온다. 순번표로 표시 순서를 맞춰준다.
             announceScript(
                 radio.dataset.sheetName || getLabelText(radio),
-                tokenStore
-                    .getAllCharacters()
-                    .filter((character) => character.getEdition() === edition)
+                sortByOfficialOrder(
+                    edition,
+                    tokenStore
+                        .getAllCharacters()
+                        .filter((character) => character.getEdition() === edition)
+                )
             );
 
         }
