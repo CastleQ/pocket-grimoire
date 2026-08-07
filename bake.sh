@@ -46,11 +46,13 @@ h=h.replace(/scriptsBase:\s*"[^"]*"/, "scriptsBase: \"" + base + "/scripts/\"");
 fs.writeFileSync(p,h);
 console.log("   URLS characters/jinxes/game + /build 이미지 경로 교체 완료");
 ' "$BASE"
+node tools/rewrite-images.js "$BASE"
 
 echo "▶ 6/7 빌드 자원 + claim.html 복사 + Jekyll 비활성화..."
 rm -rf docs/build && cp -r public/build docs/build
 cp public/claim.html docs/claim.html
 rm -rf docs/scripts && cp -r public/scripts docs/scripts
+rm -rf docs/img && cp -r public/img docs/img
 touch docs/.nojekyll
 echo "   docs/build + docs/claim.html 복사 완료"
 
