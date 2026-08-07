@@ -1,145 +1,292 @@
-@charset "UTF-8";
+/**
+ * 캐릭터 시트 / 밤 순서 시트 전용 스타일.
+ *
+ * 공식 인쇄 시트(PDF)의 배치를 따른다.
+ *   - 흰 바탕, 팀별 구분선, 2단 구성
+ *   - 선한 팀은 푸른 계열, 악한 팀은 붉은 계열
+ */
 
-@import "./base/fonts";
-@import "./base/root";
-@import "./base/elements";
+$blue: #1c5a9e;
+$red: #96181c;
+$purple: #5c4b8a;
+$olive: #7a6b3a;
+$ink: #1a1a1a;
+$muted: #7d7d7d;
+$rule: #b9b2a4;
 
-a {
-    color: #337ab7;
+$serif: "Times New Roman", "Nanum Myeongjo", "바탕", serif;
+$sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
+
+.body-sheet {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: $ink;
+    font-family: $sans;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
-@import "./objects/no-btn";
-@import "./objects/sr-only";
+.sheet-empty {
+    margin: 4rem auto;
+    max-width: 30rem;
+    text-align: center;
+    color: $muted;
+}
 
-@import "./components/body";
-@import "./components/title";
-@import "./components/edition";
-@import "./components/button";
-@import "./components/dialog";
-@import "./components/qr";
-@import "./components/locale-form";
-@import "./components/breakdown";
-@import "./components/community";
+.sheet-wrapper {
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+    max-width: 62rem;
+}
+
+.sheet-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+
+    &:empty {
+        display: none;
+    }
+}
+
+.sheet-page {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+
+    & + .sheet-page {
+        border-top: 1px solid $rule;
+        padding-top: 1.75rem;
+    }
+}
+
+.sheet-page__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.sheet-page__heading {
+    min-width: 0;
+}
+
+.sheet-page__title {
+    margin: 0;
+    font-family: $serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    word-break: keep-all;
+}
+
+.sheet-page__author {
+    margin: 0.35rem 0 0;
+    color: $muted;
+    font-size: 0.85rem;
+}
+
+.sheet-page__logo {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 7rem;
+    max-height: 2.75rem;
+    object-fit: contain;
+}
+
+.sheet-page__footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    color: $muted;
+    font-size: 0.7rem;
+}
+
+.sheet-team {
+    margin-bottom: 1.4rem;
+}
+
+.sheet-team__label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 0.6rem;
+    color: #4a4a4a;
+    font-size: 0.8rem;
+    font-weight: 400;
+
+    &::after {
+        content: "";
+        flex: 1 1 auto;
+        border-top: 1px solid $rule;
+    }
+}
+
+.sheet-team__list {
+    column-count: 2;
+    column-gap: 2rem;
+}
+
+.sheet-role {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    margin-bottom: 0.7rem;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.sheet-role__icon {
+    flex: 0 0 3.4rem;
+    width: 3.4rem;
+    text-align: center;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.sheet-role__icon--night {
+    flex-basis: 2.6rem;
+    width: 2.6rem;
+}
+
+.sheet-role__body {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.sheet-role__name {
+    margin: 0 0 0.1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: $blue;
+}
+
+.sheet-role__ability {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    word-break: keep-all;
+
+    strong {
+        font-weight: 700;
+    }
+}
+
+.sheet-role--minion .sheet-role__name,
+.sheet-role--demon .sheet-role__name {
+    color: $red;
+}
+
+.sheet-role--traveller .sheet-role__name {
+    color: $purple;
+}
+
+.sheet-role--fabled .sheet-role__name,
+.sheet-role--loric .sheet-role__name {
+    color: $olive;
+}
+
+.sheet-role--bookend .sheet-role__name {
+    color: $ink;
+}
+
+// ── 밤 시트 ─────────────────────────────────────────────────────
+
+.sheet-page--night {
+    .sheet-night__list {
+        column-count: 1;
+    }
+}
+
+.sheet-night__title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 1.1rem;
+    color: #4a4a4a;
+    font-family: $serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+
+    &::before,
+    &::after {
+        content: "";
+        flex: 1 1 auto;
+        border-top: 1px solid $rule;
+    }
+}
+
+.sheet-night__list {
+    display: block;
+}
+
+.sheet-bookend {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+}
+
+.sheet-bookend--dusk {
+    background: #22304f;
+}
+
+.sheet-bookend--dawn {
+    background: #f0a92a;
+}
+
+.sheet-bookend__shape {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+}
+
+.sheet-bookend--dusk .sheet-bookend__shape {
+    background: #f3f0e4;
+    box-shadow: 0.32rem -0.16rem 0 0 #22304f inset;
+}
+
+.sheet-bookend--dawn .sheet-bookend__shape {
+    background: #fff6dd;
+}
+
+// ── 인쇄 ────────────────────────────────────────────────────────
 
 @media print {
 
-    @page {
-        margin: 0.5cm 0.5cm 1cm;
-    }
-
-    html,
-    body {
-        font-size: 9pt;
-        margin: 0;
-        background-color: #fff !important;
-        background-image: none !important;
-    }
-
-    a[href] {
-        color: #000;
-        text-decoration: none;
-    }
-
-    small {
-        font-size: 7pt;
-    }
-
-    p {
-        margin: 0;
-    }
-
-    footer {
-        position: fixed;
-        bottom: 0;
-    }
-
-    :last-child {
-        page-break-after: auto;
-    }
-
-    .body-list {
-        background-color: #fff;
-        background-image: none;
-    }
-
-    .title {
-        text-shadow: none;
-        font-size: 14pt;
-        color: #000;
-        margin-bottom: 0.5rem;
-    }
-
-    .edition {
-        page-break-inside: avoid;
-    }
-
-    .edition > summary {
-        font-size: 12pt;
-        color: #000;
-        margin-top: 0.25rem;
-        margin-bottom: 0.25rem;
-    }
-
-    .edition__heading-text {
-        border: none;
-        background-color: #fff;
-        margin-inline-start: 25pt;
-        box-shadow: none;
-
-        &::before {
-            display: none;
-        }
-    }
-
-    .edition__role {
-        grid-template-areas:
-            "token name ability"
-            "token jinxes ability";
-        grid-template-columns: 25pt 80pt 1fr;
-        grid-template-rows: -webkit-min-content;
-        grid-template-rows: 1fr min-content;
-        gap: 0 4pt;
-        padding: 0.5pt 0;
-        page-break-inside: avoid;
-    }
-
-    .edition__role--jinx {
-        grid-template-areas:
-            "target trick ability";
-        grid-template-columns: 25pt 25pt 1fr;
-    }
-
-    .edition__role + .edition__role {
-        border: none;
-    }
-
-    .edition__image {
-        width: 50pt;
-    }
-
-    .edition__name {
-        font-size: 10pt;
-    }
-
-    .edition__ability {
-        font-size: 9pt;
-    }
-
-    .edition__jinxes {
-        gap: 2pt;
-        margin-top: 2pt;
-    }
-
-    .edition__jinx {
-        width: 8pt;
-    }
-
-    .button {
+    .sheet-toolbar {
         display: none;
     }
 
-    .no-print {
-        display: none !important;
+    .sheet-wrapper {
+        padding: 0;
+        max-width: none;
+    }
+
+    .sheet-page {
+        margin: 0;
+        page-break-after: always;
+
+        & + .sheet-page {
+            border-top: 0;
+            padding-top: 0;
+        }
+    }
+
+    .sheet-page:last-child {
+        page-break-after: auto;
     }
 
 }
