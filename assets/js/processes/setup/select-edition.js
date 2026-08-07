@@ -69,7 +69,7 @@ function containsHomebrew(json) {
  *        The ID of the homebrew script that was uploaded. This will be null for
  *        a game that only consists of recognised characters.
  */
-function announceScript(name, characters, game = null) {
+function announceScript(name, characters, game = null, meta = null) {
 
     // 배포(캐릭터 배포) 시 games.script_name + 플레이 빈도에 쓰기 위해 현재 시트 이름 저장.
     try {
@@ -81,7 +81,8 @@ function announceScript(name, characters, game = null) {
     Observer.create("game").trigger("characters-selected", {
         name,
         characters,
-        game
+        game,
+        meta
     });
     Dialog.create(lookupOneCached("#edition-list")).hide();
 
@@ -164,17 +165,17 @@ function normaliseHomebrew(json) {
  */
 function extractMetaEntry(json) {
 
-    let name = "";
+    let meta = {};
     const metaIndex = json.findIndex(({ id }) => id === "_meta");
 
     if (metaIndex > -1) {
 
-        name = json[metaIndex].name;
+        meta = { ...json[metaIndex] };
         json.splice(metaIndex, 1);
 
     }
 
-    return name;
+    return meta;
 
 }
 
@@ -280,19 +281,23 @@ function processJSON({
 
         // 정적 호스팅(GitHub Pages): 서버 저장(homebrew POST)을 건너뛰고
         // 브라우저에서 커스텀 캐릭터를 바로 생성해 로드한다.
+        const homebrewMeta = extractMetaEntry(normalised);
+
         announceScript(
-            extractMetaEntry(normalised),
+            homebrewMeta.name || "",
             normalised.map((item) => (
                 store.getOfficialCharacter(convertCharacterId(item))
                 || store.createCustomCharacter(item)
-            ))
+            )),
+            null,
+            homebrewMeta
         );
 
         return Promise.resolve();
 
     }
 
-    const name = extractMetaEntry(json);
+    const meta = extractMetaEntry(json);
     const characters = json
         .map((item) => store.getCharacter(convertCharacterId(item)))
         .filter(Boolean);
@@ -304,7 +309,7 @@ function processJSON({
 
     }
 
-    announceScript(name, characters);
+    announceScript(meta.name || "", characters, null, meta);
     return Promise.resolve();
 
 }

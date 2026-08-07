@@ -8,9 +8,10 @@
     {% import 'macros/forms.html.twig' as forms %}
     {% block body %}
         <p>{{ 'setup.qr_code.intro'|trans }}</p>
-        <a href="{{ path('sheet') }}" target="_blank" rel="noopener noreferrer" id="qr-code-link" disabled>
-            <span id="qr-code" class="qr"></span>
-        </a>
+        <button type="button" class="button" id="open-sheet" disabled>
+            <span class="button__text">{{ 'setup.qr_code.open'|trans }}</span>
+            <span class="button__loader" aria-hidden="true"></span>
+        </button>
 
         <p class="mt-4" id="include-groups">{{ 'setup.qr_code.include'|trans }}</p>
         <div class="slot slot--2">

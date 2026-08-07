@@ -1,120 +1,56 @@
 import Observer from "../../classes/Observer.js";
-import QRCode from "../../lib/qrcode-svg.js";
-import {
-    empty,
-    lookupOneCached
-} from "../../utils/elements.js";
-
-const gameObserver = Observer.create("game");
-const characterStore = Object.create(null);
+import { lookupOneCached } from "../../utils/elements.js";
 
 /**
- * Draws the QR code based on information on the QR code element.
+ * 캐릭터 시트 열기.
+ *
+ * 예전에는 캐릭터 목록을 주소에 실어 QR로 넘겼지만, 정적 배포본에는 시트를
+ * 그려줄 서버가 없어 404가 났다. 이제는 현재 시트 데이터를 브라우저 저장소에
+ * 넣고 새 탭에서 sheet.html 이 그것을 읽어 직접 그린다.
  */
-function drawQRCode() {
 
-    const includeTravellers = lookupOneCached("#include-travellers").checked;
-    const includeFabled = lookupOneCached("#include-fabled").checked;
-    const qrCode = lookupOneCached("#qr-code");
-    const anchor = lookupOneCached("#qr-code-link");
-    const url = new URL(anchor.href);
+const gameObserver = Observer.create("game");
 
-    const {
-        name,
-        game
-    } = qrCode.dataset;
+export const SHEET_STORAGE_KEY = "pg-sheet-data";
 
-    if (name) {
-        url.searchParams.set("name", name);
-    } else {
-        url.searchParams.delete("name");
-    }
-
-    if (game) {
-
-        url.searchParams.set("game", game);
-        url.searchParams.set("traveller", Number(includeTravellers));
-        url.searchParams.set("fabled", Number(includeFabled));
-        url.searchParams.delete("characters");
-
-    } else {
-
-        const teams = [
-            "townsfolk",
-            "outsider",
-            "minion",
-            "demon"
-        ];
-
-        if (includeTravellers) {
-            teams.push("traveller");
-        }
-
-        if (includeFabled) {
-            teams.push("fabled", "loric");
-        }
-
-        const ids = characterStore[qrCode.dataset.characters]
-            .filter((character) => teams.includes(character.getTeam()))
-            .map((character) => character.getId());
-        url.searchParams.set("characters", ids);
-        url.searchParams.delete("game");
-        url.searchParams.delete("traveller");
-        url.searchParams.delete("fabled");
-
-    }
-
-    empty(qrCode).append(QRCode({
-        msg: url.toString(),
-        ecl: "L"
-    }));
-    lookupOneCached("#qr-code-button").disabled = false;
-    anchor.href = url.toString();
-    lookupOneCached("#qr-code-link").disabled = false;
-
-}
+let current = {
+    name: "",
+    meta: null,
+    characters: []
+};
 
 gameObserver.on("characters-selected", ({ detail }) => {
 
-    const {
-        name,
-        characters,
-        game
-    } = detail;
+    current = {
+        name: detail.name || "",
+        meta: detail.meta || null,
+        characters: detail.characters.map((character) => character.getAllData())
+    };
 
-    const qrCode = lookupOneCached("#qr-code");
-
-    if (game) {
-
-        qrCode.dataset.game = game;
-        delete qrCode.dataset.characters;
-
-    } else {
-
-        const ids = JSON.stringify(
-            characters.map((character) => character.getId())
-        );
-
-        characterStore[ids] = characters;
-        qrCode.dataset.characters = ids;
-        delete qrCode.dataset.game;
-
-    }
-
-    if (name) {
-        qrCode.dataset.name = name;
-    } else {
-        delete qrCode.dataset.name;
-    }
-
-    drawQRCode();
+    lookupOneCached("#qr-code-button").disabled = false;
+    lookupOneCached("#open-sheet").disabled = false;
 
 });
 
-lookupOneCached("#include-travellers").addEventListener("change", () => {
-    drawQRCode();
-});
+lookupOneCached("#open-sheet").addEventListener("click", () => {
 
-lookupOneCached("#include-fabled").addEventListener("change", () => {
-    drawQRCode();
+    const payload = {
+        name: current.name,
+        meta: current.meta,
+        characters: current.characters,
+        includeTravellers: lookupOneCached("#include-travellers").checked,
+        includeFabled: lookupOneCached("#include-fabled").checked,
+        savedAt: Date.now()
+    };
+
+    try {
+        window.localStorage.setItem(SHEET_STORAGE_KEY, JSON.stringify(payload));
+    } catch (error) {
+        window.alert("시트 데이터를 저장하지 못했습니다: " + error.message);
+        return;
+    }
+
+    const url = new URL("sheet.html", window.location.href);
+    window.open(url.toString(), "_blank", "noopener");
+
 });

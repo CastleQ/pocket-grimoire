@@ -37,7 +37,8 @@ gameObserver.on("characters-selected", ({ detail }) => {
             ? character.getAllData()
             : character.getId()
         )),
-        detail.game
+        detail.game,
+        detail.meta
     );
     store.removeStaleInputs();
 
@@ -204,7 +205,8 @@ TokenStore.ready((tokenStore) => {
                     || tokenStore.createCustomCharacter(item)
                 ))
                 .filter(Boolean),
-            game: info.game
+            game: info.game,
+            meta: info.meta || null
         });
 
     }

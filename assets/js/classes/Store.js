@@ -224,7 +224,7 @@ export default class Store {
      *        The ID of the homebrew game being used. This will be null for any
      *        game that only consists of recognised characters.
      */
-    setCharacters(name, characters, game) {
+    setCharacters(name, characters, game, meta) {
 
         const data = {
             characters
@@ -236,6 +236,10 @@ export default class Store {
 
         if (game) {
             data.game = game;
+        }
+
+        if (meta && Object.keys(meta).length) {
+            data.meta = meta;
         }
 
         this.data.characters = data;

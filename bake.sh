@@ -48,6 +48,9 @@ console.log("   URLS characters/jinxes/game + /build 이미지 경로 교체 완
 ' "$BASE"
 node tools/rewrite-images.js "$BASE"
 
+curl -s "http://localhost:8000/ko_KR/sheet" -o docs/sheet.html
+node -e 'const fs=require("fs"),base=process.argv[1],p="docs/sheet.html";let h=fs.readFileSync(p,"utf8");h=h.replace(/src="\/build\//g,"src=\""+base+"/build/");fs.writeFileSync(p,h);console.log("   docs/sheet.html = "+h.length+" bytes");' "$BASE"
+
 echo "▶ 6/7 빌드 자원 + claim.html 복사 + Jekyll 비활성화..."
 rm -rf docs/build && cp -r public/build docs/build
 cp public/claim.html docs/claim.html
