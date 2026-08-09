@@ -512,10 +512,17 @@ function frame(page, label, fileBase) {
  * @param {String} fileName
  *        저장할 파일 이름(확장자 제외).
  */
-async function exportPage(page, inner, box, button, fileName) {
+function exportPage(page, inner, box, button, fileName) {
 
     const transform = inner.style.transform;
     const height = box.style.height;
+
+    const restore = () => {
+        inner.style.transform = transform;
+        box.style.height = height;
+        button.classList.remove("is-loading");
+        button.disabled = false;
+    };
 
     button.disabled = true;
     button.classList.add("is-loading");
@@ -523,32 +530,36 @@ async function exportPage(page, inner, box, button, fileName) {
     inner.style.transform = "none";
     box.style.height = "auto";
 
-    try {
+    html2canvas(page, {
+        backgroundColor: "#ffffff",
+        useCORS: true,
+        scale: 2,
+        logging: false
+    }).then((canvas) => new Promise((resolve, reject) => {
 
-        const canvas = await html2canvas(page, {
-            backgroundColor: "#ffffff",
-            useCORS: true,
-            scale: 2,
-            logging: false
-        });
+        canvas.toBlob((blob) => {
 
-        const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+            if (blob) {
+                resolve(blob);
+            } else {
+                reject(new Error("이미지를 만들지 못했습니다."));
+            }
 
-        if (!blob) {
-            throw new Error("이미지를 만들지 못했습니다.");
-        }
+        }, "image/png");
+
+    })).then((blob) => {
 
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
 
         link.href = url;
-        link.download = `${fileName.replace(/[\\/:*?"<>|]/g, "_")}.png`;
+        link.download = fileName.replace(/[\\/:*?"<>|]/g, "_") + ".png";
         document.body.append(link);
         link.click();
         link.remove();
         window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 
-    } catch (error) {
+    }).catch((error) => {
 
         window.alert(
             "이미지 저장에 실패했습니다.\n"
@@ -556,14 +567,7 @@ async function exportPage(page, inner, box, button, fileName) {
             + error.message
         );
 
-    } finally {
-
-        inner.style.transform = transform;
-        box.style.height = height;
-        button.classList.remove("is-loading");
-        button.disabled = false;
-
-    }
+    }).then(restore, restore);
 
 }
 
