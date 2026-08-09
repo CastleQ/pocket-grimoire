@@ -3,6 +3,11 @@
  *
  * 새 탭으로 열리며, 마도서 쪽에서 브라우저 저장소에 넣어둔 시트 데이터를 읽어
  * 화면을 직접 그린다. 서버 렌더링에 의존하지 않는다.
+ *
+ * 3장을 세로로 그린다.
+ *   1) 캐릭터 시트  — 팀별 2단 구성
+ *   2) 첫날 밤 시트 — 밤 순서 + 이야기꾼 지시문
+ *   3) 다른 밤 시트 — 위와 동일
  */
 
 const STORAGE_KEY = "pg-sheet-data";
@@ -13,8 +18,8 @@ const TEAM_LABEL = {
     minion: "하수인",
     demon: "악마",
     traveller: "여행자",
-    fabled: "전설",
-    loric: "설화"
+    fabled: "전설 & 설화",
+    loric: "전설 & 설화"
 };
 
 const TEAM_ORDER = [
@@ -27,6 +32,40 @@ const TEAM_ORDER = [
     "loric"
 ];
 
+// 밤 시트의 시작과 끝. 앱 데이터에 없는 항목이라 여기서 정의한다.
+const NIGHT_BOOKENDS = {
+    dusk: {
+        name: "황혼",
+        text: "밤 단계를 실행합니다.",
+        kind: "dusk"
+    },
+    dawn: {
+        name: "새벽",
+        text: "밤 단계를 종료합니다.",
+        kind: "dawn"
+    }
+};
+
+// 밤 순서 배열에 들어 있지만 캐릭터가 아닌 항목.
+const NIGHT_INFO_STEPS = {
+    minioninfo: {
+        name: "하수인 정보",
+        text: "하수인들에게 서로와 악마를 알려줍니다.",
+        kind: "info"
+    },
+    demoninfo: {
+        name: "악마 정보",
+        text: "악마에게 하수인들과 블러핑용 캐릭터 3개를 알려줍니다.",
+        kind: "info"
+    }
+};
+
+/**
+ * 브라우저 저장소에서 시트 데이터를 읽는다.
+ *
+ * @return {Object|null}
+ *         저장된 시트 데이터. 없거나 깨졌으면 null.
+ */
 function readPayload() {
 
     try {
@@ -37,6 +76,14 @@ function readPayload() {
 
 }
 
+/**
+ * 이미지 필드에서 첫 번째 주소를 꺼낸다.
+ *
+ * @param  {Array.<String>|String} image
+ *         캐릭터의 image 필드.
+ * @return {String}
+ *         첫 번째 이미지 주소.
+ */
 function firstImage(image) {
 
     if (Array.isArray(image)) {
@@ -47,6 +94,30 @@ function firstImage(image) {
 
 }
 
+/**
+ * id를 비교하기 쉬운 형태로 다듬는다.
+ *
+ * @param  {String} id
+ *         다듬을 id.
+ * @return {String}
+ *         소문자 영숫자만 남은 id.
+ */
+function normaliseId(id) {
+    return String(id || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+/**
+ * 요소를 만든다.
+ *
+ * @param  {String} tag
+ *         만들 요소의 태그 이름.
+ * @param  {String} [className]
+ *         요소에 붙일 class.
+ * @param  {String} [text]
+ *         요소에 넣을 글자.
+ * @return {Element}
+ *         만들어진 요소.
+ */
 function element(tag, className, text) {
 
     const node = document.createElement(tag);
@@ -63,9 +134,69 @@ function element(tag, className, text) {
 
 }
 
+/**
+ * 이야기꾼 지시문을 요소로 만든다. *별표*는 굵게, :reminder:는 토큰 표시로
+ * 바꾼다. 글자는 textContent로만 넣으므로 태그로 해석되지 않는다.
+ *
+ * @param  {String} text
+ *         원본 지시문.
+ * @return {Element}
+ *         꾸며진 문단.
+ */
+function renderReminderText(text) {
+
+    const paragraph = element("p", "sheet-role__ability");
+    const source = String(text || "").split(":reminder:").join("\u25cf");
+
+    source.split(/(\*[^*]+\*)/).forEach((chunk) => {
+
+        if (!chunk) {
+            return;
+        }
+
+        if (chunk.startsWith("*") && chunk.endsWith("*") && chunk.length > 2) {
+            paragraph.append(element("strong", null, chunk.slice(1, -1)));
+            return;
+        }
+
+        paragraph.append(document.createTextNode(chunk));
+
+    });
+
+    return paragraph;
+
+}
+
+/**
+ * 황혼·새벽 자리에 넣을 그림을 만든다. 앱에 해당 아이콘 파일이 없어 직접 그린다.
+ *
+ * @param  {String} kind
+ *         "dusk" 또는 "dawn".
+ * @return {Element}
+ *         그림 요소.
+ */
+function bookendIcon(kind) {
+
+    const wrapper = element("span", `sheet-bookend sheet-bookend--${kind}`);
+
+    wrapper.append(element("span", "sheet-bookend__shape"));
+
+    return wrapper;
+
+}
+
+/**
+ * 캐릭터 한 명을 그린다.
+ *
+ * @param  {Object} character
+ *         그릴 캐릭터 데이터.
+ * @return {Element}
+ *         캐릭터 요소.
+ */
 function renderCharacter(character) {
 
-    const row = element("div", "sheet-role");
+    const team = character.team || "townsfolk";
+    const row = element("div", `sheet-role sheet-role--${team}`);
     const icon = element("div", "sheet-role__icon");
     const image = document.createElement("img");
 
@@ -75,10 +206,9 @@ function renderCharacter(character) {
     icon.append(image);
 
     const body = element("div", "sheet-role__body");
-    body.append(
-        element("p", "sheet-role__name", character.name || character.id),
-        element("p", "sheet-role__ability", character.ability || "")
-    );
+
+    body.append(element("p", "sheet-role__name", character.name || character.id));
+    body.append(element("p", "sheet-role__ability", character.ability || ""));
 
     row.append(icon, body);
 
@@ -86,6 +216,248 @@ function renderCharacter(character) {
 
 }
 
+/**
+ * 페이지 아래쪽 표기를 만든다.
+ *
+ * @param  {String} note
+ *         오른쪽에 넣을 문구.
+ * @return {Element}
+ *         완성된 표기.
+ */
+function renderFooter(note) {
+
+    const footer = element("footer", "sheet-page__footer");
+
+    footer.append(element(
+        "span",
+        null,
+        "\u00a9 Steven Medway, bloodontheclocktower.com"
+    ));
+    footer.append(element("span", null, note));
+
+    return footer;
+
+}
+
+/**
+ * 캐릭터 시트 한 장을 그린다.
+ *
+ * @param  {Object} payload
+ *         시트 데이터.
+ * @param  {Array.<Object>} characters
+ *         표시할 캐릭터 목록.
+ * @return {Element}
+ *         완성된 페이지.
+ */
+function renderCharacterPage(payload, characters) {
+
+    const page = element("section", "sheet-page");
+    const header = element("header", "sheet-page__header");
+    const heading = element("div", "sheet-page__heading");
+
+    heading.append(element("h1", "sheet-page__title", payload.name || "캐릭터 시트"));
+
+    if (payload.meta && payload.meta.author) {
+        heading.append(element("p", "sheet-page__author", `지은이: ${payload.meta.author}`));
+    }
+
+    header.append(heading);
+
+    if (payload.meta && payload.meta.logo) {
+
+        const logo = document.createElement("img");
+
+        logo.src = payload.meta.logo;
+        logo.alt = "";
+        logo.className = "sheet-page__logo";
+        header.append(logo);
+
+    }
+
+    page.append(header);
+
+    const groups = new Map();
+
+    TEAM_ORDER.forEach((team) => {
+
+        const members = characters.filter((character) => character.team === team);
+
+        if (!members.length) {
+            return;
+        }
+
+        const label = TEAM_LABEL[team] || team;
+        let list = groups.get(label);
+
+        if (!list) {
+
+            const group = element("section", "sheet-team");
+
+            group.append(element("h2", "sheet-team__label", label));
+            list = element("div", "sheet-team__list");
+            group.append(list);
+            page.append(group);
+            groups.set(label, list);
+
+        }
+
+        members.forEach((character) => list.append(renderCharacter(character)));
+
+    });
+
+    page.append(renderFooter("* 첫날 제외"));
+
+    return page;
+
+}
+
+/**
+ * 밤 순서를 정한다. 시트 JSON이 순서를 지정했으면 그것을 쓰고, 없으면 각
+ * 캐릭터의 밤 순서 숫자로 정렬한다.
+ *
+ * @param  {Object} payload
+ *         시트 데이터.
+ * @param  {Array.<Object>} characters
+ *         전체 캐릭터 목록.
+ * @param  {String} which
+ *         "firstNight" 또는 "otherNight".
+ * @return {Array.<Object>}
+ *         밤 시트에 그릴 줄 목록.
+ */
+function buildNightOrder(payload, characters, which) {
+
+    const reminderKey = `${which}Reminder`;
+    const byId = new Map();
+
+    characters.forEach((character) => {
+
+        const key = normaliseId(character.id);
+
+        byId.set(key, character);
+
+        const stripped = key.replace(/\d+$/, "");
+
+        if (stripped && !byId.has(stripped)) {
+            byId.set(stripped, character);
+        }
+
+    });
+
+    const toRow = (character) => ({
+        name: character.name || character.id,
+        text: character[reminderKey] || "",
+        image: firstImage(character.image),
+        team: character.team || "townsfolk",
+        kind: "character"
+    });
+
+    const declared = (
+        payload.meta && Array.isArray(payload.meta[which])
+        ? payload.meta[which]
+        : null
+    );
+
+    if (declared && declared.length) {
+
+        const rows = [];
+
+        declared.forEach((entry) => {
+
+            const key = normaliseId(entry);
+
+            if (NIGHT_BOOKENDS[key]) {
+                rows.push({ ...NIGHT_BOOKENDS[key], image: "", team: "bookend" });
+                return;
+            }
+
+            if (NIGHT_INFO_STEPS[key]) {
+                rows.push({ ...NIGHT_INFO_STEPS[key], image: "", team: "bookend" });
+                return;
+            }
+
+            const character = byId.get(key) || byId.get(key.replace(/\d+$/, ""));
+
+            if (character) {
+                rows.push(toRow(character));
+            }
+
+        });
+
+        return rows;
+
+    }
+
+    const ordered = characters
+        .filter((character) => Number(character[which]) > 0)
+        .sort((a, b) => Number(a[which]) - Number(b[which]))
+        .map(toRow);
+
+    return [
+        { ...NIGHT_BOOKENDS.dusk, image: "", team: "bookend" },
+        ...ordered,
+        { ...NIGHT_BOOKENDS.dawn, image: "", team: "bookend" }
+    ];
+
+}
+
+/**
+ * 밤 시트 한 장을 그린다.
+ *
+ * @param  {String} title
+ *         시트 제목.
+ * @param  {Array.<Object>} rows
+ *         표시할 줄 목록.
+ * @return {Element}
+ *         완성된 페이지.
+ */
+function renderNightPage(title, rows) {
+
+    const page = element("section", "sheet-page sheet-page--night");
+
+    page.append(element("h2", "sheet-night__title", title));
+
+    const list = element("div", "sheet-night__list");
+
+    rows.forEach((row) => {
+
+        const line = element("div", `sheet-role sheet-role--${row.team}`);
+        const icon = element("div", "sheet-role__icon sheet-role__icon--night");
+
+        if (row.kind === "dusk" || row.kind === "dawn") {
+
+            icon.append(bookendIcon(row.kind));
+
+        } else if (row.image) {
+
+            const image = document.createElement("img");
+
+            image.src = row.image;
+            image.alt = "";
+            image.loading = "lazy";
+            icon.append(image);
+
+        }
+
+        const body = element("div", "sheet-role__body");
+
+        body.append(element("p", "sheet-role__name", row.name));
+        body.append(renderReminderText(row.text));
+
+        line.append(icon, body);
+        list.append(line);
+
+    });
+
+    page.append(list);
+    page.append(renderFooter(""));
+
+    return page;
+
+}
+
+/**
+ * 시트 전체를 그린다.
+ */
 function render() {
 
     const payload = readPayload();
@@ -121,39 +493,22 @@ function render() {
         (character) => teams.has(character.team)
     );
 
-    const page = element("section", "sheet-page");
-    const header = element("header", "sheet-page__header");
+    const wrapper = element("div", "sheet-wrapper");
 
-    header.append(element("h1", "sheet-page__title", payload.name || "캐릭터 시트"));
+    wrapper.append(element("div", "sheet-toolbar"));
+    wrapper.append(renderCharacterPage(payload, characters));
+    wrapper.append(renderNightPage(
+        "첫날 밤",
+        buildNightOrder(payload, payload.characters, "firstNight")
+    ));
+    wrapper.append(renderNightPage(
+        "다른 밤",
+        buildNightOrder(payload, payload.characters, "otherNight")
+    ));
 
-    if (payload.meta && payload.meta.author) {
-        header.append(element("p", "sheet-page__author", "지은이: " + payload.meta.author));
-    }
+    root.append(wrapper);
 
-    page.append(header);
-
-    TEAM_ORDER.forEach((team) => {
-
-        const members = characters.filter((character) => character.team === team);
-
-        if (!members.length) {
-            return;
-        }
-
-        const group = element("div", "sheet-group");
-        group.append(element("h2", "sheet-group__title", TEAM_LABEL[team] || team));
-
-        const list = element("div", "sheet-group__list");
-        members.forEach((character) => list.append(renderCharacter(character)));
-
-        group.append(list);
-        page.append(group);
-
-    });
-
-    root.append(page);
-
-    document.title = (payload.name || "캐릭터 시트") + " — 포그플러스";
+    document.title = `${payload.name || "캐릭터 시트"} — 포그플러스`;
 
 }
 
