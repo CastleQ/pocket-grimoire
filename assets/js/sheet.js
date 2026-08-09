@@ -456,6 +456,68 @@ function renderNightPage(title, rows) {
 }
 
 /**
+ * 페이지를 한 화면에 담기 위한 액자로 감싼다.
+ *
+ * @param  {Element} page
+ *         감쌀 페이지.
+ * @return {Element}
+ *         액자 요소.
+ */
+function frame(page) {
+
+    const box = element("div", "sheet-frame");
+    const inner = element("div", "sheet-frame__inner");
+
+    inner.append(page);
+    box.append(inner);
+
+    return box;
+
+}
+
+/**
+ * 각 페이지를 화면 크기에 맞게 줄인다. 세로·가로 어느 쪽도 넘치지 않도록
+ * 둘 중 작은 비율을 쓴다. 글자가 작아지면 사용자가 확대해서 본다.
+ */
+function fitPages() {
+
+    const frames = Array.from(document.querySelectorAll(".sheet-frame"));
+
+    frames.forEach((box) => {
+
+        const inner = box.querySelector(".sheet-frame__inner");
+
+        inner.style.transform = "none";
+        box.style.height = "auto";
+
+        const width = inner.scrollWidth;
+        const height = inner.scrollHeight;
+
+        if (!width || !height) {
+            return;
+        }
+
+        const available = box.clientWidth;
+        const scale = Math.min(available / width, window.innerHeight / height, 1);
+
+        inner.style.transform = `scale(${scale})`;
+        inner.style.width = `${width}px`;
+        box.style.height = `${Math.ceil(height * scale)}px`;
+
+    });
+
+}
+
+let fitTimer = 0;
+
+window.addEventListener("resize", () => {
+    window.clearTimeout(fitTimer);
+    fitTimer = window.setTimeout(fitPages, 150);
+});
+
+window.addEventListener("load", fitPages);
+
+/**
  * 시트 전체를 그린다.
  */
 function render() {
@@ -496,17 +558,15 @@ function render() {
     const wrapper = element("div", "sheet-wrapper");
 
     wrapper.append(element("div", "sheet-toolbar"));
-    wrapper.append(renderCharacterPage(payload, characters));
-    wrapper.append(renderNightPage(
-        "첫날 밤",
-        buildNightOrder(payload, payload.characters, "firstNight")
-    ));
-    wrapper.append(renderNightPage(
-        "다른 밤",
-        buildNightOrder(payload, payload.characters, "otherNight")
-    ));
+
+    [
+        renderCharacterPage(payload, characters),
+        renderNightPage("첫날 밤", buildNightOrder(payload, characters, "firstNight")),
+        renderNightPage("다른 밤", buildNightOrder(payload, characters, "otherNight"))
+    ].forEach((page) => wrapper.append(frame(page)));
 
     root.append(wrapper);
+    fitPages();
 
     document.title = `${payload.name || "캐릭터 시트"} — 포그플러스`;
 

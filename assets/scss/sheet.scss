@@ -52,14 +52,29 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
     }
 }
 
-.sheet-page {
-    margin-bottom: 2.5rem;
-    padding-bottom: 1rem;
+.sheet-frame {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    scroll-snap-align: start;
 
-    & + .sheet-page {
+    & + .sheet-frame {
         border-top: 1px solid $rule;
-        padding-top: 1.75rem;
+        padding-top: 1.5rem;
     }
+}
+
+.sheet-frame__inner {
+    flex: 0 0 auto;
+    transform-origin: top center;
+}
+
+.sheet-page {
+    width: 46rem;
+    max-width: 100%;
+    padding-bottom: 1rem;
 }
 
 .sheet-page__header {
