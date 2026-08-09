@@ -10,6 +10,8 @@
  *   3) 다른 밤 시트 — 위와 동일
  */
 
+import html2canvas from "html2canvas";
+
 const STORAGE_KEY = "pg-sheet-data";
 
 const TEAM_LABEL = {
@@ -463,15 +465,105 @@ function renderNightPage(title, rows) {
  * @return {Element}
  *         액자 요소.
  */
-function frame(page) {
+function frame(page, label, fileBase) {
+
+    const block = element("div", "sheet-block");
+    const actions = element("div", "sheet-actions");
+    const button = element("button", "button sheet-button");
+
+    button.type = "button";
+    button.append(element("span", "button__text", "이미지 저장"));
+
+    const loader = element("span", "button__loader");
+
+    loader.append(element("span", "loader"));
+    button.append(loader);
+    actions.append(button);
 
     const box = element("div", "sheet-frame");
     const inner = element("div", "sheet-frame__inner");
 
     inner.append(page);
     box.append(inner);
+    block.append(actions, box);
 
-    return box;
+    button.addEventListener("click", () => {
+        exportPage(page, inner, box, button, `${fileBase}_${label}`);
+    });
+
+    return block;
+
+}
+
+/**
+ * 페이지 한 장을 PNG로 저장한다.
+ *
+ * 화면에 맞춰 줄여 놓은 상태 그대로 촬영하면 흐릿해지므로, 촬영 직전에 원래
+ * 크기로 되돌렸다가 끝나면 다시 줄인다.
+ *
+ * @param {Element} page
+ *        촬영할 페이지.
+ * @param {Element} inner
+ *        크기를 줄여 놓은 액자 속.
+ * @param {Element} box
+ *        액자.
+ * @param {Element} button
+ *        누른 버튼.
+ * @param {String} fileName
+ *        저장할 파일 이름(확장자 제외).
+ */
+async function exportPage(page, inner, box, button, fileName) {
+
+    const transform = inner.style.transform;
+    const height = box.style.height;
+
+    button.disabled = true;
+    button.classList.add("is-loading");
+
+    inner.style.transform = "none";
+    box.style.height = "auto";
+
+    try {
+
+        const canvas = await html2canvas(page, {
+            backgroundColor: "#ffffff",
+            useCORS: true,
+            scale: 2,
+            logging: false
+        });
+
+        const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+
+        if (!blob) {
+            throw new Error("이미지를 만들지 못했습니다.");
+        }
+
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+
+        link.href = url;
+        link.download = `${fileName.replace(/[\\/:*?"<>|]/g, "_")}.png`;
+        document.body.append(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+    } catch (error) {
+
+        window.alert(
+            "이미지 저장에 실패했습니다.\n"
+            + "외부 사이트의 캐릭터 그림이 저장을 막았을 수 있습니다.\n\n"
+            + error.message
+        );
+
+    } finally {
+
+        inner.style.transform = transform;
+        box.style.height = height;
+        button.classList.remove("is-loading");
+        button.disabled = false;
+
+    }
 
 }
 
@@ -559,11 +651,13 @@ function render() {
 
     wrapper.append(element("div", "sheet-toolbar"));
 
+    const fileBase = payload.name || "캐릭터 시트";
+
     [
-        renderCharacterPage(payload, characters),
-        renderNightPage("첫날 밤", buildNightOrder(payload, characters, "firstNight")),
-        renderNightPage("다른 밤", buildNightOrder(payload, characters, "otherNight"))
-    ].forEach((page) => wrapper.append(frame(page)));
+        [renderCharacterPage(payload, characters), "캐릭터 시트"],
+        [renderNightPage("첫날 밤", buildNightOrder(payload, characters, "firstNight")), "첫날 밤"],
+        [renderNightPage("다른 밤", buildNightOrder(payload, characters, "otherNight")), "다른 밤"]
+    ].forEach(([page, label]) => wrapper.append(frame(page, label, fileBase)));
 
     root.append(wrapper);
     fitPages();
