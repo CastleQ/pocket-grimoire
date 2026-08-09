@@ -88,11 +88,23 @@ function readPayload() {
  */
 function firstImage(image) {
 
-    if (Array.isArray(image)) {
-        return image[0] || "";
+    const source = (
+        Array.isArray(image)
+        ? (image[0] || "")
+        : (image || "")
+    );
+
+    if (!source) {
+        return "";
     }
 
-    return image || "";
+    // html2canvas 는 주소 없는 임시 창에서 촬영하므로, "/foo/bar.webp" 같은
+    // 상대 주소는 그 창에서 길을 잃는다. 항상 완전한 주소로 바꿔둔다.
+    try {
+        return new URL(source, window.location.href).href;
+    } catch (ignore) {
+        return source;
+    }
 
 }
 
@@ -204,7 +216,6 @@ function renderCharacter(character) {
 
     image.src = firstImage(character.image);
     image.alt = "";
-    image.loading = "lazy";
     icon.append(image);
 
     const body = element("div", "sheet-role__body");
@@ -269,7 +280,7 @@ function renderCharacterPage(payload, characters) {
 
         const logo = document.createElement("img");
 
-        logo.src = payload.meta.logo;
+        logo.src = firstImage(payload.meta.logo);
         logo.alt = "";
         logo.className = "sheet-page__logo";
         header.append(logo);
@@ -435,7 +446,6 @@ function renderNightPage(title, rows) {
 
             image.src = row.image;
             image.alt = "";
-            image.loading = "lazy";
             icon.append(image);
 
         }

@@ -134,7 +134,8 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
 .sheet-page {
     width: 46rem;
     max-width: 100%;
-    padding-bottom: 1rem;
+    padding: 2rem 2.2rem 1.6rem;
+    background: #ffffff;
 }
 
 .sheet-page__header {
