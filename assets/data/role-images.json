@@ -1,1 +1,691 @@
-{"acrobat":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/acrobat_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/acrobat_e.webp"],"alchemist":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/alchemist_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/alchemist_e.webp"],"alhadikhia":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/alhadikhia_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/alhadikhia_g.webp"],"alsaahir":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/alsaahir_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/alsaahir_e.webp"],"amnesiac":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/amnesiac_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/amnesiac_e.webp"],"angel":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/angel.webp"],"apprentice":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/apprentice.webp"],"artist":["https://script.bloodontheclocktower.com/src/assets/icons/snv/artist_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/artist_e.webp"],"assassin":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/assassin_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/assassin_g.webp"],"atheist":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/atheist_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/atheist_e.webp"],"balloonist":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/balloonist_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/balloonist_e.webp"],"banshee":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/banshee_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/banshee_e.webp"],"barber":["https://script.bloodontheclocktower.com/src/assets/icons/snv/barber_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/barber_e.webp"],"barista":["https://script.bloodontheclocktower.com/src/assets/icons/snv/barista.webp"],"baron":["https://script.bloodontheclocktower.com/src/assets/icons/tb/baron_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/baron_g.webp"],"beggar":["https://script.bloodontheclocktower.com/src/assets/icons/tb/beggar.webp"],"bigwig":["https://script.bloodontheclocktower.com/src/assets/icons/loric/bigwig.webp"],"bishop":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/bishop.webp"],"boffin":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/boffin_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/boffin_g.webp"],"bonecollector":["https://script.bloodontheclocktower.com/src/assets/icons/snv/bonecollector.webp"],"boomdandy":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/boomdandy_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/boomdandy_g.webp"],"bootlegger":["https://script.bloodontheclocktower.com/src/assets/icons/loric/bootlegger.webp"],"bountyhunter":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/bountyhunter_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/bountyhunter_e.webp"],"buddhist":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/buddhist.webp"],"bureaucrat":["https://script.bloodontheclocktower.com/src/assets/icons/tb/bureaucrat.webp"],"butcher":["https://script.bloodontheclocktower.com/src/assets/icons/snv/butcher.webp"],"butler":["https://script.bloodontheclocktower.com/src/assets/icons/tb/butler_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/butler_e.webp"],"cacklejack":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/cacklejack.webp"],"cannibal":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/cannibal_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/cannibal_e.webp"],"cerenovus":["https://script.bloodontheclocktower.com/src/assets/icons/snv/cerenovus_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/cerenovus_g.webp"],"chambermaid":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/chambermaid_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/chambermaid_e.webp"],"chef":["https://script.bloodontheclocktower.com/src/assets/icons/tb/chef_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/chef_e.webp"],"choirboy":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/choirboy_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/choirboy_e.webp"],"clockmaker":["https://script.bloodontheclocktower.com/src/assets/icons/snv/clockmaker_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/clockmaker_e.webp"],"courtier":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/courtier_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/courtier_e.webp"],"cultleader":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/cultleader_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/cultleader_e.webp"],"damsel":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/damsel_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/damsel_e.webp"],"deusexfiasco":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/deusexfiasco.webp"],"deviant":["https://script.bloodontheclocktower.com/src/assets/icons/snv/deviant.webp"],"devilsadvocate":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/devilsadvocate_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/devilsadvocate_g.webp"],"djinn":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/djinn.webp"],"doomsayer":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/doomsayer.webp"],"dreamer":["https://script.bloodontheclocktower.com/src/assets/icons/snv/dreamer_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/dreamer_e.webp"],"drunk":["https://script.bloodontheclocktower.com/src/assets/icons/tb/drunk_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/drunk_e.webp"],"duchess":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/duchess.webp"],"empath":["https://script.bloodontheclocktower.com/src/assets/icons/tb/empath_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/empath_e.webp"],"engineer":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/engineer_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/engineer_e.webp"],"eviltwin":["https://script.bloodontheclocktower.com/src/assets/icons/snv/eviltwin_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/eviltwin_g.webp"],"exorcist":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/exorcist_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/exorcist_e.webp"],"fanggu":["https://script.bloodontheclocktower.com/src/assets/icons/snv/fanggu_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/fanggu_g.webp"],"farmer":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/farmer_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/farmer_e.webp"],"fearmonger":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/fearmonger_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/fearmonger_g.webp"],"ferryman":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/ferryman.webp"],"fibbin":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/fibbin.webp"],"fiddler":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/fiddler.webp"],"fisherman":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/fisherman_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/fisherman_e.webp"],"flowergirl":["https://script.bloodontheclocktower.com/src/assets/icons/snv/flowergirl_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/flowergirl_e.webp"],"fool":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/fool_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/fool_e.webp"],"fortuneteller":["https://script.bloodontheclocktower.com/src/assets/icons/tb/fortuneteller_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/fortuneteller_e.webp"],"gambler":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/gambler_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/gambler_e.webp"],"gangster":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/gangster.webp"],"gardener":["https://script.bloodontheclocktower.com/src/assets/icons/loric/gardener.webp"],"general":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/general_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/general_e.webp"],"gnome":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/gnome.webp"],"goblin":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/goblin_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/goblin_g.webp"],"godfather":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/godfather_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/godfather_g.webp"],"godofug":["https://script.bloodontheclocktower.com/src/assets/icons/loric/godofug.webp"],"golem":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/golem_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/golem_e.webp"],"goon":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/goon_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/goon_e.webp"],"gossip":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/gossip_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/gossip_e.webp"],"grandmother":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/grandmother_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/grandmother_e.webp"],"gunslinger":["https://script.bloodontheclocktower.com/src/assets/icons/tb/gunslinger.webp"],"harlot":["https://script.bloodontheclocktower.com/src/assets/icons/snv/harlot.webp"],"harpy":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/harpy_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/harpy_g.webp"],"hatter":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/hatter_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/hatter_e.webp"],"hellslibrarian":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/hellslibrarian.webp"],"heretic":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/heretic_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/heretic_e.webp"],"hermit":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/hermit_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/hermit_e.webp"],"highpriestess":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/highpriestess_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/highpriestess_e.webp"],"hindu":["https://script.bloodontheclocktower.com/src/assets/icons/loric/hindu.webp"],"huntsman":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/huntsman_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/huntsman_e.webp"],"imp":["https://script.bloodontheclocktower.com/src/assets/icons/tb/imp_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/imp_g.webp"],"innkeeper":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/innkeeper_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/innkeeper_e.webp"],"investigator":["https://script.bloodontheclocktower.com/src/assets/icons/tb/investigator_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/investigator_e.webp"],"judge":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/judge.webp"],"juggler":["https://script.bloodontheclocktower.com/src/assets/icons/snv/juggler_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/juggler_e.webp"],"kazali":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/kazali_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/kazali_g.webp"],"king":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/king_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/king_e.webp"],"klutz":["https://script.bloodontheclocktower.com/src/assets/icons/snv/klutz_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/klutz_e.webp"],"knaves":["https://script.bloodontheclocktower.com/src/assets/icons/loric/knaves.webp"],"knight":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/knight_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/knight_e.webp"],"legion":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/legion_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/legion_g.webp"],"leviathan":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/leviathan_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/leviathan_g.webp"],"librarian":["https://script.bloodontheclocktower.com/src/assets/icons/tb/librarian_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/librarian_e.webp"],"lilmonsta":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/lilmonsta_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/lilmonsta_g.webp"],"lleech":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/lleech_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/lleech_g.webp"],"lordoftyphon":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/lordoftyphon_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/lordoftyphon_g.webp"],"lunatic":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/lunatic_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/lunatic_e.webp"],"lycanthrope":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/lycanthrope_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/lycanthrope_e.webp"],"magician":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/magician_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/magician_e.webp"],"marionette":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/marionette_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/marionette_g.webp"],"mastermind":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/mastermind_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/mastermind_g.webp"],"mathematician":["https://script.bloodontheclocktower.com/src/assets/icons/snv/mathematician_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/mathematician_e.webp"],"matron":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/matron.webp"],"mayor":["https://script.bloodontheclocktower.com/src/assets/icons/tb/mayor_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/mayor_e.webp"],"mezepheles":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/mezepheles_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/mezepheles_g.webp"],"minstrel":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/minstrel_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/minstrel_e.webp"],"monk":["https://script.bloodontheclocktower.com/src/assets/icons/tb/monk_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/monk_e.webp"],"moonchild":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/moonchild_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/moonchild_e.webp"],"mutant":["https://script.bloodontheclocktower.com/src/assets/icons/snv/mutant_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/mutant_e.webp"],"nightwatchman":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/nightwatchman_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/nightwatchman_e.webp"],"noble":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/noble_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/noble_e.webp"],"nodashii":["https://script.bloodontheclocktower.com/src/assets/icons/snv/nodashii_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/nodashii_g.webp"],"ogre":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/ogre_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/ogre_e.webp"],"ojo":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/ojo_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/ojo_g.webp"],"oracle":["https://script.bloodontheclocktower.com/src/assets/icons/snv/oracle_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/oracle_e.webp"],"organgrinder":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/organgrinder_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/organgrinder_g.webp"],"orthodontist":["https://i.imgur.com/a3yyvLa.png","https://i.imgur.com/FBwx2P2.png"],"pacifist":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/pacifist_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/pacifist_e.webp"],"philosopher":["https://script.bloodontheclocktower.com/src/assets/icons/snv/philosopher_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/philosopher_e.webp"],"pithag":["https://script.bloodontheclocktower.com/src/assets/icons/snv/pithag_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/pithag_g.webp"],"pixie":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/pixie_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/pixie_e.webp"],"plaguedoctor":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/plaguedoctor_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/plaguedoctor_e.webp"],"po":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/po_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/po_g.webp"],"poisoner":["https://script.bloodontheclocktower.com/src/assets/icons/tb/poisoner_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/poisoner_g.webp"],"politician":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/politician_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/politician_e.webp"],"pope":["https://script.bloodontheclocktower.com/src/assets/icons/loric/pope.webp"],"poppygrower":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/poppygrower_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/poppygrower_e.webp"],"preacher":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/preacher_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/preacher_e.webp"],"princess":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/princess_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/princess_e.webp"],"professor":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/professor_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/professor_e.webp"],"psychopath":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/psychopath_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/psychopath_g.webp"],"pukka":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/pukka_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/pukka_g.webp"],"pumpkin":["https://i.imgur.com/mk4SBWv.png","https://i.imgur.com/9CTD4w0.png"],"puzzlemaster":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/puzzlemaster_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/puzzlemaster_e.webp"],"ravenkeeper":["https://script.bloodontheclocktower.com/src/assets/icons/tb/ravenkeeper_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/ravenkeeper_e.webp"],"recluse":["https://script.bloodontheclocktower.com/src/assets/icons/tb/recluse_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/recluse_e.webp"],"revolutionary":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/revolutionary.webp"],"riot":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/riot_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/riot_g.webp"],"sage":["https://script.bloodontheclocktower.com/src/assets/icons/snv/sage_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/sage_e.webp"],"sailor":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/sailor_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/sailor_e.webp"],"saint":["https://script.bloodontheclocktower.com/src/assets/icons/tb/saint_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/saint_e.webp"],"savant":["https://script.bloodontheclocktower.com/src/assets/icons/snv/savant_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/savant_e.webp"],"scapegoat":["https://script.bloodontheclocktower.com/src/assets/icons/tb/scapegoat.webp"],"scarletwoman":["https://script.bloodontheclocktower.com/src/assets/icons/tb/scarletwoman_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/scarletwoman_g.webp"],"seamstress":["https://script.bloodontheclocktower.com/src/assets/icons/snv/seamstress_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/seamstress_e.webp"],"sentinel":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/sentinel.webp"],"shabaloth":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/shabaloth_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/shabaloth_g.webp"],"shugenja":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/shugenja_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/shugenja_e.webp"],"slayer":["https://script.bloodontheclocktower.com/src/assets/icons/tb/slayer_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/slayer_e.webp"],"snakecharmer":["https://script.bloodontheclocktower.com/src/assets/icons/snv/snakecharmer_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/snakecharmer_e.webp"],"snitch":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/snitch_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/snitch_e.webp"],"soldier":["https://script.bloodontheclocktower.com/src/assets/icons/tb/soldier_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/soldier_e.webp"],"spiritofivory":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/spiritofivory.webp"],"spy":["https://script.bloodontheclocktower.com/src/assets/icons/tb/spy_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/spy_g.webp"],"steward":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/steward_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/steward_e.webp"],"stormcatcher":["https://script.bloodontheclocktower.com/src/assets/icons/loric/stormcatcher.webp"],"summoner":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/summoner_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/summoner_g.webp"],"sweetheart":["https://script.bloodontheclocktower.com/src/assets/icons/snv/sweetheart_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/sweetheart_e.webp"],"tealady":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/tealady_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/tealady_e.webp"],"thief":["https://script.bloodontheclocktower.com/src/assets/icons/tb/thief.webp"],"tinker":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/tinker_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/tinker_e.webp"],"tor":["https://script.bloodontheclocktower.com/src/assets/icons/loric/tor.webp"],"towncrier":["https://script.bloodontheclocktower.com/src/assets/icons/snv/towncrier_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/towncrier_e.webp"],"toymaker":["https://script.bloodontheclocktower.com/src/assets/icons/fabled/toymaker.webp"],"undertaker":["https://script.bloodontheclocktower.com/src/assets/icons/tb/undertaker_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/undertaker_e.webp"],"ventriloquist":["https://script.bloodontheclocktower.com/src/assets/icons/loric/ventriloquist.webp"],"vigormortis":["https://script.bloodontheclocktower.com/src/assets/icons/snv/vigormortis_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/vigormortis_g.webp"],"villageidiot":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/villageidiot_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/villageidiot_e.webp"],"virgin":["https://script.bloodontheclocktower.com/src/assets/icons/tb/virgin_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/virgin_e.webp"],"vizier":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/vizier_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/vizier_g.webp"],"vortox":["https://script.bloodontheclocktower.com/src/assets/icons/snv/vortox_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/vortox_g.webp"],"voudon":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/voudon.webp"],"washerwoman":["https://script.bloodontheclocktower.com/src/assets/icons/tb/washerwoman_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/tb/washerwoman_e.webp"],"widow":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/widow_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/widow_g.webp"],"witch":["https://script.bloodontheclocktower.com/src/assets/icons/snv/witch_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/snv/witch_g.webp"],"wizard":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/wizard_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/wizard_g.webp"],"wraith":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/wraith_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/wraith_g.webp"],"xaan":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/xaan_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/xaan_g.webp"],"yaggababble":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/yaggababble_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/yaggababble_g.webp"],"zealot":["https://script.bloodontheclocktower.com/src/assets/icons/carousel/zealot_g.webp","https://script.bloodontheclocktower.com/src/assets/icons/carousel/zealot_e.webp"],"zenomancer":["https://script.bloodontheclocktower.com/src/assets/icons/loric/zenomancer.webp"],"zombuul":["https://script.bloodontheclocktower.com/src/assets/icons/bmr/zombuul_e.webp","https://script.bloodontheclocktower.com/src/assets/icons/bmr/zombuul_g.webp"]}
+{
+    "acrobat": [
+        "/pocket-grimoire/img/official/acrobat_0.webp",
+        "/pocket-grimoire/img/official/acrobat_1.webp"
+    ],
+    "alchemist": [
+        "/pocket-grimoire/img/official/alchemist_0.webp",
+        "/pocket-grimoire/img/official/alchemist_1.webp"
+    ],
+    "alhadikhia": [
+        "/pocket-grimoire/img/official/alhadikhia_0.webp",
+        "/pocket-grimoire/img/official/alhadikhia_1.webp"
+    ],
+    "alsaahir": [
+        "/pocket-grimoire/img/official/alsaahir_0.webp",
+        "/pocket-grimoire/img/official/alsaahir_1.webp"
+    ],
+    "amnesiac": [
+        "/pocket-grimoire/img/official/amnesiac_0.webp",
+        "/pocket-grimoire/img/official/amnesiac_1.webp"
+    ],
+    "angel": [
+        "/pocket-grimoire/img/official/angel_0.webp"
+    ],
+    "apprentice": [
+        "/pocket-grimoire/img/official/apprentice_0.webp"
+    ],
+    "artist": [
+        "/pocket-grimoire/img/official/artist_0.webp",
+        "/pocket-grimoire/img/official/artist_1.webp"
+    ],
+    "assassin": [
+        "/pocket-grimoire/img/official/assassin_0.webp",
+        "/pocket-grimoire/img/official/assassin_1.webp"
+    ],
+    "atheist": [
+        "/pocket-grimoire/img/official/atheist_0.webp",
+        "/pocket-grimoire/img/official/atheist_1.webp"
+    ],
+    "balloonist": [
+        "/pocket-grimoire/img/official/balloonist_0.webp",
+        "/pocket-grimoire/img/official/balloonist_1.webp"
+    ],
+    "banshee": [
+        "/pocket-grimoire/img/official/banshee_0.webp",
+        "/pocket-grimoire/img/official/banshee_1.webp"
+    ],
+    "barber": [
+        "/pocket-grimoire/img/official/barber_0.webp",
+        "/pocket-grimoire/img/official/barber_1.webp"
+    ],
+    "barista": [
+        "/pocket-grimoire/img/official/barista_0.webp"
+    ],
+    "baron": [
+        "/pocket-grimoire/img/official/baron_0.webp",
+        "/pocket-grimoire/img/official/baron_1.webp"
+    ],
+    "beggar": [
+        "/pocket-grimoire/img/official/beggar_0.webp"
+    ],
+    "bigwig": [
+        "/pocket-grimoire/img/official/bigwig_0.webp"
+    ],
+    "bishop": [
+        "/pocket-grimoire/img/official/bishop_0.webp"
+    ],
+    "boffin": [
+        "/pocket-grimoire/img/official/boffin_0.webp",
+        "/pocket-grimoire/img/official/boffin_1.webp"
+    ],
+    "bonecollector": [
+        "/pocket-grimoire/img/official/bonecollector_0.webp"
+    ],
+    "boomdandy": [
+        "/pocket-grimoire/img/official/boomdandy_0.webp",
+        "/pocket-grimoire/img/official/boomdandy_1.webp"
+    ],
+    "bootlegger": [
+        "/pocket-grimoire/img/official/bootlegger_0.webp"
+    ],
+    "bountyhunter": [
+        "/pocket-grimoire/img/official/bountyhunter_0.webp",
+        "/pocket-grimoire/img/official/bountyhunter_1.webp"
+    ],
+    "buddhist": [
+        "/pocket-grimoire/img/official/buddhist_0.webp"
+    ],
+    "bureaucrat": [
+        "/pocket-grimoire/img/official/bureaucrat_0.webp"
+    ],
+    "butcher": [
+        "/pocket-grimoire/img/official/butcher_0.webp"
+    ],
+    "butler": [
+        "/pocket-grimoire/img/official/butler_0.webp",
+        "/pocket-grimoire/img/official/butler_1.webp"
+    ],
+    "cacklejack": [
+        "/pocket-grimoire/img/official/cacklejack_0.webp"
+    ],
+    "cannibal": [
+        "/pocket-grimoire/img/official/cannibal_0.webp",
+        "/pocket-grimoire/img/official/cannibal_1.webp"
+    ],
+    "cerenovus": [
+        "/pocket-grimoire/img/official/cerenovus_0.webp",
+        "/pocket-grimoire/img/official/cerenovus_1.webp"
+    ],
+    "chambermaid": [
+        "/pocket-grimoire/img/official/chambermaid_0.webp",
+        "/pocket-grimoire/img/official/chambermaid_1.webp"
+    ],
+    "chef": [
+        "/pocket-grimoire/img/official/chef_0.webp",
+        "/pocket-grimoire/img/official/chef_1.webp"
+    ],
+    "choirboy": [
+        "/pocket-grimoire/img/official/choirboy_0.webp",
+        "/pocket-grimoire/img/official/choirboy_1.webp"
+    ],
+    "clockmaker": [
+        "/pocket-grimoire/img/official/clockmaker_0.webp",
+        "/pocket-grimoire/img/official/clockmaker_1.webp"
+    ],
+    "courtier": [
+        "/pocket-grimoire/img/official/courtier_0.webp",
+        "/pocket-grimoire/img/official/courtier_1.webp"
+    ],
+    "cultleader": [
+        "/pocket-grimoire/img/official/cultleader_0.webp",
+        "/pocket-grimoire/img/official/cultleader_1.webp"
+    ],
+    "damsel": [
+        "/pocket-grimoire/img/official/damsel_0.webp",
+        "/pocket-grimoire/img/official/damsel_1.webp"
+    ],
+    "deusexfiasco": [
+        "/pocket-grimoire/img/official/deusexfiasco_0.webp"
+    ],
+    "deviant": [
+        "/pocket-grimoire/img/official/deviant_0.webp"
+    ],
+    "devilsadvocate": [
+        "/pocket-grimoire/img/official/devilsadvocate_0.webp",
+        "/pocket-grimoire/img/official/devilsadvocate_1.webp"
+    ],
+    "djinn": [
+        "/pocket-grimoire/img/official/djinn_0.webp"
+    ],
+    "doomsayer": [
+        "/pocket-grimoire/img/official/doomsayer_0.webp"
+    ],
+    "dreamer": [
+        "/pocket-grimoire/img/official/dreamer_0.webp",
+        "/pocket-grimoire/img/official/dreamer_1.webp"
+    ],
+    "drunk": [
+        "/pocket-grimoire/img/official/drunk_0.webp",
+        "/pocket-grimoire/img/official/drunk_1.webp"
+    ],
+    "duchess": [
+        "/pocket-grimoire/img/official/duchess_0.webp"
+    ],
+    "empath": [
+        "/pocket-grimoire/img/official/empath_0.webp",
+        "/pocket-grimoire/img/official/empath_1.webp"
+    ],
+    "engineer": [
+        "/pocket-grimoire/img/official/engineer_0.webp",
+        "/pocket-grimoire/img/official/engineer_1.webp"
+    ],
+    "eviltwin": [
+        "/pocket-grimoire/img/official/eviltwin_0.webp",
+        "/pocket-grimoire/img/official/eviltwin_1.webp"
+    ],
+    "exorcist": [
+        "/pocket-grimoire/img/official/exorcist_0.webp",
+        "/pocket-grimoire/img/official/exorcist_1.webp"
+    ],
+    "fanggu": [
+        "/pocket-grimoire/img/official/fanggu_0.webp",
+        "/pocket-grimoire/img/official/fanggu_1.webp"
+    ],
+    "farmer": [
+        "/pocket-grimoire/img/official/farmer_0.webp",
+        "/pocket-grimoire/img/official/farmer_1.webp"
+    ],
+    "fearmonger": [
+        "/pocket-grimoire/img/official/fearmonger_0.webp",
+        "/pocket-grimoire/img/official/fearmonger_1.webp"
+    ],
+    "ferryman": [
+        "/pocket-grimoire/img/official/ferryman_0.webp"
+    ],
+    "fibbin": [
+        "/pocket-grimoire/img/official/fibbin_0.webp"
+    ],
+    "fiddler": [
+        "/pocket-grimoire/img/official/fiddler_0.webp"
+    ],
+    "fisherman": [
+        "/pocket-grimoire/img/official/fisherman_0.webp",
+        "/pocket-grimoire/img/official/fisherman_1.webp"
+    ],
+    "flowergirl": [
+        "/pocket-grimoire/img/official/flowergirl_0.webp",
+        "/pocket-grimoire/img/official/flowergirl_1.webp"
+    ],
+    "fool": [
+        "/pocket-grimoire/img/official/fool_0.webp",
+        "/pocket-grimoire/img/official/fool_1.webp"
+    ],
+    "fortuneteller": [
+        "/pocket-grimoire/img/official/fortuneteller_0.webp",
+        "/pocket-grimoire/img/official/fortuneteller_1.webp"
+    ],
+    "gambler": [
+        "/pocket-grimoire/img/official/gambler_0.webp",
+        "/pocket-grimoire/img/official/gambler_1.webp"
+    ],
+    "gangster": [
+        "/pocket-grimoire/img/official/gangster_0.webp"
+    ],
+    "gardener": [
+        "/pocket-grimoire/img/official/gardener_0.webp"
+    ],
+    "general": [
+        "/pocket-grimoire/img/official/general_0.webp",
+        "/pocket-grimoire/img/official/general_1.webp"
+    ],
+    "gnome": [
+        "/pocket-grimoire/img/official/gnome_0.webp"
+    ],
+    "goblin": [
+        "/pocket-grimoire/img/official/goblin_0.webp",
+        "/pocket-grimoire/img/official/goblin_1.webp"
+    ],
+    "godfather": [
+        "/pocket-grimoire/img/official/godfather_0.webp",
+        "/pocket-grimoire/img/official/godfather_1.webp"
+    ],
+    "godofug": [
+        "/pocket-grimoire/img/official/godofug_0.webp"
+    ],
+    "golem": [
+        "/pocket-grimoire/img/official/golem_0.webp",
+        "/pocket-grimoire/img/official/golem_1.webp"
+    ],
+    "goon": [
+        "/pocket-grimoire/img/official/goon_0.webp",
+        "/pocket-grimoire/img/official/goon_1.webp"
+    ],
+    "gossip": [
+        "/pocket-grimoire/img/official/gossip_0.webp",
+        "/pocket-grimoire/img/official/gossip_1.webp"
+    ],
+    "grandmother": [
+        "/pocket-grimoire/img/official/grandmother_0.webp",
+        "/pocket-grimoire/img/official/grandmother_1.webp"
+    ],
+    "gunslinger": [
+        "/pocket-grimoire/img/official/gunslinger_0.webp"
+    ],
+    "harlot": [
+        "/pocket-grimoire/img/official/harlot_0.webp"
+    ],
+    "harpy": [
+        "/pocket-grimoire/img/official/harpy_0.webp",
+        "/pocket-grimoire/img/official/harpy_1.webp"
+    ],
+    "hatter": [
+        "/pocket-grimoire/img/official/hatter_0.webp",
+        "/pocket-grimoire/img/official/hatter_1.webp"
+    ],
+    "hellslibrarian": [
+        "/pocket-grimoire/img/official/hellslibrarian_0.webp"
+    ],
+    "heretic": [
+        "/pocket-grimoire/img/official/heretic_0.webp",
+        "/pocket-grimoire/img/official/heretic_1.webp"
+    ],
+    "hermit": [
+        "/pocket-grimoire/img/official/hermit_0.webp",
+        "/pocket-grimoire/img/official/hermit_1.webp"
+    ],
+    "highpriestess": [
+        "/pocket-grimoire/img/official/highpriestess_0.webp",
+        "/pocket-grimoire/img/official/highpriestess_1.webp"
+    ],
+    "hindu": [
+        "/pocket-grimoire/img/official/hindu_0.webp"
+    ],
+    "huntsman": [
+        "/pocket-grimoire/img/official/huntsman_0.webp",
+        "/pocket-grimoire/img/official/huntsman_1.webp"
+    ],
+    "imp": [
+        "/pocket-grimoire/img/official/imp_0.webp",
+        "/pocket-grimoire/img/official/imp_1.webp"
+    ],
+    "innkeeper": [
+        "/pocket-grimoire/img/official/innkeeper_0.webp",
+        "/pocket-grimoire/img/official/innkeeper_1.webp"
+    ],
+    "investigator": [
+        "/pocket-grimoire/img/official/investigator_0.webp",
+        "/pocket-grimoire/img/official/investigator_1.webp"
+    ],
+    "judge": [
+        "/pocket-grimoire/img/official/judge_0.webp"
+    ],
+    "juggler": [
+        "/pocket-grimoire/img/official/juggler_0.webp",
+        "/pocket-grimoire/img/official/juggler_1.webp"
+    ],
+    "kazali": [
+        "/pocket-grimoire/img/official/kazali_0.webp",
+        "/pocket-grimoire/img/official/kazali_1.webp"
+    ],
+    "king": [
+        "/pocket-grimoire/img/official/king_0.webp",
+        "/pocket-grimoire/img/official/king_1.webp"
+    ],
+    "klutz": [
+        "/pocket-grimoire/img/official/klutz_0.webp",
+        "/pocket-grimoire/img/official/klutz_1.webp"
+    ],
+    "knaves": [
+        "/pocket-grimoire/img/official/knaves_0.webp"
+    ],
+    "knight": [
+        "/pocket-grimoire/img/official/knight_0.webp",
+        "/pocket-grimoire/img/official/knight_1.webp"
+    ],
+    "legion": [
+        "/pocket-grimoire/img/official/legion_0.webp",
+        "/pocket-grimoire/img/official/legion_1.webp"
+    ],
+    "leviathan": [
+        "/pocket-grimoire/img/official/leviathan_0.webp",
+        "/pocket-grimoire/img/official/leviathan_1.webp"
+    ],
+    "librarian": [
+        "/pocket-grimoire/img/official/librarian_0.webp",
+        "/pocket-grimoire/img/official/librarian_1.webp"
+    ],
+    "lilmonsta": [
+        "/pocket-grimoire/img/official/lilmonsta_0.webp",
+        "/pocket-grimoire/img/official/lilmonsta_1.webp"
+    ],
+    "lleech": [
+        "/pocket-grimoire/img/official/lleech_0.webp",
+        "/pocket-grimoire/img/official/lleech_1.webp"
+    ],
+    "lordoftyphon": [
+        "/pocket-grimoire/img/official/lordoftyphon_0.webp",
+        "/pocket-grimoire/img/official/lordoftyphon_1.webp"
+    ],
+    "lunatic": [
+        "/pocket-grimoire/img/official/lunatic_0.webp",
+        "/pocket-grimoire/img/official/lunatic_1.webp"
+    ],
+    "lycanthrope": [
+        "/pocket-grimoire/img/official/lycanthrope_0.webp",
+        "/pocket-grimoire/img/official/lycanthrope_1.webp"
+    ],
+    "magician": [
+        "/pocket-grimoire/img/official/magician_0.webp",
+        "/pocket-grimoire/img/official/magician_1.webp"
+    ],
+    "marionette": [
+        "/pocket-grimoire/img/official/marionette_0.webp",
+        "/pocket-grimoire/img/official/marionette_1.webp"
+    ],
+    "mastermind": [
+        "/pocket-grimoire/img/official/mastermind_0.webp",
+        "/pocket-grimoire/img/official/mastermind_1.webp"
+    ],
+    "mathematician": [
+        "/pocket-grimoire/img/official/mathematician_0.webp",
+        "/pocket-grimoire/img/official/mathematician_1.webp"
+    ],
+    "matron": [
+        "/pocket-grimoire/img/official/matron_0.webp"
+    ],
+    "mayor": [
+        "/pocket-grimoire/img/official/mayor_0.webp",
+        "/pocket-grimoire/img/official/mayor_1.webp"
+    ],
+    "mezepheles": [
+        "/pocket-grimoire/img/official/mezepheles_0.webp",
+        "/pocket-grimoire/img/official/mezepheles_1.webp"
+    ],
+    "minstrel": [
+        "/pocket-grimoire/img/official/minstrel_0.webp",
+        "/pocket-grimoire/img/official/minstrel_1.webp"
+    ],
+    "monk": [
+        "/pocket-grimoire/img/official/monk_0.webp",
+        "/pocket-grimoire/img/official/monk_1.webp"
+    ],
+    "moonchild": [
+        "/pocket-grimoire/img/official/moonchild_0.webp",
+        "/pocket-grimoire/img/official/moonchild_1.webp"
+    ],
+    "mutant": [
+        "/pocket-grimoire/img/official/mutant_0.webp",
+        "/pocket-grimoire/img/official/mutant_1.webp"
+    ],
+    "nightwatchman": [
+        "/pocket-grimoire/img/official/nightwatchman_0.webp",
+        "/pocket-grimoire/img/official/nightwatchman_1.webp"
+    ],
+    "noble": [
+        "/pocket-grimoire/img/official/noble_0.webp",
+        "/pocket-grimoire/img/official/noble_1.webp"
+    ],
+    "nodashii": [
+        "/pocket-grimoire/img/official/nodashii_0.webp",
+        "/pocket-grimoire/img/official/nodashii_1.webp"
+    ],
+    "ogre": [
+        "/pocket-grimoire/img/official/ogre_0.webp",
+        "/pocket-grimoire/img/official/ogre_1.webp"
+    ],
+    "ojo": [
+        "/pocket-grimoire/img/official/ojo_0.webp",
+        "/pocket-grimoire/img/official/ojo_1.webp"
+    ],
+    "oracle": [
+        "/pocket-grimoire/img/official/oracle_0.webp",
+        "/pocket-grimoire/img/official/oracle_1.webp"
+    ],
+    "organgrinder": [
+        "/pocket-grimoire/img/official/organgrinder_0.webp",
+        "/pocket-grimoire/img/official/organgrinder_1.webp"
+    ],
+    "orthodontist": [
+        "/pocket-grimoire/img/official/orthodontist_0.png",
+        "/pocket-grimoire/img/official/orthodontist_1.png"
+    ],
+    "pacifist": [
+        "/pocket-grimoire/img/official/pacifist_0.webp",
+        "/pocket-grimoire/img/official/pacifist_1.webp"
+    ],
+    "philosopher": [
+        "/pocket-grimoire/img/official/philosopher_0.webp",
+        "/pocket-grimoire/img/official/philosopher_1.webp"
+    ],
+    "pithag": [
+        "/pocket-grimoire/img/official/pithag_0.webp",
+        "/pocket-grimoire/img/official/pithag_1.webp"
+    ],
+    "pixie": [
+        "/pocket-grimoire/img/official/pixie_0.webp",
+        "/pocket-grimoire/img/official/pixie_1.webp"
+    ],
+    "plaguedoctor": [
+        "/pocket-grimoire/img/official/plaguedoctor_0.webp",
+        "/pocket-grimoire/img/official/plaguedoctor_1.webp"
+    ],
+    "po": [
+        "/pocket-grimoire/img/official/po_0.webp",
+        "/pocket-grimoire/img/official/po_1.webp"
+    ],
+    "poisoner": [
+        "/pocket-grimoire/img/official/poisoner_0.webp",
+        "/pocket-grimoire/img/official/poisoner_1.webp"
+    ],
+    "politician": [
+        "/pocket-grimoire/img/official/politician_0.webp",
+        "/pocket-grimoire/img/official/politician_1.webp"
+    ],
+    "pope": [
+        "/pocket-grimoire/img/official/pope_0.webp"
+    ],
+    "poppygrower": [
+        "/pocket-grimoire/img/official/poppygrower_0.webp",
+        "/pocket-grimoire/img/official/poppygrower_1.webp"
+    ],
+    "preacher": [
+        "/pocket-grimoire/img/official/preacher_0.webp",
+        "/pocket-grimoire/img/official/preacher_1.webp"
+    ],
+    "princess": [
+        "/pocket-grimoire/img/official/princess_0.webp",
+        "/pocket-grimoire/img/official/princess_1.webp"
+    ],
+    "professor": [
+        "/pocket-grimoire/img/official/professor_0.webp",
+        "/pocket-grimoire/img/official/professor_1.webp"
+    ],
+    "psychopath": [
+        "/pocket-grimoire/img/official/psychopath_0.webp",
+        "/pocket-grimoire/img/official/psychopath_1.webp"
+    ],
+    "pukka": [
+        "/pocket-grimoire/img/official/pukka_0.webp",
+        "/pocket-grimoire/img/official/pukka_1.webp"
+    ],
+    "pumpkin": [
+        "/pocket-grimoire/img/official/pumpkin_0.png",
+        "/pocket-grimoire/img/official/pumpkin_1.png"
+    ],
+    "puzzlemaster": [
+        "/pocket-grimoire/img/official/puzzlemaster_0.webp",
+        "/pocket-grimoire/img/official/puzzlemaster_1.webp"
+    ],
+    "ravenkeeper": [
+        "/pocket-grimoire/img/official/ravenkeeper_0.webp",
+        "/pocket-grimoire/img/official/ravenkeeper_1.webp"
+    ],
+    "recluse": [
+        "/pocket-grimoire/img/official/recluse_0.webp",
+        "/pocket-grimoire/img/official/recluse_1.webp"
+    ],
+    "revolutionary": [
+        "/pocket-grimoire/img/official/revolutionary_0.webp"
+    ],
+    "riot": [
+        "/pocket-grimoire/img/official/riot_0.webp",
+        "/pocket-grimoire/img/official/riot_1.webp"
+    ],
+    "sage": [
+        "/pocket-grimoire/img/official/sage_0.webp",
+        "/pocket-grimoire/img/official/sage_1.webp"
+    ],
+    "sailor": [
+        "/pocket-grimoire/img/official/sailor_0.webp",
+        "/pocket-grimoire/img/official/sailor_1.webp"
+    ],
+    "saint": [
+        "/pocket-grimoire/img/official/saint_0.webp",
+        "/pocket-grimoire/img/official/saint_1.webp"
+    ],
+    "savant": [
+        "/pocket-grimoire/img/official/savant_0.webp",
+        "/pocket-grimoire/img/official/savant_1.webp"
+    ],
+    "scapegoat": [
+        "/pocket-grimoire/img/official/scapegoat_0.webp"
+    ],
+    "scarletwoman": [
+        "/pocket-grimoire/img/official/scarletwoman_0.webp",
+        "/pocket-grimoire/img/official/scarletwoman_1.webp"
+    ],
+    "seamstress": [
+        "/pocket-grimoire/img/official/seamstress_0.webp",
+        "/pocket-grimoire/img/official/seamstress_1.webp"
+    ],
+    "sentinel": [
+        "/pocket-grimoire/img/official/sentinel_0.webp"
+    ],
+    "shabaloth": [
+        "/pocket-grimoire/img/official/shabaloth_0.webp",
+        "/pocket-grimoire/img/official/shabaloth_1.webp"
+    ],
+    "shugenja": [
+        "/pocket-grimoire/img/official/shugenja_0.webp",
+        "/pocket-grimoire/img/official/shugenja_1.webp"
+    ],
+    "slayer": [
+        "/pocket-grimoire/img/official/slayer_0.webp",
+        "/pocket-grimoire/img/official/slayer_1.webp"
+    ],
+    "snakecharmer": [
+        "/pocket-grimoire/img/official/snakecharmer_0.webp",
+        "/pocket-grimoire/img/official/snakecharmer_1.webp"
+    ],
+    "snitch": [
+        "/pocket-grimoire/img/official/snitch_0.webp",
+        "/pocket-grimoire/img/official/snitch_1.webp"
+    ],
+    "soldier": [
+        "/pocket-grimoire/img/official/soldier_0.webp",
+        "/pocket-grimoire/img/official/soldier_1.webp"
+    ],
+    "spiritofivory": [
+        "/pocket-grimoire/img/official/spiritofivory_0.webp"
+    ],
+    "spy": [
+        "/pocket-grimoire/img/official/spy_0.webp",
+        "/pocket-grimoire/img/official/spy_1.webp"
+    ],
+    "steward": [
+        "/pocket-grimoire/img/official/steward_0.webp",
+        "/pocket-grimoire/img/official/steward_1.webp"
+    ],
+    "stormcatcher": [
+        "/pocket-grimoire/img/official/stormcatcher_0.webp"
+    ],
+    "summoner": [
+        "/pocket-grimoire/img/official/summoner_0.webp",
+        "/pocket-grimoire/img/official/summoner_1.webp"
+    ],
+    "sweetheart": [
+        "/pocket-grimoire/img/official/sweetheart_0.webp",
+        "/pocket-grimoire/img/official/sweetheart_1.webp"
+    ],
+    "tealady": [
+        "/pocket-grimoire/img/official/tealady_0.webp",
+        "/pocket-grimoire/img/official/tealady_1.webp"
+    ],
+    "thief": [
+        "/pocket-grimoire/img/official/thief_0.webp"
+    ],
+    "tinker": [
+        "/pocket-grimoire/img/official/tinker_0.webp",
+        "/pocket-grimoire/img/official/tinker_1.webp"
+    ],
+    "tor": [
+        "/pocket-grimoire/img/official/tor_0.webp"
+    ],
+    "towncrier": [
+        "/pocket-grimoire/img/official/towncrier_0.webp",
+        "/pocket-grimoire/img/official/towncrier_1.webp"
+    ],
+    "toymaker": [
+        "/pocket-grimoire/img/official/toymaker_0.webp"
+    ],
+    "undertaker": [
+        "/pocket-grimoire/img/official/undertaker_0.webp",
+        "/pocket-grimoire/img/official/undertaker_1.webp"
+    ],
+    "ventriloquist": [
+        "/pocket-grimoire/img/official/ventriloquist_0.webp"
+    ],
+    "vigormortis": [
+        "/pocket-grimoire/img/official/vigormortis_0.webp",
+        "/pocket-grimoire/img/official/vigormortis_1.webp"
+    ],
+    "villageidiot": [
+        "/pocket-grimoire/img/official/villageidiot_0.webp",
+        "/pocket-grimoire/img/official/villageidiot_1.webp"
+    ],
+    "virgin": [
+        "/pocket-grimoire/img/official/virgin_0.webp",
+        "/pocket-grimoire/img/official/virgin_1.webp"
+    ],
+    "vizier": [
+        "/pocket-grimoire/img/official/vizier_0.webp",
+        "/pocket-grimoire/img/official/vizier_1.webp"
+    ],
+    "vortox": [
+        "/pocket-grimoire/img/official/vortox_0.webp",
+        "/pocket-grimoire/img/official/vortox_1.webp"
+    ],
+    "voudon": [
+        "/pocket-grimoire/img/official/voudon_0.webp"
+    ],
+    "washerwoman": [
+        "/pocket-grimoire/img/official/washerwoman_0.webp",
+        "/pocket-grimoire/img/official/washerwoman_1.webp"
+    ],
+    "widow": [
+        "/pocket-grimoire/img/official/widow_0.webp",
+        "/pocket-grimoire/img/official/widow_1.webp"
+    ],
+    "witch": [
+        "/pocket-grimoire/img/official/witch_0.webp",
+        "/pocket-grimoire/img/official/witch_1.webp"
+    ],
+    "wizard": [
+        "/pocket-grimoire/img/official/wizard_0.webp",
+        "/pocket-grimoire/img/official/wizard_1.webp"
+    ],
+    "wraith": [
+        "/pocket-grimoire/img/official/wraith_0.webp",
+        "/pocket-grimoire/img/official/wraith_1.webp"
+    ],
+    "xaan": [
+        "/pocket-grimoire/img/official/xaan_0.webp",
+        "/pocket-grimoire/img/official/xaan_1.webp"
+    ],
+    "yaggababble": [
+        "/pocket-grimoire/img/official/yaggababble_0.webp",
+        "/pocket-grimoire/img/official/yaggababble_1.webp"
+    ],
+    "zealot": [
+        "/pocket-grimoire/img/official/zealot_0.webp",
+        "/pocket-grimoire/img/official/zealot_1.webp"
+    ],
+    "zenomancer": [
+        "/pocket-grimoire/img/official/zenomancer_0.webp"
+    ],
+    "zombuul": [
+        "/pocket-grimoire/img/official/zombuul_0.webp",
+        "/pocket-grimoire/img/official/zombuul_1.webp"
+    ]
+}
