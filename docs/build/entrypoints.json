@@ -3,7 +3,7 @@
     "js/main": {
       "js": [
         "/pocket-grimoire/build/runtime.1da4aef6.js",
-        "/pocket-grimoire/build/js/main.bdaa2cde.js"
+        "/pocket-grimoire/build/js/main.39e43849.js"
       ]
     },
     "js/sheet": {
@@ -46,7 +46,7 @@
   },
   "integrity": {
     "/pocket-grimoire/build/runtime.1da4aef6.js": "sha384-HZaON5OIc5iA3uySh6L68qLaDdaWq9eFO8tKPe/kOroI1jA4zXeOfwiOloGjP1zJ",
-    "/pocket-grimoire/build/js/main.bdaa2cde.js": "sha384-FUHN9mddKrPFAI9AKxlek+RAv8HctsekGbE4kxwHujUGFxUswjt1Wv75PY7QTd8w",
+    "/pocket-grimoire/build/js/main.39e43849.js": "sha384-fY2daEh5uqPcLHXcQI/HbbnM7EPsVGGVHx+SfRoTnGH2IsvGA38wtVx04xmOO3JY",
     "/pocket-grimoire/build/120.eaf362f0.js": "sha384-M81qz06UsWtoPsT4LLHvK+ocOFQ+T8peQT7A6Dt/WKojKbtrpeIVbbVQwZy+8nC8",
     "/pocket-grimoire/build/js/sheet.1098498a.js": "sha384-pWkBSUyU6uQwvisYE9Q0lBelab3R4O3At4RSg2W6TCyXHLyI5fz4npqqSCt5NA0g",
     "/pocket-grimoire/build/js/dialog.6ab8707a.js": "sha384-hzLraqI7tLGK6dsjy+ccm5r0HHTmBqxzpsHPr8LQyoQ2wmfJO/U80jUNyMduxFKq",
