@@ -522,12 +522,86 @@ function frame(page, label, fileBase) {
  * @param {String} fileName
  *        저장할 파일 이름(확장자 제외).
  */
+/**
+ * 촬영 전에 페이지 안의 모든 그림을 PNG 데이터로 바꿔 심어둔다.
+ *
+ * html2canvas 가 그림을 직접 불러오게 하면 형식이나 출처에 따라 실패하는
+ * 경우가 있다. 미리 우리가 읽어서 넣어두면 그런 변수가 사라진다.
+ *
+ * @param  {Element} root
+ *         대상 영역.
+ * @return {Promise}
+ *         원래대로 되돌리는 함수를 담은 약속.
+ */
+function inlineImages(root) {
+
+    const images = Array.from(root.querySelectorAll("img"));
+    const originals = new Map();
+
+    const jobs = images.map((image) => new Promise((resolve) => {
+
+        const source = image.currentSrc || image.src;
+
+        if (!source || source.startsWith("data:")) {
+            resolve();
+            return;
+        }
+
+        const probe = new Image();
+
+        probe.crossOrigin = "anonymous";
+
+        probe.onload = () => {
+
+            try {
+
+                const canvas = document.createElement("canvas");
+
+                canvas.width = probe.naturalWidth;
+                canvas.height = probe.naturalHeight;
+                canvas.getContext("2d").drawImage(probe, 0, 0);
+
+                originals.set(image, image.getAttribute("src"));
+                image.setAttribute("src", canvas.toDataURL("image/png"));
+
+            } catch (ignore) {
+                // 준비에 실패하면 원래 주소 그대로 둔다.
+            }
+
+            resolve();
+
+        };
+
+        probe.onerror = () => resolve();
+        probe.src = source;
+
+    }));
+
+    return Promise.all(jobs).then(() => () => {
+
+        originals.forEach((value, image) => {
+
+            if (value === null) {
+                image.removeAttribute("src");
+            } else {
+                image.setAttribute("src", value);
+            }
+
+        });
+
+    });
+
+}
+
 function exportPage(page, inner, box, button, fileName) {
 
     const transform = inner.style.transform;
     const height = box.style.height;
 
+    let undoInline = () => {};
+
     const restore = () => {
+        undoInline();
         inner.style.transform = transform;
         box.style.height = height;
         button.classList.remove("is-loading");
@@ -540,11 +614,17 @@ function exportPage(page, inner, box, button, fileName) {
     inner.style.transform = "none";
     box.style.height = "auto";
 
-    html2canvas(page, {
-        backgroundColor: "#ffffff",
-        useCORS: true,
-        scale: 2,
-        logging: false
+    inlineImages(page).then((undo) => {
+
+        undoInline = undo;
+
+        return html2canvas(page, {
+            backgroundColor: "#ffffff",
+            useCORS: true,
+            scale: 2,
+            logging: false
+        });
+
     }).then((canvas) => new Promise((resolve, reject) => {
 
         canvas.toBlob((blob) => {
