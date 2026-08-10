@@ -14,6 +14,9 @@ import html2canvas from "html2canvas";
 
 const STORAGE_KEY = "pg-sheet-data";
 
+// A4 세로 비율(210mm x 297mm). 내보낼 때 이 비율로 높이를 맞춘다.
+const A4_RATIO = 297 / 210;
+
 const TEAM_LABEL = {
     townsfolk: "주민",
     outsider: "외지인",
@@ -600,19 +603,43 @@ function exportPage(page, inner, box, button, fileName) {
 
     let undoInline = () => {};
 
+    const pageHeight = page.style.minHeight;
+    const pageBox = page.style.boxSizing;
+
     const restore = () => {
         undoInline();
+        page.style.minHeight = pageHeight;
+        page.style.boxSizing = pageBox;
         inner.style.transform = transform;
         box.style.height = height;
         button.classList.remove("is-loading");
         button.disabled = false;
     };
 
-    button.disabled = true;
-    button.classList.add("is-loading");
-
+    // 줄여 놓은 상태에서는 크기를 정확히 잴 수 없으므로 먼저 원래대로 편다.
     inner.style.transform = "none";
     box.style.height = "auto";
+
+    const target = Math.round(page.offsetWidth * A4_RATIO);
+    const natural = Math.round(page.getBoundingClientRect().height);
+
+    if (natural > target) {
+
+        if (!window.confirm("시트 이미지가 너무 큽니다. 그래도 저장 할까요?")) {
+            inner.style.transform = transform;
+            box.style.height = height;
+            return;
+        }
+
+    } else {
+
+        page.style.boxSizing = "border-box";
+        page.style.minHeight = target + "px";
+
+    }
+
+    button.disabled = true;
+    button.classList.add("is-loading");
 
     inlineImages(page).then((undo) => {
 
