@@ -407,6 +407,7 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
     background-size: 1.15rem 1.15rem;
     opacity: 0.55;
     transition: opacity 0.15s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 
     &:hover,
     &:focus,
@@ -424,20 +425,3 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
     }
 }
 
-/* B안: 시트 바깥 모서리에 걸치고 흐리지 않는다.
-   브라우저 콘솔에서 아래 한 줄로 A안 / B안을 오간다.
-   document.body.classList.toggle("sheet-edge") */
-body.sheet-edge {
-
-    .sheet-actions {
-        top: 0;
-        right: 0;
-        transform: translate(38%, -38%);
-    }
-
-    .sheet-button {
-        opacity: 1;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
-    }
-
-}
