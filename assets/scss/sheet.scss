@@ -375,3 +375,69 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
     }
 
 }
+
+/* === 시트 저장 버튼: 아이콘 겹침 배치 === */
+/* 버튼이 시트 위쪽에 따로 한 줄을 차지하던 것을 없애고, 시트 오른쪽
+   위 모서리에 겹쳐 띄운다. 아이콘은 assets/img/download.png 를 파일
+   주소가 아니라 글자로 심었다. 배포 경로(/pocket-grimoire)와 로컬
+   경로가 달라 주소를 적으면 한쪽에서 반드시 깨지기 때문이다.
+   display 는 일부러 건드리지 않는다 — 인쇄용 숨김 규칙과 부딪힌다. */
+
+.sheet-block {
+    position: relative;
+}
+
+.sheet-actions {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 2;
+    margin-bottom: 0;
+}
+
+.sheet-button {
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border-radius: 50%;
+    background-color: #ffffff;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACrElEQVR4nO2YzW7aQBSFR/hBAoZg82NM36VddxGpqtoq7Y6l8x7ZeBMMBEggCRCiqqoQbRbpqn0F/9AC+3Yz1Z0fMrjBStuFPZKPdCRkMfZ3DIt7D0KpUqVKFZY5Xc/rN2tcn1Kb4MlyhmRRnYNfg1fUkxVGssjk0NcrXJvcG8kiU4CujamN8VKeALUQuDGiRrLICIFXr6iRLDJC4MSXP+QJUA2BV5iRLKpeLjfQlQvq8oVEASoh8PIQ/F2eAOUQeGlAjWRROQROfC5RgFIIXGdGsqgkQOtnC2LtbCFPAD0ErvWpkSzSBGhwsUeNZJG2BR5Qd4NkBtD6i28Pv/F78H3wKXUB3PGZva9JCHAs/k22oHeC+zjf9rHa9o7j5kfIwpliL7B3g/t/gBM7noM6WEGJkIUzhW5gc2gC/hA0uOXjXKLgxRCdwI4CV1teQuG3Qvi2CJ1veQRcdTycayYZnsvCmbzj26oALg88l4UzOce1Cbh08FwWzmSb3nMwfN5cTxWh2mg5h0qElFKsXavfrGOrBJ9ARcmrSVaSGeOIihKWcNIojJe012FhUEwyebMn1DSR9QysgbDPwlIuhkExyRCgeVEQWQ7og8Uv2KJgJazwMDEWUtUr1m6w/RrY9MHi584DxX7whSwi53QdhL0WDqIE7NY6W5KKveBu5wHt1H8GQxkZi9lGBQeVgyFWXoyw8nKKlVfvsfL6A1befMTK4Qwrb+fMn6jffRZ8yyxc49/j5w5n9F5wT7g3PAOedTDcQPNxnbD1vKeRqQudwIJpEiZLGI/hYFwBND6mswkX2B7106ltvwHDGJksu0FsAfbZWA4sast7HPwmhOM2YCCDw3EFKPDF52/hubKO24B5Jq4AquPhbPMf4bn2TtyjuALsnbhH/wWfKlUqlHj9BkQRtIh4vvG7AAAAAElFTkSuQmCC");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.15rem 1.15rem;
+    opacity: 0.55;
+    transition: opacity 0.15s ease;
+
+    &:hover,
+    &:focus,
+    &.is-loading {
+        opacity: 1;
+    }
+
+    .button__text {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+}
+
+/* B안: 시트 바깥 모서리에 걸치고 흐리지 않는다.
+   브라우저 콘솔에서 아래 한 줄로 A안 / B안을 오간다.
+   document.body.classList.toggle("sheet-edge") */
+body.sheet-edge {
+
+    .sheet-actions {
+        top: 0;
+        right: 0;
+        transform: translate(38%, -38%);
+    }
+
+    .sheet-button {
+        opacity: 1;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    }
+
+}
