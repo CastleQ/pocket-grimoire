@@ -98,6 +98,7 @@ setup:
         title: 캐릭터 시트
         intro: 새 탭에서 캐릭터 시트와 밤 순서 시트를 엽니다
         open: 시트 열기
+        share: 시트 공유하기
         include: '포함:'
         travellers: 여행자
         fabled: 전설적인

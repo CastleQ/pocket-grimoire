@@ -13,6 +13,12 @@
             <span class="button__loader" aria-hidden="true"></span>
         </button>
 
+        <button type="button" class="button mt-4" id="share-sheet" disabled>
+            <span class="button__text">{{ 'setup.qr_code.share'|trans }}</span>
+            <span class="button__loader" aria-hidden="true"></span>
+        </button>
+        <div class="mt-4" id="share-sheet-result" hidden></div>
+
         <p class="mt-4" id="include-groups">{{ 'setup.qr_code.include'|trans }}</p>
         <div class="slot slot--2">
             {{ forms.switch({

@@ -11,6 +11,7 @@
  */
 
 import html2canvas from "html2canvas";
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./processes/setup/supabase-config.js";
 import roleImages from "../data/role-images.json";
 
 const STORAGE_KEY = "pg-sheet-data";
@@ -777,9 +778,143 @@ window.addEventListener("load", fitPages);
 /**
  * 시트 전체를 그린다.
  */
-function render() {
+/**
+ * 주소에 실린 공유 번호를 꺼낸다. 형식이 어긋나면 빈 문자열.
+ */
+function getShareToken() {
 
-    const payload = readPayload();
+    try {
+
+        const token = new URL(window.location.href).searchParams.get("s");
+
+        if (!token || !/^[A-Za-z0-9_-]{10,64}$/.test(token)) {
+            return "";
+        }
+
+        return token;
+
+    } catch (ignore) {
+        return "";
+    }
+
+}
+
+/**
+ * 공유된 시트를 서버에서 받아온다.
+ *
+ * 테이블 직접 접근은 막혀 있고, 이 함수(RPC)만이 유일한 통로다.
+ * 폴리필이 꺼져 있으므로 async/await 를 쓰지 않는다. (규약 C-8)
+ */
+function fetchSharedSheet(token) {
+
+    return fetch(SUPABASE_URL + "/rest/v1/rpc/get_shared_sheet", {
+        method: "POST",
+        headers: {
+            "apikey": SUPABASE_ANON_KEY,
+            "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ p_token: token })
+    }).then((response) => {
+
+        if (!response.ok) {
+            throw new Error("서버 응답 " + response.status);
+        }
+
+        return response.json();
+
+    });
+
+}
+
+/**
+ * 남이 만든 링크의 그림 주소를 검사한다. http/https 와 상대경로만 통과.
+ */
+function safeImage(value) {
+
+    if (Array.isArray(value)) {
+        return value.map(safeImage).filter((item) => item);
+    }
+
+    const source = String(value || "").trim();
+
+    if (!source) {
+        return "";
+    }
+
+    if (/^https?:\/\//i.test(source)) {
+        return source;
+    }
+
+    return source.indexOf(":") === -1 ? source : "";
+
+}
+
+/**
+ * 받아온 시트의 그림 주소를 모두 검사한다.
+ */
+function sanitizePayload(payload) {
+
+    if (payload && Array.isArray(payload.characters)) {
+        payload.characters.forEach((character) => {
+            character.image = safeImage(character.image);
+        });
+    }
+
+    if (payload && payload.meta) {
+        payload.meta.logo = safeImage(payload.meta.logo);
+        payload.meta.background = safeImage(payload.meta.background);
+    }
+
+    return payload;
+
+}
+
+/**
+ * 안내 문구 한 줄만 화면에 띄운다.
+ */
+function showNotice(message) {
+
+    document.body.innerHTML = "";
+    document.body.className = "body-sheet";
+    document.body.append(element("p", "sheet-empty", message));
+
+}
+
+/**
+ * 시작. 주소에 공유 번호가 있으면 서버에서 받아오고, 없으면 저장소에서 읽는다.
+ */
+function boot() {
+
+    const token = getShareToken();
+
+    if (!token) {
+        render(readPayload());
+        return;
+    }
+
+    showNotice("공유된 시트를 불러오는 중입니다…");
+
+    fetchSharedSheet(token).then((payload) => {
+
+        if (!payload || !payload.characters || !payload.characters.length) {
+            showNotice("링크가 만료되었거나 올바르지 않습니다.");
+            return;
+        }
+
+        render(sanitizePayload(payload));
+
+    }).catch((error) => {
+
+        showNotice("시트를 불러오지 못했습니다: " + error.message);
+
+    });
+
+}
+
+
+function render(payload) {
+
     const root = document.body;
 
     root.innerHTML = "";
@@ -831,4 +966,4 @@ function render() {
 
 }
 
-render();
+boot();
