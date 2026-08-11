@@ -17,6 +17,9 @@ const STORAGE_KEY = "pg-sheet-data";
 // A4 세로 비율(210mm x 297mm). 내보낼 때 이 비율로 높이를 맞춘다.
 const A4_RATIO = 297 / 210;
 
+// A4 안에 담기지 않을 때 순서대로 시도할 압축 단계.
+const COMPACT_STEPS = ["", "sheet-page--compact", "sheet-page--tight"];
+
 const TEAM_LABEL = {
     townsfolk: "주민",
     outsider: "외지인",
@@ -610,6 +613,7 @@ function exportPage(page, inner, box, button, fileName) {
         undoInline();
         page.style.minHeight = pageHeight;
         page.style.boxSizing = pageBox;
+        page.classList.remove("sheet-page--compact", "sheet-page--tight");
         inner.style.transform = transform;
         box.style.height = height;
         button.classList.remove("is-loading");
@@ -620,21 +624,44 @@ function exportPage(page, inner, box, button, fileName) {
     inner.style.transform = "none";
     box.style.height = "auto";
 
-    const target = Math.round(page.offsetWidth * A4_RATIO);
-    const natural = Math.round(page.getBoundingClientRect().height);
+    // A4 안에 담길 때까지 단계적으로 압축해본다.
+    let fitted = 0;
 
-    if (natural > target) {
+    COMPACT_STEPS.forEach((step) => {
+
+        if (fitted) {
+            return;
+        }
+
+        page.classList.remove("sheet-page--compact", "sheet-page--tight");
+
+        if (step) {
+            page.classList.add(step);
+        }
+
+        const limit = Math.round(page.offsetWidth * A4_RATIO);
+
+        if (Math.round(page.getBoundingClientRect().height) <= limit) {
+            fitted = limit;
+        }
+
+    });
+
+    if (fitted) {
+
+        page.style.boxSizing = "border-box";
+        page.style.minHeight = fitted + "px";
+
+    } else {
+
+        // 압축해도 담기지 않으면 읽기 편한 원래 크기로 되돌리고 물어본다.
+        page.classList.remove("sheet-page--compact", "sheet-page--tight");
 
         if (!window.confirm("시트 이미지가 너무 큽니다. 그래도 저장 할까요?")) {
             inner.style.transform = transform;
             box.style.height = height;
             return;
         }
-
-    } else {
-
-        page.style.boxSizing = "border-box";
-        page.style.minHeight = target + "px";
 
     }
 
