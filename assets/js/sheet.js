@@ -737,7 +737,15 @@ function exportPage(page, inner, box, button, fileName) {
  * 각 페이지를 화면 크기에 맞게 줄인다. 세로·가로 어느 쪽도 넘치지 않도록
  * 둘 중 작은 비율을 쓴다. 글자가 작아지면 사용자가 확대해서 본다.
  */
+// 좁은 화면(휴대폰)에서는 세로 높이를 기준으로 줄이지 않는다.
+// 높이로 줄이면 가로 폭이 남아 여백이 생기고, 모바일 브라우저의
+// 주소창이 숨었다 나타날 때마다 화면 높이가 바뀌어 시트가 출렁인다.
+const NARROW_WIDTH = 768;
+let lastFitWidth = -1;
+
 function fitPages() {
+
+    lastFitWidth = window.innerWidth;
 
     const frames = Array.from(document.querySelectorAll(".sheet-frame"));
 
@@ -756,7 +764,10 @@ function fitPages() {
         }
 
         const available = box.clientWidth;
-        const scale = Math.min(available / width, window.innerHeight / height, 1);
+        const narrow = window.innerWidth <= NARROW_WIDTH;
+        const scale = narrow
+            ? Math.min(available / width, 1)
+            : Math.min(available / width, window.innerHeight / height, 1);
 
         inner.style.transform = `scale(${scale})`;
         inner.style.width = `${width}px`;
@@ -769,6 +780,11 @@ function fitPages() {
 let fitTimer = 0;
 
 window.addEventListener("resize", () => {
+    // 폭이 그대로면 주소창이 숨었다 나타난 것뿐이므로 손대지 않는다.
+    if (window.innerWidth === lastFitWidth) {
+        return;
+    }
+
     window.clearTimeout(fitTimer);
     fitTimer = window.setTimeout(fitPages, 150);
 });
