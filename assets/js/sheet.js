@@ -17,8 +17,9 @@ const STORAGE_KEY = "pg-sheet-data";
 // A4 세로 비율(210mm x 297mm). 내보낼 때 이 비율로 높이를 맞춘다.
 const A4_RATIO = 297 / 210;
 
-// A4 안에 담기지 않을 때 순서대로 시도할 압축 단계.
-const COMPACT_STEPS = ["", "sheet-page--compact", "sheet-page--tight"];
+// A4 안에 담기지 않을 때 글자와 여백을 줄이는 하한과 간격.
+const SCALE_FLOOR = 0.6;
+const SCALE_STEP = 0.03;
 
 const TEAM_LABEL = {
     townsfolk: "주민",
@@ -607,13 +608,11 @@ function exportPage(page, inner, box, button, fileName) {
     let undoInline = () => {};
 
     const pageHeight = page.style.minHeight;
-    const pageBox = page.style.boxSizing;
 
     const restore = () => {
         undoInline();
         page.style.minHeight = pageHeight;
-        page.style.boxSizing = pageBox;
-        page.classList.remove("sheet-page--compact", "sheet-page--tight");
+        page.style.removeProperty("--sheet-scale");
         inner.style.transform = transform;
         box.style.height = height;
         button.classList.remove("is-loading");
@@ -624,38 +623,30 @@ function exportPage(page, inner, box, button, fileName) {
     inner.style.transform = "none";
     box.style.height = "auto";
 
-    // A4 안에 담길 때까지 단계적으로 압축해본다.
+    // A4 안에 담길 때까지 글자와 여백을 조금씩 줄여본다.
     let fitted = 0;
 
-    COMPACT_STEPS.forEach((step) => {
+    for (let scale = 1; scale >= SCALE_FLOOR; scale -= SCALE_STEP) {
 
-        if (fitted) {
-            return;
-        }
-
-        page.classList.remove("sheet-page--compact", "sheet-page--tight");
-
-        if (step) {
-            page.classList.add(step);
-        }
+        page.style.setProperty("--sheet-scale", scale.toFixed(3));
 
         const limit = Math.round(page.offsetWidth * A4_RATIO);
 
         if (Math.round(page.getBoundingClientRect().height) <= limit) {
             fitted = limit;
+            break;
         }
 
-    });
+    }
 
     if (fitted) {
 
-        page.style.boxSizing = "border-box";
         page.style.minHeight = fitted + "px";
 
     } else {
 
-        // 압축해도 담기지 않으면 읽기 편한 원래 크기로 되돌리고 물어본다.
-        page.classList.remove("sheet-page--compact", "sheet-page--tight");
+        // 줄여도 담기지 않으면 읽기 편한 원래 크기로 되돌리고 물어본다.
+        page.style.removeProperty("--sheet-scale");
 
         if (!window.confirm("시트 이미지가 너무 큽니다. 그래도 저장 할까요?")) {
             inner.style.transform = transform;

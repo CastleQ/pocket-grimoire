@@ -132,98 +132,18 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
 }
 
 .sheet-page {
+    // 내보낼 때 A4 안에 담기 위해 이 값을 1보다 작게 낮춘다.
+    // 폭은 그대로 두고 글자와 여백만 줄여야 줄바꿈이 흐트러지지 않는다.
+    --sheet-scale: 1;
+
+    box-sizing: border-box;
     width: 46rem;
     max-width: 100%;
-    padding: 2rem 2.2rem 1.6rem;
+    padding:
+        calc(2rem * var(--sheet-scale))
+        calc(2.2rem * var(--sheet-scale))
+        calc(1.6rem * var(--sheet-scale));
     background: #ffffff;
-}
-
-// 내보낼 때 A4 안에 담기지 않으면 단계적으로 압축한다.
-// 화면 보기에는 쓰지 않고, 촬영하는 순간에만 붙였다 뗀다.
-
-.sheet-page--compact {
-    padding: 1.5rem 1.6rem 1.2rem;
-
-    .sheet-team {
-        margin-bottom: 1rem;
-    }
-
-    .sheet-team__label {
-        margin-bottom: 0.45rem;
-    }
-
-    .sheet-role {
-        margin-bottom: 0.45rem;
-        gap: 0.5rem;
-    }
-
-    .sheet-role__icon {
-        flex-basis: 2.8rem;
-        width: 2.8rem;
-    }
-
-    .sheet-role__icon--night {
-        flex-basis: 2.2rem;
-        width: 2.2rem;
-    }
-
-    .sheet-role__name {
-        font-size: 0.88rem;
-    }
-
-    .sheet-role__ability {
-        font-size: 0.74rem;
-        line-height: 1.38;
-    }
-
-    .sheet-page__title {
-        font-size: 1.7rem;
-    }
-}
-
-.sheet-page--tight {
-    padding: 1.1rem 1.2rem 0.9rem;
-
-    .sheet-team {
-        margin-bottom: 0.7rem;
-    }
-
-    .sheet-team__label {
-        margin-bottom: 0.3rem;
-        font-size: 0.72rem;
-    }
-
-    .sheet-role {
-        margin-bottom: 0.3rem;
-        gap: 0.4rem;
-    }
-
-    .sheet-role__icon {
-        flex-basis: 2.3rem;
-        width: 2.3rem;
-    }
-
-    .sheet-role__icon--night {
-        flex-basis: 1.8rem;
-        width: 1.8rem;
-    }
-
-    .sheet-role__name {
-        font-size: 0.8rem;
-    }
-
-    .sheet-role__ability {
-        font-size: 0.66rem;
-        line-height: 1.3;
-    }
-
-    .sheet-page__title {
-        font-size: 1.45rem;
-    }
-
-    .sheet-page__footer {
-        margin-top: 0.8rem;
-    }
 }
 
 .sheet-page__header {
@@ -231,7 +151,7 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: calc(1.25rem * var(--sheet-scale));
 }
 
 .sheet-page__heading {
@@ -241,7 +161,7 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
 .sheet-page__title {
     margin: 0;
     font-family: $serif;
-    font-size: 2rem;
+    font-size: calc(2rem * var(--sheet-scale));
     font-weight: 400;
     line-height: 1.2;
     word-break: keep-all;
@@ -265,22 +185,22 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: calc(1.5rem * var(--sheet-scale));
     color: $muted;
-    font-size: 0.7rem;
+    font-size: calc(0.7rem * var(--sheet-scale));
 }
 
 .sheet-team {
-    margin-bottom: 1.4rem;
+    margin-bottom: calc(1.4rem * var(--sheet-scale));
 }
 
 .sheet-team__label {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    margin: 0 0 0.6rem;
+    margin: 0 0 calc(0.6rem * var(--sheet-scale));
     color: #4a4a4a;
-    font-size: 0.8rem;
+    font-size: calc(0.8rem * var(--sheet-scale));
     font-weight: 400;
 
     &::after {
@@ -297,16 +217,16 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
 
 .sheet-role {
     display: flex;
-    gap: 0.6rem;
+    gap: calc(0.6rem * var(--sheet-scale));
     align-items: flex-start;
-    margin-bottom: 0.7rem;
+    margin-bottom: calc(0.7rem * var(--sheet-scale));
     break-inside: avoid;
     page-break-inside: avoid;
 }
 
 .sheet-role__icon {
-    flex: 0 0 3.4rem;
-    width: 3.4rem;
+    flex: 0 0 calc(3.4rem * var(--sheet-scale));
+    width: calc(3.4rem * var(--sheet-scale));
     text-align: center;
 
     img {
@@ -317,8 +237,8 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
 }
 
 .sheet-role__icon--night {
-    flex-basis: 2.6rem;
-    width: 2.6rem;
+    flex-basis: calc(2.6rem * var(--sheet-scale));
+    width: calc(2.6rem * var(--sheet-scale));
 }
 
 .sheet-role__body {
@@ -328,14 +248,14 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
 
 .sheet-role__name {
     margin: 0 0 0.1rem;
-    font-size: 0.95rem;
+    font-size: calc(0.95rem * var(--sheet-scale));
     font-weight: 700;
     color: $blue;
 }
 
 .sheet-role__ability {
     margin: 0;
-    font-size: 0.8rem;
+    font-size: calc(0.8rem * var(--sheet-scale));
     line-height: 1.45;
     word-break: keep-all;
 
@@ -374,7 +294,7 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin: 0 0 1.1rem;
+    margin: 0 0 calc(1.1rem * var(--sheet-scale));
     color: #4a4a4a;
     font-family: $serif;
     font-size: 1rem;
