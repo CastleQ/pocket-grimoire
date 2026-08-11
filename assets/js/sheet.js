@@ -11,6 +11,7 @@
  */
 
 import html2canvas from "html2canvas";
+import roleImages from "../data/role-images.json";
 
 const STORAGE_KEY = "pg-sheet-data";
 
@@ -112,6 +113,31 @@ function firstImage(image) {
     } catch (ignore) {
         return source;
     }
+
+}
+
+/**
+ * 캐릭터에 쓸 아이콘 주소를 정한다.
+ *
+ * 공식 캐릭터와 같은 id라면 저장소에 내장된 아이콘을 쓴다. 시트 제작자가 적어둔
+ * 주소는 외부 사이트인 경우가 많고, 그중 일부는 이미지로 저장할 때 촬영을
+ * 막는다. 이름과 능력은 시트에 적힌 그대로 두고 아이콘만 바꾼다.
+ *
+ * @param  {Object} character
+ *         대상 캐릭터.
+ * @return {String}
+ *         쓸 아이콘 주소.
+ */
+function characterImage(character) {
+
+    const key = normaliseId(character && character.id);
+    const official = roleImages[key] || roleImages[key.replace(/\d+$/, "")];
+
+    if (Array.isArray(official) && official[0]) {
+        return firstImage(official[0]);
+    }
+
+    return firstImage(character && character.image);
 
 }
 
@@ -221,7 +247,7 @@ function renderCharacter(character) {
     const icon = element("div", "sheet-role__icon");
     const image = document.createElement("img");
 
-    image.src = firstImage(character.image);
+    image.src = characterImage(character);
     image.alt = "";
     icon.append(image);
 
@@ -366,7 +392,7 @@ function buildNightOrder(payload, characters, which) {
     const toRow = (character) => ({
         name: character.name || character.id,
         text: character[reminderKey] || "",
-        image: firstImage(character.image),
+        image: characterImage(character),
         team: character.team || "townsfolk",
         kind: "character"
     });
