@@ -196,6 +196,10 @@ function element(tag, className, text) {
  */
 const RICH_PATTERN = /(\*[^*]+\*|\[[^\]]+\]|"[^"]+"|\u201c[^\u201d]+\u201d)/;
 
+// 캐릭터 능력 설명용. 여기서 별표는 "첫날 밤 제외"를 뜻하는 각주라 강조가
+// 아니다. 짝으로 묶어 지워버리면 각주가 사라지므로 대괄호와 따옴표만 본다.
+const RICH_PATTERN_PLAIN = /(\[[^\]]+\]|"[^"]+"|\u201c[^\u201d]+\u201d)/;
+
 /**
  * 글자를 서식에 맞춰 잘라 붙인다. 안쪽에 또 서식이 있으면 재귀로 처리한다.
  *
@@ -206,10 +210,14 @@ const RICH_PATTERN = /(\*[^*]+\*|\[[^\]]+\]|"[^"]+"|\u201c[^\u201d]+\u201d)/;
  *        글자를 담을 요소.
  * @param {String} text
  *        원본 글자.
+ * @param {Boolean} [plain]
+ *        참이면 별표를 강조로 보지 않고 글자 그대로 둔다.
  */
-function appendRichText(target, text) {
+function appendRichText(target, text, plain) {
 
-    String(text || "").split(RICH_PATTERN).forEach((chunk) => {
+    const pattern = plain ? RICH_PATTERN_PLAIN : RICH_PATTERN;
+
+    String(text || "").split(pattern).forEach((chunk) => {
 
         if (!chunk) {
             return;
@@ -225,7 +233,7 @@ function appendRichText(target, text) {
 
                 const strong = element("strong");
 
-                appendRichText(strong, chunk.slice(1, -1));
+                appendRichText(strong, chunk.slice(1, -1), plain);
                 target.append(strong);
 
                 return;
@@ -238,7 +246,7 @@ function appendRichText(target, text) {
                 const strong = element("strong");
 
                 strong.append(document.createTextNode(head));
-                appendRichText(strong, chunk.slice(1, -1));
+                appendRichText(strong, chunk.slice(1, -1), plain);
                 strong.append(document.createTextNode(tail));
                 target.append(strong);
 
@@ -255,7 +263,7 @@ function appendRichText(target, text) {
                 const emphasis = element("em");
 
                 emphasis.append(document.createTextNode(head));
-                appendRichText(emphasis, chunk.slice(1, -1));
+                appendRichText(emphasis, chunk.slice(1, -1), plain);
                 emphasis.append(document.createTextNode(tail));
                 target.append(emphasis);
 
@@ -333,7 +341,10 @@ function renderCharacter(character) {
     const body = element("div", "sheet-role__body");
 
     body.append(element("p", "sheet-role__name", character.name || character.id));
-    body.append(element("p", "sheet-role__ability", character.ability || ""));
+    const ability = element("p", "sheet-role__ability");
+
+    appendRichText(ability, character.ability || "", true);
+    body.append(ability);
 
     row.append(icon, body);
 
