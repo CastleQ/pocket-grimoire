@@ -58,16 +58,19 @@ const NIGHT_BOOKENDS = {
 };
 
 // 밤 순서 배열에 들어 있지만 캐릭터가 아닌 항목.
+// order 는 시트가 순서를 지정하지 않았을 때 끼워 넣을 자리(공식 첫날 밤 순번).
 const NIGHT_INFO_STEPS = {
     minioninfo: {
         name: "하수인 정보",
-        text: "하수인들에게 서로와 악마를 알려줍니다.",
-        kind: "info"
+        text: "7명 이상이 플레이 중이라면, 모든 하수인을 깨웁니다. *이 사람이 악마입니다* 토큰을 보여줍니다. 악마를 가리킵니다.",
+        kind: "info",
+        order: 19
     },
     demoninfo: {
         name: "악마 정보",
-        text: "악마에게 하수인들과 블러핑용 캐릭터 3개를 알려줍니다.",
-        kind: "info"
+        text: "7명 이상이 플레이 중이라면, 악마를 깨웁니다. *이들이 당신의 하수인입니다* 토큰을 보여줍니다. 모든 하수인을 번갈아가며 가리킵니다. *이 캐릭터는 참여하지 않습니다* 토큰을 보여줍니다. 참가중이지 않은 선한 캐릭터 토큰 3개를 보여줍니다.",
+        kind: "info",
+        order: 23
     }
 };
 
@@ -183,8 +186,94 @@ function element(tag, className, text) {
 }
 
 /**
- * 이야기꾼 지시문을 요소로 만든다. *별표*는 굵게, :reminder:는 토큰 표시로
- * 바꾼다. 글자는 textContent로만 넣으므로 태그로 해석되지 않는다.
+ * 지시문에 쓰이는 서식 기호를 한 번에 찾아내는 규칙.
+ *
+ *   *별표*     → 굵게 (기호 제거)
+ *   [대괄호]   → 굵게 (기호 유지)
+ *   "쌍따옴표" → 기울임 (기호 유지, 곧은 따옴표·곡선 따옴표 모두)
+ *
+ * 서식을 늘릴 때는 이 규칙과 appendRichText 의 분기를 한 곳씩만 손보면 된다.
+ */
+const RICH_PATTERN = /(\*[^*]+\*|\[[^\]]+\]|"[^"]+"|\u201c[^\u201d]+\u201d)/;
+
+/**
+ * 글자를 서식에 맞춰 잘라 붙인다. 안쪽에 또 서식이 있으면 재귀로 처리한다.
+ *
+ * 글자는 반드시 createTextNode 로만 넣는다. 공유 링크로 남이 만든 시트를 여는
+ * 구조이므로 innerHTML 을 쓰면 안 된다.
+ *
+ * @param {Element} target
+ *        글자를 담을 요소.
+ * @param {String} text
+ *        원본 글자.
+ */
+function appendRichText(target, text) {
+
+    String(text || "").split(RICH_PATTERN).forEach((chunk) => {
+
+        if (!chunk) {
+            return;
+        }
+
+        const head = chunk.charAt(0);
+        const tail = chunk.charAt(chunk.length - 1);
+
+        if (chunk.length > 2) {
+
+            // *별표* — 기호를 지우고 굵게.
+            if (head === "*" && tail === "*") {
+
+                const strong = element("strong");
+
+                appendRichText(strong, chunk.slice(1, -1));
+                target.append(strong);
+
+                return;
+
+            }
+
+            // [대괄호] — 기호를 남기고 굵게.
+            if (head === "[" && tail === "]") {
+
+                const strong = element("strong");
+
+                strong.append(document.createTextNode(head));
+                appendRichText(strong, chunk.slice(1, -1));
+                strong.append(document.createTextNode(tail));
+                target.append(strong);
+
+                return;
+
+            }
+
+            // "쌍따옴표" — 기호를 남기고 기울임.
+            if (
+                (head === "\"" && tail === "\"")
+                || (head === "\u201c" && tail === "\u201d")
+            ) {
+
+                const emphasis = element("em");
+
+                emphasis.append(document.createTextNode(head));
+                appendRichText(emphasis, chunk.slice(1, -1));
+                emphasis.append(document.createTextNode(tail));
+                target.append(emphasis);
+
+                return;
+
+            }
+
+        }
+
+        target.append(document.createTextNode(chunk));
+
+    });
+
+}
+
+/**
+ * 이야기꾼 지시문을 요소로 만든다. :reminder: 는 토큰 표시로 바꾸고, 나머지
+ * 서식은 appendRichText 가 처리한다.
  *
  * @param  {String} text
  *         원본 지시문.
@@ -194,22 +283,11 @@ function element(tag, className, text) {
 function renderReminderText(text) {
 
     const paragraph = element("p", "sheet-role__ability");
-    const source = String(text || "").split(":reminder:").join("\u25cf");
 
-    source.split(/(\*[^*]+\*)/).forEach((chunk) => {
-
-        if (!chunk) {
-            return;
-        }
-
-        if (chunk.startsWith("*") && chunk.endsWith("*") && chunk.length > 2) {
-            paragraph.append(element("strong", null, chunk.slice(1, -1)));
-            return;
-        }
-
-        paragraph.append(document.createTextNode(chunk));
-
-    });
+    appendRichText(
+        paragraph,
+        String(text || "").split(":reminder:").join("\u25cf")
+    );
 
     return paragraph;
 
@@ -305,21 +383,11 @@ function renderCharacterPage(payload, characters) {
     heading.append(element("h1", "sheet-page__title", payload.name || "캐릭터 시트"));
 
     if (payload.meta && payload.meta.author) {
-        heading.append(element("p", "sheet-page__author", `지은이: ${payload.meta.author}`));
+        heading.append(element("p", "sheet-page__author", `by ${payload.meta.author}`));
     }
 
     header.append(heading);
 
-    if (payload.meta && payload.meta.logo) {
-
-        const logo = document.createElement("img");
-
-        logo.src = firstImage(payload.meta.logo);
-        logo.alt = "";
-        logo.className = "sheet-page__logo";
-        header.append(logo);
-
-    }
 
     page.append(header);
 
@@ -352,12 +420,95 @@ function renderCharacterPage(payload, characters) {
 
     });
 
-    page.append(renderFooter("* 첫날 제외"));
+    page.append(renderFooter("* = 첫날 밤 제외"));
 
     return page;
 
 }
 
+/**
+ * 첫날 밤에 고정으로 존재하는 하수인·악마 정보를, 빠져 있을 때만 끼워 넣는다.
+ *
+ * 시트가 이미 적어 두었다면 제작자 의도이므로 손대지 않는다. 끼울 자리는 공식
+ * 순번(19 / 23)을 기준으로, 그보다 앞 순번인 줄들의 바로 뒤로 정한다.
+ *
+ * @param  {Array.<Object>} rows
+ *         지금까지 만들어진 줄 목록.
+ * @param  {Array.<Object>} characters
+ *         전체 캐릭터 목록(순번 조회용).
+ * @return {Array.<Object>}
+ *         정보 항목이 채워진 줄 목록.
+ */
+function fillNightInfoSteps(rows, characters) {
+
+    const orderOf = new Map();
+
+    characters.forEach((character) => {
+
+        const value = Number(character.firstNight);
+
+        if (value > 0) {
+            orderOf.set(character.name || character.id, value);
+        }
+
+    });
+
+    // 줄 하나가 공식 순번 몇 번에 해당하는지 헤아린다.
+    const rankOf = (row) => {
+
+        if (row.kind === "dusk") {
+            return -Infinity;
+        }
+
+        if (row.kind === "dawn") {
+            return Infinity;
+        }
+
+        if (typeof row.order === "number") {
+            return row.order;
+        }
+
+        const known = orderOf.get(row.name);
+
+        return typeof known === "number" ? known : null;
+
+    };
+
+    const filled = rows.slice();
+
+    Object.keys(NIGHT_INFO_STEPS).forEach((key) => {
+
+        const step = NIGHT_INFO_STEPS[key];
+
+        // 이미 들어 있으면 시트의 뜻을 따른다.
+        if (filled.some((row) => row.name === step.name)) {
+            return;
+        }
+
+        let at = filled.length;
+
+        for (let i = 0; i < filled.length; i += 1) {
+
+            const rank = rankOf(filled[i]);
+
+            if (rank !== null && rank > step.order) {
+                at = i;
+                break;
+            }
+
+        }
+
+        filled.splice(at, 0, {
+            ...step,
+            image: "",
+            team: "bookend"
+        });
+
+    });
+
+    return filled;
+
+}
 /**
  * 밤 순서를 정한다. 시트 JSON이 순서를 지정했으면 그것을 쓰고, 없으면 각
  * 캐릭터의 밤 순서 숫자로 정렬한다.
@@ -430,7 +581,9 @@ function buildNightOrder(payload, characters, which) {
 
         });
 
-        return rows;
+        return which === "firstNight"
+            ? fillNightInfoSteps(rows, characters)
+            : rows;
 
     }
 
@@ -439,11 +592,15 @@ function buildNightOrder(payload, characters, which) {
         .sort((a, b) => Number(a[which]) - Number(b[which]))
         .map(toRow);
 
-    return [
+    const auto = [
         { ...NIGHT_BOOKENDS.dusk, image: "", team: "bookend" },
         ...ordered,
         { ...NIGHT_BOOKENDS.dawn, image: "", team: "bookend" }
     ];
+
+    return which === "firstNight"
+        ? fillNightInfoSteps(auto, characters)
+        : auto;
 
 }
 

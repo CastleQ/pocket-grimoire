@@ -156,21 +156,25 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
 
 .sheet-page__heading {
     min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 0.5rem;
 }
 
 .sheet-page__title {
     margin: 0;
     font-family: $serif;
-    font-size: calc(2rem * var(--sheet-scale));
+    font-size: calc(1.5rem * var(--sheet-scale));
     font-weight: 400;
     line-height: 1.2;
     word-break: keep-all;
 }
 
 .sheet-page__author {
-    margin: 0.35rem 0 0;
+    margin: 0;
     color: $muted;
-    font-size: 0.85rem;
+    font-size: calc(0.85rem * var(--sheet-scale));
 }
 
 .sheet-page__logo {
