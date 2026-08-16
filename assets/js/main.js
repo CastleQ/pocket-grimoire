@@ -26,6 +26,10 @@ import "./processes/notes.js";
 
 import "./processes/acknowledgements.js";
 
+// store.js 보다 반드시 먼저 와야 한다. store.js 가 처음 방문자에게도
+// 판번호를 기록해버리기 때문에, 그 전에 확인해야 처음 온 사람을 가려낼 수 있다.
+import "./processes/update-notice.js";
+
 import "./processes/store.js";
 
 import "./processes/setup/distribute.js";

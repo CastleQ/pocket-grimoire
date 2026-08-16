@@ -30,6 +30,7 @@ export default class Store {
         names: [],
         height: "",
         version: "",
+        notice: "",
         user: ""
     };
 
@@ -718,6 +719,29 @@ export default class Store {
      */
     getVersion() {
         return this.data.version;
+    }
+
+    /**
+     * Saves the ID of the update notice that the user has seen.
+     *
+     * @param {String} notice
+     *        The notice ID.
+     */
+    setNotice(notice) {
+
+        this.data.notice = notice;
+        this.write();
+
+    }
+
+    /**
+     * Exposes the ID of the last update notice that the user has seen.
+     *
+     * @return {String}
+     *         The saved notice ID.
+     */
+    getNotice() {
+        return this.data.notice;
     }
 
     /**

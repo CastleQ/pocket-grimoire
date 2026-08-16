@@ -1,0 +1,10 @@
+{% embed 'includes/dialog.html.twig' with {
+    id: 'update-notice',
+    background: 'blur',
+    title: '업데이트 안내'
+} %}
+    {% block body %}
+        <div id="update-notice-body"></div>
+        <p><button type="button" class="button" data-dialog-hide>확인</button></p>
+    {% endblock %}
+{% endembed %}
