@@ -150,7 +150,7 @@ function handleDistributeClick() {
     function restoreButton() {
         if (button) {
             button.disabled = false;
-            button.textContent = "캐릭터 배포";
+            button.textContent = "캐릭터 나눠주기";
         }
     }
 

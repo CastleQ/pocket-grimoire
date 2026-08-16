@@ -5,6 +5,9 @@ import ReminderToken from "./ReminderToken.js";
 import {
     identify,
 } from "../utils/elements.js";
+import {
+    appendReminderText,
+} from "../utils/rich-text.js";
 
 const emptyProperty = Symbol("empty");
 const customProperty = Symbol("custom");
@@ -669,11 +672,11 @@ export default class CharacterToken extends Token {
             },
             ".js--night-info--ability"(element) {
 
-                element.textContent = (
+                appendReminderText(element, (
                     isFirst
                     ? firstNightReminder
                     : otherNightReminder
-                );
+                ));
 
             }
         });
