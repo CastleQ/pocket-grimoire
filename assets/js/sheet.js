@@ -14,6 +14,14 @@ import html2canvas from "html2canvas";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./processes/setup/supabase-config.js";
 import roleImages from "../data/role-images.json";
 import { appendRichText, appendReminderText } from "./utils/rich-text.js";
+import officialNightOrder from "../data/night-order.json";
+import {
+    NIGHT_INFO_STEPS,
+    normaliseInfoId,
+    buildOrderLookup,
+    resolveInfoOrders,
+    pickInfoOrder
+} from "./utils/night-info.js";
 
 const STORAGE_KEY = "pg-sheet-data";
 
@@ -45,6 +53,29 @@ const TEAM_ORDER = [
 ];
 
 // 밤 시트의 시작과 끝. 앱 데이터에 없는 항목이라 여기서 정의한다.
+/**
+ * 정보 단계를 시트에 그릴 줄 모양으로 바꾼다.
+ *
+ * @param  {Object} info
+ *         NIGHT_INFO_STEPS 의 항목 하나.
+ * @param  {Number} order
+ *         이 단계가 들어갈 순번.
+ * @return {Object}
+ *         시트 줄.
+ */
+function infoStepToRow(info, order) {
+
+    return {
+        name: info.name,
+        text: info.reminder,
+        kind: "info",
+        order,
+        image: "",
+        team: "bookend"
+    };
+
+}
+
 const NIGHT_BOOKENDS = {
     dusk: {
         name: "황혼",
@@ -60,20 +91,6 @@ const NIGHT_BOOKENDS = {
 
 // 밤 순서 배열에 들어 있지만 캐릭터가 아닌 항목.
 // order 는 시트가 순서를 지정하지 않았을 때 끼워 넣을 자리(공식 첫날 밤 순번).
-const NIGHT_INFO_STEPS = {
-    minioninfo: {
-        name: "하수인 정보",
-        text: "7명 이상이 플레이 중이라면, 모든 하수인을 깨웁니다. *이 사람이 악마입니다* 토큰을 보여줍니다. 악마를 가리킵니다.",
-        kind: "info",
-        order: 19
-    },
-    demoninfo: {
-        name: "악마 정보",
-        text: "7명 이상이 플레이 중이라면, 악마를 깨웁니다. *이들이 당신의 하수인입니다* 토큰을 보여줍니다. 모든 하수인을 번갈아가며 가리킵니다. *이 캐릭터는 참여하지 않습니다* 토큰을 보여줍니다. 참가중이지 않은 선한 캐릭터 토큰 3개를 보여줍니다.",
-        kind: "info",
-        order: 23
-    }
-};
 
 /**
  * 브라우저 저장소에서 시트 데이터를 읽는다.
@@ -354,7 +371,17 @@ function renderCharacterPage(payload, characters) {
  * @return {Array.<Object>}
  *         정보 항목이 채워진 줄 목록.
  */
-function fillNightInfoSteps(rows, characters) {
+function fillNightInfoSteps(rows, characters, declared) {
+
+    const lookup = buildOrderLookup(characters.map((character) => ({
+        id: character.id,
+        order: character.firstNight
+    })));
+    const declaredOrders = resolveInfoOrders(declared, lookup);
+    const officialOrders = resolveInfoOrders(
+        officialNightOrder.firstNight,
+        lookup
+    );
 
     const orderOf = new Map();
 
@@ -391,14 +418,17 @@ function fillNightInfoSteps(rows, characters) {
 
     const filled = rows.slice();
 
-    Object.keys(NIGHT_INFO_STEPS).forEach((key) => {
-
-        const step = NIGHT_INFO_STEPS[key];
+    NIGHT_INFO_STEPS.forEach((info) => {
 
         // 이미 들어 있으면 시트의 뜻을 따른다.
-        if (filled.some((row) => row.name === step.name)) {
+        if (filled.some((row) => row.name === info.name)) {
             return;
         }
+
+        // 앱의 firstNight 숫자는 정보 단계를 빼고 매겨져 있어, 공식 밤시트
+        // 번호(19·23)를 그대로 견주면 자리가 밀린다. 앞뒤 이웃 사이를 계산해
+        // 이 시트의 눈금에 맞춘 값을 쓴다.
+        const order = pickInfoOrder(info, declaredOrders, officialOrders);
 
         let at = filled.length;
 
@@ -406,18 +436,14 @@ function fillNightInfoSteps(rows, characters) {
 
             const rank = rankOf(filled[i]);
 
-            if (rank !== null && rank > step.order) {
+            if (rank !== null && rank > order) {
                 at = i;
                 break;
             }
 
         }
 
-        filled.splice(at, 0, {
-            ...step,
-            image: "",
-            team: "bookend"
-        });
+        filled.splice(at, 0, infoStepToRow(info, order));
 
     });
 
@@ -483,8 +509,10 @@ function buildNightOrder(payload, characters, which) {
                 return;
             }
 
-            if (NIGHT_INFO_STEPS[key]) {
-                rows.push({ ...NIGHT_INFO_STEPS[key], image: "", team: "bookend" });
+            const info = NIGHT_INFO_STEPS.find((entry) => entry.id === key);
+
+            if (info) {
+                rows.push(infoStepToRow(info, info.defaultOrder));
                 return;
             }
 
@@ -497,7 +525,7 @@ function buildNightOrder(payload, characters, which) {
         });
 
         return which === "firstNight"
-            ? fillNightInfoSteps(rows, characters)
+            ? fillNightInfoSteps(rows, characters, declared)
             : rows;
 
     }
@@ -514,7 +542,7 @@ function buildNightOrder(payload, characters, which) {
     ];
 
     return which === "firstNight"
-        ? fillNightInfoSteps(auto, characters)
+        ? fillNightInfoSteps(auto, characters, declared)
         : auto;
 
 }
