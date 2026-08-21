@@ -51,8 +51,8 @@ else
 fi
 
 CHAR_COUNT=$(grep -o '"id"' docs/data/characters.json 2>/dev/null | wc -l)
-echo "   - 캐릭터 개수: ${CHAR_COUNT}개 (200 이상이어야 정상)"
-if [ "$CHAR_COUNT" -lt 200 ]; then
+echo "   - 캐릭터 개수: ${CHAR_COUNT}개 (175 이상이어야 정상)"
+if [ "$CHAR_COUNT" -lt 175 ]; then
   echo "     ❌ 실패: 캐릭터 수가 부족합니다."
   FAIL=1
 else

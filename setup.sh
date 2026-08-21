@@ -50,7 +50,7 @@ db_is_healthy() {
   local cnt orphan
   cnt=$(php bin/console doctrine:query:sql "SELECT COUNT(*) FROM roles" 2>/dev/null | grep -oE '[0-9]+' | head -1)
   orphan=$(php bin/console doctrine:query:sql "SELECT COUNT(*) FROM roles WHERE team_id IS NULL" 2>/dev/null | grep -oE '[0-9]+' | head -1)
-  [ -n "$cnt" ] && [ "$cnt" -ge 240 ] && [ "$orphan" = "0" ]
+  [ -n "$cnt" ] && [ "$cnt" -ge 175 ] && [ "$orphan" = "0" ]
 }
 
 if [ "$RESET_DB" = "1" ]; then
@@ -66,20 +66,22 @@ else
   php bin/console doctrine:database:create
   php bin/console doctrine:schema:create
   echo "   - 에디션 5종 삽입"
-  php bin/console doctrine:query:sql "INSERT INTO editions (identifier, name) VALUES ('tb','Trouble Brewing'),('snv','Sects and Violets'),('bmr','Bad Moon Rising'),('hdcs','华灯初上'),('syyl','山雨欲来')"
+  php bin/console doctrine:query:sql "INSERT INTO editions (identifier, name) VALUES ('tb','Trouble Brewing'),('snv','Sects and Violets'),('bmr','Bad Moon Rising')"
   echo "   - 팀 먼저 import (한국어)"
   php bin/console pocket-grimoire:import --type teams --locale ko_KR --new no
   echo "   - 영문 뼈대 + 한국어 번역 import (메모리 넉넉히, 1~2분)"
+  php -d memory_limit=-1 bin/console pocket-grimoire:import --locale ko_KR
+  echo "   - 진크스 연결을 위해 한 번 더 import (첫 실행 때는 캐릭터가 아직 저장 전이라 진크스가 비어 있음)"
   php -d memory_limit=-1 bin/console pocket-grimoire:import --locale ko_KR
 fi
 
 echo "▶ [6/6] 검증"
 CNT=$(php bin/console doctrine:query:sql "SELECT COUNT(*) FROM roles" 2>/dev/null | grep -oE '[0-9]+' | head -1)
 ORPHAN=$(php bin/console doctrine:query:sql "SELECT COUNT(*) FROM roles WHERE team_id IS NULL" 2>/dev/null | grep -oE '[0-9]+' | head -1)
-echo "   - 캐릭터 수: ${CNT:-?} (240 이상이면 정상)"
+echo "   - 캐릭터 수: ${CNT:-?} (175 이상이면 정상)"
 echo "   - 팀 없는 캐릭터: ${ORPHAN:-?} (0이면 정상)"
 
-if [ -n "$CNT" ] && [ "$CNT" -ge 240 ] && [ "$ORPHAN" = "0" ]; then
+if [ -n "$CNT" ] && [ "$CNT" -ge 175 ] && [ "$ORPHAN" = "0" ]; then
   echo ""
   echo "✅ 환경 준비 완료! 이제 개발/배포를 시작할 수 있습니다."
 else
