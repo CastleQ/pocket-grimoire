@@ -51,13 +51,14 @@ node tools/rewrite-images.js "$BASE"
 curl -s "http://localhost:8000/ko_KR/sheet" -o docs/sheet.html
 node -e 'const fs=require("fs"),base=process.argv[1],p="docs/sheet.html";let h=fs.readFileSync(p,"utf8");h=h.replace(/src="\/build\//g,"src=\""+base+"/build/");fs.writeFileSync(p,h);console.log("   docs/sheet.html = "+h.length+" bytes");' "$BASE"
 
-echo "▶ 6/7 빌드 자원 + claim.html 복사 + Jekyll 비활성화..."
+echo "▶ 6/7 빌드 자원 + 참가자 페이지 복사 + Jekyll 비활성화..."
 rm -rf docs/build && cp -r public/build docs/build
 cp public/claim.html docs/claim.html
+cp public/whale.html docs/whale.html
 rm -rf docs/scripts && cp -r public/scripts docs/scripts
 rm -rf docs/img && cp -r public/img docs/img
 touch docs/.nojekyll
-echo "   docs/build + docs/claim.html 복사 완료"
+echo "   docs/build + claim.html + whale.html 복사 완료"
 
 echo "▶ 7/7 개발용 빌드 복구 (publicPath=/build)..."
 if yarn dev >/tmp/bake_devrestore.log 2>&1; then echo "   개발 빌드 복구됨"; else echo "   (복구 실패 — 나중에 'yarn dev' 수동 실행)"; fi
