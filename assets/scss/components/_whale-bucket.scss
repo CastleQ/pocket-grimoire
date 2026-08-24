@@ -1,0 +1,112 @@
+// 대왕고래 양동이 진행 조작판.
+//
+// 인원수 조절기는 bag-duplicate 조절기와 같은 부품(character-select__button,
+// character-select__icon)을 쓰되, 창 안에서 가운데 정렬되도록 감싸는 틀만
+// 새로 만든다.
+
+.whale-bucket__stepper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    margin: 0.5em auto 1em;
+    max-width: 12em;
+
+    .character-select__button {
+        position: static;
+        font-size: 1.5em;
+    }
+}
+
+.whale-bucket__number {
+    font-family: var(--serif-font);
+    font-size: 3em;
+    line-height: 1;
+    min-width: 2em;
+    text-align: center;
+    text-shadow:
+        0 0 0.1em rgb(255 255 255),
+        0 0 0.25em rgb(255 255 255),
+        0 0 0.5em rgb(255 255 255);
+}
+
+.whale-bucket__decided {
+    margin-top: 1em;
+    font-size: 0.9em;
+}
+
+// 제출 현황판. 전원 제출되면 눈에 띄게 바뀐다.
+.whale-bucket__progress {
+    margin: 0.5em 0;
+    font-size: 0.95em;
+
+    &.is-complete {
+        font-weight: bold;
+        color: #1a6b2a;
+    }
+}
+
+// 양동이 진행 버튼.
+//
+// 처음 캐릭터 선택 창을 연 사람이 "이 버튼을 눌러야 하는구나"를 알아채도록
+// 크게 시선을 끈 뒤, 13초쯤 지나면 조용해진다. 모바일에서는 화면이 작아
+// 미세한 움직임이 보이지 않으므로 과장되게 움직인다.
+
+@keyframes whale-swim {
+    0%   { transform: rotate(-25deg) translateY(0.1em) scale(1); }
+    25%  { transform: rotate(0deg) translateY(-0.3em) scale(1.35); }
+    50%  { transform: rotate(25deg) translateY(0.1em) scale(1); }
+    75%  { transform: rotate(0deg) translateY(-0.3em) scale(1.35); }
+    100% { transform: rotate(-25deg) translateY(0.1em) scale(1); }
+}
+
+@keyframes whale-glow {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow:
+            inset 2px 2px 4px rgb(255 255 255 / 30%),
+            inset -2px -2px 4px rgb(0 0 0 / 30%),
+            2px 2px 4px rgb(0 0 0 / 40%);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow:
+            inset 2px 2px 4px rgb(255 255 255 / 45%),
+            inset -2px -2px 4px rgb(0 0 0 / 30%),
+            0 0 26px 6px rgb(103 159 208 / 100%),
+            0 0 44px 12px rgb(103 159 208 / 55%);
+    }
+}
+
+.whale-bucket__cta {
+    animation: whale-glow 1.6s ease-in-out 5;
+    position: relative;
+    z-index: 1;
+}
+
+.whale-bucket__fin {
+    display: inline-block;
+    animation: whale-swim 1.2s ease-in-out 7;
+}
+
+.whale-bucket__fin--right {
+    animation-direction: alternate-reverse;
+}
+
+// 다 멈춘 뒤에도, 손을 대면 다시 반응한다.
+.whale-bucket__cta:hover .whale-bucket__fin,
+.whale-bucket__cta:focus-visible .whale-bucket__fin {
+    animation: whale-swim 1s ease-in-out infinite;
+}
+
+// 움직임을 줄이도록 설정한 사람에게는 애니메이션을 보여주지 않는다.
+@media (prefers-reduced-motion: reduce) {
+
+    .whale-bucket__cta,
+    .whale-bucket__fin,
+    .whale-bucket__cta:hover .whale-bucket__fin {
+        animation: none;
+    }
+
+}

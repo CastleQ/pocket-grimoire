@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대왕고래 양동이 - Pocket Grimoire PLUS+ by Castle_Q</title>
+<style>
+  :root { --bg:#d9d6cf; --text:#1c1c1c; --btn:#7ba7cc; --btn-border:#46637e; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background-color:var(--bg); background-image:url("build/img/background-img.webp"); background-repeat:repeat; color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+  body.is-picking { align-items:flex-start; }
+  .wrap { width:100%; max-width:420px; text-align:center; }
+  .title { font-size:1.6rem; font-weight:800; line-height:1.4; margin-bottom:28px; }
+  .btn { display:block; width:100%; padding:16px; font-size:1.1rem; font-weight:700; cursor:pointer; margin-top:14px;
+         color:#000; background-color:#679fd0; border:2px solid #000; border-radius:5px;
+         box-shadow: inset 2px 2px 4px rgba(255,255,255,.3), inset -2px -2px 4px rgba(0,0,0,.3), 2px 2px 4px rgba(0,0,0,.4); }
+  .btn:disabled { opacity:.7; box-shadow:none; color:#333; border-color:#333; filter:grayscale(.5); cursor:not-allowed; }
+  .hidden { display:none !important; }
+  .name-label { font-size:1.3rem; font-weight:800; margin:18px 0 10px; }
+  .name-input { width:100%; padding:14px; font-size:1.1rem; border:3px solid #333; border-radius:6px; text-align:center; }
+  .msg { font-size:1.15rem; line-height:1.7; }
+  .waiting-mark { font-size:3rem; margin-bottom:12px; }
+  .who { font-size:1rem; margin-top:20px; opacity:.7; }
+  .scold-msg { color:#7a2020; font-weight:800; }
+  .pick-header { position:sticky; top:0; z-index:5; background-color:var(--bg); background-image:url("build/img/background-img.webp"); padding:12px 0 14px; border-bottom:2px solid var(--btn-border); margin-bottom:14px; }
+  .pick-title { font-size:1.15rem; font-weight:800; line-height:1.5; }
+  .pick-targets { font-size:1.3rem; font-weight:800; margin-top:8px; color:#7a2020; }
+  .pick-slots { display:flex; gap:8px; justify-content:center; margin-top:12px; }
+  .pick-slot { flex:1; min-height:44px; border:2px dashed #888; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:.85rem; font-weight:700; padding:4px; }
+  .pick-slot.filled { border-style:solid; border-color:#46637e; background:rgba(255,255,255,.45); }
+  .pick-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .pick-item { border:2px solid transparent; border-radius:8px; padding:6px 2px; cursor:pointer; background:rgba(255,255,255,.25); }
+  .pick-item.chosen { border-color:#46637e; background:rgba(255,255,255,.7); }
+  .pick-item img { width:100%; aspect-ratio:1/1; object-fit:contain; display:block; }
+  .pick-item span { display:block; font-size:.8rem; font-weight:700; margin-top:2px; line-height:1.2; }
+  .char-icon { width:150px; height:150px; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; }
+  .char-icon img { max-width:100%; max-height:100%; }
+  .char-name { font-size:1.8rem; font-weight:800; margin-bottom:10px; }
+  .char-ability { font-size:1.05rem; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="screen-join">
+    <div class="title">🐋 대왕고래 양동이</div>
+    <div class="name-label">이름 입력</div>
+    <input class="name-input" id="player-name" type="text" placeholder="이름을 입력하세요" autocomplete="off" maxlength="20">
+    <button class="btn" id="btn-join">준비 완료</button>
+  </div>
+
+  <div id="screen-wait" class="hidden">
+    <div class="waiting-mark">🐋</div>
+    <div class="msg" id="wait-msg">이야기꾼이 시작하기를<br>기다리는 중입니다.</div>
+    <div class="who" id="wait-who"></div>
+  </div>
+
+  <div id="screen-pick" class="hidden">
+    <div class="pick-header" id="pick-header">
+      <div class="pick-title" id="pick-title"></div>
+      <div class="pick-targets" id="pick-targets"></div>
+      <div class="pick-slots" id="pick-slots"></div>
+      <button class="btn" id="btn-pick-submit" disabled>제출하기</button>
+    </div>
+    <div class="pick-grid" id="pick-grid"></div>
+  </div>
+
+  <div id="screen-result" class="hidden">
+    <div class="char-icon" id="result-icon"></div>
+    <div class="char-name" id="result-name"></div>
+    <div class="char-ability" id="result-ability"></div>
+  </div>
+
+  <div id="screen-scold" class="hidden">
+    <div class="waiting-mark">🤬</div>
+    <div class="msg scold-msg">잘 못 고르셨습니다!<br>눈을 똑바로 뜨고 고르세요.<br>다음번엔 그냥 넘어가지 않을지도 몰라요.</div>
+    <div class="who" id="scold-who"></div>
+  </div>
+
+  <div id="screen-error" class="hidden">
+    <div class="msg" id="error-msg"></div>
+  </div>
+
+</div>
+<script>
+var SUPABASE_URL = "https://kxttcvygubixhfwhvyqa.supabase.co";
+var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4dHRjdnlndWJpeGhmd2h2eXFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzOTE3NjIsImV4cCI6MjA5Nzk2Nzc2Mn0.6lo08bfZ9_RDo8V7y6H8WJJByFgfM2IYZonLRoOW7iI";
+
+var params = new URLSearchParams(window.location.search);
+var gameId = params.get("game");
+var STORAGE_KEY = "pg_whale_player_" + gameId;
+var POLL_INTERVAL = 2000;
+
+var state = null;
+var pollTimer = null;
+var wakeLock = null;
+
+function el(id) { return document.getElementById(id); }
+
+function show(id) {
+  document.body.classList.toggle("is-picking", id === "screen-pick");
+  ["screen-join", "screen-wait", "screen-pick", "screen-result", "screen-scold", "screen-error"].forEach(function (name) {
+    el(name).classList.add("hidden");
+  });
+  el(id).classList.remove("hidden");
+}
+
+function fail(message) {
+  el("error-msg").innerHTML = message;
+  show("screen-error");
+}
+
+function sbHeaders() {
+  return {
+    "apikey": SUPABASE_ANON_KEY,
+    "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+    "Content-Type": "application/json"
+  };
+}
+
+function callRpc(name, body) {
+  return fetch(SUPABASE_URL + "/rest/v1/rpc/" + name, {
+    method: "POST", headers: sbHeaders(), body: JSON.stringify(body)
+  }).then(function (res) {
+    if (!res.ok) {
+      return res.text().then(function (text) { throw new Error(text || ("실패 " + res.status)); });
+    }
+    return res.json();
+  });
+}
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) { return null; }
+}
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* 무시 */ }
+}
+
+function makeToken() {
+  var bytes = new Uint8Array(16);
+  window.crypto.getRandomValues(bytes);
+  return Array.prototype.map.call(bytes, function (byte) {
+    return ("0" + byte.toString(16)).slice(-2);
+  }).join("");
+}
+
+/* 화면이 저절로 꺼지지 않게 붙잡아 둔다. 지원하지 않는 기기에서는 조용히 넘어간다. */
+function keepAwake() {
+  if (!navigator.wakeLock) { return; }
+  navigator.wakeLock.request("screen").then(function (lock) {
+    wakeLock = lock;
+  }).catch(function () { /* 무시 */ });
+}
+
+document.addEventListener("visibilitychange", function () {
+  if (document.visibilityState === "visible" && !wakeLock) { keepAwake(); }
+});
+
+function pollOnce() {
+  if (!state) { return; }
+  callRpc("wb_player_state", {
+    p_game_id: gameId,
+    p_player_token: state.token
+  }).then(function (info) {
+    render(info);
+  }).catch(function () { /* 다음 차례에 다시 물어본다. */ });
+}
+
+function startPolling() {
+  if (pollTimer) { clearInterval(pollTimer); }
+  pollOnce();
+  pollTimer = setInterval(pollOnce, POLL_INTERVAL);
+}
+
+/* 서버가 알려준 상황에 맞춰 화면을 고른다. 4-2에서 선택/결과 화면이 붙는다. */
+var pool = [];
+var chosen = [];
+var currentIsReal = true;
+var scoldUntil = 0;
+var currentTargets = [];
+var renderedStage = -1;
+
+/* 진동은 되는 기기에서만. 안 되면 조용히 넘어간다. */
+function buzz() {
+  if (navigator.vibrate) { navigator.vibrate([120, 80, 120]); }
+}
+
+function nameOf(id) {
+  for (var i = 0; i < pool.length; i += 1) {
+    if (pool[i].id === id) { return pool[i].name; }
+  }
+  return id;
+}
+
+/* 고른 3개가 지정된 3개와 같은지 본다. 순서는 따지지 않는다. */
+function isMatch(picked, targets) {
+  if (picked.length !== targets.length) { return false; }
+  for (var i = 0; i < targets.length; i += 1) {
+    if (picked.indexOf(targets[i]) < 0) { return false; }
+  }
+  return true;
+}
+
+function renderSlots() {
+  var wrap = el("pick-slots");
+  wrap.innerHTML = "";
+  for (var i = 0; i < 3; i += 1) {
+    var slot = document.createElement("div");
+    slot.className = "pick-slot" + (chosen[i] ? " filled" : "");
+    slot.textContent = chosen[i] ? nameOf(chosen[i]) : (i + 1) + "지망";
+    wrap.appendChild(slot);
+  }
+  el("btn-pick-submit").disabled = chosen.length !== 3;
+}
+
+function toggleChoice(id, node) {
+  var at = chosen.indexOf(id);
+  if (at > -1) {
+    chosen.splice(at, 1);
+    node.classList.remove("chosen");
+  } else {
+    if (chosen.length >= 3) { return; }
+    chosen.push(id);
+    node.classList.add("chosen");
+  }
+  renderSlots();
+}
+
+function renderGrid() {
+  var grid = el("pick-grid");
+  grid.innerHTML = "";
+  pool.forEach(function (entry) {
+    var item = document.createElement("div");
+    item.className = "pick-item";
+    if (entry.image) {
+      var img = document.createElement("img");
+      img.src = entry.image;
+      img.alt = "";
+      img.loading = "lazy";
+      item.appendChild(img);
+    }
+    var label = document.createElement("span");
+    label.textContent = entry.name;
+    item.appendChild(label);
+    item.addEventListener("click", function () { toggleChoice(entry.id, item); });
+    grid.appendChild(item);
+  });
+}
+
+function renderPick(info) {
+  var task = info.task;
+  pool = info.pool || [];
+  chosen = [];
+  currentIsReal = task.is_real;
+  currentTargets = task.targets || [];
+
+  if (task.is_real) {
+    el("pick-title").textContent = "당신은 " + TEAM_LABEL[task.team] + "입니다. 원하는 캐릭터를 3개 고르세요.";
+    el("pick-targets").textContent = "";
+  } else {
+    el("pick-title").textContent = "아직 당신의 차례가 아닙니다. 메타추리 방지를 위해, 아래 목록에서 다음 3개를 찾아 선택하세요.";
+    el("pick-targets").textContent = (task.targets || []).map(nameOf).join(" / ");
+  }
+
+  renderGrid();
+  renderSlots();
+  show("screen-pick");
+  window.scrollTo(0, 0);
+  buzz();
+}
+
+function renderResult(info) {
+  var character = info.character || {};
+  var icon = el("result-icon");
+  icon.innerHTML = "";
+  if (character.image) {
+    var img = document.createElement("img");
+    img.src = character.image;
+    img.alt = "";
+    icon.appendChild(img);
+  }
+  el("result-name").textContent = character.name || "";
+  el("result-ability").textContent = character.ability || "";
+  show("screen-result");
+  buzz();
+}
+
+var TEAM_LABEL = { demon: "악마", minion: "하수인", outsider: "외지인", townsfolk: "마을 주민" };
+
+function render(info) {
+
+  /* 꾸중 화면은 정해진 시간 동안 그대로 둔다. */
+  if (Date.now() < scoldUntil) { return; }
+
+  el("wait-who").textContent = state.name ? (state.name + " 님") : "";
+
+  if (info.revealed) {
+    if (renderedStage !== 99) { renderedStage = 99; renderResult(info); }
+    return;
+  }
+
+  var task = info.task;
+
+  if (!task) {
+    show("screen-wait");
+    return;
+  }
+
+  if (task.submitted) {
+    el("wait-msg").innerHTML = "제출했습니다.<br>다음 순서를 기다려 주세요.";
+    show("screen-wait");
+    return;
+  }
+
+  if (renderedStage !== info.stage_no) {
+    renderedStage = info.stage_no;
+    el("wait-msg").innerHTML = "이야기꾼이 시작하기를<br>기다리는 중입니다.";
+    renderPick(info);
+  }
+}
+
+el("btn-pick-submit").addEventListener("click", function () {
+  if (chosen.length !== 3) { return; }
+  var button = el("btn-pick-submit");
+  button.disabled = true;
+  button.textContent = "보내는 중...";
+  var wrong = !currentIsReal && !isMatch(chosen, currentTargets);
+
+  callRpc("wb_submit", { p_game_id: gameId, p_player_token: state.token, p_picks: chosen })
+    .then(function () {
+      button.textContent = "제출하기";
+      if (wrong) {
+        el("scold-who").textContent = state.name ? (state.name + " 님") : "";
+        scoldUntil = Date.now() + 4000;
+        show("screen-scold");
+        setTimeout(pollOnce, 4100);
+      } else {
+        pollOnce();
+      }
+    })
+    .catch(function (error) {
+      alert("제출하지 못했습니다:\n" + error.message);
+      button.disabled = false;
+      button.textContent = "제출하기";
+    });
+});
+
+el("btn-join").addEventListener("click", function () {
+  var name = el("player-name").value.trim();
+  if (!name) { alert("이름을 입력해주세요."); return; }
+
+  var button = el("btn-join");
+  button.disabled = true;
+  button.textContent = "등록 중...";
+
+  var token = (state && state.token) ? state.token : makeToken();
+
+  callRpc("wb_join", { p_game_id: gameId, p_player_token: token, p_name: name })
+    .then(function () {
+      state = { token: token, name: name };
+      saveState();
+      keepAwake();
+      startPolling();
+    })
+    .catch(function (error) {
+      alert("등록하지 못했습니다:\n" + error.message);
+      button.disabled = false;
+      button.textContent = "준비 완료";
+    });
+});
+
+if (!gameId) {
+  fail("잘못된 주소입니다.<br>이야기꾼에게 링크를 다시 받아주세요.");
+} else {
+  state = loadState();
+  if (state && state.token) {
+    el("player-name").value = state.name || "";
+    keepAwake();
+    startPolling();
+  } else {
+    show("screen-join");
+  }
+}
+</script>
+</body>
+</html>

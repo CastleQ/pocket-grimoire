@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[237],{1237:(n,t,e)=>{e.r(t),e.d(t,{defaultCounts:()=>a});var u={5:[3,0,1,1],6:[3,1,1,1],7:[5,0,1,1],8:[5,1,1,1],9:[5,2,1,1],10:[7,0,2,1],11:[7,1,2,1],12:[7,2,2,1],13:[9,0,3,1],14:[9,1,3,1],15:[9,2,3,1]};function a(n){var t=u[Math.min(Math.max(n,5),15)]||u[15];return{townsfolk:t[0],outsider:t[1],minion:t[2],demon:t[3]}}}}]);
+//# sourceMappingURL=237.67e5b9c9.js.map
