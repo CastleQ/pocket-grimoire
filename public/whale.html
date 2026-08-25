@@ -178,6 +178,7 @@ var pool = [];
 var chosen = [];
 var currentIsReal = true;
 var scoldUntil = 0;
+var viewingStage = 0;
 var currentTargets = [];
 var renderedStage = -1;
 
@@ -252,6 +253,7 @@ function renderPick(info) {
   var task = info.task;
   pool = info.pool || [];
   chosen = [];
+  viewingStage = info.stage_no;
   currentIsReal = task.is_real;
   currentTargets = task.targets || [];
 
@@ -327,7 +329,7 @@ el("btn-pick-submit").addEventListener("click", function () {
   button.textContent = "보내는 중...";
   var wrong = !currentIsReal && !isMatch(chosen, currentTargets);
 
-  callRpc("wb_submit", { p_game_id: gameId, p_player_token: state.token, p_picks: chosen })
+  callRpc("wb_submit", { p_game_id: gameId, p_player_token: state.token, p_picks: chosen, p_stage_no: viewingStage })
     .then(function () {
       button.textContent = "제출하기";
       if (wrong) {
@@ -340,9 +342,17 @@ el("btn-pick-submit").addEventListener("click", function () {
       }
     })
     .catch(function (error) {
-      alert("제출하지 못했습니다:\n" + error.message);
-      button.disabled = false;
       button.textContent = "제출하기";
+      var message = String(error.message || "");
+      /* 이야기꾼이 이미 다음 단계로 넘어간 경우. 조용히 따라간다. */
+      if (message.indexOf("단계가 바뀌었습니다") > -1
+          || message.indexOf("지금은 제출할 수 없습니다") > -1) {
+        renderedStage = -1;
+        pollOnce();
+        return;
+      }
+      alert("제출하지 못했습니다:\n" + message);
+      button.disabled = false;
     });
 });
 

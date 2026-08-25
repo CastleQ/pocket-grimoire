@@ -607,6 +607,45 @@ function renderDecided() {
  * 이번 단계의 제출 현황을 보여준다. 미끼를 받은 사람도 함께 센다.
  * 외지인 0명처럼 전원이 미끼인 단계에서 진행 신호가 되어 준다.
  */
+/**
+ * 이번 단계에서 아직 제출하지 않은 참가자 수를 센다. 미끼를 받은
+ * 사람도 함께 센다.
+ *
+ * @return {Number}
+ *         아직 내지 않은 사람 수.
+ */
+/**
+ * 서버가 진행 중이라고 말하는 단계의 이름표. 화면에 보이는 단계는
+ * 앱이 미리 계산한 '다음' 단계일 수 있어, 숫자가 어느 단계 것인지
+ * 밝히지 않으면 이야기꾼이 혼동한다.
+ *
+ * @return {String}
+ *         예: "1단계(악마)". 아직 시작 전이면 빈 글자.
+ */
+function serverStageLabel() {
+
+    if (!latestState || latestState.stage_no < 1) {
+        return "";
+    }
+
+    const team = STAGE_ORDER[latestState.stage_no - 1];
+
+    return latestState.stage_no + "단계(" + STAGE_NAMES[team] + ")";
+
+}
+
+function pendingSubmitters() {
+
+    if (!latestState || latestState.stage_no < 1) {
+        return 0;
+    }
+
+    return (latestState.players || []).filter((player) => {
+        return !player.submitted;
+    }).length;
+
+}
+
 function renderProgress() {
 
     const box = document.querySelector("#whale-bucket-progress");
@@ -629,7 +668,7 @@ function renderProgress() {
 
     box.hidden = false;
     box.classList.toggle("is-complete", complete);
-    box.textContent = "📥 제출 " + done + " / " + total
+    box.textContent = "📥 " + serverStageLabel() + " 제출 " + done + " / " + total
         + (complete ? " — ✅ 모두 제출했습니다" : "");
 
 }
@@ -686,6 +725,21 @@ if (goButton) {
         const stageNo = nextStageNo();
         const team = STAGE_ORDER[stageNo - 1];
         const total = (latestState.players || []).length;
+        const pending = pendingSubmitters();
+
+        if (pending > 0) {
+
+            const ask = serverStageLabel() + "에서 아직 제출하지 않은 참가자가 "
+                + pending + "명 있습니다."
+                + " (제출 " + (total - pending) + " / " + total + ")\n\n"
+                + "그래도 다음 단계로 넘어갈까요?\n"
+                + "넘어가면 참가자들의 화면도 강제로 다음 단계로 넘어갑니다.";
+
+            if (!window.confirm(ask)) {
+                return;
+            }
+
+        }
 
         import("../../utils/whale-counts.js").then(({ defaultCounts }) => {
 
