@@ -9,7 +9,13 @@
 
 {% block body %}
 
-<h1 class="title">{{ 'title'|trans }}</h1>
+<div class="title-bar">
+    <h1 class="title">{{ 'title'|trans }}</h1>
+    <a href="https://open.kakao.com/o/smyEIE4" target="_blank" rel="noopener" class="coffee-link">
+        <img src="/build/img/talk.png" alt="오픈카톡 문의" width="80" height="80" class="coffee-link__icon">
+        <span class="coffee-link__text">커피 사주기</span>
+    </a>
+</div>
 
 {% include 'partials/setup.html.twig' %}
 {% include 'partials/grimoire.html.twig' %}

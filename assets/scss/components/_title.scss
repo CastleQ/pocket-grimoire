@@ -1,3 +1,9 @@
+.title-bar {
+    display: flex;
+    align-items: center;
+    gap: calc(1.5rem + 1ch);
+}
+
 .title {
     font-size: clamp(1.5em, 5vw, 3em);
     font-family: var(--serif-font);
@@ -7,4 +13,25 @@
         -0.05em -0.05em 0.1em rgb(255 255 255 / 80%),
         0.05em 0.05em 0.1em rgb(0 0 0 / 40%);
     margin-bottom: 1rem;
+}
+
+.coffee-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+    color: inherit;
+
+    &__icon {
+        width: clamp(2.07em, 6.9vw, 4.14em);
+        height: clamp(2.07em, 6.9vw, 4.14em);
+        border-radius: 50%;
+    }
+
+    &__text {
+        font-size: 0.75em;
+        font-weight: bold;
+        margin-top: 0.2em;
+    }
 }
