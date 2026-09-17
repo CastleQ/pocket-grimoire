@@ -59,6 +59,62 @@ function containsHomebrew(json) {
 }
 
 /**
+ * 시트에 fabled 캐릭터가 있으면, 이야기꾼이 깜빡하고 빠뜨리는 일이 없도록
+ * 마도서 좌측 아래에 기본값으로 자동 참가시킨다. 이미 판에 올라와 있는
+ * 캐릭터는 건드리지 않으므로, 이야기꾼이 지운 뒤라도 이 함수가 다시 그
+ * 시트를 고르기 전까지는 도로 나타나지 않는다.
+ *
+ * @param {Array.<CharacterToken>} characters
+ *        방금 선택된 시트의 전체 캐릭터 목록.
+ */
+function autoAddFabled(characters) {
+
+    const fabled = characters.filter((character) => character.getTeam() === "fabled");
+
+    if (!fabled.length) {
+        return;
+    }
+
+    const pad = lookupOneCached(".js--pad").pad;
+    const grimoire = lookupOneCached("#grimoire");
+    const wasOpen = grimoire.open;
+
+    // 마도서가 접혀 있으면 크기가 0으로 잡혀 위치 계산이 어긋나므로 잠깐 펼친다.
+    grimoire.open = true;
+    pad.updateDimensions();
+
+    const { height: padHeight } = pad.getPadDimensions();
+    const { width: tokenWidth, height: tokenHeight } = pad.getTokenDimensions();
+    const margin = 8;
+    let column = 0;
+
+    fabled.forEach((character) => {
+
+        const alreadyInPlay = pad.characters.some(
+            ({ character: existing }) => existing.getId() === character.getId()
+        );
+
+        if (alreadyInPlay) {
+            return;
+        }
+
+        const { token } = pad.addCharacter(character.clone());
+
+        pad.moveToken(
+            token,
+            column * (tokenWidth + margin),
+            padHeight - tokenHeight,
+            pad.tokens.advanceZIndex()
+        );
+        column += 1;
+
+    });
+
+    grimoire.open = wasOpen;
+
+}
+
+/**
  * Announces that a script has been added to the grimoire.
  *
  * @param {String} name
@@ -84,6 +140,7 @@ function announceScript(name, characters, game = null, meta = null) {
         game,
         meta
     });
+    autoAddFabled(characters);
     Dialog.create(lookupOneCached("#edition-list")).hide();
 
 }

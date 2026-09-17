@@ -37,6 +37,11 @@ function addReminderQuick(target, tokenStore, coords) {
 
     reminderListDialog.hide();
 
+    return {
+        token,
+        reminder: clone
+    };
+
 }
 
 function toggleReminder(target) {
@@ -65,8 +70,10 @@ TokenStore.ready((tokenStore) => {
             toggleReminder(target);
         } else {
 
-            addReminderQuick(target, tokenStore, getCoords(reminderList));
+            const info = addReminderQuick(target, tokenStore, getCoords(reminderList));
+
             reminderListDialog.hide();
+            openIfCustom(info);
 
         }
 
@@ -119,8 +126,10 @@ TokenStore.ready((tokenStore) => {
     // Add a reminder token to the page if the recently-added-reminder is clicked.
     recentReminders.addEventListener("click", ({ target }) => {
 
-        addReminderQuick(target, tokenStore, getCoords(recentReminders));
+        const info = addReminderQuick(target, tokenStore, getCoords(recentReminders));
+
         Dialog.create(lookupOneCached("#character-show")).hide();
+        openIfCustom(info);
 
     });
 
@@ -129,6 +138,29 @@ TokenStore.ready((tokenStore) => {
 
     const customEdit = lookupOneCached("#reminder-custom-edit");
     const customText = lookupOne("#reminder-custom-text");
+    const customAdd = lookupOneCached("#reminder-custom-add-wrapper");
+
+    // 리마인더 확인/편집창을 채워서 연다. 새로 추가한 직후에도, 판에 이미 놓인
+    // 토큰을 클릭했을 때도 이 함수 하나로 처리한다.
+    function openReminderShow(reminder, element) {
+
+        empty(reminderHolder).append(reminder.drawToken());
+        reminderHolder.dataset.token = `#${identify(element)}`;
+        lookupOneCached("#reminder-show-orphan").hidden = (
+            !element.classList.contains("is-orphan")
+        );
+
+        // 커스텀 알림이면 텍스트 편집창(및 [추가] 버튼)을 열고 현재 내용을 채운다.
+        const isCustom = Boolean(reminder && reminder.data && reminder.data.isCustom);
+        customEdit.hidden = !isCustom;
+        customAdd.hidden = !isCustom;
+        if (isCustom) {
+            customText.value = reminder.data.text || "";
+        }
+
+        reminderDialog.show();
+
+    }
 
     // Populate the reminder dialog as a reminder is clicked.
     tokenObserver.on("reminder-click", ({ detail }) => {
@@ -140,20 +172,35 @@ TokenStore.ready((tokenStore) => {
         const reminder = pad.getReminderByToken(element)
             || tokenStore.getReminder(element.dataset.reminder);
 
-        empty(reminderHolder).append(reminder.drawToken());
-        reminderHolder.dataset.token = `#${identify(element)}`;
-        lookupOneCached("#reminder-show-orphan").hidden = (
-            !element.classList.contains("is-orphan")
-        );
+        openReminderShow(reminder, element);
 
-        // 커스텀 알림이면 텍스트 편집창을 열고 현재 내용을 채운다.
-        const isCustom = Boolean(reminder && reminder.data && reminder.data.isCustom);
-        customEdit.hidden = !isCustom;
-        if (isCustom) {
-            customText.value = reminder.data.text || "";
+    });
+
+    // 커스텀 알림을 목록/최근 목록에서 추가하면, 빈 채로 두지 말고 바로
+    // 편집창을 열어 이야기꾼이 곧장 내용을 적을 수 있게 한다.
+    function openIfCustom(info) {
+
+        if (info && info.reminder && info.reminder.data.isCustom) {
+            openReminderShow(info.reminder, info.token);
         }
 
-        reminderDialog.show();
+    }
+
+    // [추가] 버튼: 지금 편집 중인 커스텀 알림을 닫지 않고, 새 커스텀 알림을
+    // 하나 더 만들어 옆에 놓고 그 편집창을 이어서 연다.
+    lookupOne("#reminder-custom-add").addEventListener("click", () => {
+
+        const currentToken = lookupOne(reminderHolder.dataset.token);
+        const base = currentToken
+            ? pad.getTokenPosition(currentToken)
+            : { x: 0, y: 0 };
+        const clone = tokenStore.getReminderClone("custom-alert:0");
+        const {
+            token
+        } = pad.addReminder(clone);
+
+        pad.moveToken(token, base.x + 15, base.y + 15, pad.tokens.advanceZIndex());
+        openReminderShow(clone, token);
 
     });
 
@@ -184,6 +231,13 @@ TokenStore.ready((tokenStore) => {
         const token = lookupOne(reminderHolder.dataset.token);
 
         if (!token) {
+            return;
+        }
+
+        const reminder = pad.getReminderByToken(token);
+        const isCustom = Boolean(reminder && reminder.data && reminder.data.isCustom);
+
+        if (isCustom && !window.confirm("커스텀 토큰을 정말로 제거하시겠습니까?")) {
             return;
         }
 
