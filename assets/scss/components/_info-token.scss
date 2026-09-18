@@ -74,6 +74,20 @@
     }
 }
 
+.info-token__character {
+    width: 100%;
+    max-width: 8em;
+    margin: 0.5em auto 0;
+}
+
+.info-token__character-select {
+    @extend %no-btn;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+}
+
 .info-token__actions {
     position: absolute;
     left: 1.2em;

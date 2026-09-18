@@ -230,6 +230,7 @@ info_tokens:
         playeris: <strong>This player</strong> is
         votetoday: Did you <strong>vote</strong> today?
         youare: "<strong>You</strong> are"
+        youare_suffix: ""
         selectedyou: This character <strong>selected</strong> you
         useability: Use your <strong>ability</strong>?
         makechoice: Make a <strong>choice</strong>
@@ -237,6 +238,7 @@ info_tokens:
     add_custom: Add info token
     edit_custom: Edit info token
     delete_custom: Delete info token
+    select_character: Select character
 
 notes:
     title: Storyteller Notes

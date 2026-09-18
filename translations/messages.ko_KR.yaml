@@ -233,6 +233,7 @@ info_tokens:
         playeris: <strong>이 플레이어</strong>는
         votetoday: 오늘 당신은 <strong>투표</strong>했나요?
         youare: <strong>당신</strong>은
+        youare_suffix: 입니다.
         selectedyou: 이 캐릭터가 당신을 <strong>선택</strong>했습니다
         useability: <strong>능력</strong>을 사용하시겠습니까?
         makechoice: <strong>선택</strong> 하세요
@@ -240,6 +241,7 @@ info_tokens:
     add_custom: 정보 토큰 추가
     edit_custom: 정보 토큰 수정
     delete_custom: 정보 토큰 삭제
+    select_character: 캐릭터 선택
 
 notes:
     title: 이야기꾼 노트

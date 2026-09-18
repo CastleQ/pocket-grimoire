@@ -1,4 +1,5 @@
 import {
+    empty,
     identify,
     lookupOne
 } from "../utils/elements.js";
@@ -85,10 +86,15 @@ export default class InfoToken {
      *         Colour of the button and dialog box.
      * @param  {Boolean} [custom=false]
      *         Whether or not the info token is custom-made.
+     * @param  {Boolean} [characterSelect=false]
+     *         Whether or not the dialog should show a slot for the storyteller
+     *         to pick a character token to display.
+     * @param  {String} [characterSelectSuffix=""]
+     *         Optional text shown below the character slot (e.g. "입니다.").
      * @return {Object}
      *         Interpretted data.
      */
-    static interpret({ raw, markup, id, colour, custom }) {
+    static interpret({ raw, markup, id, colour, custom, characterSelect, characterSelectSuffix }) {
 
         if (raw && !markup) {
             markup = markdown2html(raw);
@@ -112,7 +118,9 @@ export default class InfoToken {
             markup,
             id,
             colour: `var(--${colour || "grey"})`,
-            custom: Boolean(custom)
+            custom: Boolean(custom),
+            characterSelect: Boolean(characterSelect),
+            characterSelectSuffix: characterSelectSuffix || ""
         };
 
     }
@@ -192,7 +200,9 @@ export default class InfoToken {
             markup,
             id,
             colour,
-            custom
+            custom,
+            characterSelect,
+            characterSelectSuffix
         } = this.data;
         const {
             holders,
@@ -210,6 +220,13 @@ export default class InfoToken {
             ".js--info-token--dialog-text"(element) {
                 element.innerHTML = markup;
             },
+            ".js--info-token--character"(element) {
+                element.hidden = !characterSelect;
+            },
+            ".js--info-token--character-suffix"(element) {
+                element.textContent = characterSelectSuffix;
+                element.hidden = !characterSelectSuffix;
+            },
             ".js--info-token--actions"(element) {
                 element.hidden = !custom;
             }
@@ -223,6 +240,29 @@ export default class InfoToken {
          */
         this.dialog = holder.lastElementChild;
 
+    }
+
+    /**
+     * Exposes the button that lets the storyteller pick a character token to
+     * show alongside this info token - only present when the token was
+     * created with `characterSelect: true` (see {@link InfoToken.interpret}).
+     *
+     * @return {Element|null}
+     *         The select button, or null if this token has no character slot.
+     */
+    getCharacterSelectButton() {
+        return lookupOne(".js--info-token--character-select", this.dialog);
+    }
+
+    /**
+     * Fills the character slot with the given character token, replacing
+     * whatever was shown before.
+     *
+     * @param {Element|DocumentFragment} tokenElement
+     *        A drawn character token - see `CharacterToken#drawToken`.
+     */
+    setCharacterToken(tokenElement) {
+        empty(this.getCharacterSelectButton()).append(tokenElement);
     }
 
     /**
