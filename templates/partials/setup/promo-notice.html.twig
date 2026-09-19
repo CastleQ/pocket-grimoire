@@ -1,0 +1,31 @@
+{% embed 'includes/dialog.html.twig' with {
+    id: 'promo-notice',
+    background: 'blur',
+    title: '플레이어 모집!'
+} %}
+    {% block body %}
+        <div style="text-align: center;">
+            <p class="promo-notice__headline">포켓몬 시계피 플레이어를 모집합니다 🎉</p>
+            <p>
+                포계피 원작자가 직접 이야기꾼으로 진행하는 포켓몬 시계피!<br>
+                <strong>날짜: 10월 4일 (일) 13:00~22:00</strong><br>
+                <strong>장소: 성신여대 몽캐슬파티룸</strong><br>
+                <strong>참가비: 20,000원</strong><br>
+                포켓몬 시트가 처음이신 분들도 환영입니다.<br>
+                관심 있으신 분은 아래 오픈톡으로 문의 주세요👍
+            </p>
+            <p>현재참여인원 6/15</p>
+            <p><a href="https://open.kakao.com/o/smyEIE4" target="_blank" rel="noopener" style="font-size: 0.85em;"><strong>https://open.kakao.com/o/smyEIE4</strong></a></p>
+            <p>
+                <label style="cursor: pointer;">
+                    <input type="checkbox" id="promo-notice-dismiss">
+                    오늘은 그만보기
+                </label>
+            </p>
+            <ul class="button-list">
+                <li><a href="https://open.kakao.com/o/smyEIE4" target="_blank" rel="noopener" class="button" style="display: block; text-decoration: none;" data-dialog-hide id="promo-notice-interested">관심있어요!</a></li>
+                <li><button type="button" class="button" style="--bg-colour: var(--red);" data-dialog-hide id="promo-notice-close">끄기</button></li>
+            </ul>
+        </div>
+    {% endblock %}
+{% endembed %}

@@ -69,6 +69,32 @@
         0.05em 0.05em 0.1em rgb(0 0 0 / 40%);
 }
 
+#promo-notice .dialog__content {
+    background-image: url("../../img/promo-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#promo-notice .dialog__body p {
+    font-size: 0.85rem;
+}
+
+#promo-notice .promo-notice__headline {
+    font-size: calc(0.85rem + 1pt);
+}
+
+#promo-notice .dialog__body {
+    text-shadow:
+        0 0 0.3em #fff,
+        0 0 0.3em #fff,
+        0 0 0.3em #fff,
+        0 0 0.3em #fff,
+        0 0 0.6em #fff,
+        0 0 0.6em #fff,
+        0.05em 0.05em 0.1em rgb(0 0 0 / 60%);
+}
+
 .dialog__body {
     padding: 1em;
 

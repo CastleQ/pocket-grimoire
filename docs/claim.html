@@ -28,6 +28,10 @@
   .msg { font-size:1.15rem; line-height:1.7; }
   .overlay { position:fixed; inset:0; background:rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; padding:24px; }
   .modal { background-color:var(--bg); background-image:url("build/img/background-img.webp"); background-repeat:repeat; border:3px solid var(--btn-border); border-radius:10px; padding:24px; max-width:340px; width:100%; text-align:center; }
+  #promo-overlay .modal { background-image:url("build/img/promo-bg.png"); background-size:cover; background-position:center; background-repeat:no-repeat; }
+  #promo-overlay .modal p, #promo-overlay .modal label { text-shadow: 0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.3em #fff, 0 0 0.6em #fff, 0 0 0.6em #fff, 0.05em 0.05em 0.1em rgba(0,0,0,.6); }
+  #promo-overlay .modal p { font-size: 0.935rem; }
+  #promo-overlay .modal p.promo-headline { font-size: calc(0.935rem + 1pt); }
   .modal p { font-size:1.1rem; line-height:1.5; margin:0 0 20px; }
 </style>
 </head>
@@ -55,6 +59,40 @@
     <div class="btn-row">
       <button class="btn" id="confirm-no">아니오</button>
       <button class="btn" id="confirm-yes">네</button>
+    </div>
+  </div>
+</div>
+<div id="promo-overlay" class="overlay hidden">
+  <div class="modal">
+    <p><b>플레이어 모집!</b></p>
+    <p class="promo-headline">포켓몬 시계피 플레이어를 모집합니다 🎉</p>
+    <p>
+      포계피 원작자가 직접 이야기꾼으로 진행하는 포켓몬 시계피!<br>
+      <b>날짜: 10월 4일 (일) 13:00~22:00</b><br>
+      <b>장소: 성신여대 몽캐슬파티룸</b><br>
+      <b>참가비: 20,000원</b><br>
+      포켓몬 시트가 처음이신 분들도 환영입니다.<br>
+      관심 있으신 분은 아래 오픈톡으로 문의 주세요👍
+    </p>
+    <p>현재참여인원 6/15</p>
+    <p><a href="https://open.kakao.com/o/smyEIE4" target="_blank" rel="noopener" style="font-size:0.85em;"><b>https://open.kakao.com/o/smyEIE4</b></a></p>
+    <p><label style="cursor:pointer;"><input type="checkbox" id="promo-dismiss"> 오늘은 그만보기</label></p>
+    <div class="btn-row">
+      <button class="btn" id="promo-interested">관심있어요!</button>
+      <button class="btn" id="promo-close" style="background-color:#d06767;">끄기</button>
+    </div>
+  </div>
+</div>
+<div id="promo-followup-overlay" class="overlay hidden">
+  <div class="modal">
+    <p>
+      관심 있으신가요? 오픈카톡으로 문의 주세요 :)<br>
+      (※ 일단 캐릭터부터 어서 확인하세용!!)
+    </p>
+    <p><a href="https://open.kakao.com/o/smyEIE4" target="_blank" rel="noopener" style="font-size:0.85em;"><b>https://open.kakao.com/o/smyEIE4</b></a></p>
+    <div class="btn-row">
+      <a class="btn" id="promo-contact" href="https://open.kakao.com/o/smyEIE4" target="_blank" rel="noopener" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">문의하기</a>
+      <button class="btn" id="promo-see-character">캐릭터 뽑으러 가기</button>
     </div>
   </div>
 </div>
@@ -88,7 +126,9 @@ function fetchSlotDetails(slotId) {
     .then(function (rows) { return rows && rows.length ? rows[0] : null; });
 }
 function submitName(slotId, name) {
-  return fetch(SUPABASE_URL + "/rest/v1/slots?id=eq." + slotId, { method: "PATCH", headers: Object.assign(sbHeaders(), { "Prefer": "return=minimal" }), body: JSON.stringify({ player_name: name, submitted: true, submitted_at: new Date().toISOString() }) })
+  var body = { player_name: name, submitted: true, submitted_at: new Date().toISOString() };
+  if (promoInterested) { body.promo_interested = true; }
+  return fetch(SUPABASE_URL + "/rest/v1/slots?id=eq." + slotId, { method: "PATCH", headers: Object.assign(sbHeaders(), { "Prefer": "return=minimal" }), body: JSON.stringify(body) })
     .then(function (res) { if (!res.ok) { return res.text().then(function (t) { throw new Error("제출 실패 (" + res.status + "): " + t); }); } });
 }
 function showCharacter(detail) {
@@ -156,6 +196,36 @@ el("btn-submit").addEventListener("click", function () {
   });
 });
 window.addEventListener("beforeunload", function (e) { if (unloadGuardActive) { e.preventDefault(); e.returnValue = ""; } });
+
+// 홍보용 안내 모달. "오늘은 그만보기"를 체크하고 닫으면 그날 자정까지만 숨긴다.
+// PROMO_END 를 지나면 체크 여부와 상관없이 아예 뜨지 않는다.
+var PROMO_KEY = "pg-promo-dismiss-date";
+var PROMO_INTEREST_KEY = "pg_promo_interested_" + gameId;
+var PROMO_END = new Date(2026, 9, 3, 11, 0, 0); // 10월 3일(금) 오전 11시
+var promoInterested = false;
+try { promoInterested = localStorage.getItem(PROMO_INTEREST_KEY) === "1"; } catch (e) {}
+function promoTodayKey() { var d = new Date(); return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+function closePromo() {
+  var cb = el("promo-dismiss");
+  if (cb && cb.checked) { try { localStorage.setItem(PROMO_KEY, promoTodayKey()); } catch (e) {} }
+  el("promo-overlay").classList.add("hidden");
+}
+(function () {
+  if (new Date() >= PROMO_END) { return; }
+  var dismissed = "";
+  try { dismissed = localStorage.getItem(PROMO_KEY) || ""; } catch (e) {}
+  if (dismissed !== promoTodayKey()) { el("promo-overlay").classList.remove("hidden"); }
+})();
+el("promo-close").addEventListener("click", closePromo);
+el("promo-interested").addEventListener("click", function () {
+  promoInterested = true;
+  try { localStorage.setItem(PROMO_INTEREST_KEY, "1"); } catch (e) {}
+  el("promo-overlay").classList.add("hidden");
+  el("promo-followup-overlay").classList.remove("hidden");
+});
+el("promo-contact").addEventListener("click", function () { el("promo-followup-overlay").classList.add("hidden"); });
+el("promo-see-character").addEventListener("click", function () { el("promo-followup-overlay").classList.add("hidden"); });
+
 init();
 </script>
 </body>
