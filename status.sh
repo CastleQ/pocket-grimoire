@@ -41,4 +41,26 @@ AW=$(grep -rn "async \|await " assets/js --include=*.js 2>/dev/null | grep -v "^
 echo "async/await 실코드 의심(C-8): ${AW}건  ※0이 정상, 주석은 제외됨"
 echo "VERSION: $(grep -oE '[0-9]+\.[0-9]+\.[0-9]+' assets/js/constants/version.js 2>/dev/null | head -1)"
 
+# 세션 기록 누락 점검 (C-15). 표시 파일 한 줄: "날짜 커밋번호".
+# 표시 파일만 바꾼 커밋은 세지 않는다 (표시 갱신 자체가 커밋이 되므로).
+echo "── 세션 기록 (C-15) ──"
+MARK=tools/last-session-record.txt
+if [ -f "$MARK" ]; then
+  read -r REC_DATE REC_HASH < "$MARK"
+  if git cat-file -e "${REC_HASH}^{commit}" 2>/dev/null; then
+    UNREC=$(git rev-list --count "${REC_HASH}..HEAD" -- . ":(exclude)$MARK")
+    echo "마지막 기록: ${REC_DATE} (${REC_HASH})"
+    if [ "$UNREC" != "0" ]; then
+      echo "⚠️ 기록 안 된 커밋 ${UNREC}개 — CastleQ에게 먼저 알릴 것"
+      git log --oneline "${REC_HASH}..HEAD" -- . ":(exclude)$MARK" | head -10
+    else
+      echo "✅ 기록 누락 없음"
+    fi
+  else
+    echo "⚠️ 표시 파일의 커밋번호(${REC_HASH})를 찾을 수 없음 — 파일 확인 또는 git fetch --unshallow 필요"
+  fi
+else
+  echo "⚠️ 표시 파일 없음 ($MARK)"
+fi
+
 echo "══════════════════════════════════════════"
