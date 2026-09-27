@@ -138,7 +138,7 @@ TokenStore.ready((tokenStore) => {
 
     const customEdit = lookupOneCached("#reminder-custom-edit");
     const customText = lookupOne("#reminder-custom-text");
-    const customAdd = lookupOneCached("#reminder-custom-add-wrapper");
+    const customDone = lookupOneCached("#reminder-custom-done-wrapper");
 
     // 리마인더 확인/편집창을 채워서 연다. 새로 추가한 직후에도, 판에 이미 놓인
     // 토큰을 클릭했을 때도 이 함수 하나로 처리한다.
@@ -150,10 +150,10 @@ TokenStore.ready((tokenStore) => {
             !element.classList.contains("is-orphan")
         );
 
-        // 커스텀 알림이면 텍스트 편집창(및 [추가] 버튼)을 열고 현재 내용을 채운다.
+        // 커스텀 알림이면 텍스트 편집창(및 [확인] 버튼)을 열고 현재 내용을 채운다.
         const isCustom = Boolean(reminder && reminder.data && reminder.data.isCustom);
         customEdit.hidden = !isCustom;
-        customAdd.hidden = !isCustom;
+        customDone.hidden = !isCustom;
         if (isCustom) {
             customText.value = reminder.data.text || "";
         }
@@ -186,22 +186,11 @@ TokenStore.ready((tokenStore) => {
 
     }
 
-    // [추가] 버튼: 지금 편집 중인 커스텀 알림을 닫지 않고, 새 커스텀 알림을
-    // 하나 더 만들어 옆에 놓고 그 편집창을 이어서 연다.
-    lookupOne("#reminder-custom-add").addEventListener("click", () => {
-
-        const currentToken = lookupOne(reminderHolder.dataset.token);
-        const base = currentToken
-            ? pad.getTokenPosition(currentToken)
-            : { x: 0, y: 0 };
-        const clone = tokenStore.getReminderClone("custom-alert:0");
-        const {
-            token
-        } = pad.addReminder(clone);
-
-        pad.moveToken(token, base.x + 15, base.y + 15, pad.tokens.advanceZIndex());
-        openReminderShow(clone, token);
-
+    // [확인] 버튼: 편집창을 닫는다. 내용은 입력할 때마다 이미 저장되므로
+    // 여기서 따로 저장하지 않는다. (예전 [추가] 버튼은 새 빈 토큰을 하나 더
+    // 만들어, 확정 버튼으로 오인한 사용자에게 빈 토큰이 생기는 문제가 있었다.)
+    lookupOne("#reminder-custom-done").addEventListener("click", () => {
+        reminderDialog.hide();
     });
 
     // 커스텀 알림 텍스트 편집: 입력할 때마다 토큰·미리보기를 갱신하고 저장한다.
