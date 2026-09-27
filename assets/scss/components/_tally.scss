@@ -1,0 +1,64 @@
+// 마도서 가운데 인원 현황 (tally.js)
+// 조작 없는 표시 전용이라 터치·클릭은 모두 아래 토큰으로 통과시킨다.
+// z-index 0: 마도서 배경 위, 토큰(인라인 z-index 1 이상) 아래에 깔린다.
+.tally {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2em;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.85;
+    color: #fff;
+    font-weight: bold;
+    font-size: clamp(0.9rem, 2.2vw, 1.3rem);
+    line-height: 1;
+    white-space: nowrap;
+    text-shadow:
+        0 0 0.15em #000,
+        0.05em 0.05em 0.1em #000;
+
+    &[hidden],
+    [hidden] {
+        display: none;
+    }
+}
+
+.tally__row {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.tally__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15em;
+}
+
+.tally__icon {
+    width: 0.9em;
+    height: 0.9em;
+    filter: drop-shadow(0 0 0.08em #000);
+}
+
+.tally__item--townsfolk .tally__icon {
+    color: var(--good-team);
+}
+
+.tally__item--outsider .tally__icon {
+    color: #46d5ff;
+}
+
+.tally__item--minion .tally__icon {
+    color: #ff9f1d;
+}
+
+.tally__item--demon .tally__icon {
+    color: var(--evil-team);
+}

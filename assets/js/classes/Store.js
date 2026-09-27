@@ -31,7 +31,8 @@ export default class Store {
         height: "",
         version: "",
         notice: "",
-        user: ""
+        user: "",
+        tally: 0
     };
 
     /**
@@ -155,6 +156,8 @@ export default class Store {
 
             this.tokens.length = 0;
             this.data.bluffs = deepClone(defaults.bluffs);
+            // 마도서 인원 현황(tally)은 토큰과 한 묶음이라 함께 지운다.
+            this.data.tally = defaults.tally;
 
         }
 
@@ -766,6 +769,28 @@ export default class Store {
      */
     getUser() {
         return this.data.user;
+    }
+
+    /**
+     * 마도서 가운데 인원 현황의 기준 인원(캐릭터 뽑기·나눠주기 시점의
+     * 플레이어 수)을 저장한다. 0이면 현황을 표시하지 않는다.
+     *
+     * @param {Number} count
+     *        기준 인원.
+     */
+    setTally(count) {
+
+        this.data.tally = count;
+        this.write();
+
+    }
+
+    /**
+     * @return {Number}
+     *         저장된 기준 인원. 없으면 0.
+     */
+    getTally() {
+        return Number(this.data.tally) || 0;
     }
 
 }

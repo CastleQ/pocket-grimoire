@@ -37,4 +37,7 @@ lookupOne("#clear-grimoire").addEventListener("click", ({ target }) => {
         .map(({ reminder }) => reminder)
         .forEach((reminder) => pad.removeReminder(reminder));
 
+    // 마도서 가운데 인원 현황도 지운다 (tally.js).
+    gameObserver.trigger("tally-reset");
+
 });

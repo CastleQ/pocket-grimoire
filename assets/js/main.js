@@ -15,6 +15,7 @@ import "./processes/grimoire/reset.js";
 import "./processes/grimoire/travellers.js";
 import "./processes/grimoire/fabled.js";
 import "./processes/grimoire/export.js";
+import "./processes/grimoire/tally.js";
 
 import "./processes/jinxes.js";
 

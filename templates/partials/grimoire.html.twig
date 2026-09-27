@@ -18,6 +18,20 @@
     {% block body %}
     <div class="pad-wrapper">
         <div class="pad pad--growable js--pad"></div>
+        {# 마도서 가운데 인원 현황 (tally.js). 조작 없는 표시 전용. #}
+        <div class="tally" id="grimoire-tally" aria-hidden="true" hidden>
+            <div class="tally__row">
+                <span class="tally__item" title="전체 인원"><span data-tally="total">0</span>👤</span>
+                <span class="tally__item" title="생존 인원"><span data-tally="alive">0</span>❤️</span>
+                <span class="tally__item" title="남은 유령표"><span data-tally="ghost">0</span>🪦</span>
+            </div>
+            <div class="tally__row js--tally--teams">
+                <span class="tally__item tally__item--townsfolk" title="주민"><span data-tally="townsfolk">0</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="tally__icon" aria-hidden="true"><path fill="currentColor" d="M224 256a128 128 0 1 0 0-256 128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3 0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3h-91.4z"/></svg></span>
+                <span class="tally__item tally__item--outsider" title="외지인"><span data-tally="outsider">0</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="tally__icon" aria-hidden="true"><path fill="currentColor" d="M224 256a128 128 0 1 0 0-256 128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3 0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3h-91.4z"/></svg></span>
+                <span class="tally__item tally__item--minion" title="하수인"><span data-tally="minion">0</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="tally__icon" aria-hidden="true"><path fill="currentColor" d="M224 256a128 128 0 1 0 0-256 128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3 0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3h-91.4z"/></svg></span>
+                <span class="tally__item tally__item--demon" title="악마"><span data-tally="demon">0</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="tally__icon" aria-hidden="true"><path fill="currentColor" d="M224 256a128 128 0 1 0 0-256 128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3 0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3h-91.4z"/></svg></span>
+            </div>
+        </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="pad-wrapper__icon"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="currentColor" d="M246.6 361.4C252.9 367.6 256 375.8 256 384s-3.125 16.38-9.375 22.62l-96 96c-12.5 12.5-32.75 12.5-45.25 0l-96-96c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L96 402.8v-293.5L54.63 150.6c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l96-96c12.5-12.5 32.75-12.5 45.25 0l96 96C252.9 111.6 256 119.8 256 128s-3.125 16.38-9.375 22.62c-12.5 12.5-32.75 12.5-45.25 0L160 109.3v293.5l41.38-41.38C213.9 348.9 234.1 348.9 246.6 361.4z"/></svg>
     </div>
 

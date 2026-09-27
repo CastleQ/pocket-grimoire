@@ -2,6 +2,7 @@
 // v4: 배포 시 캐릭터 이름/능력/이미지를 슬롯에 함께 저장 (공식+커스텀 스크립트 모두 지원)
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase-config.js";
 import TokenStore from "../../classes/TokenStore.js";
+import Observer from "../../classes/Observer.js";
 
 const WATCH_GAME_KEY = "pg_watch_game";
 let watchTimer = null;
@@ -224,6 +225,9 @@ function handleDistributeClick() {
             })
             .then(function () {
                 startWatching(createdGame.id);
+
+                // 마도서 가운데 인원 현황의 기준 인원을 정한다 (tally.js).
+                Observer.create("game").trigger("character-distribute");
 
                 // 플레이 빈도 +1 (공식/내장/직접입력 모두 포함). 실패해도 배포에 영향 없음.
                 if (scriptName) {
