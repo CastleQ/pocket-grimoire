@@ -535,6 +535,12 @@ gameObserver.on("characters-selected", ({ detail }) => {
 
             const character = store.getCharacter(reminder.getCharacterId());
 
+            // 커스텀 알림(custom-alert)처럼 연결된 캐릭터가 없는 알림은 건너뛴다.
+            // (여기서 멈추면 뒤따르는 알림들의 is-orphan 표시가 빠진다.)
+            if (!character) {
+                return;
+            }
+
             if (["traveller", "fabled", "loric"].includes(character.getTeam())) {
                 return;
             }

@@ -245,6 +245,8 @@ TokenStore.ready((tokenStore) => {
         if (
             reminder.getIsGlobal()
             && reminder.getId().endsWith(":0")
+            // 커스텀 알림(custom-alert)처럼 연결된 캐릭터가 없는 알림은 건너뛴다.
+            && character
             && character.hasSpecialData("reveal", "replace-character")
         ) {
             addCharacter(character);
@@ -263,6 +265,8 @@ TokenStore.ready((tokenStore) => {
         if (
             reminder.getIsGlobal()
             && reminder.getId().endsWith(":0")
+            // 커스텀 알림(custom-alert)처럼 연결된 캐릭터가 없는 알림은 건너뛴다.
+            && character
             && character.hasSpecialData("reveal", "replace-character")
         ) {
             removeCharacter(character);
