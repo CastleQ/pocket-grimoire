@@ -395,15 +395,15 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in;
     }
 
     Promise.all([
-        fetch("guide/data/roles.json").then(function (response) { return response.json(); }),
-        fetch("guide/data/index.json").then(function (response) { return response.ok ? response.json() : []; }),
-        fetch("guide/data/jinxes.json").then(function (response) { return response.ok ? response.json() : {}; })
+        fetch("guide/data/roles.json", { cache: "no-cache" }).then(function (response) { return response.json(); }),
+        fetch("guide/data/index.json", { cache: "no-cache" }).then(function (response) { return response.ok ? response.json() : []; }),
+        fetch("guide/data/jinxes.json", { cache: "no-cache" }).then(function (response) { return response.ok ? response.json() : {}; })
     ])
         .then(function (data) {
             roles = data[0];
             translated = Array.isArray(data[1]) ? data[1] : [];
             jinxes = data[2] || {};
-            return fetch("guide/data/chars/" + id + ".json");
+            return fetch("guide/data/chars/" + id + ".json", { cache: "no-cache" });
         })
         .then(function (response) {
             if (!response.ok) {

@@ -264,7 +264,8 @@ document.querySelectorAll("[data-guide-open]").forEach(function (button) {
 el("guide-warn-no").addEventListener("click", function () { el("guide-warn-overlay").classList.add("hidden"); });
 el("guide-warn-yes").addEventListener("click", openGuide);
 el("guide-close").addEventListener("click", closeGuide);
-fetch("guide/data/index.json")
+// GitHub Pages는 10분간 캐시하므로, 배포 직후에도 새 목록을 받도록 매번 서버에 확인한다.
+fetch("guide/data/index.json", { cache: "no-cache" })
   .then(function (res) { return res.ok ? res.json() : []; })
   .then(function (list) { guideIds = Array.isArray(list) ? list : []; updateGuideButtons(); })
   .catch(function () {});
