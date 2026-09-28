@@ -15,6 +15,7 @@ Blood on the Clocktower 공식 위키(`wiki.bloodontheclocktower.com`)의 캐릭
 | `tools/wiki/src/<id>.json` | 영어 원문 + 위키 판번호(oldid). 사이트에는 나가지 않음 |
 | `tools/wiki/glossary.csv` | 용어집. `한글_official` 칸 우선, 비어 있으면 `한글_variants` |
 | `tools/wiki/build-guide-data.js` | roles.json·index.json 생성 + 점검. `bake.sh`가 자동 실행 |
+| `tools/wiki/make-review-csv.js` | 검수용 표(CSV) 생성 → 구글 드라이브에 시트로 올린다. `node tools/wiki/make-review-csv.js <id> ...` |
 
 ## 번역 파일 규칙
 
