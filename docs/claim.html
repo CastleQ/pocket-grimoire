@@ -33,6 +33,12 @@
   #promo-overlay .modal p { font-size: 0.935rem; }
   #promo-overlay .modal p.promo-headline { font-size: calc(0.935rem + 1pt); }
   .modal p { font-size:1.1rem; line-height:1.5; margin:0 0 20px; }
+  /* 캐릭터 가이드(공식 위키 번역) — 뽑기 화면 위에 전체 화면으로 덮는다.
+     페이지를 떠나지 않으므로 캐릭터 화면과 이탈 방지 장치가 그대로 유지된다. */
+  .guide-frame { position:fixed; inset:0; z-index:50; display:flex; flex-direction:column; background:#2b1633; }
+  .guide-frame__bar { flex:0 0 auto; display:flex; justify-content:flex-end; padding:8px; }
+  .guide-frame__bar .btn { width:auto; margin:0; padding:8px 18px; font-size:1rem; }
+  .guide-frame iframe { flex:1 1 auto; width:100%; border:0; background:#efe6d6; }
 </style>
 </head>
 <body>
@@ -45,12 +51,14 @@
     <div class="char-icon" id="char-icon"></div>
     <div class="char-name" id="char-name"></div>
     <div class="char-ability" id="char-ability"></div>
+    <button class="btn hidden" id="btn-guide" data-guide-open>캐릭터 공식 Wiki 읽어보기</button>
     <div class="name-label">이름 입력</div>
     <input class="name-input" id="player-name" type="text" placeholder="이름을 입력하세요" autocomplete="off">
     <button class="btn" id="btn-submit">이야기꾼에게 보내기</button>
   </div>
   <div id="screen-done" class="hidden">
     <div class="msg" id="done-msg"></div>
+    <button class="btn hidden" id="btn-guide-done" data-guide-open>캐릭터 공식 Wiki 읽어보기</button>
   </div>
 </div>
 <div id="confirm-overlay" class="overlay hidden">
@@ -61,6 +69,19 @@
       <button class="btn" id="confirm-yes">네</button>
     </div>
   </div>
+</div>
+<div id="guide-warn-overlay" class="overlay hidden">
+  <div class="modal">
+    <p>※다음 페이지에 당신의 캐릭터가 보입니다. 페이지를 열기전에, 옆 사람에게 화면이 보이지 않도록 주의해주세요!※</p>
+    <div class="btn-row">
+      <button class="btn" id="guide-warn-no">취소</button>
+      <button class="btn" id="guide-warn-yes">열기</button>
+    </div>
+  </div>
+</div>
+<div id="guide-frame" class="guide-frame hidden">
+  <div class="guide-frame__bar"><button class="btn" id="guide-close">닫기</button></div>
+  <iframe id="guide-iframe" title="캐릭터 가이드" src="about:blank"></iframe>
 </div>
 <div id="promo-overlay" class="overlay hidden">
   <div class="modal">
@@ -106,6 +127,10 @@ const STORAGE_KEY = "pg_claim_" + gameId;
 const el = function (id) { return document.getElementById(id); };
 let claimState = null;
 let unloadGuardActive = false;
+// 캐릭터 가이드: 번역이 있는 캐릭터 목록(guide/data/index.json)과, 가이드를 열어도 되는 상태인지.
+// 캐릭터를 실제로 보여준 화면(및 그 직후 보내기 완료 화면)에서만 연다. 재접속 복구 화면에서는 열지 않는다.
+let guideIds = [];
+let guideAllowed = false;
 
 function show(id) {
   ["screen-gate", "screen-char", "screen-done"].forEach(function (s) { el(s).classList.add("hidden"); });
@@ -147,6 +172,8 @@ function showCharacter(detail) {
   show("screen-char");
   requestAnimationFrame(function () { icon.classList.add("show"); });
   unloadGuardActive = true;
+  guideAllowed = true;
+  updateGuideButtons();
 }
 function showRecover() {
   el("char-icon").classList.add("hidden");
@@ -159,6 +186,23 @@ function blockScreen(msg) {
   unloadGuardActive = false;
   el("done-msg").innerHTML = msg;
   show("screen-done");
+  updateGuideButtons();
+}
+function hasGuide() {
+  return !!(guideAllowed && claimState && claimState.characterId && guideIds.indexOf(claimState.characterId) !== -1);
+}
+function updateGuideButtons() {
+  el("btn-guide").classList.toggle("hidden", !hasGuide() || el("screen-char").classList.contains("hidden"));
+  el("btn-guide-done").classList.toggle("hidden", !hasGuide() || el("screen-done").classList.contains("hidden"));
+}
+function openGuide() {
+  el("guide-warn-overlay").classList.add("hidden");
+  el("guide-iframe").src = "guide.html?id=" + encodeURIComponent(claimState.characterId);
+  el("guide-frame").classList.remove("hidden");
+}
+function closeGuide() {
+  el("guide-frame").classList.add("hidden");
+  el("guide-iframe").src = "about:blank";
 }
 function init() {
   if (!gameId) { blockScreen("잘못된 링크입니다.<br>게임 정보가 없습니다."); return; }
@@ -195,6 +239,16 @@ el("btn-submit").addEventListener("click", function () {
     window.alert("문제가 발생했습니다:\n" + err.message);
   });
 });
+document.querySelectorAll("[data-guide-open]").forEach(function (button) {
+  button.addEventListener("click", function () { if (hasGuide()) { el("guide-warn-overlay").classList.remove("hidden"); } });
+});
+el("guide-warn-no").addEventListener("click", function () { el("guide-warn-overlay").classList.add("hidden"); });
+el("guide-warn-yes").addEventListener("click", openGuide);
+el("guide-close").addEventListener("click", closeGuide);
+fetch("guide/data/index.json")
+  .then(function (res) { return res.ok ? res.json() : []; })
+  .then(function (list) { guideIds = Array.isArray(list) ? list : []; updateGuideButtons(); })
+  .catch(function () {});
 window.addEventListener("beforeunload", function (e) { if (unloadGuardActive) { e.preventDefault(); e.returnValue = ""; } });
 
 // 홍보용 안내 모달. "오늘은 그만보기"를 체크하고 닫으면 그날 자정까지만 숨긴다.
