@@ -137,9 +137,9 @@ a.role, span.role { font-weight: bold; text-decoration: none; }
     cursor: pointer;
 }
 .mask__icon { font-size: 26px; line-height: 1; }
-/* 누르자마자 보이면 스크롤하려고 무심코 닿은 손가락에도 드러나므로, 2.5초에 걸쳐 서서히 걷힌다. 손을 떼면 즉시 다시 가린다. */
+/* 누르자마자 보이면 스크롤하려고 무심코 닿은 손가락에도 드러나므로, 1.5초에 걸쳐 서서히 걷힌다. 손을 떼면 즉시 다시 가린다. */
 .masked > .mask { opacity: 1; transition: opacity 0s; }
-body.is-revealed .masked > .mask { opacity: 0; transition: opacity 2.5s ease-in; }
+body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in; }
 .masked, .masked * { -webkit-touch-callout: none; }
 
 .credit {
@@ -319,8 +319,7 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 2.5s ease-in;
         });
 
         html += "<div class=\"credit\">이 페이지는 Blood on the Clocktower 공식 위키 문서(판 " + esc(guide.source.oldid) +
-            ", " + esc(guide.source.lastEdited) + " 수정)를 제작사 TPI의 Community Created Content Policy에 의거하여 한국어로 번역한 페이지입니다. " +
-            "Grassroots Creators로서 황금률을 준수합니다. " +
+            ", " + esc(guide.source.lastEdited) + " 수정)를 제작사 TPI의 Community Created Content 정책에 의거하여 한국어로 번역한 페이지입니다. " +
             "<button type=\"button\" id=\"open-original\">원문(영어) 보기</button></div>";
 
         page.innerHTML = html;
