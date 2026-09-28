@@ -6,6 +6,8 @@
 //     - tools/official-master.json(정발 기준)에서 이름·유형·능력·대사를 가져온다.
 //     - id는 앱 id로 맞춘다 (마스터 "washerwoman1" → 앱 "washerwoman").
 //     - 앱 DB(docs/data/characters.json)에 없는 id는 넣지 않는다.
+//  1-2. public/guide/data/jinxes.json 생성 — 앱의 정발 징크스(docs/data/jinx.json)를 캐릭터별로
+//     양쪽 모두에 모아 둔다. 가이드의 "관련 징크스" 칸에 쓴다 (위키 징크스 표 대신).
 //  2. public/guide/data/index.json 생성 — 번역이 있는 캐릭터 id 목록.
 //     뽑기 화면(claim.html)이 이 목록을 보고 가이드 버튼을 보여줄지 정한다.
 //  3. 점검 (하나라도 FAIL이면 종료 코드 1)
@@ -46,6 +48,25 @@ master.forEach((entry) => {
 });
 fs.writeFileSync(path.join(dataDir, "roles.json"), JSON.stringify(roles) + "\n");
 console.log(`roles.json: 캐릭터 ${Object.keys(roles).length}개`);
+
+// 1-2. jinxes.json
+const jinxSource = JSON.parse(fs.readFileSync(path.join(root, "docs", "data", "jinx.json"), "utf8"));
+const jinxes = {};
+function addJinx(a, b, reason) {
+    if (!roles[a] || !roles[b]) {
+        return;
+    }
+    (jinxes[a] = jinxes[a] || []).push({ with: b, reason });
+}
+jinxSource.forEach((entry) => {
+    (entry.jinx || []).forEach((pair) => {
+        addJinx(entry.id, pair.id, pair.reason);
+        addJinx(pair.id, entry.id, pair.reason);
+    });
+});
+Object.keys(jinxes).forEach((id) => jinxes[id].sort((x, y) => x.with.localeCompare(y.with)));
+fs.writeFileSync(path.join(dataDir, "jinxes.json"), JSON.stringify(jinxes) + "\n");
+console.log(`jinxes.json: 징크스가 있는 캐릭터 ${Object.keys(jinxes).length}개`);
 
 // 2. index.json
 const guides = fs.readdirSync(charsDir)

@@ -1,4 +1,5 @@
 // 위키 원문 수집 도구 — 공식 위키 캐릭터 문서를 받아 tools/wiki/src/<id>.json 으로 정리한다.
+// 위키는 일반 문서 주소를 자동 요청에 418로 막으므로, MediaWiki API(api.php)로 본문과 판 정보를 받는다.
 // 사용법 (저장소 루트): node tools/wiki/fetch-src.js librarian chef ...
 //   이미 있는 원문은 건너뛴다(SKIP). 다시 받으려면 --force 를 붙인다.
 //
@@ -93,14 +94,14 @@ function inline(html) {
         .trim();
 }
 
-function parse(id, html) {
-    const oldid = Number((html.match(/"wgRevisionId":(\d+)/) || [])[1]);
-    const lastEdited = (html.match(/last edited on (\d+ \w+ \d{4})/) || [])[1] || "";
+function parse(id, html, oldid, lastEdited) {
     const artist = inline((html.match(/<td>Artist<\/td>\s*<td>([\s\S]*?)<\/td>/) || [])[1] || "");
     const audio = (html.match(/data-file="([^"]+)"/) || [])[1] || "";
     const podcastBy = inline((html.match(/Cult of the Clocktower Episode<\/span>\s*<span[^>]*>([\s\S]*?)<\/span>/) || [])[1] || "").replace(/^by\s+/, "");
 
-    const body = (html.match(/<div class="mw-parser-output">([\s\S]*?)<!--\s*\nNewPP/) || [])[1] || "";
+    // API 본문에는 제목마다 [edit] 버튼이 들어 있으므로 먼저 걷어낸다.
+    const body = html.split(/<!--\s*\nNewPP/)[0]
+        .replace(/<span class="mw-editsection">[\s\S]*?\]<\/span><\/span>/g, "");
     // 오른쪽 정보 상자(#character-details)는 따로 뽑았으므로 본문에서 뺀다.
     const main = body.replace(/<div id="character-details">[\s\S]*?<\/div>\s*<\/div>/, "");
 
@@ -149,7 +150,7 @@ function parse(id, html) {
         source: {
             page: decodeURIComponent(pageName(id)),
             oldid,
-            lastEdited: lastEdited ? new Date(lastEdited + " UTC").toISOString().slice(0, 10) : ""
+            lastEdited: lastEdited ? lastEdited.slice(0, 10) : ""
         },
         artist,
         podcast: audio ? { by: podcastBy, audio } : null,
@@ -176,15 +177,25 @@ ids.reduce((chain, id) => chain.then(() => {
         console.log("SKIP " + id + " (이미 있음)");
         return null;
     }
-    return get(WIKI + pageName(id))
-        .then((html) => {
-            const data = parse(id, html);
+    const page = pageName(id);
+    return Promise.all([
+        get(WIKI + "api.php?action=parse&format=json&prop=text%7Crevid&page=" + page),
+        get(WIKI + "api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp&titles=" + page)
+    ])
+        .then(([parsed, info]) => {
+            const parseJson = JSON.parse(parsed);
+            if (parseJson.error) {
+                throw new Error(parseJson.error.info || "문서 없음");
+            }
+            const pages = JSON.parse(info).query.pages;
+            const rev = (pages[Object.keys(pages)[0]].revisions || [])[0] || {};
+            const data = parse(id, parseJson.parse.text["*"], parseJson.parse.revid, rev.timestamp || "");
             const counts = data.sections.map((s) => s.key + ":" + s.blocks.length).join(" ");
-            if (!data.oldid || !data.sections.length) {
+            if (!data.source.oldid || !data.sections.length) {
                 throw new Error("본문을 찾지 못함");
             }
             fs.writeFileSync(out, JSON.stringify(data, null, 4) + "\n");
-            console.log("OK   " + id + " (판 " + data.oldid + ", " + counts + ")");
+            console.log("OK   " + id + " (판 " + data.source.oldid + ", " + counts + ")");
         })
         .catch((error) => {
             failed += 1;

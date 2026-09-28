@@ -12,6 +12,9 @@ Blood on the Clocktower 공식 위키(`wiki.bloodontheclocktower.com`)의 캐릭
 | `public/guide/data/chars/<id>.json` | 캐릭터별 한국어 번역 (id는 앱 id, 예: `washerwoman`) |
 | `public/guide/data/roles.json` | 정발 이름·유형·능력·대사 — **자동 생성, 손으로 고치지 않는다** |
 | `public/guide/data/index.json` | 번역이 있는 캐릭터 목록 — **자동 생성** |
+| `public/guide/data/jinxes.json` | 관련 징크스(앱의 정발 징크스 문구) — **자동 생성**. 위키 징크스 표는 번역하지 않고 이것으로 대신한다 |
+| `public/guide/img/` | 위키 장식 이미지(배경·양피지·액자·로고·판 로고). 원본을 줄여 webp로 저장 |
+| `tools/wiki/fetch-src.js` | 위키 원문 수집. `node tools/wiki/fetch-src.js <id> ...` (있으면 SKIP, `--force`로 다시) |
 | `tools/wiki/src/<id>.json` | 영어 원문 + 위키 판번호(oldid). 사이트에는 나가지 않음 |
 | `tools/wiki/glossary.csv` | 용어집. `한글_official` 칸 우선, 비어 있으면 `한글_variants` |
 | `tools/wiki/build-guide-data.js` | roles.json·index.json 생성 + 점검. `bake.sh`가 자동 실행 |
@@ -40,6 +43,8 @@ Bluffing → 블러핑 / Claim → 주장하다 / Tips & Tricks → 팁과 요�
 
 ## 알려진 제약
 
-- 클라우드 세션의 네트워크 정책이 위키 주소를 막고 있어, 위키 장식 이미지(배경·액자·로고·판 로고)는 아직 **위키 주소를 그대로 불러온다.** 저장소로 옮길 때는 `public/guide.html`의 CSS `url()`과 스크립트의 `WIKI_IMG`만 고친다.
-- 판 로고는 `guide.html`의 `EDITIONS`에 판마다 추가한다 (현재 `tb`만).
+- 위키 일반 문서 주소는 자동 요청을 **418로 거절**한다. 수집 도구는 MediaWiki API(`api.php?action=parse`)를 쓴다.
+- 클라우드 세션은 환경의 네트워크 설정에서 `wiki.bloodontheclocktower.com`이 허용돼 있어야 한다 (2026-09-28 허용).
+- 악한 캐릭터는 "Bluffing" 대신 "Fighting the ~"(~에 맞서기) 섹션이 있다. 키는 `fighting-the-<이름>`.
+- 판 로고는 `guide/img/logo_<판>.webp`로 저장하고 `guide.html`의 `EDITIONS`에 추가한다 (현재 `tb`만).
 - 캐릭터 그림은 저장소의 `public/img/official/<id>_0.webp`를 쓴다.

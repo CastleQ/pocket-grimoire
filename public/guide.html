@@ -13,9 +13,7 @@
 /* 캐릭터 가이드 — Blood on the Clocktower 공식 위키(pivot 스킨) 모양을 재현한 번역 페이지.
    데이터: guide/data/roles.json(정발 이름·능력), guide/data/chars/<id>.json(번역).
    생성·점검: node tools/wiki/build-guide-data.js
-   위키 장식 이미지(배경·액자·로고)는 아직 위키 주소를 그대로 쓴다. 이미지가 안 뜨면
-   비슷한 색으로 대체되므로 글은 그대로 읽힌다. 저장소 복사본으로 바꿀 때는
-   아래 CSS의 url()과 스크립트의 WIKI_IMG만 고치면 된다. */
+   위키 장식 이미지(배경·액자·로고·판 로고)는 위키 원본을 줄여 guide/img/ 에 둔 것이다. */
 :root {
     --wiki-maroon: #5C1F22;
     --wiki-border: #BDA89A;
@@ -30,7 +28,7 @@ body {
     overflow-wrap: anywhere;
     line-height: 1.6;
     color: #222;
-    background: #2b1633 url("https://wiki.bloodontheclocktower.com/skins/pivot/assets/images/background.jpg") center / cover fixed;
+    background: #2b1633 url("guide/img/background.webp") center / cover fixed;
 }
 .tab-bar {
     height: 45px;
@@ -41,7 +39,7 @@ body {
 .tab-bar img { max-width: 64px; max-height: 36px; }
 .tab-bar__fallback { color: #e9d9b5; font-family: "Song Myung", serif; font-size: 18px; }
 .page {
-    background: #efe6d6 url("https://wiki.bloodontheclocktower.com/skins/pivot/assets/images/content-background.webp") center / cover;
+    background: #efe6d6 url("guide/img/content-background.webp") center / cover;
     padding: 16px 16px 32px;
     min-height: calc(100vh - 45px);
     color: var(--wiki-maroon);
@@ -109,7 +107,7 @@ h2 {
     top: 0;
     bottom: 0;
     width: 30px;
-    background: url("https://wiki.bloodontheclocktower.com/skins/pivot/assets/images/frame.png") center no-repeat;
+    background: url("guide/img/frame.png") center no-repeat;
 }
 .example::before { left: -31px; transform: rotateY(180deg); }
 .example::after { right: -31px; }
@@ -128,7 +126,7 @@ a.role, span.role { font-weight: bold; text-decoration: none; }
     align-items: center;
     justify-content: center;
     gap: 6px;
-    background: #e8dcc6 url("https://wiki.bloodontheclocktower.com/skins/pivot/assets/images/content-background.webp") center / cover;
+    background: #e8dcc6 url("guide/img/content-background.webp") center / cover;
     border: 1px dashed var(--wiki-border);
     color: var(--wiki-maroon);
     font-size: 15px;
@@ -160,21 +158,43 @@ h1.masked { min-height: 1.4em; }
     cursor: pointer;
 }
 .notfound { text-align: center; padding: 3em 1em; }
+
+/* 관련 징크스 — 위키 #jinxes 상자 재현. 내용은 앱의 정발 징크스 문구. */
+#jinxes {
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--wiki-border);
+    padding: 0.8em 0 0.3em;
+    margin-bottom: 1.5em;
+}
+.jinxes__title {
+    display: block;
+    text-align: center;
+    font-family: "Song Myung", serif;
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+    user-select: none;
+}
+.jinxes__toggle { color: var(--wiki-maroon); font-size: 15px; }
+#jinxes table { width: 90%; margin: 0.6em auto 0; border-collapse: collapse; }
+#jinxes td { vertical-align: top; padding: 0.4em 0.3em; }
+#jinxes .jinx-icon { width: 60px; height: 60px; object-fit: contain; }
+#jinxes .jinx-name { margin: 0; font-size: 16px; }
+#jinxes .jinx-reason { margin: 0.2em 0 0; font-style: italic; font-size: 14.5px; color: #222; }
 </style>
 </head>
 <body>
 <nav class="tab-bar">
-    <img src="https://wiki.bloodontheclocktower.com/skins/pivot/assets/images/logo.png" alt="Blood on the Clocktower 위키" id="wiki-logo">
+    <img src="guide/img/logo.png" alt="Blood on the Clocktower 위키" id="wiki-logo">
 </nav>
 <main class="page" id="page"></main>
 
 <script>
 (function () {
 
-    // 위키 원본 이미지 위치 (판 로고). 저장소 복사본으로 옮기면 이 값만 바꾼다.
-    var WIKI_IMG = "https://wiki.bloodontheclocktower.com/images/";
+    // 판 로고 (위키 원본을 줄여 저장소에 둔 것). 판이 늘면 여기에 추가한다.
     var EDITIONS = {
-        tb: { alt: "Trouble Brewing", logo: WIKI_IMG + "a/a1/Logo_trouble_brewing.png" }
+        tb: { alt: "Trouble Brewing", logo: "guide/img/logo_tb.webp" }
     };
     var TEAM_NAMES = { townsfolk: "주민", outsider: "외지인", minion: "하수인", demon: "악마", traveller: "여행자", fabled: "전설" };
 
@@ -183,6 +203,7 @@ h1.masked { min-height: 1.4em; }
     var page = document.getElementById("page");
     var roles = {};
     var translated = [];
+    var jinxes = {};
 
     // 위키 로고를 못 불러오면 글자로 대신한다. 스크립트보다 먼저 실패했을 수도 있어 바로 한 번 확인한다.
     var logo = document.getElementById("wiki-logo");
@@ -207,21 +228,25 @@ h1.masked { min-height: 1.4em; }
     }
 
     // 본문 표기: {c:id} = 캐릭터 이름(정발 이름 자동), **굵게**, {ability} = 이 캐릭터 능력
+    // 캐릭터 이름 표시: 선(파랑)/악(빨강) 색, 번역된 다른 캐릭터만 링크
+    function roleLabel(roleId) {
+        var role = roles[roleId];
+        if (!role) {
+            return esc(roleId);
+        }
+        var side = (role.team === "minion" || role.team === "demon") ? "evil" : "good";
+        if (roleId === id || translated.indexOf(roleId) === -1) {
+            return "<span class=\"role role--" + side + "\">" + esc(role.name) + "</span>";
+        }
+        return "<a class=\"role role--" + side + "\" href=\"?id=" + roleId + "\">" + esc(role.name) + "</a>";
+    }
+
     function rich(text, self) {
         return esc(text)
             .replace(/\{ability\}/g, esc(self.ability))
             .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
             .replace(/\{c:([a-z_]+)\}/g, function (all, roleId) {
-                var role = roles[roleId];
-                if (!role) {
-                    return roleId;
-                }
-                var side = (role.team === "minion" || role.team === "demon") ? "evil" : "good";
-                // 번역된 다른 캐릭터만 링크로 건다. 자기 자신이나 번역 전이면 색만 입힌 글자로 둔다.
-                if (roleId === id || translated.indexOf(roleId) === -1) {
-                    return "<span class=\"role role--" + side + "\">" + esc(role.name) + "</span>";
-                }
-                return "<a class=\"role role--" + side + "\" href=\"?id=" + roleId + "\">" + esc(role.name) + "</a>";
+                return roleLabel(roleId);
             });
     }
 
@@ -274,6 +299,16 @@ h1.masked { min-height: 1.4em; }
         }
         html += "</div>";
 
+        var related = jinxes[guide.id] || [];
+        if (related.length) {
+            html += "<div id=\"jinxes\"><span class=\"jinxes__title\" id=\"jinx-toggle\">관련 징크스 <span class=\"jinxes__toggle\">(열기)</span></span>";
+            html += "<table hidden>" + related.map(function (jinx) {
+                return "<tr><td><img class=\"jinx-icon\" src=\"img/official/" + esc(jinx.with) + "_0.webp\" alt=\"\"></td>" +
+                    "<td><p class=\"jinx-name\">" + roleLabel(jinx.with) + "</p>" +
+                    "<p class=\"jinx-reason\">" + esc(jinx.reason) + "</p></td></tr>";
+            }).join("") + "</table></div>";
+        }
+
         guide.sections.forEach(function (section) {
             html += "<section class=\"section\"><h2>" + rich(section.title, self) + "</h2>";
             html += section.blocks.map(function (block) {
@@ -287,6 +322,15 @@ h1.masked { min-height: 1.4em; }
             "<button type=\"button\" id=\"open-original\">원문(영어) 보기</button></div>";
 
         page.innerHTML = html;
+
+        var jinxToggle = document.getElementById("jinx-toggle");
+        if (jinxToggle) {
+            jinxToggle.addEventListener("click", function () {
+                var table = document.querySelector("#jinxes table");
+                table.hidden = !table.hidden;
+                jinxToggle.querySelector(".jinxes__toggle").textContent = table.hidden ? "(열기)" : "(닫기)";
+            });
+        }
 
         document.getElementById("open-original").addEventListener("click", function () {
             if (window.confirm("원문 위키는 캐릭터 그림이 화면에 크게 보입니다.\n주변 사람에게 보이지 않는지 확인하세요.\n\n원문을 여시겠어요?")) {
@@ -330,11 +374,13 @@ h1.masked { min-height: 1.4em; }
 
     Promise.all([
         fetch("guide/data/roles.json").then(function (response) { return response.json(); }),
-        fetch("guide/data/index.json").then(function (response) { return response.ok ? response.json() : []; })
+        fetch("guide/data/index.json").then(function (response) { return response.ok ? response.json() : []; }),
+        fetch("guide/data/jinxes.json").then(function (response) { return response.ok ? response.json() : {}; })
     ])
         .then(function (data) {
             roles = data[0];
             translated = Array.isArray(data[1]) ? data[1] : [];
+            jinxes = data[2] || {};
             return fetch("guide/data/chars/" + id + ".json");
         })
         .then(function (response) {
