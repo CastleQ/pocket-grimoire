@@ -1,0 +1,44 @@
+# 캐릭터 가이드 (공식 위키 번역) 작업 안내
+
+Blood on the Clocktower 공식 위키(`wiki.bloodontheclocktower.com`)의 캐릭터 문서를
+제작사의 비영리 번역 허가에 따라 한국어로 옮겨, 캐릭터 뽑기 화면(`claim.html`)에서
+**[캐릭터 공식 Wiki 읽어보기]** 로 보여준다.
+
+## 파일
+
+| 경로 | 내용 |
+|---|---|
+| `public/guide.html` | 페이지 틀. 위키 모양 재현 + 제목·그림·유형·대사 가림막(누르는 동안만 보임) |
+| `public/guide/data/chars/<id>.json` | 캐릭터별 한국어 번역 (id는 앱 id, 예: `washerwoman`) |
+| `public/guide/data/roles.json` | 정발 이름·유형·능력·대사 — **자동 생성, 손으로 고치지 않는다** |
+| `public/guide/data/index.json` | 번역이 있는 캐릭터 목록 — **자동 생성** |
+| `tools/wiki/src/<id>.json` | 영어 원문 + 위키 판번호(oldid). 사이트에는 나가지 않음 |
+| `tools/wiki/glossary.csv` | 용어집. `한글_official` 칸 우선, 비어 있으면 `한글_variants` |
+| `tools/wiki/build-guide-data.js` | roles.json·index.json 생성 + 점검. `bake.sh`가 자동 실행 |
+
+## 번역 파일 규칙
+
+- 영어 원문(`src`)과 **섹션·블록 순서와 개수가 같아야 한다.** 검수 시트에서 문장 단위로 짝을 맞추는 기준이다. 다르면 점검 도구가 FAIL.
+- 블록 종류: `p`(문단) / `ul`(목록, 배열) / `example`(액자 예시 상자)
+- 본문 표기
+  - `{c:id}` — 캐릭터 이름. 정발 이름이 자동으로 들어가고 선(파랑)/악(빨강) 색이 입혀진다. 번역된 다른 캐릭터면 링크가 된다.
+  - `**굵게**` — 알림 토큰 이름 등 (정발 알림 토큰 이름을 쓴다)
+  - `{ability}` — 이 캐릭터의 정발 능력 문구
+- 캐릭터 이름 뒤 조사(은/는, 이/가, 을/를)는 **정발 이름의 받침 기준**으로 적는다. 예: 수사관**이**, 성결자**를**
+- 캐릭터 이름·능력·대사·알림 토큰 이름은 `tools/official-master.json`(정발 기준)을 따른다.
+
+## 확정 용어 (2026-09-28, CastleQ)
+
+Bluffing → 블러핑 / Claim → 주장하다 / Tips & Tricks → 팁과 요령 / How to Run → 진행 방법 / Appears in → 수록 에디션
+
+## 진행 순서
+
+트러블 브루잉 → 배드 문 라이징 → 섹츠 & 바이올렛 → 실험 캐릭터 → 여행자·전설
+
+판마다: 원문 수집(`src`) → 번역 초안(`chars`) → 구글 시트 검수(`영어 원문 | 번역 | 검수 의견`) → 반영 → `node tools/wiki/build-guide-data.js` 점검 → 로컬 확인 → 배포 허가(C-14)
+
+## 알려진 제약
+
+- 클라우드 세션의 네트워크 정책이 위키 주소를 막고 있어, 위키 장식 이미지(배경·액자·로고·판 로고)는 아직 **위키 주소를 그대로 불러온다.** 저장소로 옮길 때는 `public/guide.html`의 CSS `url()`과 스크립트의 `WIKI_IMG`만 고친다.
+- 판 로고는 `guide.html`의 `EDITIONS`에 판마다 추가한다 (현재 `tb`만).
+- 캐릭터 그림은 저장소의 `public/img/official/<id>_0.webp`를 쓴다.

@@ -55,6 +55,10 @@ echo "▶ 6/7 빌드 자원 + 참가자 페이지 복사 + Jekyll 비활성화..
 rm -rf docs/build && cp -r public/build docs/build
 cp public/claim.html docs/claim.html
 cp public/whale.html docs/whale.html
+# 캐릭터 가이드(공식 위키 번역): 데이터 생성·점검(roles.json·index.json) 후 페이지 + 데이터 복사
+node tools/wiki/build-guide-data.js || { echo "❌ 캐릭터 가이드 데이터 점검 실패 — 위 FAIL 항목 확인"; exit 1; }
+cp public/guide.html docs/guide.html
+rm -rf docs/guide && cp -r public/guide docs/guide
 rm -rf docs/scripts && cp -r public/scripts docs/scripts
 rm -rf docs/img && cp -r public/img docs/img
 touch docs/.nojekyll

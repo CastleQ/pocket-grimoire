@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<!-- 탭 제목에 캐릭터 이름을 넣지 않는다 (옆 사람 노출 방지) -->
+<title>캐릭터 가이드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Noto+Sans+KR:wght@400;700&family=Gowun+Batang&display=swap" rel="stylesheet">
+<style>
+/* 캐릭터 가이드 — Blood on the Clocktower 공식 위키(pivot 스킨) 모양을 재현한 번역 페이지.
+   데이터: guide/data/roles.json(정발 이름·능력), guide/data/chars/<id>.json(번역).
+   생성·점검: node tools/wiki/build-guide-data.js
+   위키 장식 이미지(배경·액자·로고)는 아직 위키 주소를 그대로 쓴다. 이미지가 안 뜨면
+   비슷한 색으로 대체되므로 글은 그대로 읽힌다. 저장소 복사본으로 바꿀 때는
+   아래 CSS의 url()과 스크립트의 WIKI_IMG만 고치면 된다. */
+:root {
+    --wiki-maroon: #5C1F22;
+    --wiki-border: #BDA89A;
+    --good: #3297F4;
+    --evil: #8C0E12;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+    color: #222;
+    background: #2b1633 url("https://wiki.bloodontheclocktower.com/skins/pivot/assets/images/background.jpg") center / cover fixed;
+}
+.tab-bar {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tab-bar img { max-width: 64px; max-height: 36px; }
+.tab-bar__fallback { color: #e9d9b5; font-family: "Song Myung", serif; font-size: 18px; }
+.page {
+    background: #efe6d6 url("https://wiki.bloodontheclocktower.com/skins/pivot/assets/images/content-background.webp") center / cover;
+    padding: 16px 16px 32px;
+    min-height: calc(100vh - 45px);
+    color: var(--wiki-maroon);
+}
+h1.title {
+    font-family: "Song Myung", serif;
+    font-weight: normal;
+    font-size: 36px;
+    color: var(--wiki-maroon);
+    margin: 0.4em 0 0;
+    line-height: 1.2;
+}
+#tagline {
+    font-family: "Gowun Batang", serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #959595;
+    margin: 0.2em 0 1em;
+    font-weight: normal;
+}
+#character-details {
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--wiki-border);
+    padding: 1.5em 0 0.3em;
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+#character-details .icon { width: 200px; height: 200px; display: block; margin: 0 auto; object-fit: contain; }
+.details-label { display: block; color: #000; font-size: 20px; margin-top: 10px; }
+#character-details table { width: 90%; margin: 0.5em auto; border-collapse: collapse; text-align: left; font-size: 15px; color: #222; }
+#character-details td { padding: 0.55em 0.6em; }
+#character-details tr:nth-child(odd) { background: #fff; }
+#character-details tr:nth-child(even) { background: #f7f5f2; }
+p.flavour { font-size: 16px; color: #000; font-style: italic; padding: 12px 32px 0; }
+.edition-logo { width: 100px; height: 100px; }
+.podcast-by { display: block; color: #000; font-size: 14px; }
+audio { width: 90%; margin: 0.5em 0 10px; }
+h2 {
+    font-family: "Song Myung", serif;
+    font-weight: normal;
+    font-size: 23px;
+    color: var(--wiki-maroon);
+    margin: 1.2em 0 0.4em;
+    border-bottom: 1px solid rgba(92, 31, 34, 0.25);
+    padding-bottom: 0.15em;
+}
+.section p, .section li { color: #222; font-size: 15.5px; }
+.section ul { padding-left: 1.2em; margin: 0.3em 0; }
+.section li { margin-bottom: 0.7em; }
+.example {
+    position: relative;
+    width: 78%;
+    margin: 24px auto;
+    padding: 20px 16px;
+    border: 1px solid var(--wiki-border);
+    background-color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+    font-size: 15px;
+    color: #222;
+}
+.example p { margin: 0; }
+.example::before, .example::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    background: url("https://wiki.bloodontheclocktower.com/skins/pivot/assets/images/frame.png") center no-repeat;
+}
+.example::before { left: -31px; transform: rotateY(180deg); }
+.example::after { right: -31px; }
+a.role, span.role { font-weight: bold; text-decoration: none; }
+.role--good { color: var(--good); }
+.role--evil { color: var(--evil); }
+
+/* ── 가림막: 누르고 있는 동안만 보인다 ── */
+.masked { position: relative; }
+.masked > .mask {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #e8dcc6 url("https://wiki.bloodontheclocktower.com/skins/pivot/assets/images/content-background.webp") center / cover;
+    border: 1px dashed var(--wiki-border);
+    color: var(--wiki-maroon);
+    font-size: 15px;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: none;
+    cursor: pointer;
+}
+.mask__icon { font-size: 26px; line-height: 1; }
+body.is-revealed .masked > .mask { display: none; }
+.masked, .masked * { -webkit-touch-callout: none; }
+h1.masked { min-height: 1.4em; }
+
+.credit {
+    margin-top: 2.5em;
+    padding-top: 1em;
+    border-top: 1px solid rgba(92, 31, 34, 0.25);
+    font-size: 13px;
+    color: #6d5a4f;
+}
+.credit button {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--wiki-maroon);
+    text-decoration: underline;
+    font: inherit;
+    cursor: pointer;
+}
+.notfound { text-align: center; padding: 3em 1em; }
+</style>
+</head>
+<body>
+<nav class="tab-bar">
+    <img src="https://wiki.bloodontheclocktower.com/skins/pivot/assets/images/logo.png" alt="Blood on the Clocktower 위키" id="wiki-logo">
+</nav>
+<main class="page" id="page"></main>
+
+<script>
+(function () {
+
+    // 위키 원본 이미지 위치 (판 로고). 저장소 복사본으로 옮기면 이 값만 바꾼다.
+    var WIKI_IMG = "https://wiki.bloodontheclocktower.com/images/";
+    var EDITIONS = {
+        tb: { alt: "Trouble Brewing", logo: WIKI_IMG + "a/a1/Logo_trouble_brewing.png" }
+    };
+    var TEAM_NAMES = { townsfolk: "주민", outsider: "외지인", minion: "하수인", demon: "악마", traveller: "여행자", fabled: "전설" };
+
+    var params = new URLSearchParams(window.location.search);
+    var id = (params.get("id") || "").replace(/[^a-z_]/g, "");
+    var page = document.getElementById("page");
+    var roles = {};
+    var translated = [];
+
+    // 위키 로고를 못 불러오면 글자로 대신한다. 스크립트보다 먼저 실패했을 수도 있어 바로 한 번 확인한다.
+    var logo = document.getElementById("wiki-logo");
+    function logoFallback() {
+        var fallback = document.createElement("span");
+        fallback.className = "tab-bar__fallback";
+        fallback.textContent = "Blood on the Clocktower";
+        logo.replaceWith(fallback);
+    }
+    if (logo.complete && !logo.naturalWidth) {
+        logoFallback();
+    } else {
+        logo.addEventListener("error", logoFallback);
+    }
+
+    function esc(text) {
+        return String(text)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+    }
+
+    // 본문 표기: {c:id} = 캐릭터 이름(정발 이름 자동), **굵게**, {ability} = 이 캐릭터 능력
+    function rich(text, self) {
+        return esc(text)
+            .replace(/\{ability\}/g, esc(self.ability))
+            .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
+            .replace(/\{c:([a-z_]+)\}/g, function (all, roleId) {
+                var role = roles[roleId];
+                if (!role) {
+                    return roleId;
+                }
+                var side = (role.team === "minion" || role.team === "demon") ? "evil" : "good";
+                // 번역된 다른 캐릭터만 링크로 건다. 자기 자신이나 번역 전이면 색만 입힌 글자로 둔다.
+                if (roleId === id || translated.indexOf(roleId) === -1) {
+                    return "<span class=\"role role--" + side + "\">" + esc(role.name) + "</span>";
+                }
+                return "<a class=\"role role--" + side + "\" href=\"?id=" + roleId + "\">" + esc(role.name) + "</a>";
+            });
+    }
+
+    function renderBlock(block, self) {
+        if (block.p) {
+            return "<p>" + rich(block.p, self) + "</p>";
+        }
+        if (block.ul) {
+            return "<ul>" + block.ul.map(function (item) {
+                return "<li>" + rich(item, self) + "</li>";
+            }).join("") + "</ul>";
+        }
+        if (block.example) {
+            return "<div class=\"example\"><p>" + rich(block.example, self) + "</p></div>";
+        }
+        return "";
+    }
+
+    function mask() {
+        return "<div class=\"mask\" data-mask><span class=\"mask__icon\">🔒</span><span>꾹 누르고 있으면 보여요</span></div>";
+    }
+
+    function render(guide) {
+
+        var self = roles[guide.id];
+        var edition = EDITIONS[guide.edition];
+        var html = "";
+
+        html += "<h1 class=\"title masked\">" + mask() + "<span>" + esc(self.name) + "</span></h1>";
+        html += "<h3 id=\"tagline\">시계탑에 흐른 피 위키에서</h3>";
+
+        html += "<div id=\"character-details\">";
+        html += "<div class=\"masked\">" + mask();
+        html += "<img class=\"icon\" src=\"img/official/" + esc(guide.id) + "_0.webp\" alt=\"\">";
+        html += "<span class=\"details-label\">정보</span>";
+        html += "<table><tr><td>유형</td><td>" + esc(TEAM_NAMES[self.team] || "") + "</td></tr>";
+        html += "<tr><td>아티스트</td><td>" + esc(guide.artist || "") + "</td></tr></table>";
+        if (self.flavor) {
+            html += "<p class=\"flavour\">\"" + esc(self.flavor) + "\"</p>";
+        }
+        html += "</div>";
+        if (edition) {
+            html += "<span class=\"details-label\">수록 에디션</span>";
+            html += "<img class=\"edition-logo\" src=\"" + esc(edition.logo) + "\" alt=\"" + esc(edition.alt) + "\">";
+        }
+        if (guide.podcast) {
+            html += "<span class=\"details-label\" style=\"margin-top:20px\">Cult of the Clocktower 에피소드</span>";
+            html += "<span class=\"podcast-by\">by " + esc(guide.podcast.by) + "</span>";
+            html += "<audio controls preload=\"none\" src=\"" + esc(guide.podcast.audio) + "\"></audio>";
+        }
+        html += "</div>";
+
+        guide.sections.forEach(function (section) {
+            html += "<section class=\"section\"><h2>" + rich(section.title, self) + "</h2>";
+            html += section.blocks.map(function (block) {
+                return renderBlock(block, self);
+            }).join("");
+            html += "</section>";
+        });
+
+        html += "<div class=\"credit\">이 페이지는 Blood on the Clocktower 공식 위키 문서(판 " + esc(guide.source.oldid) +
+            ", " + esc(guide.source.lastEdited) + " 수정)를 제작사의 허가에 따라 한국어로 옮긴 것입니다. " +
+            "<button type=\"button\" id=\"open-original\">원문(영어) 보기</button></div>";
+
+        page.innerHTML = html;
+
+        document.getElementById("open-original").addEventListener("click", function () {
+            if (window.confirm("원문 위키는 캐릭터 그림이 화면에 크게 보입니다.\n주변 사람에게 보이지 않는지 확인하세요.\n\n원문을 여시겠어요?")) {
+                window.open("https://wiki.bloodontheclocktower.com/" + encodeURIComponent(guide.source.page), "_blank", "noopener");
+            }
+        });
+
+        window.scrollTo(0, 0);
+
+    }
+
+    function notFound() {
+        page.innerHTML = "<div class=\"notfound\"><h2>번역 준비 중</h2><p>이 캐릭터의 가이드는 아직 번역 중입니다.</p></div>";
+    }
+
+    // ── 가림막: 누르는 동안만 공개, 손을 떼거나 화면을 벗어나면 즉시 다시 가림 ──
+    function hide() {
+        document.body.classList.remove("is-revealed");
+    }
+
+    document.addEventListener("pointerdown", function (event) {
+        if (event.target.closest("[data-mask]")) {
+            event.preventDefault();
+            document.body.classList.add("is-revealed");
+        }
+    });
+    ["pointerup", "pointercancel", "blur"].forEach(function (name) {
+        window.addEventListener(name, hide);
+    });
+    document.addEventListener("visibilitychange", hide);
+    document.addEventListener("contextmenu", function (event) {
+        if (event.target.closest(".masked")) {
+            event.preventDefault();
+        }
+    });
+
+    if (!id) {
+        notFound();
+        return;
+    }
+
+    Promise.all([
+        fetch("guide/data/roles.json").then(function (response) { return response.json(); }),
+        fetch("guide/data/index.json").then(function (response) { return response.ok ? response.json() : []; })
+    ])
+        .then(function (data) {
+            roles = data[0];
+            translated = Array.isArray(data[1]) ? data[1] : [];
+            return fetch("guide/data/chars/" + id + ".json");
+        })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("번역 없음");
+            }
+            return response.json();
+        })
+        .then(function (guide) {
+            if (!roles[guide.id]) {
+                throw new Error("캐릭터 없음");
+            }
+            render(guide);
+        })
+        .catch(notFound);
+
+}());
+</script>
+</body>
+</html>

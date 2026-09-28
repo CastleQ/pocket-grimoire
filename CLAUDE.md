@@ -194,6 +194,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | 시트 열기/공유 연결 | `assets/js/processes/setup/character-sheet.js` |
 | 커스텀 시트 아카이브 | `assets/js/processes/setup/script-archive.js` |
 | 온라인 배포 | `assets/js/processes/setup/distribute.js` |
+| **캐릭터 가이드**(공식 위키 번역) | `public/guide.html` / `public/guide/data/` / `tools/wiki/` — 작업 방법은 `tools/wiki/README.md` |
 | 공식 3종 순번표 | `assets/js/data/official-order.js` |
 | 공식 아이콘 매핑 ⚠️ | `assets/data/role-images.json` |
 | 아이콘 | `public/img/official/` / `assets/img/download.png` |
