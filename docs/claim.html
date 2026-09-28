@@ -38,6 +38,18 @@
   .guide-frame { position:fixed; inset:0; z-index:50; display:flex; flex-direction:column; background:#2b1633; }
   .guide-frame__bar { flex:0 0 auto; display:flex; justify-content:flex-end; padding:8px; }
   .guide-frame__bar .btn { width:auto; margin:0; padding:8px 18px; font-size:1rem; }
+  /* 이름을 보낸 뒤 무심코 창을 닫지 않도록 [위키 읽어보기] 버튼 테두리가 흐르고 빛이 깜빡인다. */
+  .btn--guide { border:3px solid transparent;
+         background: linear-gradient(#679fd0,#679fd0) padding-box, linear-gradient(90deg,#ffd35c,#ff7a3d,#e0409a,#7b5cff,#3cc8e0,#ffd35c) 0 0 / 300% 100% border-box;
+         animation: guide-border 3s linear infinite, guide-glow 1.6s ease-in-out infinite; }
+  @keyframes guide-border { to { background-position: 0 0, 300% 0; } }
+  @keyframes guide-glow { 0%,100% { box-shadow: inset 2px 2px 4px rgba(255,255,255,.3), inset -2px -2px 4px rgba(0,0,0,.3), 0 0 4px 1px rgba(255,190,70,.35); }
+                          50% { box-shadow: inset 2px 2px 4px rgba(255,255,255,.3), inset -2px -2px 4px rgba(0,0,0,.3), 0 0 18px 6px rgba(255,190,70,.9); } }
+  @media (prefers-reduced-motion: reduce) { .btn--guide { animation:none; } }
+  /* 앱의 경고 버튼(.button--warning)과 같은 연주황 */
+  .btn--cancel { background-color:#d09f67; }
+  .warn-head { color:#c0141b; font-weight:800; }
+  #guide-warn-overlay .modal p { word-break:keep-all; }
   .guide-frame iframe { flex:1 1 auto; width:100%; border:0; background:#efe6d6; }
 </style>
 </head>
@@ -57,7 +69,9 @@
   </div>
   <div id="screen-done" class="hidden">
     <div class="msg" id="done-msg"></div>
-    <button class="btn hidden" id="btn-guide-done" data-guide-open>캐릭터 공식 Wiki 읽어보기</button>
+    <div class="msg hidden" id="guide-tip">기다리는 동안 뽑은 캐릭터의 플레이 팁을 아래에서 확인하세요↓</div>
+    <div class="msg hidden" id="close-tip">이 창은 닫으셔도 됩니다.</div>
+    <button class="btn btn--guide hidden" id="btn-guide-done" data-guide-open>캐릭터 공식 Wiki 읽어보기</button>
   </div>
 </div>
 <div id="confirm-overlay" class="overlay hidden">
@@ -71,9 +85,9 @@
 </div>
 <div id="guide-warn-overlay" class="overlay hidden">
   <div class="modal">
-    <p>※다음 페이지에 당신의 캐릭터가 보입니다. 페이지를 열기전에, 옆 사람에게 화면이 보이지 않도록 주의해주세요!※</p>
+    <p><span class="warn-head">※잠깐!!※</span><br>다음 페이지에 당신의 캐릭터가 보입니다.<br>옆 사람에게 화면이 보이지 않도록 주의하세요.</p>
     <div class="btn-row">
-      <button class="btn" id="guide-warn-no">취소</button>
+      <button class="btn btn--cancel" id="guide-warn-no">취소</button>
       <button class="btn" id="guide-warn-yes">열기</button>
     </div>
   </div>
@@ -187,11 +201,16 @@ function blockScreen(msg) {
   show("screen-done");
   updateGuideButtons();
 }
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]; }); }
 function hasGuide() {
   return !!(guideAllowed && claimState && claimState.characterId && guideIds.indexOf(claimState.characterId) !== -1);
 }
 function updateGuideButtons() {
   el("btn-guide-done").classList.toggle("hidden", !hasGuide() || el("screen-done").classList.contains("hidden"));
+  // 이름을 보낸 직후: 가이드가 있으면 버튼 안내, 없으면(번역 전 캐릭터) 예전처럼 "닫으셔도 됩니다"
+  var submitted = el("screen-done").classList.contains("is-submitted");
+  el("guide-tip").classList.toggle("hidden", !submitted || !hasGuide());
+  el("close-tip").classList.toggle("hidden", !submitted || hasGuide());
 }
 function openGuide() {
   el("guide-warn-overlay").classList.add("hidden");
@@ -231,7 +250,9 @@ el("btn-submit").addEventListener("click", function () {
   el("btn-submit").disabled = true; el("btn-submit").textContent = "보내는 중...";
   submitName(claimState.slotId, name).then(function () {
     claimState.submitted = true; saveState(claimState);
-    blockScreen("이야기꾼에게 전달했습니다!<br><br>" + name + " 님, 게임이 곧 시작됩니다.<br>이 창은 닫으셔도 됩니다.");
+    blockScreen("<b>이야기꾼에게 전달했습니다!</b><br><br>" + escapeHtml(name) + " 님, 게임이 곧 시작됩니다.");
+    el("screen-done").classList.add("is-submitted");
+    updateGuideButtons();
   }).catch(function (err) {
     el("btn-submit").disabled = false; el("btn-submit").textContent = "이야기꾼에게 보내기";
     window.alert("문제가 발생했습니다:\n" + err.message);

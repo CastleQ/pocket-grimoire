@@ -133,13 +133,13 @@ a.role, span.role { font-weight: bold; text-decoration: none; }
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
-    touch-action: none;
+    touch-action: pan-x pan-y;
     cursor: pointer;
 }
 .mask__icon { font-size: 26px; line-height: 1; }
-/* 누르자마자 보이면 스크롤하려고 무심코 닿은 손가락에도 드러나므로, 2.5초에 걸쳐 서서히 걷힌다. 손을 떼면 즉시 다시 가린다. */
+/* 누르자마자 보이면 스크롤하려고 무심코 닿은 손가락에도 드러나므로, 1.5초에 걸쳐 서서히 걷힌다. 손을 떼면 즉시 다시 가린다. */
 .masked > .mask { opacity: 1; transition: opacity 0s; }
-body.is-revealed .masked > .mask { opacity: 0; transition: opacity 2.5s ease-in; }
+body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in; }
 .masked, .masked * { -webkit-touch-callout: none; }
 
 .credit {
@@ -319,8 +319,7 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 2.5s ease-in;
         });
 
         html += "<div class=\"credit\">이 페이지는 Blood on the Clocktower 공식 위키 문서(판 " + esc(guide.source.oldid) +
-            ", " + esc(guide.source.lastEdited) + " 수정)를 제작사 TPI의 Community Created Content Policy에 의거하여 한국어로 번역한 페이지입니다. " +
-            "Grassroots Creators로서 황금률을 준수합니다. " +
+            ", " + esc(guide.source.lastEdited) + " 수정)를 제작사 TPI의 Community Created Content 정책에 의거하여 한국어로 번역한 페이지입니다. " +
             "<button type=\"button\" id=\"open-original\">원문(영어) 보기</button></div>";
 
         page.innerHTML = html;
@@ -353,15 +352,35 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 2.5s ease-in;
         document.body.classList.remove("is-revealed");
     }
 
-    document.addEventListener("pointerdown", function (event) {
+    // 터치: 손가락이 화면에 닿아 있는 동안 공개(누른 채 스크롤해도 유지). 스크롤이 시작되면 브라우저가
+    // pointercancel을 보내므로 터치는 pointer 이벤트가 아니라 touch 이벤트로 다룬다.
+    document.addEventListener("touchstart", function (event) {
         if (event.target.closest("[data-mask]")) {
+            document.body.classList.add("is-revealed");
+        }
+    }, { passive: true });
+    ["touchend", "touchcancel"].forEach(function (name) {
+        document.addEventListener(name, function (event) {
+            if (event.touches.length === 0) {
+                hide();
+            }
+        });
+    });
+    // 마우스·펜: 버튼을 누르고 있는 동안 공개
+    document.addEventListener("pointerdown", function (event) {
+        if (event.pointerType !== "touch" && event.target.closest("[data-mask]")) {
             event.preventDefault();
             document.body.classList.add("is-revealed");
         }
     });
-    ["pointerup", "pointercancel", "blur"].forEach(function (name) {
-        window.addEventListener(name, hide);
+    ["pointerup", "pointercancel"].forEach(function (name) {
+        window.addEventListener(name, function (event) {
+            if (event.pointerType !== "touch") {
+                hide();
+            }
+        });
     });
+    window.addEventListener("blur", hide);
     document.addEventListener("visibilitychange", hide);
     document.addEventListener("contextmenu", function (event) {
         if (event.target.closest(".masked")) {
