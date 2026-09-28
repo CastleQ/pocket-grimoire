@@ -1,0 +1,94 @@
+{
+    "id": "godfather",
+    "source": {
+        "page": "Godfather",
+        "oldid": 2394,
+        "lastEdited": "2024-10-07"
+    },
+    "artist": "Aidan Roberts",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/61788082/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2022-11-6%2F301512689-44100-2-3db86b4cb6e1b.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"You start knowing which Outsiders are in play. If 1 died today, choose a player tonight: they die. [-1 or +1 Outsider]\""
+                },
+                {
+                    "p": "The Godfather takes revenge when the town kills Outsiders."
+                },
+                {
+                    "ul": [
+                        "Whenever an Outsider is executed and dies, the Godfather chooses one player to die that night.",
+                        "The Godfather only kills if an Outsider dies during the day. Outsiders that die at night don’t count.",
+                        "If the Godfather is in play, this adds or removes one Outsider from play.",
+                        "At the start of the game, the Godfather learns which Outsiders are in play.",
+                        "If two Outsiders died today, the Godfather still only kills one player tonight."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "While setting up the game, before putting the character tokens in the bag, either remove one Townsfolk and add one Outsider or remove one Outsider and add one Townsfolk."
+                },
+                {
+                    "p": "During the first night, wake the Godfather. Show them the character tokens of all Outsiders in play. Put the Godfather to sleep."
+                },
+                {
+                    "p": "If an Outsider dies during the day, mark them with the **DIED TODAY** reminder. That night, wake the Godfather. They point at any player. Put the Godfather to sleep. The chosen player **dies**—mark them with the **DEAD** reminder."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The Godfather learns that the {c:lunatic} and the {c:moonchild} are in play, so the Godfather bluffs as the {c:tinker}. During the third day, the {c:lunatic} dies by execution. That night, the Demon kills the {c:minstrel}, and the Godfather kills the {c:pacifist}."
+                },
+                {
+                    "example": "The {c:tinker} is executed but remains alive, because they were protected by the {c:devilsadvocate}. The Godfather does not act that night. The next day, the {c:tinker} dies due to their own ability. That night, the Demon kills a player, and the Godfather kills themself to appear like a good player."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "The Godfather either adds or removes an Outsider from the normal game setup at the Storyteller's discretion. You can then kill these innocent good players for an extra kill at night... but only if you can convince the town to do your dirty work for you! Your ability is subtle, but powerful when abused in the right ways.",
+                        "You start knowing which Outsiders are in play, which can help you and your evil team have an idea of what to expect. If you know there's a {c:lunatic} for example, you can expect them not to come out for a while, and can bluff as an extra Outsider yourself. Alternatively if there is a {c:goon}, you may want to seek them out and make an allegiance, turning them evil to join you instead of just getting them killed. This is reliable, powerful information - use it however best helps your team.",
+                        "If there's one less outsider than expected, you can fill this gap with a bluff - while players will suspect you in the event of there being more or less outsiders than expected, they tend to overlook entirely if there are exactly as many outsiders as there's supposed to be. (This can also make it an exceptional bluff for your demon!)",
+                        "If there's one more outsider in play than expected, it's probably best to try and convince the town that there isn't a Godfather in play, and that one of the outsiders is bluffing and secretly evil. This not only keeps up the ambiguity of the minion in play (meaning the terrifying {c:mastermind} continues to be a possibility), but if they believe you, they might even start executing, giving you a free extra kill!",
+                        "Get them Outsiders executed by any means necessary! Not only are you killing a good player and activating characters like the {c:moonchild}, but you will get an extra kill that night. If you manage to time this well, your evil team can unleash a devastating counter-attack on the good team with your unexpected aid!",
+                        "Coordinate with the demon when you have the chance to kill to maximize the amount of players that die. It can be a bummer to get a kill and then totally miss because the demon was going to kill them anyway. Plus, the more players who are dead in a single night, the more likely the good team are to just totally panic.",
+                        "When you have a chance to kill, you can deliberately choose a dead player to mask your extra kill, hiding the fact that you are in play. This can be very useful if you are trying to push the narrative that no Godfather is in play - the good team typically stop killing Outsiders once they realize you're around, and this method keeps the shade firmly on them. Delaying gratification for a more deadly late game kill can be very satisfying!"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "fighting-the-godfather",
+            "title": "Fighting the Godfather",
+            "blocks": [
+                {
+                    "ul": [
+                        "Count how many Outsiders are in play. If the number is 1 fewer or 1 greater than the number that there should be, then you probably have a Godfather in play. Some Outsider players, particularly the {c:goon} and the {c:lunatic} may not want to reveal who they are straight away, so this may be tricky at first. But, if you can get all Outsiders to reveal who they are, and the tally is different than expected, then you know that you have a Godfather in play or an Outsider is lying.",
+                        "If you know that a Godfather is in play, then you know that other Minions are not in-play (if there is only 1 Minion in-play). In this case, you know that the players claiming to be Outsiders are good and should not be executed, and also that you don't need to worry about the {c:mastermind} or {c:devilsadvocate}.",
+                        "If you suspect a Godfather, be cautious of killing Outsiders. Executing an Outsider loses you a good player, then you will lose another 2 (or more!) good players that night, which can be devastating.",
+                        "In Bad Moon Rising, knowing which Minions are in-play is crucial to winning. If you don't know whether a Godfather is in play or not, and an Outsider is executed, pay particular attention to how many players die that night. If an extra player dies that night, or if the number is normal, you have information about which Minions are in-play. There may be other reasons that extra players die at night, such as the {c:gambler}, {c:gossip} or {c:tinker}, so rule these causes out first."
+                    ]
+                }
+            ]
+        }
+    ]
+}

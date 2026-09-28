@@ -1,0 +1,99 @@
+{
+    "id": "pukka",
+    "source": {
+        "page": "Pukka",
+        "oldid": 3074,
+        "lastEdited": "2026-03-20"
+    },
+    "artist": "Aidan Roberts",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/45973585/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2022-0-10%2F241738306-44100-2-4321a5a600611.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Each night, choose a player: they are poisoned. The previously poisoned player dies then becomes healthy.\""
+                },
+                {
+                    "p": "The Pukka poisons its victims, who die at a later time."
+                },
+                {
+                    "ul": [
+                        "When the Pukka attacks, their victim is poisoned immediately. The next night, just after the Pukka attacks again, that player dies.",
+                        "Unlike other Demons, the Pukka acts during the first night.",
+                        "The Exorcist prevents the Pukka from waking to poison a player. The Innkeeper prevents the Pukka from killing a poisoned player, then that player is no longer poisoned.",
+                        "If the Pukka is drunk and chooses a player, that player does not become poisoned, so does not die the following night.",
+                        "If the Pukka was sober when they chose a player the previous night, but is drunk at night, that player does not die. But when the Pukka sobers up, the poison resumes and kills the player at night."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "Each night, wake the Pukka. They point at any player. Put the Pukka to sleep. The chosen player is **poisoned**—mark them with a **POISONED** reminder."
+                },
+                {
+                    "p": "Each night except the first, the other player marked **POISONED dies**—mark them with a **DEAD** reminder, then remove their **POISONED** reminder."
+                },
+                {
+                    "p": "Players that the Pukka kills are still poisoned at their time of death. If you are using characters from other editions, you may need to keep the POISONED reminder by the DEAD reminder until their death ability is resolved. For example, if the Pukka kills the Sage, the Sage may get false information due to being poisoned by the Pukka."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The Pukka poisons the {c:chambermaid}. The {c:chambermaid} gets false information. The next night, the {c:chambermaid} dies."
+                },
+                {
+                    "example": "The Pukka poisons the {c:fool}. The next day, the {c:fool} is executed and dies because they have no ability. The next night, nobody dies and the Pukka poisons the {c:gossip}. The next night, the Pukka is drunk and tries to poison the {c:tinker}, but does not. The next night, the {c:gossip} dies because the Pukka is sober."
+                },
+                {
+                    "example": "The Pukka poisons the {c:pacifist}. The next night, the {c:exorcist} chooses the Pukka to not wake tonight. The {c:pacifist} dies, but the Pukka does not wake to attack tonight."
+                },
+                {
+                    "example": "The {c:moonchild} is executed, dies, and chooses the {c:courtier}. That night, the Pukka chooses the {c:moonchild}. The {c:courtier} does not die because the {c:moonchild} is poisoned."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "The devious Pukka is the deadliest demon in Bad Moon Rising for its viciousness and cruelty. All the other demons give the town the courtesy of a single night; the Pukka has no such patience, sowing chaos into the town from the first night, selecting their first victim before the townsfolk even get a chance to act. The {c:zombuul} may be a little hardier than you, and the {c:shabaloth} and {c:po} may kill more effectively, but they are vulnerable to the most deadly weapon the good team wields: information. Not only do you kill but you neutralize your victims, forcing them to spend their last days in delirium, their information confused and the danger they once posed reduced to nothing. The good team always hopes you are not in play, lest they have to spend the whole game doubting all of the information that would normally lead them right to your door.",
+                        "Factor in who you want to poison as well as who you want to kill. An aggressive and talkative {c:chambermaid} who doesn't realize their last day of information is wrong can do a lot of legwork for you beyond the grave. If you get very lucky, you could catch an {c:exorcist} or {c:courtier} out before they catch you, or you can expose an {c:innkeeper}'s patrons to your {c:godfather} or a {c:moonchild} curse with a little bit of a good timing. You are the only evil player in Bad Moon Rising who has the ability to befuddle your target's information, so why not take full advantage?",
+                        "Target players who you don't think are going to be executed the next day. If the good team executes your poisoned victim, then there'll be no death that night from you... which wily good players might use to detect that you are in play. A badly timed execution will leave you scrambling to play catch up for the rest of the game!",
+                        "Target players who the good team suspects are bluffing being immune to execution, like the {c:sailor}, or a {c:tealady} and her neighbour. Even with the lack of death the following night, it will look like they faked their ability using a {c:devilsadvocate}, and can even lead the good team to believe they are in fact a {c:zombuul}. (And any day the good team spends executing dead players is a good day for you!)",
+                        "Your poison cannot be blocked by anything but the wily {c:goon}, but characters can still be protected from death at night by characters like the {c:tealady} or {c:innkeeper}. You have nothing to fear from a {c:fool} or a {c:sailor}, but choose carefully nonetheless - it won't do to miss a kill, especially since you're competing with the {c:shabaloth} or {c:po}. Reliable and methodical should be your goal.",
+                        "Try to mask the fact that there is a Pukka in play for as long as possible. Once the good team know you are in play, they can start backtracking your poisoned information, undoing all your hard work! While it might seem like bluffing a {c:zombuul} would be the obvious choice, in can in fact be easier to mimic a {c:po} or even a {c:shabaloth} with the help of an {c:assassin} or a {c:godfather}... or just some risk taking townsfolk. For example, if you know a {c:gossip} statement will produce a death that night, that can be the time to have your minions act, creating multiple deaths that mimic a charged up {c:po} attack. While they may track you down eventually, the goal is that by the time they do... it's too late for them to stop you."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "fighting-the-pukka",
+            "title": "Fighting the Pukka",
+            "blocks": [
+                {
+                    "ul": [
+                        "The first step to fighting the Pukka is figuring out the Pukka is in play. Look for suspicious deaths at night, such as the {c:fool} dying early, or {c:sailor} dying at all. Or, consider that when nobody dies at night time, that it was due to the Pukka target being executed that day instead. If a pattern forms around these two signals, you almost certainly have a Pukka in the game.",
+                        "Once you have figured out that a Pukka is in play, you'll need to do some informational backtracking. Each player that died last night, was poisoned the day and night beforehand. Dead Tea Ladys have a reason that their ability did not work while alive. Dead Gamblers have a reason that they did not die when they picked a player the night before. Dead Chambermaids got false information the night before last. Dead Exorcists might have actually chosen the Demon on a night where players died. Backtracking can be complicated, since what happened the night before last is more difficult to remember than what happened last night, but will grant enormous information if you can do it.",
+                        "If Pukka is in play, nobody is safe. The {c:fool} and the {c:sailor} can not be protected by their character ability etc. Also, since the Pukka chooses who to kill a full night earlier than normal, it is beneficial for all good players to reveal their characters and information to the group publicly as soon as possible. Sometimes, with other Demons, it can be beneficial for some good players to not reveal who they are, so that the Demon attacks certain players and leaves others alone - but with the Pukka, this is not the case. Reveal everything, and work as a team to bring that pesky poisoner to justice!",
+                        "If you have no idea which players are evil, execute players who you think are poisoned. All things being equal, it is best to execute a good player who is poisoned by the Pukka than a good player that is not, because when you execute a Pukka victim, nobody dies due to the Demon that night. Obviously, it is better to execute evil players, but if you have no information about who is good or evil, err on the side of voting to execute players that seem to be poisoned."
+                    ]
+                }
+            ]
+        }
+    ]
+}

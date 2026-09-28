@@ -1,0 +1,97 @@
+{
+    "id": "professor",
+    "source": {
+        "page": "Professor",
+        "oldid": 1775,
+        "lastEdited": "2024-01-25"
+    },
+    "artist": "Aidan Roberts",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/52108577/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2022-4-17%2F266015540-44100-2-b1eff3701ba47.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Once per game, at night*, choose a dead player: if they are a Townsfolk, they are resurrected.\""
+                },
+                {
+                    "p": "The Professor can bring someone back from the dead."
+                },
+                {
+                    "ul": [
+                        "Once per game, the Professor can choose a dead player. If that player is a Townsfolk, they are resurrected, becoming alive again.",
+                        "If the Professor chooses an Outsider, Minion, or Demon, then nothing happens, and the Professor’s ability is gone.",
+                        "The resurrected player regains their ability, even a “once per game” ability they used already.",
+                        "Resurrected Townsfolk may or may not get to act on the night of their resurrection, depending on whether they would act before or after the Professor. If they had a “first night only” or “you start knowing” ability, they immediately wake to use it again, as soon as the Professor goes to sleep."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "Each night except the first, wake the Professor. The Professor either shakes their head no or points to a dead player. Put the Professor to sleep."
+                },
+                {
+                    "p": "If the Professor chose a dead Townsfolk, the chosen player becomes **alive** again—mark them with the Professor’s **ALIVE** reminder and remove their shroud. (They wake later tonight if they normally would. If they wake on the first night only, they wake now to use their ability.) At dawn, after declaring which players died, declare which player is alive again. (Do not say why.) **The Professor loses their ability**—mark them with the **NO ABILITY** reminder and remove their night token from the night sheet."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The Professor chooses a dead player who is claiming to be the {c:tealady}. The player is actually the {c:lunatic}. Nobody is resurrected."
+                },
+                {
+                    "example": "The Professor resurrects the {c:grandmother}, who learns a good player’s character. At dawn, all players learn the {c:grandmother} player is alive, but not that the player is the {c:grandmother}."
+                },
+                {
+                    "example": "The drunk Professor chooses to resurrect the {c:minstrel}. Unbeknownst to the Professor, the {c:minstrel} was regurgitated by the {c:shabaloth} and is now alive. The Storyteller shakes their head no, because the Professor must choose a dead player. The Professor chooses the dead {c:fool} instead. Nothing happens because the Professor is drunk, and the Professor cannot use their ability again."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "Use your ability as early as you possibly can! Evil players will really not want to keep you around, so getting your ability to trigger as soon as possible will give you an edge. Additionally, it is more likely that players who die early in the game will be good Townsfolk, since they are in the majority and evil will be protecting each other.",
+                        "Use your ability as late in the game as you dare! While risky, you can't underestimate how disruptive the resurrection of a confirmed Townsfolk at the end of the game can be for the evil team. The good team will be able to rally around both you and your revived Townsfolk, and the evil team will have a lot less options for disguising themselves as the game has worn on.",
+                        "Remember that if your ability fails, the dead player is either evil or an Outsider. Don't jump to conclusions right away - you could've targeted a confused {c:zombuul} or {c:lunatic}!",
+                        "Resurrect players who died at night, rather than players who were executed. It's not as sure a thing as in other editions, but players who die at night were probably targeted by the demon, and are therefore most likely good.",
+                        "Resurrect executed players if you believe the town has made a mistake! If your ability works, you have absolved an innocent townsfolk. If it doesn't, well, you can be very sure that they were right to execute them the first time. (Bonus strategy: Reveal yourself to a player you believe to be good, and ask them to be deliberately executed so you can bring them back, proving both of you. Especially effective early in the game!)",
+                        "Successfully resurrect a townsfolk, and you are going to be one of the more trustworthy good players in the game. While you won't be totally free of suspicion (the {c:shabaloth} is always a concern), you and your revived Townsfolk will know you can trust each other 100%, and most other players will want to join your circle! Use this to your advantage to rally the good team in the face of evil.",
+                        "When picking who to resurrect, consider telling the player ahead of time what you intend to do. Not only does this lend credibility to the fact that you aren't the {c:shabaloth} (since the Storyteller chooses who is regurgitated), but it also means the player can warn you off if they are an outsider who is bluffing as a townsfolk for whatever reason. Additionally, if the player agrees to go along with this plan and doesn't come back, you can be much more confident that they are evil, since they had the chance to stop you and didn't!"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Professor",
+            "blocks": [
+                {
+                    "p": "When bluffing as the Professor, there are a few things you should keep in mind:"
+                },
+                {
+                    "ul": [
+                        "You can't resurrect anyone. Be prepared to explain why your ability failed. The Professor is often a more difficult bluff than other good characters in Bad Moon Rising, so you will need to think ahead.",
+                        "Claim to have used your Professor ability on a player that the group considers to be suspicious. You can claim to have wanted to \"test\" to see if they were actually a Townsfolk or not. Choosing a suspicious player will more likely make you look like the good player, so is more useful if you are a Demon as opposed to a Minion.",
+                        "Claim to have used your ability on a trusted good player. When nothing happens, the group will assume (unless you can convince them that you were drunk or poisoned for some reason) that one of you is evil. And the odds are, that if they are trusted, you are not. This strategy is more useful if you are a Minion, as being executed can often be a good thing.",
+                        "If the Demon is the {c:shabaloth}, and a player is regurgitated at night, this can look identical to a Professor resurrecting someone. If you think this might happen, or if you have quick wits and can claim in the morning that last night's surprise living player was due to your efforts, you can convince the group that you have used your ability effectively. This is doubly damaging if the regurgitated player was actually a fellow Minion.",
+                        "If you are good player, bluffing as a Professor that has used their ability (and nothing happened) can be a great way to stay alive long enough to use your actual ability. Demons are usually not interested in attacking Professors that have lost their ability, since they are no longer a threat. For example, if you are the {c:courtier}, but want to ensure that you survive long enough to use your drunking ability, claiming to be a Professor that no longer has an ability will usually let you live long enough to do so."
+                    ]
+                }
+            ]
+        }
+    ]
+}

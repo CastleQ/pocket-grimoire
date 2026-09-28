@@ -1,0 +1,93 @@
+{
+    "id": "minstrel",
+    "source": {
+        "page": "Minstrel",
+        "oldid": 2600,
+        "lastEdited": "2024-12-06"
+    },
+    "artist": "John Grist",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/49402892/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2022-2-21%2F255124222-44100-2-39655467df082.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"When a Minion dies by execution, all other players (except Travellers) are drunk until dusk tomorrow.\""
+                },
+                {
+                    "p": "The Minstrel makes everybody drunk if a Minion dies."
+                },
+                {
+                    "ul": [
+                        "If a Minion is executed and dies, all players (except the Minstrel) become drunk immediately and stay drunk all through the night and all the following day. Townsfolk, Outsiders, Minions, and even Demons become drunk, but not Travellers. This doesn’t happen if a Minion died at night.",
+                        "If a dead Minion is executed, the Minstrel ability does not trigger—a dead character cannot die again! If a Minion is executed but does not die, the Minstrel’s ability does not trigger. If the Minstrel is drunk or poisoned when a Minion dies by execution, the Minstrel ability does not trigger."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "During the day, if a Minion dies by execution, all other players except Travellers become **drunk**—put the Minstrel’s **EVERYONE IS DRUNK** reminder in the center of the left side of the Grimoire."
+                },
+                {
+                    "p": "At dusk tomorrow, all players made drunk by the Minstrel become **sober**—remove the **EVERYONE IS DRUNK** reminder."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "During the first day, the {c:pacifist} dies. That night, players act as normal, because the {c:pacifist} is not a Minion. During the second day, the {c:judge} executes the {c:godfather}. That night, everyone is drunk, including the Demon, so nobody dies. During the third day, a Minion who is protected by the {c:devilsadvocate} is executed and dies, because the {c:devilsadvocate} is drunk. Again, since a Minion died during the day, the Minstrel makes everyone drunk."
+                },
+                {
+                    "example": "The {c:assassin} is executed, so the Minstrel makes everyone drunk. The next day, the {c:godfather} is executed, so the Minstrel makes everyone drunk again. The Demon could not kill on either night. The next day, the evil {c:apprentice} Mastermind is exiled, so that night everyone becomes sober again, because the Minstrel ability doesn't trigger from a Traveller being exiled."
+                },
+                {
+                    "example": "During the day, the {c:assassin} dies, so the Minstrel makes everyone drunk. The following day, the {c:zombuul} is executed and dies for the first time. Good wins, because the {c:zombuul} is drunk and so has no ability."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "At first glance, the Minstrel does not seem that powerful, but in actuality you gain some of the most reliable information in the game. After any day with an execution, you know with confidence that if anyone dies at night, the recent executee is not a Minion. Since an executed Demon typically ends the game ({c:zombuul} and {c:mastermind} aside), you can in fact be reasonably confident that they are actually good!",
+                        "If the town does successfully execute a Minion, the Minstrel ability will activate, and nobody will die that night. This does not mean that a night without death is any guarantee that your ability was the cause though. In Bad Moon Rising, there are as many reasons people don't die as there are reasons they do (e.g. {c:exorcist}, {c:innkeeper}, {c:po} charging up)! To be sure your ability is the cause and the recent executee should be condemned, do some sleuthing - since you affect all abilities in the game, you should be able to find evidence that other abilities did not work as expected. As an example, characters like the {c:chambermaid} or {c:gambler} could get odd results. Additionally, nobody will be safe from execution (e.g. {c:pacifist}, {c:devilsadvocate}), and characters like the {c:tinker} will not randomly die that day.",
+                        "Gun for executions! The more executions, the better chance you have of getting a minion. Good players may be reluctant to execute anyone who isn't a demon suspect as the death count can be unexpected and heavy in Bad Moon Rising, but it is worth it to remove powerful Minions like the {c:assassin} or {c:mastermind} from play before they can do too much damage. Combined with the one night reprieve your ability grants on successful execution, your ability should be plenty of incentive to be more aggressive than usual!",
+                        "Demons may be less likely to target you since they underestimate your power! Unless Minions are getting executed left and right, the Minstrel is likely to survive a little longer than other townsfolk without protections, simply because a Demon is going to be much more worried about an {c:exorcist} or a {c:tealady} surviving for another night. Take full advantage of this blind spot - hopefully by the time the evil team realizes what a danger you are, a Minion or two has fallen!",
+                        "If your evil team is a little more savvy, they may be keen to target you earlier, especially if the good team is zeroing in on some of the Minions. Keeping your identity under your hat for a few days can allow you to spring an unpleasant surprise on these clever sorts, since they won't know that you've blocked them from acting and exposed a demon until nobody gets to act. Your unexpected death can also be an indicator that you were hot on the trail of a minion that the evil team really didn't want confirmed as such."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Minstrel",
+            "blocks": [
+                {
+                    "p": "When bluffing as the Minstrel, there are a few things you should keep in mind:"
+                },
+                {
+                    "ul": [
+                        "The Minstrel is a good passive or 'cover' bluff. There is not much you need to do other than remind people that you are the Minstrel every so often. Because it is easy, some good players will pretend to be the Minstrel to cover the fact that they are the {c:exorcist}, for example. You can do the same.",
+                        "At least once per game, get the Demon to avoid killing at night. If no other deaths occur, this will simulate what occurs when a real Minstrel is in-play and a Minion is executed. If you do this after a suspicious player is executed, not only do you confirm the group's suspicions in that player's nefariousness, but you also convince the group that they were drunk that night - which throws a huge spanner in the works for characters that rely on night-time information and feedback, such as the {c:exorcist}, {c:chambermaid}, {c:gambler} and even the {c:moonchild}.",
+                        "If you are claiming to be the Minstrel, and a fellow evil player is executed, having the Demon kill as normal that night is a great way to convince the group that the executed player was good. You may not even need to say anything more than the fact that you are the Minstrel - and let them figure the rest out themselves.",
+                        "Encourage executions - of players other than yourself and your Demon, of course.",
+                        "If a real Minstrel is in play, and you are the Demon, choose not to kill every so often so as to throw the Minstrel off the scent. If a Minstrel is assuming that the group just executed a Minion when they in fact executed a Townsfolk, then not only will that Townsfolk look evil, but the rest of the good players will assume they were drunk tonight (due to the Minstrel ability), even though they were completely sober."
+                    ]
+                }
+            ]
+        }
+    ]
+}

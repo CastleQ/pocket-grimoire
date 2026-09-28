@@ -1,0 +1,95 @@
+{
+    "id": "mastermind",
+    "source": {
+        "page": "Mastermind",
+        "oldid": 2993,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "Aidan Roberts",
+    "podcast": {
+        "by": "",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/30131665/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-2-28%2F169882828-44100-2-4cf2355cc14d7.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"If the Demon dies by execution (ending the game), play for 1 more day. If a player is then executed, their team loses.\""
+                },
+                {
+                    "p": "The Mastermind can still win after the Demon is dead."
+                },
+                {
+                    "ul": [
+                        "If the Demon dies by execution, the game continues. The players do not learn that the Demon died. The following day, if a good player is executed—whether or not they die from it—then evil wins. If an evil player is executed or nobody is executed, then the good team wins.",
+                        "A dead Demon does not get to attack. They lose their ability, as normal. During this extra night and day, other characters’ abilities function as normal.",
+                        "If the Demon dies and just two players are left alive, the game still continues for another day—evil does not win from two players being alive, and good did not win by killing the Demon. The Mastermind ability says “play for one more day,” and abilities override standard game rules."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "If the Demon is executed and dies, and the game would end, continue playing the game. (Add a shroud as normal. Do not say that the Demon has died.)"
+                },
+                {
+                    "p": "Tomorrow, if a good player is executed, declare that the game ends and evil wins, but if an evil player or no player is executed, declare that the game ends and good wins."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The {c:shabaloth} dies. The next day, the {c:professor} is executed and dies. Evil wins."
+                },
+                {
+                    "example": "The {c:po} dies. The next day, the {c:godfather} is executed, but remains alive because they were protected by the {c:devilsadvocate}. However, since an evil player was executed, good wins."
+                },
+                {
+                    "example": "The {c:zombuul} is executed and appears to die. The Mastermind’s ability does not trigger yet, because the {c:zombuul}'s execution did not make the game end. When the {c:zombuul} is executed a second time and dies for real, the {c:mastermind}’s ability triggers, and the game continues for one more day."
+                },
+                {
+                    "example": "There are three players alive. The Demon dies. The following day, with just two players alive, good decides not to execute. When night falls, just two players are left alive but the Demon is dead, so good wins."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "The Mastermind is a minion that continues the sinister intentions of the demon even after their death, giving the evil team a second chance at victory. You play the ultimate long game, striving to outlive even your own team... all while never announcing your presence at all.",
+                        "Stay alive, pretty much at all costs - your ability is the evil team's backup plan and last ditch resort, and it won't activate if you're dead in the dirt. Coordinate with your demon for a strong bluff and ingratiate yourself with the good team - good options for you are roles that don't act at night (so you don't attract the suspicion of a {c:chambermaid}) and who the good team would want to protect, like the {c:pacifist}, {c:tealady} or {c:minstrel}.",
+                        "As a Mastermind, you know that timing is everything. The good team knows you might be lurking about, and if they're confident they've killed the demon, all they have to do to tank your plans is not execute. To outwit them, get the demon executed at a time when the good team doesn't suspect that you are in play. In general, this means the execution should happen earlier in the game (most demons will survive past a few days), or if they believe the player they're executing is not the demon. Bad Moon Rising is the only edition where your demon can die on day 1 and that can be a good thing!",
+                        "Encourage your town to embrace executions! While most good teams won't need any extra help to kill indiscriminately, making sure that they're executing aggressively every day will have them primed to keep executing once the demon is dead and gone. You don't want them chickening out of your last chance at victory! Remind them that executions gain information (testing the claims of a {c:sailor} or {c:tealady}, looking for the presence of a {c:devilsadvocate}), and that depending on the demon, the good team really can't afford to waste any chances to get their hands on evil players anyway. This is all true, which makes you look even more good and trustworthy!",
+                        "Convince the good team there's a different minion in play to yourself. Bluff as an outsider to simulate the presence of a {c:godfather}. Blame an unusual death count on the presence of an {c:assassin} (as opposed to a {c:gambler}, {c:gossip} or {c:tinker} activating). If a player is executed, but does not die? Surely that must be evidence of a {c:devilsadvocate}! If the good team wholeheartedly believes that they know which minions are in play and it does not include you, then they will feel much more comfortable going for that final execution, especially if you've coordinated with your demon using some of the other tips on this list!",
+                        "Lull the good team into false sense of security by convincing the Demon (and other Minions) to occasionally avoid killing at night time. Once there has been a night (or two) with no kills, and the good team has learnt that they can safely execute after such a night, they will be much more likely to execute after a night with no kills due to the Demon having been executed.",
+                        "If the Demon dies by execution, do whatever you can to engineer a player death that night. Tell the {c:assassin} to use their ability. Convince the {c:gambler} to guess your character. Influence the {c:gossip} into making a true statement. Beg the Storyteller to kill the {c:tinker}. If the players believe that the death at night is caused by a Demon, they will be much more likely to execute again tomorrow."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "fighting-the-mastermind",
+            "title": "Fighting the Mastermind",
+            "blocks": [
+                {
+                    "ul": [
+                        "In Bad Moon Rising, all other Minions give some kind of indication that they are in play. The {c:devilsadvocate} prevents players from dying by execution, the {c:assassin} causes an extra death at night time, as does the {c:godfather}. If you can see these tells, you may be able to determine that there is no Mastermind in play. If there is no Mastermind in play, you don't need to be cautious about executing when you are unsure of whether the player is good or evil.",
+                        "However, if you cannot see evidence of a {c:devilsadvocate}, {c:godfather} or {c:assassin}, you may have a Mastermind in play, and in this case, it is usually best to assume that there is.",
+                        "If there is a night with no death, be extremely cautious about who you execute the next day. Maybe even don't execute at all. As long as there are deaths at night, there is a good chance that the Demon is still alive... but that may not be the case if the Demon is a {c:zombuul}. In most cases though, a death at night means that you can safely execute the following day, whilst no death at night means that you should investigate the possibility that the player you executed yesterday was actually the Demon.",
+                        "The Mastermind can't use their ability if they are dead. Execute as many players as you can in the hope of killing the Mastermind before the Demon. Like the {c:devilsadvocate}, the longer the Mastermind survives, the more trouble the good team is in. Kill early. Kill often. Do your best to figure out which players are possibly Minions. And cross your fingers."
+                    ]
+                }
+            ]
+        }
+    ]
+}

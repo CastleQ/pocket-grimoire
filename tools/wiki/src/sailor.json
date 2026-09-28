@@ -1,0 +1,95 @@
+{
+    "id": "sailor",
+    "source": {
+        "page": "Sailor",
+        "oldid": 1768,
+        "lastEdited": "2024-01-25"
+    },
+    "artist": "Aidan Roberts",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/60215032/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2022-10-7%2F295457345-44100-2-03f298a376091.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Each night, choose an alive player: either you or they are drunk until dusk. You can't die.\""
+                },
+                {
+                    "p": "The Sailor is either drunk or getting somebody else drunk. While the Sailor is sober, they can't die."
+                },
+                {
+                    "ul": [
+                        "Each night, the Sailor chooses a player, who will probably get drunk.",
+                        "If they choose themself, they lose their “cannot die” ability until they become sober.",
+                        "If the Sailor chooses a dead player accidentally, the Storyteller prompts them to choose again.",
+                        "If the Sailor chooses another player, the Storyteller chooses which player is drunk. If they choose a Townsfolk, the Storyteller will usually make the Townsfolk drunk, but if an Outsider, a Minion, or the Demon is chosen, then the Storyteller will usually make the Sailor the drunk one.",
+                        "While sober, the Sailor cannot die, even if they have not yet woken at night to go drinking."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "Each night, wake the Sailor. They point at any player. Put the Sailor to sleep. Either the Sailor or this chosen player becomes **drunk**—mark them with the **DRUNK** reminder."
+                },
+                {
+                    "p": "If the sober Sailor would die, the Sailor remains alive. If the sober Sailor is executed, declare that this player is executed but remains alive. (Do not say why.)"
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The Sailor chooses the {c:exorcist}, and the Storyteller decides that the {c:exorcist} is drunk. That night, the Sailor is attacked by the {c:shabaloth}. The Sailor remains alive. The next day, the Sailor is executed but remains alive."
+                },
+                {
+                    "example": "During the day, the {c:gossip} made a public statement they thought was false, but was actually true. That night, the {c:gossip} ability kills a player. The Sailor has made themself drunk, and the Storyteller decides that the Sailor dies."
+                },
+                {
+                    "example": "The Sailor chooses the {c:mastermind}, but the Storyteller decides that the Sailor is drunk. The next day, the Sailor asks to be executed to “prove they are the Sailor,” but dies because they're drunk."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "If you chose a Townsfolk at night, you are probably sober. If you chose an Outsider, Minion, or Demon, you are probably drunk. The Sailor's ability to stay alive is extremely powerful, and the Storyteller will usually take every opportunity to make the good team pay for that by making Townsfolk drunk wherever possible, and by making you drunk whenever you choose a non-Townsfolk.",
+                        "Pick players that you'd like to see drunk, such as players that you suspect of being evil, or Townsfolk that are currently less useful than others. A drunk {c:grandmother} or {c:fool} is probably going to be less harmful than a drunk {c:exorcist} or {c:courtier}.",
+                        "Maximize your survivability by going out of your way to make other players drunk. If you keep choosing Townsfolk, particularly powerful Townsfolk, you can survive until the final day much more easily than other players.",
+                        "Tell players who you have chosen at night so they know they might be drunk. This is crucial. For example, a drunk {c:innkeeper} will need to know that it is possible that their ability didn't work the night when there were no deaths, or the drunk {c:chambermaid} will need to know that their information might be false.",
+                        "Communicate with other players to find good candidates to make drunk. You won't want to be hitting the bars with any old Tom, Dick, or Harry... you're the distinguished sort. If you can find out which players are which characters, you'll be able to work as a team better. Drunker, but better.",
+                        "You can prove that you are the Sailor by deliberately getting executed. If you are sober, you won't die. From this point on, if the group is convinced that you are indeed the Sailor and not simply protected by the {c:devilsadvocate}, then you should be able to stay alive until the final day, which gives the good team a drastically increased chance of finding the Demon. After all... they know it's not you."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Sailor",
+            "blocks": [
+                {
+                    "p": "When bluffing as the Sailor, there are a few things you should keep in mind:"
+                },
+                {
+                    "ul": [
+                        "Unlike a real Sailor, you will probably die if you are executed! Unless you have a wily {c:devilsadvocate} helping you out, it's probably best to avoid getting yourself killed just to prove a point. Some towns will be particularly gung ho about this, so approach with caution and give your group better options to kill that day.",
+                        "Try to convince powerful characters that they are drunk because of you. If someone has just revealed they are the {c:tealady} who is suspicious of an evil neighbour? Well oh no! You've been picking them every night, so it's probably why their ability didn't work. Even the possibility that they were drunk will shake up a good player's convictions.",
+                        "Use your \"caused drunkenness\" to cover for other evil players. For example, if a Minion is bluffing as the {c:chambermaid} and pulls out a number that doesn't gel with what the town knows? Well, they were drunk, of course - no wonder they got it all wrong!"
+                    ]
+                }
+            ]
+        }
+    ]
+}

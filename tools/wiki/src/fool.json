@@ -1,0 +1,96 @@
+{
+    "id": "fool",
+    "source": {
+        "page": "Fool",
+        "oldid": 2636,
+        "lastEdited": "2024-12-23"
+    },
+    "artist": "Anica Kelsen",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/56833034/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2022-7-30%2F283151798-44100-2-ec9ed46ab105a.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"The 1st time you die, you don't.\""
+                },
+                {
+                    "p": "The Fool escapes death... once."
+                },
+                {
+                    "ul": [
+                        "The first time the Fool dies for any reason, the Fool remains alive. They don’t learn that their ability saved their life.",
+                        "If another character’s ability protects the Fool from death, the Fool does not use their ability. Only the time that the Fool would actually for realsy bona fide be dead does the Fool’s ability trigger."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "If the Fool would die, they remain alive. (But they die if they are drunk or poisoned.) If the Fool was executed, declare that the player was executed but remains alive. (Do not say why.)"
+                },
+                {
+                    "p": "Either way, **the Fool loses their ability**—mark them with the **NO ABILITY** reminder."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "On the first day, the Fool is executed but remains alive. On the fourth day, the Fool is executed again. This time, they die."
+                },
+                {
+                    "example": "The Demon attacks the Fool, who remains alive. Nobody dies that night. The next day, the Fool is executed by the {c:judge}, and dies."
+                },
+                {
+                    "example": "The Demon attacks the Fool, who is protected by the {c:tealady}. The Fool remains alive and keeps their ability. Later, after the {c:tealady} has died, the Demon attacks the Fool, who is now protected by the {c:innkeeper}. The Fool remains alive and keeps their ability. Later, after the {c:innkeeper} has died, the Demon attacks the Fool, who remains alive again but uses their ability, so next time they will die."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "The Fool is one of a few characters that can breathe a little easy in Bad Moon Rising, as their ability spares them (at least once) from the pile up of deaths. This doesn't mean that you should rest on your laurels, however - a proactive Fool can drive the evil team mad with bluffs, protecting their good teammates, and wasting a precious demon kill with their power. Who will get the last laugh? That's up to you!",
+                        "Your ability keeps you safe from death... once. You can lean on this to guarantee your long term survival throughout the game, but another option is to get the demon to target you deliberately with bluffs. Claim to be an {c:exorcist} or a {c:courtier}, and inexperienced demons may just take aim at you in a panic, wasting their kill for that night. This is also an effective strategy against a {c:po} or {c:shabaloth}, both demons who win by slaughtering the town as quickly as possible. If they choose you, that's both you and another good player who may have died standing the next day!",
+                        "Your ability is more useful if it triggers at night, blocking a demon's kill or other reckless deaths. Just because you are safe from execution doesn't mean that you should be rushing to the gallows!",
+                        "If you are really coming under suspicion from the good team, you can prove yourself by being executed. Since you will fail to die, this is a pretty decent indicator you are who you claim you are. This is effectively giving up your night protection to give the good team peace of mind, and is not definitive proof (savvy players will point out that a well-timed {c:devilsadvocate}'s action achieves the same effect), but your willingness to sacrifice yourself may sway the hearts of the town... and hopefully get an overzealous {c:exorcist} or {c:chambermaid} off your back.",
+                        "Try to deduce when you have been targeted at night by tracking the patterns of deaths. For example, if you have seen two deaths every night for the entire game, and then suddenly there's one death instead... it's possible that a {c:shabaloth} tried to munch you and you got away by the seat of your pants. Knowing when you might be vulnerable allows you to adjust your strategies to become more or less of a target as feels necessary.",
+                        "If you have the trust of a good player who would really prefer not to die at night, you can take over claiming to be their character. For example, a {c:pacifist} might want people to know they're in play, but not expose themselves to the demon... so you can claim on their behalf instead! If the demon hits you, the {c:pacifist} lives for another day!",
+                        "If you die early or unexpectedly, you should be on the lookout for an {c:assassin} or {c:pukka}. The {c:assassin} will be able to bypass your protection and kill you, while the {c:pukka} poisons you, causing it to simply malfunction. Both of these are deadly characters, and knowing they are in play early can be a huge boon for the good team, even if it came at the expense of your death. (Note: You should also rule out that you were targeted by a {c:sailor}, which is less deadly to the good team, but still could be why you died when you thought your protection was still active).",
+                        "You can still be protected by other means - the {c:tealady}, {c:innkeeper}, {c:pacifist} and even {c:devilsadvocate} can also spare you from death. If you get lucky and gain any extra protection on top of your own power, take advantage! Taunt the evil team a bit! What could go wrong?"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Fool",
+            "blocks": [
+                {
+                    "p": "When bluffing as the Fool, there are a few things you should keep in mind:"
+                },
+                {
+                    "ul": [
+                        "If you are good, bluffing as the Fool can be incredibly useful! Characters such as the {c:exorcist}, {c:chambermaid}, {c:courtier}, {c:innkeeper} and others, all want the Demon to attack other players instead. Most Demon players will want to avoid attacking a Fool.",
+                        "If you are evil, the Fool is an easy bluff to have as a backup bluff if your initial bluff falls flat. You can even bluff as both the Fool and a different character! The evil team won't know which one you are! The Fool is such a great character for all good players to bluff as, that it makes it a super flexible and super easy character for evil players to bluff as. Go nuts.",
+                        "If you are bluffing as the Fool publicly, foolish new players may try to execute you to 'prove' your identity. This strategy may seem useful, and it sometimes is, but most of the time, executing a real Fool simply de facto kills a good player the following night. Most Fools are at their best by attracting a Demon kill. If the players argue that you should be executed, argue back! The Fool's ability is best served at night.",
+                        "If a {c:devilsadvocate} is in play, they can simulate a Fool ability activating on execution. If protected by the {c:devilsadvocate} you can survive that single execution... but you'll need to co-ordinate in order to get the timing right.",
+                        "If a fellow evil player is bluffing as the Fool, don't kill them! Even if you are the Demon, or a Minion such as the {c:assassin} or the {c:godfather}, it can often be useful to kill a Minion at night in order to convince the good team that they are good. However, if you do this to the Fool, it will have the opposite effect. Avoid killing evil fake Fools."
+                    ]
+                }
+            ]
+        }
+    ]
+}
