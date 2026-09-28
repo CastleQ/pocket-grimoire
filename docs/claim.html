@@ -51,7 +51,6 @@
     <div class="char-icon" id="char-icon"></div>
     <div class="char-name" id="char-name"></div>
     <div class="char-ability" id="char-ability"></div>
-    <button class="btn hidden" id="btn-guide" data-guide-open>캐릭터 공식 Wiki 읽어보기</button>
     <div class="name-label">이름 입력</div>
     <input class="name-input" id="player-name" type="text" placeholder="이름을 입력하세요" autocomplete="off">
     <button class="btn" id="btn-submit">이야기꾼에게 보내기</button>
@@ -128,7 +127,7 @@ const el = function (id) { return document.getElementById(id); };
 let claimState = null;
 let unloadGuardActive = false;
 // 캐릭터 가이드: 번역이 있는 캐릭터 목록(guide/data/index.json)과, 가이드를 열어도 되는 상태인지.
-// 캐릭터를 실제로 보여준 화면(및 그 직후 보내기 완료 화면)에서만 연다. 재접속 복구 화면에서는 열지 않는다.
+// 이름을 이야기꾼에게 보낸 뒤의 완료 화면에서만 연다(가이드를 읽느라 이름 보내기를 미루지 않도록). 캐릭터를 실제로 보여준 흐름에서만 허용한다. 재접속 복구 화면에서는 열지 않는다.
 let guideIds = [];
 let guideAllowed = false;
 
@@ -192,7 +191,6 @@ function hasGuide() {
   return !!(guideAllowed && claimState && claimState.characterId && guideIds.indexOf(claimState.characterId) !== -1);
 }
 function updateGuideButtons() {
-  el("btn-guide").classList.toggle("hidden", !hasGuide() || el("screen-char").classList.contains("hidden"));
   el("btn-guide-done").classList.toggle("hidden", !hasGuide() || el("screen-done").classList.contains("hidden"));
 }
 function openGuide() {
