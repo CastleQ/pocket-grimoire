@@ -35,6 +35,8 @@ if (NOTICE_ID && NOTICE_ITEMS.length) {
 
                 const item = document.createElement("li");
 
+                // 항목 안의 줄바꿈(\n)을 그대로 보여준다.
+                item.style.whiteSpace = "pre-line";
                 item.textContent = text;
                 list.append(item);
 
