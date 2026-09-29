@@ -43,7 +43,10 @@ const PAGE_NAMES = {
     bonecollector: "Bone_Collector",
     hellslibrarian: "Hell%27s_Librarian",
     spiritofivory: "Spirit_of_Ivory",
-    deusexfiasco: "Deus_ex_Fiasco"
+    deusexfiasco: "Deus_ex_Fiasco",
+    godofug: "God_of_Ug",
+    stormcatcher: "Storm_Catcher",
+    bigwig: "Big_Wig"
 };
 
 function pageName(id) {

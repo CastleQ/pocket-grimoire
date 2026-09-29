@@ -1,0 +1,60 @@
+{
+    "id": "knaves",
+    "source": {
+        "page": "Knaves",
+        "oldid": 3068,
+        "lastEdited": "2026-03-20"
+    },
+    "artist": "Chloe McDougall",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"There are 2 Storytellers: one lies & one tells the truth. Once per game, at dusk, they might switch.\""
+                },
+                {
+                    "p": "The Knaves are two Storytellers."
+                },
+                {
+                    "ul": [
+                        "When the Knaves is in play, there are two Storytellers. When players get their information from character abilities, one Storyteller gives true information, and the other Storyteller gives false information.",
+                        "The players do not know which Storyteller is which. Each player chooses which Storyteller will give them information each time that they communicate.",
+                        "Storytellers always tell the truth when it comes to game rules, and non-character ability information, such as declaring who has been nominated, giving Demon bluffs, the Minion info step etc.",
+                        "If a player is drunk or poisoned, a Storyteller can tell the truth or lie.",
+                        "Once per game, usually when the good players start to figure out which Storyteller is which, the truth-telling Storyteller can become the lying Storyteller, and vice versa."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "There are two Storytellers. Before the 1st night, decide which of you will tell the truth, and which will lie."
+                },
+                {
+                    "p": "Each night when a player wakes to receive information due to their ability, or when a player visits the Storyteller during the day, prompt them to choose which Storyteller will give them their info."
+                },
+                {
+                    "p": "Once per game, at dusk, if both Storytellers agree, the truth-telling Storyteller becomes the lying Storyteller, and the lying Storyteller becomes the truth-telling Storyteller."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "There are two Storytellers, Ben and Lachlan. The {c:chef} wakes and chooses Lachlan, who is the lying Storyteller. The {c:chef} learns a \"3\", even though there are only 2 pairs of evil players."
+                },
+                {
+                    "example": "Later that game, the Storytellers switch. The {c:savant} visits Ben and Lachlan and chooses Lachlan. The {c:savant} learns 2 pieces of true information."
+                }
+            ]
+        }
+    ]
+}

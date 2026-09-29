@@ -1,0 +1,61 @@
+{
+    "id": "hindu",
+    "source": {
+        "page": "Hindu",
+        "oldid": 3042,
+        "lastEdited": "2025-12-19"
+    },
+    "artist": "Chloe McDougall",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"The first 4 players to die are immediately reincarnated as Travellers of the same alignment.\""
+                },
+                {
+                    "p": "The Hindu gives players that die early a new life."
+                },
+                {
+                    "ul": [
+                        "The first four players to die become Travellers.",
+                        "It doesn’t matter how the players died.",
+                        "The Storyteller chooses which Traveller the player becomes. This is different to the normal rule that players choose their Traveller. The players’ alignment stays the same as it was before death.",
+                        "If the script has five recommended Travellers, the Storyteller chooses from those.",
+                        "Death is never simultaneous. For example, if the Shabaloth kills two players at night, it kills one, then the other.",
+                        "If the Demon is one of the first four players to die, the game ends and good wins."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "If a player dies, they become a Traveller character of your choice. Declare which Traveller they are."
+                },
+                {
+                    "p": "When four players have died and become Travellers, players die as normal."
+                },
+                {
+                    "p": "**Optional rule**: If the Demon becomes a Traveller, a Minion becomes the Demon."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "Julian is a {c:princess}. He is executed and becomes the {c:gangster}."
+                },
+                {
+                    "example": "Lachlan is the {c:sweetheart}. He dies and becomes the {c:cacklejack}. Nobody is drunk because the {c:sweetheart} is no longer in play. Evin is the {c:engineer}. He dies and becomes the {c:judge}. That night, the {c:po} kills Marianna, Abdallah, and Lewis. Marianna becomes the {c:gnome} and Abdallah becomes the {c:harlot}."
+                }
+            ]
+        }
+    ]
+}

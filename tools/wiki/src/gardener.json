@@ -1,0 +1,49 @@
+{
+    "id": "gardener",
+    "source": {
+        "page": "Gardener",
+        "oldid": 3090,
+        "lastEdited": "2026-03-23"
+    },
+    "artist": "Z. Benetatos",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"The Storyteller assigns all players' characters.\""
+                },
+                {
+                    "p": "The Gardener removes randomness from the setup."
+                },
+                {
+                    "ul": [
+                        "The Storyteller chooses which player is which character.",
+                        "The normal setup rules must be followed.",
+                        "The purpose of the Gardener is not to allow players to choose their character, but instead to allow the Storyteller to craft a specific style of game or logic puzzle."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "During setup, instead of putting the character tokens in the bag, put them face-down on the Town Square, or a firm object like a book, in a circle or shape that matches the physical seating arrangement. One at a time, in clockwise order, prompt the players to take the token that corresponds with their physical seating position."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The Storyteller wants to set up a game that has the {c:wraith}, {c:lordoftyphon}, {c:cerenovus}, {c:zealot}, {c:monk}, {c:alsaahir}, {c:banshee}, {c:highpriestess}, and {c:balloonist}. The Storyteller sets up these characters in this order, places them face down, and the players take their tokens. Ben is the {c:lordoftyphon} and Julian is the {c:highpriestess}."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "id": "tor",
+    "source": {
+        "page": "Tor",
+        "oldid": 2919,
+        "lastEdited": "2025-11-03"
+    },
+    "artist": "Chloe McDougall",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Players don't know their character or alignment. They learn them when they die.\""
+                },
+                {
+                    "p": "Tor removes all knowledge of who is who."
+                },
+                {
+                    "ul": [
+                        "Players do not know which character they are.",
+                        "Players do not draw tokens from the bag. The Storyteller puts them directly in the Grimoire at the start of the game.",
+                        "Character abilities work as normal. Players are woken and prompted to use their ability if needed.",
+                        "When a player dies, they learn their character and alignment. Even if they are drunk or poisoned, this information is correct.",
+                        "The Demon and Minions do not know each other."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "During setup, do not pass the bag to the players. Instead, draw the character tokens from the bag and place them in order in the Grimoire."
+                },
+                {
+                    "p": "If a player dies during the day, privately tell them what character and alignment they are. If a player dies at night, wake them, show them the **YOU ARE** info token, their character token, the **YOU ARE** info token, and either a thumbs up or a thumbs down."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "Julian, Alex, Evin, Lachlan, Sarah, Marianna and Amy do not know which character they are. Evin wakes each night and learns a thumbs up, but does not know why. Sarah wakes each night to choose a player, but does not know why. Amy wakes each night to choose a player, but does not know why. Sarah is executed and learns that she is the good {c:monk}. Lachlan, guessing that he might be the {c:slayer}, publicly says that he is the {c:slayer}, and chooses Amy. Amy dies. Evin was the {c:general}, Lachlan was the {c:slayer} and Amy was the {c:imp}."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "id": "gardener",
+    "source": {
+        "page": "Gardener",
+        "oldid": 3090,
+        "lastEdited": "2026-03-23"
+    },
+    "artist": "Z. Benetatos",
+    "edition": "exp",
+    "sections": [
+        {
+            "key": "summary",
+            "title": "요약",
+            "blocks": [
+                {
+                    "p": "\"{ability}\""
+                },
+                {
+                    "p": "{c:gardener}는 게임 준비에서 무작위를 없앱니다."
+                },
+                {
+                    "ul": [
+                        "어떤 플레이어가 어떤 캐릭터가 될지 이야기꾼이 정합니다.",
+                        "평소의 준비 규칙은 지켜야 합니다.",
+                        "{c:gardener}의 목적은 플레이어가 자기 캐릭터를 고르게 하는 것이 아니라, 이야기꾼이 특정한 스타일의 게임이나 논리 퍼즐을 짤 수 있게 하는 것입니다."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "진행 방법",
+            "blocks": [
+                {
+                    "p": "게임을 준비할 때, 캐릭터 토큰을 가방에 넣는 대신, 마을 광장이나 책처럼 단단한 물건 위에, 실제 자리 배치와 맞는 원이나 모양으로 뒤집어 놓습니다. 시계 방향 순서로 한 명씩, 플레이어에게 자기 자리 위치에 해당하는 토큰을 가져가라고 합니다."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "예시",
+            "blocks": [
+                {
+                    "example": "이야기꾼은 {c:wraith}, {c:lordoftyphon}, {c:cerenovus}, {c:zealot}, {c:monk}, {c:alsaahir}, {c:banshee}, {c:highpriestess}, {c:balloonist}가 있는 게임을 준비하고 싶습니다. 이야기꾼은 이 캐릭터들을 이 순서대로 배치해 뒤집어 놓고, 플레이어들이 토큰을 가져갑니다. 벤은 {c:lordoftyphon}, 줄리언은 {c:highpriestess}입니다."
+                }
+            ]
+        }
+    ]
+}

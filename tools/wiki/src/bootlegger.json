@@ -1,0 +1,55 @@
+{
+    "id": "bootlegger",
+    "source": {
+        "page": "Bootlegger",
+        "oldid": 2951,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "Chloe McDougall",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"This script has homebrew characters or rules.\""
+                },
+                {
+                    "p": "Add the Bootlegger to include homebrew characters or rules."
+                },
+                {
+                    "ul": [
+                        "The Bootlegger allows Storytellers to use characters they, or others, have created that are not official characters or allows them to use non-standard rules in the game.",
+                        "If there are homebrew characters on the character sheet, or homebrew rules in effect, the Storyteller tells all players what they are before play begins.",
+                        "The Bootlegger allows for multiple characters or rules to be in effect at once.",
+                        "As long as there is at least one homebrew character on the current script, this Loric will be in play and can only be removed by switching to a script that does not contain any homebrew characters.",
+                        "The Bootlegger is designed for use in the official app only.",
+                        "Bootlegger, despite many claims to the contrary, defeated {c:homebrewymchomebrewface}, “the people’s choice”, in a hotly contested poll to decide the Loric's name."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "At the start of the game, if there are homebrew characters on the character sheet or you are running homebrew rules, declare that the Bootlegger is in play and inform the group of all the homebrew characters and/or rules you are using in this game."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The character sheet contains the homebrew character the Peasant. The Storyteller announces that the Bootlegger is in play and then explains how the Peasant works."
+                },
+                {
+                    "example": "The Storyteller has a homebrew or house rule. The Storyteller announces that the Bootlegger is in play and explains what the homebrew rule is and how it will affect the game."
+                }
+            ]
+        }
+    ]
+}

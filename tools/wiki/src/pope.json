@@ -1,0 +1,61 @@
+{
+    "id": "pope",
+    "source": {
+        "page": "Pope",
+        "oldid": 3043,
+        "lastEdited": "2026-01-16"
+    },
+    "artist": "Chloe McDougall",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"There are duplicate good characters in play. They might also be bluffs.\""
+                },
+                {
+                    "p": "The Pope creates duplicate character claims."
+                },
+                {
+                    "ul": [
+                        "A Townsfolk or an Outsider, or both, have multiple copies in play.",
+                        "There may be one character that has multiple copies in play, or multiple characters that have multiple copies in play.",
+                        "There may be 2 characters that are the same, or as many as the Storyteller has tokens to accommodate.",
+                        "These characters might be a part of the 3 bluffs given to the Demon.",
+                        "The Storyteller will need multiple copies of the game, or at least some way to access identical character tokens, in order to run this character... for now.",
+                        "Duplicate Outsider characters may cause an unusual number of Outsiders. Duplicate Townsfolk characters may not."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "During setup, swap any Townsfolk tokens for duplicates of an in-play Townsfolk or Outsider character token. You may do this more than once."
+                },
+                {
+                    "p": "During the **DEMON INFO** step, you may give the Demon one, two, or three of these duplicate character tokens as bluffs."
+                },
+                {
+                    "p": "Think carefully about giving in-play characters as bluffs to the Demon. Some characters may make the game too difficult for the evil team."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "Doug, Ben, and Sarah are all Empaths. Doug learns a “1”. Ben learns a “0”. Sarah learns a “2”."
+                },
+                {
+                    "example": "Lewis and Abdallah are {c:general} who thinks he is a {c:general}. Alex and Julian are {c:zealot} bluffing as a {c:zealot}."
+                }
+            ]
+        }
+    ]
+}
