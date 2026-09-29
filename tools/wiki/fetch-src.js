@@ -40,6 +40,7 @@ const PAGE_NAMES = {
     lilmonsta: "Lil%27_Monsta",
     alhadikhia: "Al-Hadikhia",
     highpriestess: "High_Priestess",
+    bonecollector: "Bone_Collector",
     hellslibrarian: "Hell%27s_Librarian"
 };
 
@@ -113,6 +114,8 @@ function parse(id, html, oldid, lastEdited) {
         const key = /^summary/i.test(title) ? "summary"
             : /^how to run/i.test(title) ? "how-to-run"
             : /^examples?/i.test(title) ? "examples"
+            : /^tips.*if you are good/i.test(title) ? "tips-good"
+            : /^tips.*if you are evil/i.test(title) ? "tips-evil"
             : /^tips/i.test(title) ? "tips"
             : /^bluffing/i.test(title) ? "bluffing"
             : title.toLowerCase().replace(/[^a-z]+/g, "-");
