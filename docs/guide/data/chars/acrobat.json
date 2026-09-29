@@ -1,0 +1,61 @@
+{
+    "id": "acrobat",
+    "source": {
+        "page": "Acrobat",
+        "oldid": 2810,
+        "lastEdited": "2025-06-27"
+    },
+    "artist": "Chloe McDougall",
+    "edition": "exp",
+    "sections": [
+        {
+            "key": "summary",
+            "title": "요약",
+            "blocks": [
+                {
+                    "p": "\"{ability}\""
+                },
+                {
+                    "p": "{c:acrobat}은 취하거나 중독된 플레이어를 찾으면 죽습니다."
+                },
+                {
+                    "ul": [
+                        "첫날 밤을 제외한 매일 밤, {c:acrobat}은 플레이어 1명을 선택합니다. 선택된 플레이어가 맨정신이고 건강하다면, 아무 일도 일어나지 않습니다. 그 플레이어가 취함이나 중독 상태라면, {c:acrobat}은 죽습니다.",
+                        "{c:acrobat}이 취함이나 중독 상태라면, 자신의 능력으로 죽을 수 없습니다.",
+                        "{c:acrobat}은 죽었든 살았든 아무 플레이어나, 심지어 자신도 선택할 수 있습니다.",
+                        "{c:acrobat}이 선택할 때는 선택된 플레이어가 맨정신이고 건강했지만, 그날 밤 나중에 취하거나 중독되면, {c:acrobat}은 죽습니다.",
+                        "{c:acrobat}은 선택한 플레이어가 취했는지, 중독되었는지, 둘 다인지 알게 되지 않습니다.",
+                        "{c:drunk}는 {c:acrobat}에게 취함 상태로 인식됩니다."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "진행 방법",
+            "blocks": [
+                {
+                    "p": "첫날 밤을 제외한 매일 밤, {c:acrobat}을 깨웁니다. {c:acrobat}은 플레이어 1명을 가리킵니다. {c:acrobat}을 다시 잠들게 합니다."
+                },
+                {
+                    "p": "{c:acrobat}이 가리킨 플레이어가 취함이나 중독 상태이거나, 그날 밤 언제든 취하거나 중독되면, {c:acrobat}은 **사망합니다**."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "예시",
+            "blocks": [
+                {
+                    "example": "{c:sailor}이 {c:assassin}를 선택하고, 이야기꾼은 {c:sailor}을 취하게 합니다. {c:acrobat}이 {c:sailor}을 선택하고, {c:sailor}이 취함 상태이므로 {c:acrobat}은 죽습니다."
+                },
+                {
+                    "example": "{c:acrobat}이 맨정신이고 건강한 {c:tinker}를 선택합니다. 아무 일도 일어나지 않습니다."
+                },
+                {
+                    "example": "{c:acrobat}이 {c:preacher}를 선택합니다. 그날 밤 나중에, {c:pukka}가 {c:preacher}를 중독시킵니다. {c:preacher}가 더 이상 건강하지 않으므로, {c:acrobat}은 죽습니다."
+                }
+            ]
+        }
+    ]
+}

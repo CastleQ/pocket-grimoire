@@ -1,0 +1,61 @@
+{
+    "id": "alchemist",
+    "source": {
+        "page": "Alchemist",
+        "oldid": 2955,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "Marianna Carr",
+    "edition": "exp",
+    "sections": [
+        {
+            "key": "summary",
+            "title": "요약",
+            "blocks": [
+                {
+                    "p": "\"{ability}\""
+                },
+                {
+                    "p": "{c:alchemist}는 하수인의 능력을 가지고 있습니다."
+                },
+                {
+                    "ul": [
+                        "{c:alchemist}의 능력은 보통 참여하지 않는 하수인의 능력이지만, 참여 중인 하수인의 능력과 겹칠 수도 있습니다.",
+                        "{c:alchemist}는 첫날 밤에 어떤 능력인지 알게 됩니다.",
+                        "{c:alchemist}는 여전히 선한 주민입니다. 선한 팀이 이기면 이기고, 선한 팀이 지면 집니다. 선한 팀이자 {c:alchemist}로 인식됩니다.",
+                        "{c:alchemist}는 하수인처럼 깨어나서 다른 하수인이 누구인지, 악마가 누구인지 알게 되지 않습니다.",
+                        "{c:alchemist}의 하수인 능력이 게임 준비 때 캐릭터를 더하거나 뺀다면, 그대로 게임 준비 때 적용합니다.",
+                        "{c:alchemist}가 {c:poisoner}이나 {c:vizier}처럼 플레이어가 무언가를 선택하는 능력을 가졌다면, 이야기꾼은 {c:alchemist}에게 다르게 선택하라고 요청할 수 있습니다. {c:alchemist}는 그렇게 해야 합니다."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "진행 방법",
+            "blocks": [
+                {
+                    "p": "첫날 밤, {c:alchemist}를 깨웁니다. **당신은** 정보 토큰을 보여준 다음 하수인의 캐릭터 토큰을 보여줍니다. {c:alchemist}를 다시 잠들게 합니다. {c:alchemist}가 참여하지 않는 하수인의 능력을 가졌다면, {c:alchemist}에게 **연금술사입니다** 알림 토큰을 놓고, {c:alchemist} 토큰을 이 하수인 토큰으로 바꾼 뒤 거꾸로 뒤집어 둡니다. (그가 여전히 선하다는 표시입니다.)"
+                },
+                {
+                    "p": "{c:alchemist}는 이 하수인 능력을 가집니다. 하수인인 것처럼 능력을 쓰며, 그 하수인이 평소 능력을 쓰려고 깨어나는 시점에 밤에 깨어납니다."
+                },
+                {
+                    "p": "{c:alchemist}가 능력으로 선택을 하면, 다르게 선택하라고 요청할 수 있습니다. 낮이라면 말로 요청합니다. 밤이라면 고개를 가로젓고, 캐릭터 시트의 {c:alchemist} 능력 문구를 가리킨 다음, {c:alchemist}가 다시 선택하기를 기다립니다."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "예시",
+            "blocks": [
+                {
+                    "example": "{c:alchemist}가 {c:baron}의 능력을 가지고 있습니다. 외지인 2명이 추가로 참여합니다."
+                },
+                {
+                    "example": "{c:alchemist}가 {c:poisoner}의 능력을 가지고 있습니다. 첫날 밤, {c:alchemist}는 깨어나서 {c:wizard}를 중독시킵니다. 둘째 날 밤, {c:alchemist}는 깨어나서 {c:alsaahir}를 중독시킵니다. 셋째 날 밤, {c:alchemist}는 깨어나서 {c:lordoftyphon}를 중독시키려 하지만, 이야기꾼이 다르게 선택하라고 요청합니다. {c:alchemist}는 대신 {c:king}을 중독시킵니다. {c:lordoftyphon}는 중독되지 않습니다."
+                }
+            ]
+        }
+    ]
+}
