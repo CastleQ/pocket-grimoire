@@ -12,12 +12,13 @@ Blood on the Clocktower 공식 위키(`wiki.bloodontheclocktower.com`)의 캐릭
 | `public/guide/data/chars/<id>.json` | 캐릭터별 한국어 번역 (id는 앱 id, 예: `washerwoman`) |
 | `public/guide/data/roles.json` | 정발 이름·유형·능력·대사 — **자동 생성, 손으로 고치지 않는다** |
 | `public/guide/data/index.json` | 번역이 있는 캐릭터 목록 — **자동 생성** |
+| `public/guide/data/catalog.json` | 캐릭터 도감 사이트(`CastleQ/botc-wiki-ko`)용 분류 목록(id·이름·유형·판) — **자동 생성**. 위치·형식을 바꾸면 도감이 깨진다 |
 | `public/guide/data/jinxes.json` | 관련 징크스(앱의 징크스 문구) — **자동 생성**. 위키 징크스 표는 따로 번역하지 않고, 앱 징크스를 위키 기준으로 최신화해 쓴다(아래 징크스 도구) |
 | `public/guide/img/` | 위키 장식 이미지(배경·양피지·액자·로고·판 로고). 원본을 줄여 webp로 저장 |
 | `tools/wiki/fetch-src.js` | 위키 원문 수집. `node tools/wiki/fetch-src.js <id> ...` (있으면 SKIP, `--force`로 다시) |
 | `tools/wiki/src/<id>.json` | 영어 원문 + 위키 판번호(oldid). 사이트에는 나가지 않음 |
 | `tools/wiki/glossary.csv` | 용어집. `한글_official` 칸 우선, 비어 있으면 `한글_variants` |
-| `tools/wiki/build-guide-data.js` | roles.json·index.json 생성 + 점검. `bake.sh`가 자동 실행 |
+| `tools/wiki/build-guide-data.js` | roles.json·index.json·catalog.json 생성 + 점검. `bake.sh`가 자동 실행 |
 | `tools/wiki/fetch-jinx.js` | 공식 징크스 전체 수집(위키 Djinn 문서) → `tools/wiki/jinx-src.json` |
 | `tools/wiki/jinx-ko/<묶음>.json` | 징크스 한국어 원고. 묶음 = 두 캐릭터 중 앞선 에디션(`tb`·`bmr`·`snv`·`exp`) |
 | `tools/wiki/apply-jinx.js` | 묶음 단위로 앱 징크스(`assets/data/jinx.json`·`assets/data/jinxes/ko_KR.json`)에 반영. `node tools/wiki/apply-jinx.js tb`. 삭제가 있으면 `bash setup.sh --reset-db`, 반영 후 VERSION 인상 |

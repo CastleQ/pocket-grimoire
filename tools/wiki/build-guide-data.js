@@ -10,6 +10,7 @@
 //     양쪽 모두에 모아 둔다. 가이드의 "관련 징크스" 칸에 쓴다 (위키 징크스 표 대신).
 //  2. public/guide/data/index.json 생성 — 번역이 있는 캐릭터 id 목록.
 //     뽑기 화면(claim.html)이 이 목록을 보고 가이드 버튼을 보여줄지 정한다.
+//  2-2. public/guide/data/catalog.json 생성 — 캐릭터 도감 사이트(botc-wiki-ko)용 분류 목록.
 //  3. 점검 (하나라도 FAIL이면 종료 코드 1)
 //     - 번역 파일의 {c:id}가 roles.json에 모두 있는가
 //     - 번역 파일과 영어 원문(tools/wiki/src)의 칸 구조가 같은가
@@ -75,6 +76,34 @@ const guides = fs.readdirSync(charsDir)
     .sort();
 fs.writeFileSync(path.join(dataDir, "index.json"), JSON.stringify(guides) + "\n");
 console.log(`index.json: 번역 ${guides.length}개 (${guides.join(", ")})`);
+
+// 2-2. catalog.json — 캐릭터 도감(botc-wiki-ko) 메인 페이지·이전/다음 이동용 목록.
+//      [{ id, name, team, edition }]을 판 → 유형 → 공식 순번(없으면 한글 이름) 순으로 정렬해 둔다.
+//      도감이 181개 번역 파일을 다 읽지 않아도 분류할 수 있게 하려는 것이다 (CLAUDE.md 함정 ⑬).
+const orderSource = fs.readFileSync(path.join(root, "assets", "js", "data", "official-order.js"), "utf8");
+const orderMatch = orderSource.match(/const OFFICIAL_ORDER = (\{[\s\S]*?\n\});/);
+if (!orderMatch) {
+    throw new Error("assets/js/data/official-order.js에서 OFFICIAL_ORDER 표를 찾지 못함");
+}
+const officialOrder = new Function("return " + orderMatch[1])();
+const EDITION_RANK = ["tb", "bmr", "snv", "exp"];
+const TEAM_RANK = ["townsfolk", "outsider", "minion", "demon", "traveller", "fabled", "loric"];
+function rankOf(list, value) {
+    const index = list.indexOf(value);
+    return index === -1 ? list.length : index;
+}
+const catalog = guides
+    .filter((id) => roles[id])
+    .map((id) => {
+        const guide = JSON.parse(fs.readFileSync(path.join(charsDir, id + ".json"), "utf8"));
+        return { id, name: roles[id].name, team: roles[id].team, edition: guide.edition };
+    })
+    .sort((a, b) => rankOf(EDITION_RANK, a.edition) - rankOf(EDITION_RANK, b.edition)
+        || rankOf(TEAM_RANK, a.team) - rankOf(TEAM_RANK, b.team)
+        || rankOf(officialOrder[a.edition] || [], a.id) - rankOf(officialOrder[b.edition] || [], b.id)
+        || a.name.localeCompare(b.name, "ko"));
+fs.writeFileSync(path.join(dataDir, "catalog.json"), JSON.stringify(catalog) + "\n");
+console.log(`catalog.json: 도감 목록 ${catalog.length}개`);
 
 // 3. 점검
 function shape(guide) {
