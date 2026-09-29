@@ -1,0 +1,98 @@
+{
+    "id": "huntsman",
+    "source": {
+        "page": "Huntsman",
+        "oldid": 2981,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "John Grist",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Once per game, at night, choose a living player: the Damsel, if chosen, becomes a not-in-play Townsfolk. [+the Damsel]\""
+                },
+                {
+                    "p": "The Huntsman saves the {c:damsel} before the Minions find her... hopefully."
+                },
+                {
+                    "ul": [
+                        "The Damsel can be in play without the Huntsman. During the setup phase, if the Huntsman is in play and the Damsel isn’t, the Damsel is added. If a Damsel is already in play, the Huntsman doesn’t add a second Damsel.",
+                        "If the Huntsman correctly chooses the Damsel at night, the Damsel becomes a not-in-play Townsfolk immediately. The Storyteller chooses which Townsfolk character, and the Damsel learns which one.",
+                        "When the Damsel becomes a Townsfolk, they gain that Townsfolk ability and lose the Damsel ability.",
+                        "The Huntsman gets one guess, and makes it at night.",
+                        "The Minions get one guess in total, and make it publicly during the day. If a Minion guesses who the Damsel is, evil wins. If a Minion incorrectly guesses who the Damsel is, the guess is used, and other Minions cannot win by correctly guessing the Damsel.",
+                        "If the Damsel is drunk or poisoned but the Huntsman is sober and healthy, the Damsel can still become a Townsfolk."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "While setting up the game, before putting character tokens in the bag, if the Damsel is not already in play, remove a Townsfolk character token and add the Damsel character token."
+                },
+                {
+                    "p": "Each night, wake the Huntsman."
+                },
+                {
+                    "p": "If they shake their head no, put the Huntsman to sleep."
+                },
+                {
+                    "p": "If they point to a player, put the Huntsman to sleep. **The Huntsman loses their ability**—mark them with the **NO ABILITY** reminder and remove their night token from the night sheet. If they chose the Damsel, wake the Damsel, show the **YOU ARE** info token, then a not-in-play Townsfolk token, then put the Damsel to sleep. The Damsel now has this Townsfolk ability, so replace the Damsel character token with this Townsfolk character token."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The Huntsman is woken on the 1st night, but does not use their ability. On the second night, the Huntsman chooses the {c:damsel} player. The {c:damsel} becomes the {c:undertaker} and learns which player died today."
+                },
+                {
+                    "example": "The Huntsman chooses Lachlan. Lachlan is the {c:general}, so nothing happens. The Huntsman is no longer woken at night."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "Find the {c:damsel} ASAP. You have one shot and you’re racing against either you or them dying before you can find them! This can be more important in smaller games as the chances of either player dying early is higher, but also your chances of being correct with a blind pick is higher. On the first night of a small game, you're often better off just taking a punt tonight rather than gambling you both survive to tomorrow and the {c:damsel} gets an ability they can use that night.",
+                        "Wait to use your ability until you're really sure. You only have one opportunity to get it right and there is a lot of fun to be had during the hunting. Try to partner up with characters that can learn about characters like {c:dreamer}. Even the {c:undertaker} can be great for you as confirming that the {c:damsel} is dead verifies that fact for you and lets you know you're no longer on your Damsel-hunting sidequest but onto the main Demon-hunting campaign!",
+                        "The {c:damsel} is likely to be flighty and paranoid, and may even be trying to get themselves killed. Use your ability on people who seem shifty or quiet as they might be a {c:damsel}. If a player seems to be keen to volunteer themselves for execution, privately ask them if they'd like you to guess them as the {c:damsel} that night. Be careful though, this might just be an evil player trying to bait you into wasting your ability.",
+                        "Privately claim to be the {c:damsel} to other players. This can be useful to flush out the {c:damsel} and the various Minions. Characters that can prove who they are, like the {c:virgin} or {c:golem}, can be great to give you a trusted person to arrange a private meeting as both you and the {c:damsel} can freely claim your respective characters to this confirmed player.",
+                        "Stay alive at any cost. You can claim you've used your ability already, or that you’ve already found your {c:damsel}, meaning you’re no longer a threat to evil. Watch what happens if you publicly claim a random person as your {c:damsel}. However, be careful as the {c:damsel} might decide they are now a risk with no potential reward if you're claiming to have used your ability and try to get themselves killed.",
+                        "Try to flush out the Minions or lure them into a trap to make a public guess. Go around to various shady people claiming to be the {c:damsel} or ask a trusted good player to accidentally let slip there's a Damsel in play to someone you're not sure of just after they've spoken to you. If the Minions are baited into spending their guess on you (or anyone who isn't the {c:damsel} for that matter!), they can't hurt your real {c:damsel} anymore."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Huntsman",
+            "blocks": [
+                {
+                    "p": "When bluffing as the Huntsman, there are a few things you should keep in mind:"
+                },
+                {
+                    "ul": [
+                        "If you were the Huntsman, a {c:damsel} would also be in play. At some stage, another evil player is going to need to claim to be the {c:damsel}, otherwise you are going to look pretty dodgy. Another evil player can come out as the {c:damsel} after they die. If you claim to be the Huntsman, and another evil player is claiming to be the {c:damsel}, that's much more trustworthy than having a lonely Huntsman looking suspicious.",
+                        "Pretending to be the Huntsman might flush out a real {c:damsel}. If you are convincing enough in your \"search for the {c:damsel}\" and manage to trick the real {c:damsel} into revealing who they are, a Minion can guess who the {c:damsel} is and win the game.",
+                        "The Huntsman can be a useful fallback bluff if your initial bluff falls apart, because the Huntsman is a good character that has reasons not to come out early. If you’re claiming to be the {c:washerwoman} or the {c:virgin} and your bluff falls apart, you can then come out as the Huntsman saying you were trying to hide your real character.",
+                        "If you’re a Minion, you know if the {c:damsel} is in play or not, and if not, you therefore know the Huntsman is also not in play. It’s then relatively safe for two evil players to tag-team as a Huntsman/{c:damsel} duo. The only risk is if you tag-team like this, then it’s expected that {c:damsel} has become an out-of-play Townsfolk. Chat to the Demon to find out one of their bluffs for the {c:damsel} to become. Alternatively, you can be the Huntsman and claim that a dead Minion is the {c:damsel} to make them seem more trustworthy.",
+                        "Claim to be the Huntsman even if this creates a double up. If there is no other Huntsman the {c:damsel} is more likely to trust you. If there is another Huntsman you’re going to create a dilemma and give the {c:damsel} terrible anxiety so they won't want to claim to either of you and potentially just get themselves executed rather than risking one of you being able to pick them successfully, thereby spending another execution that isn't on your Demon and also neutralising the useful potential of the actual Huntsman ability."
+                    ]
+                }
+            ]
+        }
+    ]
+}
