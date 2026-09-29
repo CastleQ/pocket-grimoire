@@ -1,0 +1,99 @@
+{
+    "id": "vigormortis",
+    "source": {
+        "page": "Vigormortis",
+        "oldid": 3015,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "Steven Medway",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/26427299/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-1-9%2F153393072-44100-2-588ebb1dfbb84.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Each night*, choose a player: they die. Minions you kill keep their ability & poison 1 Townsfolk neighbor. [-1 Outsider]\""
+                },
+                {
+                    "p": "The Vigormortis kills their own Minions, but those Minions keep their ability."
+                },
+                {
+                    "ul": [
+                        "Every time the Vigormortis kills a Minion, they die but keep their ability for as long as the Vigormortis remains alive. The Witch, Cerenovus, and Pit-Hag still act each night.",
+                        "Somewhat like the No Dashii, the dead Minion’s closest clockwise or closest counterclockwise Townsfolk becomes poisoned, even if they are dead. If the Vigormortis dies or otherwise loses their ability, then those players become healthy again. One Townsfolk per Minion will always be poisoned this way, as neighboring Outsiders, Minions, or Travellers are skipped. The Storyteller chooses which of the two Townsfolk is poisoned.",
+                        "All Minions killed by the Vigormortis keep their ability and poison a Townsfolk, not just the most recent.",
+                        "If a dead Minion becomes a non-Minion character, they no longer poison a Townsfolk and have no ability. If a dead Minion becomes drunk or poisoned, they lose their ability until they become sober and healthy again."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "While setting up the game, before putting the character tokens in the bag, remove one Outsider character token and add one Townsfolk character token. (If there are no Outsider tokens to remove, do not add a Townsfolk token.)"
+                },
+                {
+                    "p": "Each night except the first, wake the Vigormortis. They point at any player. Put the Vigormortis to sleep. If the chosen player isn’t a Minion, that player **dies** - mark them with a **DEAD** reminder."
+                },
+                {
+                    "p": "If the chosen player is a Minion, that player **dies** - mark them with a **DEAD** reminder and a **HAS ABILITY** reminder. The closest clockwise or closest counterclockwise Townsfolk to the Minion becomes **poisoned** - mark them with a **POISONED** reminder."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The Vigormortis kills the {c:witch}. The player that the {c:witch} cursed tonight remains cursed. The next day, when the cursed player nominates, they die."
+                },
+                {
+                    "example": "The Vigormortis kills the {c:eviltwin}. The {c:eviltwin} neighbours a {c:klutz} and a {c:flowergirl}. The {c:sage} is the next neighbour to the {c:klutz}. The Storyteller chooses that the {c:sage} is poisoned."
+                },
+                {
+                    "example": "The Vigormortis kills the {c:pithag}. The {c:pithag} changes a {c:savant} into a {c:witch}. The Vigormortis kills the {c:witch}, who curses and kills a player. The {c:pithag} turns the dead {c:witch} into the {c:oracle}, who now has no ability. The {c:pithag} turns the Vigormortis into a {c:vortox}. The {c:pithag} now has no ability."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "Kill your Minions as early as possible. If you kill your Minions at night, they keep their ability. If your Minions die during the day, then they lose their ability. Killing them yourself guarantees that they get to keep their ability for the rest of the game. A {c:witch}, {c:pithag} or {c:cerenovus} that is guaranteed to act each and every night can be an incredible boon for your team, either causing good player after good player to lose their ability by dying ({c:witch} and {c:cerenovus}) or to lose their ability by becoming a different character ({c:pithag}). In Sects & Violets, any way that you can reduce the amount of information that the good team has received by the time that the final day comes around will be helpful.",
+                        "Be patient, and listen to what the good players are saying. If they are not suspicious of any of your Minions, it is probably best to keep them alive. Each day, your living Minions get to use their vote to help you avoid being executed, and that is very helpful. There is no benefit to killing a Minion until you think that the good team might execute them.",
+                        "At night, kill players that the good team was planning on executing as soon as possible. If you kill suspicious good players, there is a good chance that the rest of the group will believe that a Vigormortis is in play and that the player that died at night was a Minion. And, if they believe that the good player is a Minion, they will not listen to anything that player says, even believing the opposite of any information they shared before they died, and are unlikely to form a bond of trust with that player. If a {c:clockmaker} or a {c:towncrier} is in play, their information is disrupted because they will base their logic on the false assumption of which player is the Minion. This strategy works particularly well if the good team already has reason to believe that a Vigormortis is the in-play Demon, due to information received via the {c:dreamer}, {c:savant}, or {c:artist}.",
+                        "Killing the {c:witch}, {c:pithag} or {c:cerenovus} allows them to use their ability independently after they are dead. Killing the {c:eviltwin} means that the good team will lose if the good twin is executed. However, since most players will not execute a single, living twin, they may need your help to convince them to do so. Killing an {c:eviltwin} at night removes the possibility that the good team will learn which twin is evil and which twin is good by executing the evil twin - and the less the good team knows, the better.",
+                        "Kill the {c:eviltwin} if you suspect that the good team is going to execute them. It is much better to have them die at night, and leave the good team wondering whether you actually killed the good twin instead. The added bonus of a Townsfolk being poisoned is also very helpful.",
+                        "If you don't know which Minion to kill, choose the one next to a particularly troublesome Townsfolk, so that the Storyteller can poison them. It is often better to have a dangerous Townsfolk alive and getting false information than dead and looking trustworthy.",
+                        "Since there is one fewer Outsider in play than normal, and you know this, it can be very easy and very effective to bluff as an Outsider. Even better - tell your Minions to bluff as an Outsider. A Minion that dies at night is usually perceived as very trustworthy, so if they claim to be the {c:klutz} or the {c:sweetheart}, then the good team can think there is a lot of misinformation when there isn't. Bluffing as the {c:sage} is also an excellent choice for Minions that die at night."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "fighting-the-vigormortis",
+            "title": "Fighting the Vigormortis",
+            "blocks": [
+                {
+                    "ul": [
+                        "Pay attention to who dies at night. If players seem to be dying in descending order of usefulness to the good team, you probably don't have a Vigormortis in play, and should be looking to see whether the Demon is a {c:vortox}, {c:fanggu}, or {c:nodashii} instead. However, if players die at night in a seemingly random order, or when you think that the group was probably going to execute those players soon anyway... you probably have a Vigormortis in the midst. Watch who dies at night, and what they are saying. If you can figure out which dead players are Minions, you can reverse their information, because most dead Minions will be lying.",
+                        "It is often easiest to figure out that a Vigormortis is in play on the final day. In Sects & Violets, Minions act in very noticeable ways. The {c:witch} kills people when they nominate, and most players changed by the {c:pithag} will tell the group. If it gets to the final day and a Minion is still active, then you probably have a Vigormortis in play. If there are only 3 players left alive and you know that 2 Minions acted last night, you are definitely facing a Vigormortis, since there would be no good players left alive if both Minions were still alive.",
+                        "Watch out for the {c:bonecollector}. They can make it seem like a Vigormortis is in play when there isn't.",
+                        "If you think that you know which players are dead Minions, use this information as the starting point to build upon. For example, the {c:clockmaker} can tell you who the Demon might be if you know a dead Minion. The {c:artist} can tell you where the Demon is in relation to the Minion, or confirm that your suspicions are correct. A {c:towncrier}'s information can tell you if you are correct or not, and if their information is at odds with yours, then that player may not be the {c:towncrier} after all.",
+                        "If a Vigormortis is in play, you can safely assume that when just 3 players are alive, 2 of them are good. This is a fantastic thing to know, because you know that all their information can not be incorrect. There is no {c:vortox} or {c:nodashii} to muddy the waters, and only one of the three player's information is false. You have two separate assumptions to work from - either that all players are telling the truth (possible), or 2 players are telling the truth and one player is lying (probable). Examine the statements of each of the three players and see where they conflict. You may end up with a situation where \"If A is true, then B must be true. If B is true, then C must be true. C is false, therefore A is false.\" You may not be able to confirm who is the Demon by this method, but starting from the assumption that either 2 or 3 players are telling the truth, you may be able to confirm beyond doubt that a particular player of that trio is good. And confirming that good players are good, is just as helpful as confirming that evil players are evil.",
+                        "If it seems that one player is getting false information, but the majority of players are not, you probably have either a Vigormortis or a {c:nodashii} in play. Either way, start executing the players closest to trustworthy Townsfolk with false information - you'll either be killing a {c:nodashii}, or you'll learn that a Vigormortis is in play.",
+                        "When a Townsfolk suddenly starts getting false information, it is usually due to them being poisoned by a Vigormortis or a {c:sweetheart}. The {c:vortox} and the {c:nodashii} tend to give false information from the beginning of the game. If you can identify that a Townsfolk that was getting true information is now getting false information, then you also know that the player that died the night that happened is a Minion. Knowing who a Minion player is can be very useful, particularly when combined with the information that the {c:clockmaker}, {c:towncrier}, {c:dreamer}, {c:seamstress} or {c:juggler} gets."
+                    ]
+                }
+            ]
+        }
+    ]
+}

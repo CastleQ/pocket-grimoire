@@ -1,0 +1,90 @@
+{
+    "id": "nodashii",
+    "source": {
+        "page": "No_Dashii",
+        "oldid": 2950,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "Aidan Roberts",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/34603276/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-4-31%2F192148915-44100-2-b780a317d2e3b.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Each night*, choose a player: they die. Your 2 Townsfolk neighbors are poisoned.\""
+                },
+                {
+                    "p": "The No Dashii poisons their neighboring Townsfolk."
+                },
+                {
+                    "ul": [
+                        "The No Dashii’s closest clockwise and counterclockwise Townsfolk neighbors are poisoned, regardless of whether they are alive or dead. If a No Dashii dies or otherwise loses their ability, then those two players become healthy. Two Townsfolk players will always be poisoned this way, as neighboring Outsiders, Minions, or Travellers are skipped.",
+                        "If a new player becomes the No Dashii, or a poisoned Townsfolk changes into a non-Townsfolk character, the players who are poisoned may change immediately based on who the neighbors of the No Dashii are."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "While preparing the first night, the two Townsfolk neighboring the No Dashii become **poisoned** - mark them with **POISONED** reminders."
+                },
+                {
+                    "p": "If a Townsfolk poisoned by the No Dashii becomes a non-Townsfolk character, or the No Dashii turns into a different character, or if a new player becomes the No Dashii, the new neighbors of the No Dashii become **poisoned**, and the old neighbors become **healthy** - move the No Dashii’s **POISONED** reminders immediately if needed."
+                },
+                {
+                    "p": "Each night except the first, wake the No Dashii. They point at any player. That player **dies** - mark them with the **DEAD** reminder. Put the No Dashii to sleep."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "At the start of the game, the No Dashii neighbors a {c:towncrier} and a {c:snakecharmer}. They are both poisoned. A few days later, they are both dead, and the closest alive neighbors to the No Dashii are an unpoisoned {c:clockmaker} and an unpoisoned {c:barber}."
+                },
+                {
+                    "example": "Clockwise from the No Dashii sits a {c:philosopher}, a {c:mathematician}, then a {c:sage}. Anticlockwise from the No Dashii sits a {c:witch}, a {c:mutant}, then a {c:seamstress}. The {c:philosopher} and the {c:seamstress} are poisoned"
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "Find out who your neighboring Townsfolk are. You may be sitting next to Minions, Travellers or Outsiders, so it may not be immediately obvious who you have poisoned.",
+                        "Once you know who your neighboring Townsfolk are, support them as much as possible. Listen to them. Repeat their arguments to the group. Since they are poisoned, their information is probably false, and spreading their false information will make others look dodgy, particularly when it is not you that revealed the false information originally.",
+                        "At night, don't kill your neighboring Townsfolk. Since they are poisoned, the longer they stay alive, and the shorter that unpoisoned Townsfolk live, the more misinformation will be in the game, and the more chance you have of winning.",
+                        "Kill your neighbors, if people begin to think that a No Dashii is in play. Doing this makes it look like someone else is the No Dashii, or at least it makes it look like you are a different Demon than the No Dashii.",
+                        "If all evil players are spreading false information, then it can sometimes look like a {c:vortox} is in play. Making the argument that the Demon is actually the {c:vortox} makes the remaining good players mistrust their own information, and makes you look good."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "fighting-the-no-dashii",
+            "title": "Fighting the No Dashii",
+            "blocks": [
+                {
+                    "ul": [
+                        "The No Dashii's poisoning skips Minions, Outsiders and Travellers. Thanks to this, the No Dashii does not have to be your immediate neighbor in order to poison you.",
+                        "In rare circumstances, the No Dashii's nearest townsfolk may change - this would be thanks to characters like the {c:barber} or the {c:pithag}. When this happens, the new nearest Townsfolk will become poisoned from that point on. For example - the Demon is sitting next to a {c:flowergirl}, and next to them is a {c:savant}. The {c:flowergirl} is therefore poisoned. That night, the {c:pithag} turns the {c:flowergirl} into the {c:klutz}. As the {c:klutz} is an Outsider, the new nearest Townsfolk is the {c:savant}, who becomes poisoned from this point onward. Another example - the nearest character to the Demon is their Minion, a {c:witch}, who the Demon swaps with the {c:snakecharmer}. As the new (evil) {c:snakecharmer} is now the closest Townsfolk to the Demon, they are poisoned and the {c:mathematician} is now sober.",
+                        "There are a few sources of misinformation in Sects & Violets, but if you are a Townsfolk and suspect that your information is being interfered with, a good start is to look hard at your neighbors and see if any of them are suspicious. If the No Dashii is the culprit, they'll have to be close to you.",
+                        "Depending on the game size, figuring out that a No Dashii is in play as opposed to, say, a {c:vigormortis}, can often be fairly simple. If most of the good players' information is making sense, there is probably no No Dashii in play. However, if a lot of the good team's information is not making sense, you may be facing either a No Dashii or a {c:vortox}. Figuring out whether ALL information is bogus, or just that MOST information is bogus, can make the difference between winning, and losing so bad that people bring it up at parties unrelated for years to come!",
+                        "Come up with a cool and interesting strategy we haven't thought of, and post it on this wiki!"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,101 @@
+{
+    "id": "mathematician",
+    "source": {
+        "page": "Mathematician",
+        "oldid": 3109,
+        "lastEdited": "2026-07-08"
+    },
+    "artist": "John Grist",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/21306354/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2020-9-19%2F119785121-44100-2-1f55b6910cc3b.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Each night, you learn how many players' abilities worked abnormally (since dawn) due to another character's ability.\""
+                },
+                {
+                    "p": "The Mathematician knows how many things have gone wrong since dawn today."
+                },
+                {
+                    "ul": [
+                        "When an ability does not work in the intended way due to another character's interference, the Mathematician will learn that it happened. They'll learn that something went wrong if a piece of information was false but was supposed to be true, or if an ability should have worked but didn't, due to another character.",
+                        "The Mathematician does not learn which players this happened to, only how many times it happened.",
+                        "The Mathematician does not detect their own ability failing.",
+                        "The Mathematician does not detect drunkenness or poisoning itself, but does detect when drunk or poisoned players' abilities did not work as intended. The Recluse registering as evil to the Chef, and the poisoned Soldier dying from the Imp's attack, would each be detected. The poisoned Empath getting true information would not."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "Each time a character's ability works abnormally due to another character's ability, mark them with an **ABNORMAL** reminder."
+                },
+                {
+                    "p": "Each night, wake the Mathematician. Show fingers (0, 1, 2, etc.) equaling the number of characters with **ABNORMAL** reminders. Put the Mathematician to sleep. Remove all **ABNORMAL** reminders."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The poisoned {c:oracle} learns that two dead players are evil, when three dead players are actually evil. All other character abilities work normally. Later that night, the Mathematician learns a \"1\"."
+                },
+                {
+                    "example": "The poisoned {c:snakecharmer} chooses a Townsfolk player, and nothing happens. The drunk {c:juggler} gets correct information. The {c:savant} learns two pieces of true information. Later that night, the Mathematician learns a \"1\" because the {c:snakecharmer} and {c:juggler}'s abilities worked as normal, whilst one of the {c:savant}'s facts was true when it should have been false."
+                },
+                {
+                    "example": "A {c:vortox} is in play. Five good players got false information. The {c:witch} is drunk, and when their cursed player nominated, nothing happened. Even though six abilities worked abnormally, the Mathematician learns a \"4\" due to the {c:vortox}'s ability."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "Your information is valuable, but only if you know what the rest of the town is doing. Get chatty with your fellow players and find out what their information is - figuring out who has an ability that isn't working correctly will help out the good team a lot. Characters like the {c:clockmaker}, {c:flowergirl}, {c:seamstress}, and {c:oracle} (among others) will need your help making sure their information should be acted upon!",
+                        "Pay attention to game changes that would affect your data, and be wary if your data suddenly changes. If a recent executee is claiming to be the {c:sweetheart}, your number might increment that evening. Alternatively, if you're suddenly getting a '2' when you were previously getting a '0', you can be suspicious that a {c:pithag} just created a {c:nodashii}.",
+                        "Make sure to ask your Storyteller what sort of ability malfunctions you're picking up on. In Sects & Violets, you typically detect when good characters have their ability altered due to evil characters, like the {c:nodashii} and {c:vortox}. However, you will also detect character abilities not working as intended due to the {c:sweetheart} after death, or the {c:philosopher} duplicating an in-play character, and a poisoned {c:snakecharmer} trying to use their ability on the Demon to no avail.",
+                        "Beware of the {c:vortox}! Just like everyone else, all of your information will be false. If you are getting a low number, but it seems like a lot of Townsfolk are getting misinformation, you can suspect that this is in play. In particular, getting a '0' when others appear to be getting bad information is a great tell that you are poisoned OR a {c:vortox} is in town.",
+                        "Getting a read of '0' is fantastic, as it means that nobody got bad information or had their ability not work correctly. Everyone should be able to trust their info for that day and night.",
+                        "Getting a read of '1' is also fantastic - this means only one ability didn't work as intended, and if you can figure out who that is, everyone else can trust their information is reliable for that day and night.",
+                        "If you're getting a read of '2' or more, your town might be in trouble. This is a very good sign that multiple sources of poisoning or ability malfunctions are afoot in the town... or that maybe you're the one who is poisoned.",
+                        "Unlike other townsfolk, the Mathematician doesn't need to be shy in coming out. Not only is your information most useful when shared, but even one night of it is incredibly powerful when it comes to helping the town. Compared to a {c:flowergirl} or a {c:juggler}, you're also just not as much of a threat."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Mathematician",
+            "blocks": [
+                {
+                    "p": "When bluffing as the Mathematician, there are a few things you should keep in mind:"
+                },
+                {
+                    "ul": [
+                        "Keep your numbers small. Telling the group a \"4\", \"3\", or even a \"2\" can look suspicious. Most of the time, real, legitimate Mathematician (those with a degree!), usually get a \"0\" or a \"1\" each night.",
+                        "Be thoughtful when it comes time to give your information for the first night of the game. Fewer characters act on the first night, so giving a \"0\" is safest. Sometimes, a \"1\" is doable.",
+                        "Be consistent with your information. If you have given \"2\" for each night so far, keep telling the group a \"2\". If you have told the group that zero players' abilities have gone wrong, then switching suddenly to a \"1\" will bring a lot of attention on you. Be prepared. Reducing the number that you give over time is much more believable than increasing it - as players die, the number of malfunctioning abilities would gradually be getting smaller and smaller.",
+                        "Switch your information up when an obvious change would indicate that it should. For example, if a {c:sweetheart} dies, or if a {c:philosopher} becomes an in-play character, changing your information up would indicate that you are indeed the Mathematician, and that the {c:sweetheart} and {c:philosopher} are also telling the truth.",
+                        "If you know the type of Demon that is in play, give information that is consistent with the Demon. This makes you look good. For example, if you know a {c:vortox} is in play (and you believe the good team has, or will, figure it out), then giving obviously inaccurate information seems reasonable. Or, if you know a {c:fanggu} is in play, and you believe the good team has, or will, figure it out, then give information that implies that good abilities are working normally.",
+                        "If you know the type of Demon that is in play, but you do not believe that the good team will figure it out, then give information that conflicts with this Demon type. If you can make the good team believe that a different Demon is in play, then they will be very confused. For example, if a {c:vigormortis} is in play, you can keep giving a \"1\" or a \"2\" as your information, giving the impression that a {c:nodashii} is in play instead.",
+                        "As a fake Mathematician, you are particularly suited to supporting the bluffs of other evil players. If they are claiming to be a good character that is suspicious that their ability malfunctioned yesterday, then give a 1 (or more) to make their bluff look more legitimate.",
+                        "If you are a Minion who is trying get executed late in the game, you can do so easily as the Mathematician. Tell the group you received either a \"0\" or a \"1\" at a time where it would be obviously illogical to do so, and the good team will be hunting for you - but not the Demon - once they figure it out."
+                    ]
+                }
+            ]
+        }
+    ]
+}

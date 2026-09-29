@@ -1,0 +1,100 @@
+{
+    "id": "artist",
+    "source": {
+        "page": "Artist",
+        "oldid": 1752,
+        "lastEdited": "2024-01-25"
+    },
+    "artist": "Aidan Roberts",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/24500817/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2020-11-28%2F141298346-44100-2-2b2d864159e48.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Once per game, during the day, privately ask the Storyteller any yes/no question.\""
+                },
+                {
+                    "p": "The Artist may ask any 1 question, and get an honest answer."
+                },
+                {
+                    "ul": [
+                        "The question may deal with anything at all, phrased in any way they want. The Storyteller honestly answers “yes,” “no,” or “I don’t know.”",
+                        "It is up to the Artist to talk with the Storyteller, not the other way around. This isn’t a public conversation, and the group can’t listen in. It’s private."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "During any day, the Artist can request a private chat with you. Take them away from the circle so you cannot be overheard. They will ask you a question. Whisper “Yes,” “No,” or “I don’t know,” to them, or if you cannot answer in one of these ways, prompt the Artist to ask again in a different way. **The Artist loses their ability** - mark them with the **NO ABILITY** reminder."
+                },
+                {
+                    "p": "Like the Savant, evil players bluffing as the Artist may request a private chat with you and pretend to ask a question. To help them bluff, you can pretend to give an answer by nodding or shaking your head."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The Artist asks, \"Is the Demon sitting in a brown chair?\" The Storyteller answers, \"No,” because the Demon is in a black chair."
+                },
+                {
+                    "example": "The Artist asks, \"Is David the {c:eviltwin}?” and the Storyteller answers, \"Yes,” because David is."
+                },
+                {
+                    "example": "The Artist asks, \"How many Minions are alive?” and the Storyteller says, \"Please ask another question. I cannot answer that with a yes, no, or I don't know.\""
+                },
+                {
+                    "example": "The Artist asks, \"Are we winning?” and the Storyteller answers, \"I don't know,” because even though all the Minions are dead, many good players trust the Demon."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "Ask your question as soon as you can on the first day! Between the demon and the {c:pithag}, you risk losing your question every day that you do not use it. Using it right away negates this risk. There are a lot of questions you can ask knowing nothing else about the game that will give you a great head-start on detecting where evil is hidden in the town.",
+                        "Hold onto your question for a few days. This is very risky, since the longer you are alive without using it, the greater chance you won't get to. With that said, Sects & Violets is a game stuffed to the brim with information - waiting to hear people's claims and the information they've got available to them can enable you to ask a much more specific and deadly question that could change the course of the game with a simple 'yes' or 'no'. In particular, characters like the {c:flowergirl}, {c:towncrier}, and {c:oracle} give information that can help you narrow down where the evil lies.",
+                        "Being too specific with your question (e.g. Is Amy the demon?) will probably result in an unhelpful 'no'. Instead, ask questions that will divide the group into two halves. For example, ask if the demon is sitting in a particular group - yes or no, you have narrowed down where the demon is or isn't. Other questions can include asking if there's a concentration of evil players in a particular location, or asking about characters like the {c:eviltwin}.",
+                        "If you don't have a lot of in-game threads to follow, you can also ask for information outside of the game mechanics and still break the town into groups. For example, if a disproportionate number of players are wearing red shirts. you can ask if the demon is among them!",
+                        "Your ability can be used to replicate many information gathering abilities in the game - providing you can phrase them as a yes/no question! Listen to the claims of the people around you and craft your question to cover weaknesses in the good team's info, or to confirm/deny another person's claims.",
+                        "Hiding from the demon so they don't kill you before you use your ability is imperative. You can try bluffing as another character, but another option is come out to the town and pretend you have already asked your question. The demon will not consider you as much of a threat if they believe you, and will probably prioritize more dangerous targets that appear to be still getting information.",
+                        "Don't ask about the {c:vortox} directly. Asking \"is there a {c:vortox} in play\" will always result in a \"no\" - either there's no {c:vortox}, or there is a {c:vortox} and you're getting false information. To try and detect {c:vortox}, you can instead give a statement that is definitely true (e.g. \"Does 2+2 = 4?\") - if the storyteller says \"no\", then you know your information has been compromised in some way.",
+                        "Another way to inquire after {c:vortox} is to ask after information that can be verified in-game as true. For example: Ask if the demon is among three players (Side note: These three players should not be close enough to be your neighbours, because the {c:nodashii} will confuse your info). If you get a \"Yes\", then execute all of them. Then, if the game continues, you know it is probably {c:vortox}. If you get a \"No\", then you either know three players who are not the demon, or you know that one of them is most likely the {c:vortox}."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Artist",
+            "blocks": [
+                {
+                    "p": "When bluffing as the Artist, there are a few things you should keep in mind:"
+                },
+                {
+                    "ul": [
+                        "The Artist can receive practically any information in the game. Use this to your advantage when you are bluffing - giving information that compliments the narrative the evil team is trying to build against the good team.",
+                        "Ask a question that implicates good players as evil. Some examples could include 'asking' if X character is in play, if Y player is sitting next to an evil player, etc. Every good player the town executes thanks to your dodgy information is an execution they didn't spent on your demon.",
+                        "Ask a question that indicates your fellow evil players are good! Some examples could include 'asking' if there are more evil players to your left than your right, or if the demon is sitting somewhere you know they're aren't, or even if X character is in play (when it is actually a bluff being utilized by an evil player). Absolving evil players of guilt in the eyes of the town will see them turn their efforts elsewhere, waiting time on players who are not so much of a threat.",
+                        "Decide whether your information is going to contradict the good team's information or not. This is riskier as a Demon, since if you contradict, the good team will likely kill you out of suspicion. As a Minion, you can be more deliberate about setting up a counter-argument, since your execution is not the end of the game, and if you manage to convince the group of something false in the meantime, all the better!",
+                        "Beware of the {c:vortox} - if you know one is in play, you'll have to be careful about giving 'true' information, since the {c:vortox} would make your 'good' information false.",
+                        "Don't reveal this bluff right away - in the early game, an Artist who has asked their question is prime bait for a mercy execution to appease a potential {c:vortox}. If you're that {c:vortox}, that would be an embarrassing end!"
+                    ]
+                }
+            ]
+        }
+    ]
+}
