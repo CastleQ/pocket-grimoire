@@ -187,6 +187,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | **지시문 서식 공용** ⚠️ | `assets/js/utils/rich-text.js` — `*강조*`·`[대괄호]`·`"따옴표"`·`:reminder:`→● |
 | 그리모어 밤 순서 | `assets/js/processes/night-order.js` |
 | 업데이트 안내 | `assets/js/constants/notice.js` / `assets/js/processes/update-notice.js` / `templates/partials/setup/update-notice.html.twig` |
+| **홍보 모달** ⚠️ | 앱 `templates/partials/setup/promo-notice.html.twig` + 뽑기 화면 `public/claim.html` — **문구·참여 인원은 두 파일을 함께 고친다** (한쪽만 고쳐 뽑기 화면이 옛 인원으로 남은 적 있음) |
 | 정발 번역 기준 | `tools/official-master.json` (공식 캐릭터의 단일 기준. 눈금 주의 — 함정 ⑪) |
 | 내장 시트 | `public/scripts/*.json` / `public/scripts/manifest.json` |
 | 시트 선택·`_meta` 처리 | `assets/js/processes/setup/select-edition.js` |
