@@ -1,0 +1,61 @@
+{
+    "id": "acrobat",
+    "source": {
+        "page": "Acrobat",
+        "oldid": 2810,
+        "lastEdited": "2025-06-27"
+    },
+    "artist": "Chloe McDougall",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Each night*, choose a player: if they are or become drunk or poisoned tonight, you die.\""
+                },
+                {
+                    "p": "The Acrobat dies when they find a drunk or poisoned player."
+                },
+                {
+                    "ul": [
+                        "Each night except the first, the Acrobat chooses a player. If the chosen player is sober and healthy, nothing happens. If the player is drunk or poisoned, the Acrobat dies.",
+                        "If the Acrobat is drunk or poisoned, they cannot die to their own ability.",
+                        "The Acrobat may choose any player, dead or alive, even themself.",
+                        "If the chosen player is sober and healthy at the time the Acrobat picks, but becomes drunk or poisoned later in the night, the Acrobat dies.",
+                        "The Acrobat does not learn if the player they selected was drunk, or poisoned, or both.",
+                        "The Drunk registers as drunk to the Acrobat."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "Each night except the first, wake the Acrobat. They point to a player. Put the Acrobat to sleep."
+                },
+                {
+                    "p": "If the player the Acrobat pointed to is drunk or poisoned, or becomes drunk or poisoned at any time tonight, the Acrobat **dies**."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The {c:sailor} chooses the {c:assassin}, and the Storyteller makes the {c:sailor} drunk. The Acrobat chooses the {c:sailor}, and dies because the {c:sailor} is drunk."
+                },
+                {
+                    "example": "The Acrobat chooses the {c:tinker}, who is sober and healthy. Nothing happens."
+                },
+                {
+                    "example": "The Acrobat chooses the {c:preacher}. Later that night, the {c:pukka} poisons the {c:preacher}. The Acrobat dies, because the {c:preacher} is no longer healthy."
+                }
+            ]
+        }
+    ]
+}
