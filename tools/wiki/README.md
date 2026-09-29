@@ -50,5 +50,6 @@ Bluffing → 블러핑 / Claim → 주장하다 / Tips & Tricks → 팁과 요�
 - 위키 일반 문서 주소는 자동 요청을 **418로 거절**한다. 수집 도구는 MediaWiki API(`api.php?action=parse`)를 쓴다.
 - 클라우드 세션은 환경의 네트워크 설정에서 `wiki.bloodontheclocktower.com`이 허용돼 있어야 한다 (2026-09-28 허용).
 - 악한 캐릭터는 "Bluffing" 대신 "Fighting the ~"(~에 맞서는 방법) 섹션이 있다. 키는 `fighting-the-<이름>`.
+- 유형 아이콘(위키 메인의 물음표 그림)은 `guide/img/generic_<유형>.webp`(200px)로 둔다. 캐릭터 도감(botc-wiki-ko) 메인이 읽는다 — 이름을 바꾸지 않는다.
 - 판 로고는 `guide/img/logo_<판>.webp`로 저장하고 `guide.html`의 `EDITIONS`에 추가한다 (현재 `tb`·`bmr`·`snv`).
 - 캐릭터 그림은 저장소의 `public/img/official/<id>_0.webp`를 쓴다.
