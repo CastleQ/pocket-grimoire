@@ -151,4 +151,40 @@ guides.forEach((id) => {
     }
 });
 
+// 3-2. 판 문서(캐릭터 도감 에디션 페이지의 줄거리·게임 방식) 점검
+//      번역 public/guide/data/pages/<판>.json ↔ 영어 원문 tools/wiki/src-pages/<판>.json
+const pagesDir = path.join(dataDir, "pages");
+const srcPagesDir = path.join(root, "tools", "wiki", "src-pages");
+if (fs.existsSync(pagesDir)) {
+    fs.readdirSync(pagesDir).filter((file) => file.endsWith(".json")).sort().forEach((file) => {
+        const id = file.replace(/\.json$/, "");
+        const ko = JSON.parse(fs.readFileSync(path.join(pagesDir, file), "utf8"));
+        const problems = [];
+        const unknown = (JSON.stringify(ko).match(/\{c:([a-z_]+)\}/g) || [])
+            .map((mark) => mark.slice(3, -1))
+            .filter((roleId) => !roles[roleId]);
+        if (unknown.length) {
+            problems.push("모르는 캐릭터 표시: " + Array.from(new Set(unknown)).join(", "));
+        }
+        const srcPath = path.join(srcPagesDir, file);
+        if (!fs.existsSync(srcPath)) {
+            problems.push("영어 원문 없음 (tools/wiki/src-pages/" + file + ")");
+        } else {
+            const en = JSON.parse(fs.readFileSync(srcPath, "utf8"));
+            if (JSON.stringify(shape(en)) !== JSON.stringify(shape(ko))) {
+                problems.push("원문과 칸 구조가 다름");
+            }
+            if (en.source.oldid !== ko.source.oldid) {
+                problems.push(`판번호 다름 (원문 ${en.source.oldid} / 번역 ${ko.source.oldid})`);
+            }
+        }
+        if (problems.length) {
+            failed += 1;
+            console.log(`FAIL 판 문서 ${id}: ${problems.join(" / ")}`);
+        } else {
+            console.log(`OK   판 문서 ${id}`);
+        }
+    });
+}
+
 process.exitCode = failed ? 1 : 0;
