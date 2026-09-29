@@ -12,7 +12,7 @@ Blood on the Clocktower 공식 위키(`wiki.bloodontheclocktower.com`)의 캐릭
 | `public/guide/data/chars/<id>.json` | 캐릭터별 한국어 번역 (id는 앱 id, 예: `washerwoman`) |
 | `public/guide/data/roles.json` | 정발 이름·유형·능력·대사 — **자동 생성, 손으로 고치지 않는다** |
 | `public/guide/data/index.json` | 번역이 있는 캐릭터 목록 — **자동 생성** |
-| `public/guide/data/pages/<문서>.json` | 판 문서(`tb`·`bmr`·`snv`: 줄거리·게임 방식)와 유형 문서(`traveller`: 소개글) 한국어 번역. 캐릭터 도감 에디션·유형 페이지가 읽는다. 표기는 캐릭터 번역과 같다(`{c:id}`, `**굵게**`) |
+| `public/guide/data/pages/<문서>.json` | 판 문서(`tb`·`bmr`·`snv`: 줄거리·게임 방식)와 유형 문서(`traveller`: 소개글, `fabled`: 소개글·진행 방법) 한국어 번역. 캐릭터 도감 에디션·유형 페이지가 읽는다. 표기는 캐릭터 번역과 같다(`{c:id}`, `**굵게**`) |
 | `tools/wiki/src-pages/<문서>.json` | 판·유형 문서 영어 원문 + 위키 판번호. `build-guide-data.js`가 번역과 칸 구조를 대조한다 |
 | `public/guide/data/catalog.json` | 캐릭터 도감 사이트(`CastleQ/botc-wiki-ko`)용 분류 목록(id·이름·유형·판) — **자동 생성**. 위치·형식을 바꾸면 도감이 깨진다 |
 | `public/guide/data/jinxes.json` | 관련 징크스(앱의 징크스 문구) — **자동 생성**. 위키 징크스 표는 따로 번역하지 않고, 앱 징크스를 위키 기준으로 최신화해 쓴다(아래 징크스 도구) |
