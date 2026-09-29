@@ -1,0 +1,79 @@
+{
+    "id": "steward",
+    "source": {
+        "page": "Steward",
+        "oldid": 2867,
+        "lastEdited": "2025-07-20"
+    },
+    "artist": "Chloe McDougall",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"You start knowing 1 good player.\""
+                },
+                {
+                    "p": "The Steward knows 1 good player."
+                },
+                {
+                    "ul": [
+                        "The Steward learns a player, but not their character.",
+                        "The Steward learns their information on the first night of the game.",
+                        "If created mid-game, then the Steward learns their information that night instead."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "While preparing the first night, put the **KNOW** reminder by any good character token. During the first night, wake the Steward. Point to the player marked **KNOW**. Put the Steward to sleep."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The Steward learns that Alex is good. Alex is the {c:undertaker}."
+                },
+                {
+                    "example": "The {c:pithag} turns the {c:poppygrower} into the Steward. That night, the Steward learns that Abdallah is good. Abdallah is the {c:spy}, and is registering as good."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "You know a player who is neither the Demon or a Minion. This is great info! You can trust they are acting with good intent for your team and the only thing that can mess with their information is drunkenness and poisoning. Work together to solve the game using your information combined.",
+                        "Come out publicly straight away. If everyone knows that you two are both good, they can factor it into their worldbuilding and their ability choices straight away. Your info isn’t game-solving, but it’s helpful, so let people know about it.",
+                        "Talk to the player you know and keep your information a secret to help keep them alive. If the Demon hears about your information and believes you, then the player you know is a risk for them to keep alive to the final three, so they’ll be wanting them dead at the first opportunity, so keeping your information quiet might help your player survive.",
+                        "Once your information is known, make people take it into account in their worldbuilding! You know you’re good and that this one player is good, so any world involving either of you being evil must involve both of you being evil. Often, this will mean that building the world of you both being evil ends up in there needing to be too many evil players and you can sway arguments accordingly."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Steward",
+            "blocks": [
+                {
+                    "ul": [
+                        "The Steward is one of the easiest bluffs in the game and is an excellent fallback bluff. Claim your Demon is the player you learnt as the Steward. If people believe you, they look good, job done.",
+                        "Claim a good player as your Steward info then make sure that other players use abilities to imply you’re evil! You’ll take that other player down with you, but usually not for a couple days until the good team has had a chance to work out that you’re evil, so you’ll get a few days to use your Minion ability before you both get executed.",
+                        "Claim a good player as your Steward info and try to work with them to “solve” the game. If you can work to be trusted as a duo, you can survive the full game without taking much, if any, suspicion."
+                    ]
+                }
+            ]
+        }
+    ]
+}
