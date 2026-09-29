@@ -4,11 +4,11 @@
     "jinx": [
       {
         "id": "chambermaid",
-        "reason": "The Chambermaid learns if the Mathematician wakes tonight or not, even though the Chambermaid wakes first."
+        "reason": "The Chambermaid can detect if the Mathematician will wake tonight."
       },
       {
         "id": "lunatic",
-        "reason": "The Mathematician learns if the Lunatic attacks a different player(s) than the real Demon attacked."
+        "reason": "The Mathematician learns if the Lunatic attacks a different player than the real Demon attacked."
       },
       {
         "id": "drunk",
@@ -92,7 +92,7 @@
       },
       {
         "id": "innkeeper",
-        "reason": "If the Leviathan is in play, the Innkeeper-protected-players are safe from all evil abilities."
+        "reason": "If the Leviathan nominates and executes an Innkeeper-protected player, good wins."
       },
       {
         "id": "ravenkeeper",
@@ -116,11 +116,11 @@
       },
       {
         "id": "exorcist",
-        "reason": "Evil does not win when more than 1 good player has been executed, if the Exorcist is alive and has ever successfully chosen the Leviathan."
+        "reason": "If the Leviathan nominates and executes the Exorcist-chosen player, good wins."
       },
       {
         "id": "grandmother",
-        "reason": "If Leviathan is in play and the Grandchild dies by execution, evil wins."
+        "reason": "If the Leviathan is in play and the Grandchild dies by execution, evil wins."
       },
       {
         "id": "king",
@@ -230,7 +230,7 @@
     "jinx": [
       {
         "id": "exorcist",
-        "reason": "If the Exorcist chooses the Yaggababble, the Yaggababble ability does not kill tonight."
+        "reason": "If the Exorcist chooses the Yaggababble, the Yaggababble does not kill tonight."
       }
     ]
   },
@@ -259,7 +259,7 @@
       },
       {
         "id": "courtier",
-        "reason": "If the Summoner is drunk on the 3rd night, the Summoner chooses which Demon, but the Storyteller chooses which player."
+        "reason": "If the living Summoner has no ability, the Storyteller has the Summoner ability."
       },
       {
         "id": "engineer",
@@ -267,11 +267,11 @@
       },
       {
         "id": "zombuul",
-        "reason": "If the Summoner turns a dead player into the Zombuul, the Storyteller treats that player as a Zombuul that has died once."
+        "reason": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\"."
       },
       {
         "id": "pukka",
-        "reason": "The Summoner may choose a player to become the Pukka on the 2nd night."
+        "reason": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd."
       },
       {
         "id": "legion",
@@ -329,7 +329,7 @@
     "jinx": [
       {
         "id": "mastermind",
-        "reason": "If the Mastermind is alive and the Lleech's host dies by execution, the Lleech lives but loses their ability."
+        "reason": "If the Mastermind is alive and the Lleech host dies by execution, the Lleech lives but loses their ability."
       },
       {
         "id": "slayer",
@@ -340,10 +340,6 @@
   {
     "id": "kazali",
     "jinx": [
-      {
-        "id": "goon",
-        "reason": "The Kazali can choose that the Goon player is one of their evil Minions."
-      },
       {
         "id": "marionette",
         "reason": "If the Kazali chooses to create a Marionette, they must choose one of their neighbors."
@@ -375,7 +371,7 @@
       },
       {
         "id": "innkeeper",
-        "reason": "If Riot is in play, the Innkeeper-protected player is safe from all evil abilities."
+        "reason": "If Riot nominates and executes an Innkeeper-protected player, good wins."
       },
       {
         "id": "sage",
@@ -395,7 +391,7 @@
       },
       {
         "id": "grandmother",
-        "reason": "If Riot is in play and the Grandchild dies during the day, the Grandmother dies too."
+        "reason": "If Riot is in play and the Grandchild dies by execution, evil wins."
       },
       {
         "id": "king",
@@ -403,7 +399,7 @@
       },
       {
         "id": "exorcist",
-        "reason": "If the Exorcist chooses Riot on the 3rd night, Minions do not become Riot."
+        "reason": "If Riot nominates and executes the Exorcist-chosen player, good wins."
       }
     ]
   },
@@ -429,7 +425,7 @@
       },
       {
         "id": "courtier",
-        "reason": "If the Vizier loses their ability, they learn this. If the Vizier is executed while they have their ability, their team wins."
+        "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
       },
       {
         "id": "fearmonger",
@@ -473,6 +469,10 @@
       {
         "id": "alhadikhia",
         "reason": "If the Al-Hadikhia dies by execution, and the Mastermind is alive, the Al-Hadikhia chooses 3 good players tonight: if all 3 choose to live, evil wins. Otherwise, good wins."
+      },
+      {
+        "id": "vigormortis",
+        "reason": "A Mastermind that has their ability keeps it if the Vigormortis dies."
       }
     ]
   },
