@@ -1,0 +1,112 @@
+{
+    "id": "balloonist",
+    "source": {
+        "page": "Balloonist",
+        "oldid": 2959,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "Anica Kelsen",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Each night, you learn a player of a different character type than last night. [+0 or +1 Outsider]\""
+                },
+                {
+                    "p": "The Balloonist learns players of different character types."
+                },
+                {
+                    "ul": [
+                        "Each time the Balloonist learns a player, the player must have a different character type to the previously shown player.",
+                        "The Balloonist does not learn the character type of the player they learn.",
+                        "The shown player can be alive or dead.",
+                        "The shown player can be good or evil.",
+                        "If the Balloonist is drunk or poisoned, they may learn a character of the same type as the previously shown player. When the Balloonist becomes sober and healthy, they must learn a player of a different character type to the previously shown player.",
+                        "During setup, the Storyteller may choose to add an Outsider due to the Balloonist’s ability."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "During setup, you may add an Outsider."
+                },
+                {
+                    "p": "When preparing the first night, mark any player with the **KNOW** reminder. When preparing each night afterwards, mark a character of a different type than the current with the **KNOW** reminder."
+                },
+                {
+                    "p": "Each night, wake the Balloonist. Point to the player marked **KNOW**. Put the Balloonist to sleep."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "Abdallah is the {c:vizier}, Lewis is the {c:highpriestess}, and Sarah is the {c:politician}. On the first night, the Balloonist learns Abdallah. On the second night, the Balloonist learns Lewis. On the third night, the Balloonist learns Sarah."
+                },
+                {
+                    "example": "Julian is the {c:nightwatchman}, Alex is the {c:sailor}, and Lachlan is the {c:puzzlemaster}. On the first night, the Balloonist learns Julian. On the second night, the {c:poisoner} chooses the Balloonist. Because the Balloonist is poisoned, the Storyteller chooses to show the Balloonist another Townsfolk, and the Balloonist learns Alex. On the third night, the Balloonist is sober and healthy, and learns Lachlan, who is a different character type to Alex."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "Pay attention to Outsider claims! You might have added an extra Outsider, so if you hear players claiming to be the {c:zealot}, the {c:snitch}, and the {c:moonchild}, this can help you prove you are what you claim to be. Plus, knowing where the Outsiders are makes it easier to decipher your information.",
+                        "Each day, talk to the player whose name you learned last night. Find out what character they’re claiming to be, so you can compare their claim to the previous player you learned and see if it makes sense!",
+                        "Wait to talk to the players you’ve learned until later in the game, when good players are more likely to tell the truth about their characters, and evil players have already decided what they’re bluffing. If an evil player finds out early on that you saw them after a trusted Townsfolk, they may choose to bluff as an Outsider to obfuscate their true character and weaken your information.",
+                        "Choose one player you trust, and share your information with them every day. This helps the good team trust that you haven’t lied or changed your information.",
+                        "Lie about your role to stay alive as long as possible. Claim to be a {c:banshee} or {c:farmer} so the evil team is hesitant to kill you at night! The longer you live, the more powerful your information is.",
+                        "After you’ve received several nights of information, decide which player you trust the most in your information, and check if the rest of your information makes sense compared to that player’s claim. If you learned the {c:dreamer} on night 3, and you fully trust them, then you know the players you learned on night 2 and night 4 cannot be Townsfolk.",
+                        "Look out for misregistration! The {c:spy} and {c:recluse} may show up as different character types. In fact, if your Storyteller is feeling exceptionally devious, they could show you the Recluse every single night (Storytellers, please don’t).",
+                        "Look for other characters that detect character type, like the {c:librarian} and the {c:towncrier}. If you know someone is definitely an Outsider, or cannot be a Minion, this narrows down your information and makes you even more powerful.",
+                        "Unless there are characters like the {c:drunk} or the {c:cerenovus} on the script, if you learn two players in a row who are both claiming Townsfolk, it’s extremely likely that one of them is evil. Treat this information just as you would a {c:seamstress} who learned that two players are on opposite teams!",
+                        "Pay attention to what’s on the script. A {c:damsel} is very unlikely to tell you they are an Outsider while they’re alive, and the {c:mutant} quite literally can’t! Just because you learned two players claiming to be Townsfolk in a row, that doesn’t mean one of them has to be evil. Uniquely, if the Demon is a {c:vortox}, then every player you learn must be the same character type as the previous player."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Balloonist",
+            "blocks": [
+                {
+                    "ul": [
+                        "Since the Balloonist might add an Outsider, have a Minion bluff as an Outsider, so it looks like you added an extra Outsider into the game."
+                    ]
+                },
+                {
+                    "p": "Talk to good players and figure out what character type they’re claiming to be, so you can claim to have more realistic information."
+                },
+                {
+                    "ul": [
+                        "Keep an eye out for good players who have information that paints other players as evil. If the {c:investigator} saw the {c:monk} as a {c:poisoner} candidate, say you saw the {c:monk} and the {c:investigator} on back-to-back nights. Not only does this make it look like the {c:monk} is an evil {c:poisoner}, but now you’ve also gained the {c:investigator}’s social trust!",
+                        "Only tell a few good players what you’re claiming, so it’s not suspicious when you’re alive later in the game. The Balloonist gets more powerful with every night of information, so the evil team would want a real Balloonist dead well before the final day.",
+                        "Claim that you learned your Minions one after the other! This can make it look like one Minion is good (particularly useful if that Minion is bluffing information that backs you up, like a {c:washerwoman} or a {c:steward}). Alternatively, use this to frame one of your Minions as the Demon! If you learned two evil players in a row, they shouldn’t both be Minions… right?",
+                        "Pay close attention to chains of social trust between good players. If you say you learned two good Townsfolk back-to-back, and those two players trust each other socially, they’re going to be suspicious of you. Look for good players who don’t trust each other, and lean into that - if the {c:undertaker} is convinced that the {c:mayor} is evil, say you learned the {c:undertaker} and then the {c:mayor} the next night, and sit back and watch the chaos unfold.",
+                        "Wait a few days to share your “information” with good players. Balloonist is one of the most difficult characters to bluff, because you don’t know which good players are"
+                    ]
+                },
+                {
+                    "p": "Townsfolk and which are Outsiders right away. By waiting to share your information, you’ll have a few days to try and figure out who is who! The information you bluff doesn’t have to be perfect, but it does need to sound correct to the good team."
+                },
+                {
+                    "ul": [
+                        "If one of your Minions is a {c:widow} or a {c:spy}, talk to them as early as possible to get the grimoire. Bluffing true Balloonist information is a great way to prove to the town that you’re definitely just the {c:spy} at worst and totally not the Demon!"
+                    ]
+                }
+            ]
+        }
+    ]
+}
