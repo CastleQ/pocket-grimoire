@@ -1,0 +1,77 @@
+{
+    "id": "doomsayer",
+    "source": {
+        "page": "Doomsayer",
+        "oldid": 1476,
+        "lastEdited": "2023-05-08"
+    },
+    "artist": "Aidan Roberts",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"If 4 or more players live, each living player may publicly choose (once per game) that a player of their own alignment dies.\""
+                },
+                {
+                    "p": "Use the Doomsayer to make large games take less time."
+                },
+                {
+                    "ul": [
+                        "The Doomsayer allows players to sacrifice their allies in order to gain information, which shortens the game.",
+                        "Only alive players may use the Doomsayer ability, and each may do so only once per game. It is their responsibility to remember to not use it again.",
+                        "If a player says something like “I use the Doomsayer ability,” then the Storyteller chooses which player to kill, but they must kill an alive player of the same alignment as the player who used the Doomsayer ability. So, if a good player uses the ability, then a good player dies. If an evil player uses the ability, then an evil player dies.",
+                        "Once three players are left alive, the Doomsayer ability may no longer be used."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "At any time, declare that the Doomsayer is in play. Add the Doomsayer token to the Grimoire."
+                },
+                {
+                    "p": "At any time during the day, if four or more players are alive, a player can declare that they wish to use the Doomsayer ability. When this happens, choose one player of the same alignment. The chosen player dies."
+                },
+                {
+                    "p": "You won’t want to kill the Demon this way, unless the game can continue afterwards for some reason, such as if a Scarlet Woman is in play."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The {c:monk} uses the Doomsayer ability, and the {c:washerwoman} dies. Later that day, the {c:poisoner} uses the Doomsayer ability, and the {c:baron} dies."
+                },
+                {
+                    "example": "An evil {c:thief} uses the Doomsayer ability, and the {c:scarletwoman} dies. Later, the {c:spy} uses the Doomsayer ability, and the good {c:gunslinger} dies. Later, the Demon uses the Doomsayer ability, and the {c:spy} dies."
+                }
+            ]
+        },
+        {
+            "key": "explanation",
+            "title": "Explanation",
+            "blocks": [
+                {
+                    "p": "The Doomsayer allows players to sacrifice their allies in order to gain information, which shortens the game. Only living players may use the Doomsayer power, and may do so only once per game. It is their responsibility to remember to not use it again."
+                },
+                {
+                    "p": "If a player says something like \"I use the Doomsayer Power\", then it is your choice as a Storyteller which player to kill, but you must kill a living ally of the player that used the Doomsayer power. So, if a good player uses the power, then a good player dies. If an evil player uses the power, then an evil player dies."
+                },
+                {
+                    "p": "Obviously, you won't want to kill the Demon this way, unless the game can continue afterwards for some reason, such as a {c:scarletwoman} being in play. Sometimes, it may be best to kill the player who uses the Doomsayer ability. Such cases are rare, but occasionally it may be the best decision to not grant either team a large advantage."
+                },
+                {
+                    "p": "Once 3 players are left alive, the Doomsayer ability may no longer be used."
+                }
+            ]
+        }
+    ]
+}

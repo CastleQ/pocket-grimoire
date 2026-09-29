@@ -41,7 +41,9 @@ const PAGE_NAMES = {
     alhadikhia: "Al-Hadikhia",
     highpriestess: "High_Priestess",
     bonecollector: "Bone_Collector",
-    hellslibrarian: "Hell%27s_Librarian"
+    hellslibrarian: "Hell%27s_Librarian",
+    spiritofivory: "Spirit_of_Ivory",
+    deusexfiasco: "Deus_ex_Fiasco"
 };
 
 function pageName(id) {

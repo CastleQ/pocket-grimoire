@@ -1,0 +1,69 @@
+{
+    "id": "fiddler",
+    "source": {
+        "page": "Fiddler",
+        "oldid": 1540,
+        "lastEdited": "2023-06-05"
+    },
+    "artist": "Aidan Roberts",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Once per game, the Demon secretly chooses an opposing player: all players choose which of these 2 players win.\""
+                },
+                {
+                    "p": "Use the Fiddler to decide a winner if the game must end due to time constraints or a stalemate."
+                },
+                {
+                    "ul": [
+                        "Sometimes there won’t be enough time to finish a game. Maybe the venue you are playing at needs to close. Maybe some players need to leave unexpectedly and the game cannot continue without them. Maybe the Townsfolk refuse to execute and the Demon refuses to kill.",
+                        "The Storyteller can add and activate the Fiddler at any time. To do so, all players close their eyes while the Demon chooses a good player to challenge to a fiddle contest. Then, after a minute or two, all players will raise their hands to vote on which of these two players wins. The game ends, and the winning player’s entire team wins too.",
+                        "Like an exile, this group decision on who wins the game is not affected by abilities, and the dead may vote normally. The Thief cannot steal votes, the Voudon has no effect, and so on.",
+                        "Players cannot use their abilities once the Fiddler has been activated. The Slayer cannot choose to slay a player, the Artist cannot ask their question, and so on.",
+                        "If this fiddle contest is a tie, evil wins."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "At any time, if you expect to run out of time, declare that the Fiddler is in play and declare the time when the game will end. Add the Fiddler token to the Grimoire."
+                },
+                {
+                    "p": "When the game needs to end, declare that you are using the Fiddler ability. Put all players to sleep. Wake the Demon. They point at any good player. (If the Demon is good, they must choose an evil player instead.) Wake all players and declare that the Demon player and the chosen player are in a fiddle contest. (Do not say what their characters are.) After a minute or two, run a “vote” for each player in the fiddle contest. (This is not an execution vote.) All players may vote. The player with the most votes wins, their team wins, and the game ends. On a tie, the evil team wins."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The game begins but will need to end in 45 minutes due to a freak lightning storm approaching the neighbourhood, so the Storyteller adds the Fiddler. After 40 minutes, the Fiddler activates. The players choose the good player to win, so good wins."
+                },
+                {
+                    "example": "There are just four players left alive. Each day, nobody nominates. Each night, the Demon chooses a dead player to kill. Since this could go on indefinitely, the Storyteller adds the Fiddler so that the game can end."
+                }
+            ]
+        },
+        {
+            "key": "explanation",
+            "title": "Explanation",
+            "blocks": [
+                {
+                    "p": "Some games will not have enough time to complete. Maybe the venue you are playing at needs to close. Maybe some players need to leave unexpectedly and the game can not continue without them. Maybe the Townsfolk refuse to kill during the day, and the Demon refuses to kill at night."
+                },
+                {
+                    "p": "The Fiddler can be activated by you at any time. To do so, all players close their eyes while the Demon selects a good player to challenge to a fiddle contest. Then, after a minute or two, all players will choose (by raising a hand) which of these 2 players wins. The game is then over, and the winning player's entire team wins too."
+                }
+            ]
+        }
+    ]
+}
