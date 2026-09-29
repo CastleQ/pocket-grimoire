@@ -1,0 +1,102 @@
+{
+    "id": "atheist",
+    "source": {
+        "page": "Atheist",
+        "oldid": 2958,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "Marianna Carr",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"The Storyteller can break the game rules, and if executed, good wins, even if you are dead. [No evil characters]\""
+                },
+                {
+                    "p": "The Atheist knows that all players are good and there is no such thing as Demons."
+                },
+                {
+                    "ul": [
+                        "With the Atheist in play, there are no evil players—no Minions and no Demons.",
+                        "Good wins if the Storyteller is executed. Any living player may nominate the Storyteller, and the Storyteller is executed if 50% or more of the living players vote.",
+                        "If the Atheist is not in play and the Storyteller is executed, evil wins.",
+                        "Good loses if just two players are alive.",
+                        "The Storyteller may break any of the game’s rules. They may kill a player who nominated to simulate a Witch curse, kill players at night to simulate a Demon attacking, give players false information to simulate drunkenness, change characters at night to simulate a Pit-Hag, or even have the wrong number of Outsiders in play."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "During setup, before giving the bag to the players, remove all evil character tokens and add Townsfolk or Outsider character tokens to match the player count."
+                },
+                {
+                    "p": "Break any game rules, as you see fit. Use evil reminder tokens if you need them."
+                },
+                {
+                    "p": "The Atheist is a complex character, and is recommended for experienced Storytellers. In addition to rules knowledge, it requires you to have a good sense of fun and fairness. It is your job to create a fun game for all players, so only break the game rules to give false information (as much or as little as you want) or simulate the actions of evil characters that could be in play, but aren’t. If you can convince the players that there is no Atheist in play, or at least get them discussing the possibility, you’ve done well."
+                },
+                {
+                    "p": "Avoid creating arbitrary rules or changing the win conditions. In order to have a good time, the players need to know how they can win the game if an Atheist is in play."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The {c:investigator} learns that either the {c:grandmother} or the {c:seamstress} is the {c:boomdandy}. The {c:sweetheart} nominates, and dies, even though there is no {c:witch} in play. The {c:slayer} uses their ability on the {c:gossip}, who dies."
+                },
+                {
+                    "example": "There are three Outsiders in play, when there should be two. The players execute the Storyteller. Good wins."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "If you are the Atheist, you know who the Demon is: nobody. You know exactly what to do to win the game: execute the Storyteller. If you can convince the other players that you are indeed the Atheist, then that will be enough to win the game.",
+                        "Don't be too fussed if the other players don't believe you at first, and want to execute a few players. Executing the Storyteller on day one just because one player claims to be the Atheist is a big risk for most players to take, and it is smart to play for a few days to get as much information as possible. Claim that you are the Atheist, again and again, and have patience.",
+                        "Reveal your character early. There isn't really much point lying about who you are, since there are no evil players to fool, and no Demon attacks to avoid at night.",
+                        "Convince as many players as possible to reveal their characters and information as early as possible. There is little point hiding information, since the player you need to beat is the Storyteller, and the Storyteller already knows everything.",
+                        "If there are characters on the script that could make you drunk, such as the {c:drunk}, do everything you can to figure out whether or not you are drunk. If you are the {c:drunk}, then you are not the Atheist at all, there is no Atheist in play, there are hidden evil players amongst you, and executing the Storyteller will result in the evil team winning.",
+                        "Don't be afraid to die. Most players will want to kill the Atheist at some stage, just in case you are evil. Dying so that the good team can win is worth it, even though it will result in the Storyteller killing an extra player (or more!) that night.",
+                        "If all the good team's information makes sense and is consistent, then kill all the players that this information points to as evil. Once all these players are dead, it should be much easier to convince the other players that you are the Atheist.",
+                        "If the good team's information has some noticeable inconsistencies, such as once player learning that an {c:eviltwin} is in play and another learning that a {c:scarletwoman} is in play in a one-Minion game, then highlight these inconsistencies to the group as evidence that the Storyteller is breaking the rules.",
+                        "If there are any characters in play that have game-ending abilities, such as the {c:mayor} or {c:saint}, then check with the Storyteller as to whether or not the game will end if you take a risky action. It is best that all players know beforehand, when they are about to do something that could end the game, with either a win or a loss."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Atheist",
+            "blocks": [
+                {
+                    "p": "When bluffing as the Atheist, there are a few things you should keep in mind:"
+                },
+                {
+                    "ul": [
+                        "If you are a Minion, you can bluff as the Atheist without worrying that there will be another Atheist in play. There are no evil players in an Atheist game, so the fact that you are an evil Minion means that there is no Atheist.",
+                        "If you are the Demon, you can bluff as the Atheist, even if the Storyteller doesn't show you the Atheist as a bluff. There are no evil players in an Atheist game, so the fact that you are an evil player means that there is no Atheist.",
+                        "If you are bluffing as the Atheist, be prepared for the players to execute you at some stage. It is rare that any player claiming to be the Atheist will survive until the final day. So, bluffing as the Atheist tends to work best for characters who's ability is already used, such as the {c:baron}, or will be used by the time you die, such as the {c:mezepheles}. If there are characters that can keep the game going after the Demon dies, such as the {c:scarletwoman} or {c:mastermind} or {c:imp}, then this makes an Atheist bluff easier for the Demon.",
+                        "The first major strategy to win the game via an Atheist bluff is to spend your time convincing the good team that you are the Atheist. Unlike other characters, this may need a more social approach than usual, as most Atheists are loud and confident in what they know and what needs to happen to win. However, using the good team's information against them can also work, such as an {c:empath} learning that you are evil or a poisoned {c:empath} learning you are good - both of these result can be used as evidence that you are indeed the Atheist, since the Storyteller can break the rules to give the good team false information.",
+                        "The second major strategy to win the game via an Atheist bluff is to convince the good team that the information that they have is inconsistent, that it points to too many players being evil, that it doesn't make sense. This is different than trying to convince them that a particular player or group of players is evil, which wouldn't make sense if you are the Atheist. If you can confuse the good team as to what is happening, they may execute the Storyteller in haste, or execute the wrong evil players and let the Demon survive. Either way, evil wins. This strategy works best with characters that can cause a lot of confusion, such as the {c:poisoner} or the {c:vigormortis}.",
+                        "The third major strategy to win the game via an Atheist bluff is to convince the good team that the information that they have makes too much sense! In a real Atheist game, the Storyteller will often be trying their best to make all the information consistent, or at least to make all players appear to be good. Making the argument that everything is making too much sense is making the argument that the Storyteller is responsible. This strategy works best with characters that can appear to be good, such as the {c:spy} or the {c:imp}.",
+                        "If your plan is to convince the group that all players are good, get your teammates to give false information that is either very consistent or wildly inaccurate. If you goal is to get a few good players executed to increase the final-day chances of an evil win, get your teammates to give false information that converges on particular players being evil."
+                    ]
+                }
+            ]
+        }
+    ]
+}
