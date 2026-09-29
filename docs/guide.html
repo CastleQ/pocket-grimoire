@@ -196,7 +196,8 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in;
     // 판 로고 (위키 원본을 줄여 저장소에 둔 것). 판이 늘면 여기에 추가한다.
     var EDITIONS = {
         tb: { alt: "Trouble Brewing", logo: "guide/img/logo_tb.webp" },
-        bmr: { alt: "Bad Moon Rising", logo: "guide/img/logo_bmr.webp" }
+        bmr: { alt: "Bad Moon Rising", logo: "guide/img/logo_bmr.webp" },
+        snv: { alt: "Sects & Violets", logo: "guide/img/logo_snv.webp" }
     };
     var TEAM_NAMES = { townsfolk: "주민", outsider: "외지인", minion: "하수인", demon: "악마", traveller: "여행자", fabled: "전설" };
 
@@ -395,15 +396,15 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in;
     }
 
     Promise.all([
-        fetch("guide/data/roles.json").then(function (response) { return response.json(); }),
-        fetch("guide/data/index.json").then(function (response) { return response.ok ? response.json() : []; }),
-        fetch("guide/data/jinxes.json").then(function (response) { return response.ok ? response.json() : {}; })
+        fetch("guide/data/roles.json", { cache: "no-cache" }).then(function (response) { return response.json(); }),
+        fetch("guide/data/index.json", { cache: "no-cache" }).then(function (response) { return response.ok ? response.json() : []; }),
+        fetch("guide/data/jinxes.json", { cache: "no-cache" }).then(function (response) { return response.ok ? response.json() : {}; })
     ])
         .then(function (data) {
             roles = data[0];
             translated = Array.isArray(data[1]) ? data[1] : [];
             jinxes = data[2] || {};
-            return fetch("guide/data/chars/" + id + ".json");
+            return fetch("guide/data/chars/" + id + ".json", { cache: "no-cache" });
         })
         .then(function (response) {
             if (!response.ok) {
