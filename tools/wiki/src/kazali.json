@@ -1,0 +1,92 @@
+{
+    "id": "kazali",
+    "source": {
+        "page": "Kazali",
+        "oldid": 3077,
+        "lastEdited": "2026-03-20"
+    },
+    "artist": "Lachlan Bastiaen",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"Each night*, choose a player: they die. [You choose which players are which Minions. -? to +? Outsiders]\""
+                },
+                {
+                    "p": "The Kazali chooses their own Minions."
+                },
+                {
+                    "ul": [
+                        "If a Kazali is created mid game, the Kazali does not choose new Minion players.",
+                        "The Storyteller can give the Minions’ original good characters as bluffs to the Demon, since they are not in play.",
+                        "The Kazali acts at a time that is technically both during setup and during the first night.",
+                        "The Storyteller may keep the Kazali awake, or put the Kazali to sleep, when waking the Minions to tell them which Minion that they are.",
+                        "Only Minions that are on the script may be chosen. Duplicate Minion characters are not allowed.",
+                        "The Kazali can make whatever player they want into a Minion, regardless of that player’s character ability e.g. Soldier, Goon, Damsel, King."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "While setting up the game, remove all Minion tokens and add Townsfolk or Outsider tokens."
+                },
+                {
+                    "p": "During the first night, wake the Kazali. The Kazali points at a player and a Minion on the character sheet. Replace their old character token with the Minion token, show them the “You Are” info token then the Minion character token, and give a thumbs down. Repeat until the normal number of Minions exist. Put the Kazali to sleep."
+                },
+                {
+                    "p": "Each night except the first, wake the Kazali. They point at any player. That player dies."
+                },
+                {
+                    "p": "Depending on the script, adding more than one Outsider can put the good team at a significant disadvantage."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "There are 15 players and no Minions in play yet. The Kazali wakes and chooses that Doug becomes the evil {c:organgrinder}, that Amy becomes the evil {c:vizier}, and that Lewis becomes the evil {c:goblin}."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "Choose the players who you have the best synergy with as evil. This is your opportunity to put together that evil team that always kick ass and who can help you roll all these poor unsuspecting good players.",
+                        "If in doubt, choose the players you’re afraid of when you’re evil and they’re good. If you can’t beat ‘em, make them join you!",
+                        "Choose players who aren’t the top picks for a Kazali. If the picks seem very odd, it’s more likely that town will believe the Minions were drawn from the bag and won’t be looking for you as a Kazali.",
+                        "Ignore the “best strategy” and pick whoever seems most fun! At the end of the day, this game is for fun and if there are people that you always have an absolute blast on a team with, pick them, get them on board and go have an absolute riot together!",
+                        "Choose Minions that fit together well. An {c:organgrinder} can have great synergy with a {c:goblin} or {c:boomdandy}, a {c:pithag} loves having a {c:widow} to call shots for them – put the best possible squad together.",
+                        "Choose Minions that will allow you to bluff another Demon being in play. Maybe you want to fly under the radar a little, so it might be worth picking that {c:assassin} to throw suspicion of a Demon that kills more often, or a {c:devilsadvocate} to make people worry about a {c:lleech}.",
+                        "Give your chosen players the characters that best suit their playstyle. Not only do you get to choose which players are on your team, you also get to assign them characters! So take advantage and give your new Minions the characters that they love to play and can get the most out of."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "fighting-the-kazali",
+            "title": "Fighting the Kazali",
+            "blocks": [
+                {
+                    "ul": [
+                        "Don’t expect to find Minions without bluffs, there won’t be any! One of the idiosyncrasies of the Kazali is that all the Minions start knowing a good character that’s out of play, so they will have a free bluff ready to go from the start of the game and you won’t be able to catch anyone out accordingly.",
+                        "However, that can be a tell too! If everyone seems happy and willing to claim characters early on, maybe there’s a Kazali in play that has ensured the whole evil team has bluffs to use.",
+                        "Check the Outsider count. Because the Kazali can affect the Outsider count unpredictably, it’s not always a sign, but it could be, especially if you’ve got information indicating that there should be nothing else affecting the Outsider count and you have an incorrect number of Outsiders anyway.",
+                        "If you think you’ve found a Minion, ask yourself who would choose that player and who else they would choose. Put yourself in the shoes of each player around the circle and ask yourself if the Minion you’ve found would be a likely ally choice for that player. If yes, does that player make sense to be the Demon with the info you’ve found and can you corroborate this by thinking about who else they might have chosen as their Minions?"
+                    ]
+                }
+            ]
+        }
+    ]
+}
