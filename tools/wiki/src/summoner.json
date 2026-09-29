@@ -1,0 +1,65 @@
+{
+    "id": "summoner",
+    "source": {
+        "page": "Summoner",
+        "oldid": 3014,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "Lachlan Bastiaen",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"You get 3 bluffs. On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]\""
+                },
+                {
+                    "p": "The Summoner creates a Demon."
+                },
+                {
+                    "ul": [
+                        "The Summoner may choose any player to become the Demon, even themselves.",
+                        "The new Demon does not learn which players are Minions, or vice versa. The evil players will need to talk amongst themselves to figure this out.",
+                        "Even though there is no Demon in play for two days, the game does not end. However, if the Summoner becomes unable to create a Demon (due to dying, becoming drunk on night 3 etc.) good wins.",
+                        "The newly created Demon acts on the same night that it is created."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "During the setup phase, remove the Demon and add a Townsfolk."
+                },
+                {
+                    "p": "When preparing the first night, put the Summoner’s **NIGHT 1** reminder by the Summoner. When preparing the second night, put the Summoner’s **NIGHT 2** reminder by the Summoner. When preparing the third night, put the Summoner’s **NIGHT 3** reminder by the Summoner."
+                },
+                {
+                    "p": "During the first night, show the Summoner 3 not-in-play characters as bluffs."
+                },
+                {
+                    "p": "During the night, if the Summoner has a **NIGHT 3** reminder, wake the Summoner. They point at a player, and to a Demon icon on the character sheet. Put the Summoner to sleep. Wake the chosen player. Show the **YOU ARE** info token, then the Demon token. Show the **YOU ARE** info token, then give a thumbs down. Replace their character token with the Demon token and put the new Demon to sleep."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "On the third night, the Summoner chooses the {c:snitch} player, and the {c:lleech}. The {c:snitch} becomes the evil {c:lleech}, and chooses a player to poison, and a player to kill."
+                },
+                {
+                    "example": "On the first day, the Summoner is executed. Good wins."
+                },
+                {
+                    "example": "On the third night, the Summoner turns the {c:alchemist} into the {c:leviathan}. At dawn, all players learn that {c:leviathan} is in play, and that it is day three of five."
+                }
+            ]
+        }
+    ]
+}
