@@ -1,0 +1,86 @@
+{
+    "id": "deviant",
+    "source": {
+        "page": "Deviant",
+        "oldid": 2661,
+        "lastEdited": "2025-01-15"
+    },
+    "artist": "John Grist",
+    "podcast": {
+        "by": "Andrew Nathenson",
+        "audio": "https&#58;//anchor.fm/s/daf1f9c/podcast/play/41202996/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-9-3%2F222062055-44100-2-a9754ed107f35.m4a"
+    },
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"If you were funny today, you cannot die by exile.\""
+                },
+                {
+                    "p": "The Deviant can avoid being Exiled - as long as the Deviant player has been amusing today."
+                },
+                {
+                    "ul": [
+                        "The Deviant can amuse the group in any way they choose. Generally, verbal means such as jokes, funny stories, or witty remarks will suffice.",
+                        "The Storyteller is the judge of whether the Deviant was funny or not."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "If the Deviant would be exiled, you may declare that the Deviant remains alive."
+                },
+                {
+                    "p": "It is best to be forgiving and treat even a slightly funny Deviant as funny. It can be tough to be funny when one is expected to be, after all."
+                },
+                {
+                    "p": "If the player would prefer, you may determine different criteria for whether the Deviant is exiled. If being “funny” is difficult, you may reward the Deviant who “creates a positive mood” or “is helpful to others” instead. The Deviant is not a serious character, and it is meant to encourage laughter, lightheartedness, and fun, so adjust the Deviant rules to your players’ needs and talents."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The evil Deviant cracks a few jokes, and gets a few laughs, but the players nevertheless decide to exile them. Even though there are enough votes, the Storyteller decides to keep the Deviant alive."
+                },
+                {
+                    "example": "On the third day, the Deviant was slightly funny, and cannot be exiled. On the fourth day, the Deviant was not very funny, and is successfully exiled."
+                }
+            ]
+        },
+        {
+            "key": "tips-good",
+            "title": "Tips & Tricks (if you are good)",
+            "blocks": [
+                {
+                    "ul": [
+                        "Oh man. If you are hoping that this wiki entry will teach you how to be funny, you are in trouble. See if you can get a giggle. Do your best, and use your words to lighten the mood - even setting a good vibe might be enough to avoid dying. Above all, relax, be yourself, and be ok with not being funny, should it pan out that way. Sometimes we all fall flat. Good luck :)",
+                        "If you are the Deviant, but find it too much of a challenge to be funny on call, talk to the Storyteller. Together, you may determine different criteria for whether the Deviant is exiled. Instead of “being funny”, you could “create a positive mood” or “be helpful to others” instead. The Deviant is not a serious character, and its purpose is to provide an avenue for laughter, lightheartedness, and fun, so talk to the Storyteller about adjusting the Deviant criteria to your needs and talents.",
+                        "Some personal favorite comedy routines for people in need of inspiration: Steve Wright and Larry Miller."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "tips-evil",
+            "title": "Tips & Tricks (if you are evil)",
+            "blocks": [
+                {
+                    "ul": [
+                        "Oh man. If you are hoping that this wiki entry will teach you how to be funny, you are in trouble. See if you can get a giggle. Do your best, and use your words to lighten the mood - even setting a good vibe might be enough to avoid dying. Above all, relax, be yourself, and be ok with not being funny, should it pan out that way. Sometimes we all fall flat. Good luck :)",
+                        "If you are the Deviant, but find it too much of a challenge to be funny on call, talk to the Storyteller. Together, you may determine different criteria for whether the Deviant is exiled. Instead of “being funny”, you could “create a positive mood” or “be helpful to others” instead. The Deviant is not a serious character, and its purpose is to provide an avenue for laughter, lightheartedness, and fun, so talk to the Storyteller about adjusting the Deviant criteria to your needs and talents.",
+                        "Some personal favorite comedy routines for people in need of inspiration: Billy Connolly and Rowan Atkinson."
+                    ]
+                }
+            ]
+        }
+    ]
+}
