@@ -1,0 +1,108 @@
+{
+    "id": "boffin",
+    "source": {
+        "page": "Boffin",
+        "oldid": 2962,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "Lachlan Bastiaen",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which.\""
+                },
+                {
+                    "p": "The Boffin replicates a good ability."
+                },
+                {
+                    "ul": [
+                        "While the Boffin is alive, the Demon has a single Townsfolk ability or Outsider ability.",
+                        "If the Demon is drunk or poisoned, the Demon keeps this good ability. If the Boffin is drunk or poisoned, the Demon temporarily loses this good ability.",
+                        "If the Demon dies and has an ability that functions while dead, such as the Sweetheart, the Demon keeps this ability.",
+                        "If a new Demon is created, such as via a Scarlet Woman or a Barber, this new Demon has an ability from the Boffin. This ability may be different to the previous Demon's ability.",
+                        "If there are multiple Demons alive, only one alive Demon has an ability from the Boffin.",
+                        "If the Demon has an ability that modifies the setup, such as a Choirboy, these changes are made during setup, as normal.",
+                        "Both the Demon and the Boffin learn which good ability the Demon has. The Storyteller may wake these players independently, or together.",
+                        "The not-in-play character may be 1 of the Demon's 3 bluffs.",
+                        "The Demon also wakes at night at the time that the **good** character would normally wake."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "While setting up the game, before putting character tokens in the bag, make any changes that are indicated in brackets on the Demon's two character abilities. Afterwards, place this second character token by the Demon character token."
+                },
+                {
+                    "p": "During the 1st night, wake the Boffin and the Demon. Show the **THIS CHARACTER SELECTED YOU** info token, then the Boffin token, then the good character token. Place this second character token by the Demon character token."
+                },
+                {
+                    "p": "Treat the Demon player as if they had this character ability, as well as their own Demon ability."
+                },
+                {
+                    "p": "Good abilities that would drunk/poison themselves, such as the Sailor, only drunk/poison the Demon's good ability."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "The {c:imp} has the {c:virgin} ability. The {c:alsaahir} nominates the {c:imp}, and is immediately executed."
+                },
+                {
+                    "example": "The {c:lordoftyphon} has the {c:chambermaid} ability. Each night, the {c:lordoftyphon} wakes, chooses two players, and learns how many woke tonight. On the 4th night, the Boffin is drunk, so the Demon has no {c:chambermaid} ability, so does not wake."
+                },
+                {
+                    "example": "The {c:kazali} has the {c:banshee} ability. The {c:kazali} dies at night, and the {c:scarletwoman} becomes the {c:kazali}. The dead {c:kazali} may nominate and vote twice per day."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "Coordinate with your Demon, no matter what ability they have! If the Demon has the {c:virgin} ability, find a powerful good Townsfolk to nominate them. If the Demon has the {c:gossip} ability, bluff {c:gossip} and make false statements when the Demon makes true {c:gossip} statements. If the Demon has the {c:courtier} ability, find out which good character they've drunked and convince that player their information is sober and healthy.",
+                        "Frame good players who have confirmable abilities. If the good team thinks there is a Boffin in play, build worlds where the confirmed {c:nightwatchman} or {c:professor} is really the Demon with a good character's ability. Push on these players late in the game to keep the Demon alive.",
+                        "Stay alive! The Demon only gets to use their good character ability as long as you live!",
+                        "If the Demon has a once per game ability, encourage them to use it before you die.",
+                        "As the Demon, claim to be the character whose ability you have. (Especially if you have a confirmable ability!)",
+                        "As the Demon, claim to be a different not-in-play character. If you have the {c:pacifist} ability, don't tell anyone! Let good players build worlds where there is a {c:devilsadvocate} protecting evil players, when it's really your {c:pacifist} ability preventing good players from dying to execution. Or, if you are the {c:vortox} with the {c:monk} ability, protect good information-gathering Townsfolk like the {c:seamstress} or the {c:towncrier} so they receive true (and therefore contradictory) information in a {c:vortox} game.",
+                        "As the Demon, use your ability to help the evil team gain information. As the {c:ojo}, use the {c:dreamer} ability to learn the characters of players that you think lied to you. As the {c:fanggu}, use the {c:librarian} ability to identify an Outsider who wants to stay hidden from the evil team.",
+                        "As the Demon, use your ability to secretly hurt the town. Use the {c:courtier} ability to mess up a good player's information! Use the {c:philosopher} ability to drunk an in-play good character without their knowledge!",
+                        "As the Demon, claim to have your ability before you use it, in order to confirm yourself to a good player. Just make sure you use it before the Boffin dies!",
+                        "As the Demon, don't say anything about your ability at first, and confirm yourself to one or more good players.",
+                        "If good players think the Boffin is in play, keep players with confirmable abilities alive, to frame them as the Demon. There's nothing like a final day with the confirmed {c:virgin}, {c:golem}, and {c:nightwatchman} as the last three players alive!"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "fighting-the-boffin",
+            "title": "Fighting the Boffin",
+            "blocks": [
+                {
+                    "ul": [
+                        "Remember that players who are “confirmed” are not necessarily good, and might be the Demon! Fortunately, at most one of the players who is confirmed to have a particular ability is the Demon. If players are claiming to be a {c:fool}, {c:virgin}, {c:professor}, and {c:nightwatchman}, at least 3 of those 4 players must be good!",
+                        "Trust your social reads. There may not always be mechanical information to distinguish between a {c:professor} and a Demon with the {c:professor} ability.",
+                        "If you have a confirmable ability, look for additional information to prove that you are a good player with your ability, and not a Demon masquerading as your good Townsfolk or Outsider ability.",
+                        "If you think there's a Boffin in play, kill players who have confirmed themselves as good. The Storyteller will often give the Demon a confirmable ability like the {c:pacifist}, {c:golem}, or {c:nightwatchman}, so killing these players can narrow down Demon candidates.",
+                        "If strange and unexplainable things keep happening, consider worlds and explanations where an evil Demon is secretly using a good character's ability to cause chaos and confusion. For example, if the {c:innkeeper}'s protected players keep dying in the night, consider that the Demon may have used the {c:philosopher} ability to gain the {c:innkeeper} ability, making the real {c:innkeeper} drunk.",
+                        "Be aware that the Demon may have an unhelpful Outsider ability.",
+                        "If you think there's a Boffin in play, be wary of players who die in the night, especially if there are roles on the script that trigger on death. The {c:imp} with the {c:plaguedoctor} ability can target themself in order to put an additional Minion ability in play. The {c:fanggu} with the {c:banshee} ability can target an Outsider in order to activate their {c:banshee} ability. The {c:nodashii} with the {c:sweetheart} ability can die with a {c:scarletwoman} in play in order to secretly {c:sweetheart} drunk one good player."
+                    ]
+                }
+            ]
+        }
+    ]
+}
