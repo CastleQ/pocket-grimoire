@@ -178,7 +178,7 @@
     <p id="character-show-ability" class="character-show__ability"></p>
     <p id="character-show-orphan" hidden><strong class="character-show__orphan">{{ 'grimoire.character_show.orphan'|trans }}</strong></p>
     <ul class="button-list">
-        <li><button type="button" class="button button--full-height" id="character-show-token">{{ 'grimoire.character_show.show'|trans }}</button></li>
+        <li><button type="button" class="button button--full-height" id="character-show-token" data-label-default="{{ 'grimoire.character_show.show'|trans }}" data-label-wiki="캐릭터 Wiki 바로가기">{{ 'grimoire.character_show.show'|trans }}</button></li>
         <li><button type="button" class="button button--full-height" id="character-shroud-toggle">{{ 'grimoire.character_show.shroud'|trans }}</button></li>
         <li><button type="button" class="button button--full-height" id="character-rotate">{{ 'grimoire.character_show.rotate'|trans }}</button></li>
         <li><button type="button" class="button button--full-height" id="character-image-toggle">선/악 변경</button></li>
@@ -197,6 +197,20 @@
     <p class="mt-4"><small>{{ 'grimoire.character_show.recent_reminders'|trans }}</small></p>
     <ul id="character-show-reminders" class="button-list button-list--reminder is-show-all"></ul>
     <p class="mt-4"><button type="button" class="button button--warning" id="character-remove">{{ 'grimoire.character_show.remove'|trans }}</button></p>
+    {% endblock %}
+{% endembed %}
+
+{% embed 'includes/dialog.html.twig' with {
+    id: 'character-wiki-confirm',
+    background: 'blur',
+    title: '캐릭터 Wiki'
+} %}
+    {% block body %}
+    <p>이 캐릭터의 Wiki 사이트를 새창에서 열까요?<br>마도서 내용이 지워지진 않으니 당황하지마세요.</p>
+    <ul class="button-list mt-4">
+        <li><button type="button" class="button" id="character-wiki-yes">확인</button></li>
+        <li><button type="button" class="button" style="--bg-colour: var(--red);" data-dialog-hide>취소</button></li>
+    </ul>
     {% endblock %}
 {% endembed %}
 

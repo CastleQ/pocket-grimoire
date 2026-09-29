@@ -22,6 +22,38 @@ const characterShowDialog = Dialog.create(lookupOneCached("#character-show"));
 const tokenDialog = TokenDialog.get();
 tokenDialog.setEntryTemplate(new Template(lookupOne("#token-entry-template")));
 
+// ── 캐릭터 Wiki 바로가기 ───────────────────────────────────────────────────
+// 공식 캐릭터(홈브류 아님 + 번역 가이드가 있는 id)는 [자세히보기] 대신
+// [캐릭터 Wiki 바로가기] → 확인창 → 새 창으로 guide.html?id=... 를 연다.
+// 가이드 위치: 정적 배포(/pocket-grimoire/)는 그리모어와 같은 폴더,
+// 개발 환경(/ko_KR/ 등 로케일 경로)은 public 루트. (distribute.js 의 claim.html 규칙과 동일)
+const wikiConfirmDialog = Dialog.create(lookupOneCached("#character-wiki-confirm"));
+const guideBase = /\/[a-z]{2}_[A-Z]{2}(\/|$)/.test(window.location.pathname)
+    ? "/"
+    : window.location.pathname.replace(/[^/]*$/, "");
+let guideIds = [];
+
+fetch(guideBase + "guide/data/index.json", { cache: "no-cache" })
+    .then((response) => (response.ok ? response.json() : []))
+    .then((ids) => {
+        guideIds = Array.isArray(ids) ? ids : [];
+    })
+    .catch(() => {
+        guideIds = [];
+    });
+
+function getWikiId(character) {
+
+    if (!character || character.isCustom()) {
+        return "";
+    }
+
+    const id = character.getId();
+
+    return guideIds.includes(id) ? id : "";
+
+}
+
 // ── 작업 5: 사망/제거/변경 시 관련 리마인더 자동 제거 ─────────────────────────
 // 캐릭터의 ability에 "죽어도(사망 후에도) 효과가 유지"됨을 뜻하는 문구가 있으면
 // 리마인더를 남겨야 하므로 확인창을 띄우지 않는다. (공식/커스텀 JSON 공통 적용)
@@ -78,6 +110,15 @@ tokenObserver.on("character-click", ({ detail }) => {
     characterShowDialog.getElement().dataset.token = `#${identify(element)}`;
     lookupOneCached("#character-show-name").textContent = character.getName();
     lookupOneCached("#character-show-ability").textContent = character.getAbility();
+
+    const showButton = lookupOneCached("#character-show-token");
+    const wikiId = getWikiId(character);
+    showButton.dataset.wikiId = wikiId;
+    showButton.textContent = (
+        wikiId
+        ? showButton.dataset.labelWiki
+        : showButton.dataset.labelDefault
+    );
     recentReminders.dataset.coords = JSON.stringify(pad.getTokenPosition(element));
 
     characterShowDialog.show();
@@ -120,6 +161,17 @@ TokenStore.ready(() => {
     // Show a token as it's clicked from the "show tokens" dialog.
     lookupOne("#character-show-token").addEventListener("click", ({ target }) => {
 
+        const wikiId = target.dataset.wikiId;
+
+        if (wikiId) {
+
+            wikiConfirmDialog.getElement().dataset.wikiId = wikiId;
+            hideDialog(target);
+            wikiConfirmDialog.show();
+            return;
+
+        }
+
         tokenDialog.setIds([
             pad.getCharacterByToken(getToken(target)).getId()
         ]);
@@ -128,6 +180,22 @@ TokenStore.ready(() => {
         hideDialog(target);
 
     });
+
+});
+
+lookupOne("#character-wiki-yes").addEventListener("click", () => {
+
+    const wikiId = wikiConfirmDialog.getElement().dataset.wikiId;
+
+    wikiConfirmDialog.hide();
+
+    if (wikiId) {
+        window.open(
+            guideBase + "guide.html?id=" + encodeURIComponent(wikiId),
+            "_blank",
+            "noopener"
+        );
+    }
 
 });
 
