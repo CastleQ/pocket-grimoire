@@ -9,6 +9,10 @@
       {
         "id": "lunatic",
         "reason": "The Mathematician learns if the Lunatic attacks a different player(s) than the real Demon attacked."
+      },
+      {
+        "id": "drunk",
+        "reason": "The Mathematician learns if the Drunk’s ability yielded false info or failed to work properly."
       }
     ]
   },
@@ -80,11 +84,11 @@
     "jinx": [
       {
         "id": "soldier",
-        "reason": "If the Leviathan is in play, the Soldier is safe from all evil abilities."
+        "reason": "If the Leviathan nominates and executes the Soldier, good wins."
       },
       {
         "id": "monk",
-        "reason": "If the Leviathan is in play, the Monk-protected-player is safe from all evil abilities."
+        "reason": "If the Leviathan nominates and executes the Monk-protected player, good wins."
       },
       {
         "id": "innkeeper",
@@ -108,7 +112,7 @@
       },
       {
         "id": "mayor",
-        "reason": "If the Leviathan is in play & no execution occurs on day 5, good wins."
+        "reason": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, good wins."
       },
       {
         "id": "exorcist",
@@ -141,7 +145,7 @@
       },
       {
         "id": "scarletwoman",
-        "reason": "If there are 5 or more players alive and the player holding the Lil' Monsta token dies, the Scarlet Woman is given the Lil' Monsta token tonight."
+        "reason": "If Lil' Monsta dies with 5 or more players alive, the Scarlet Woman babysits Lil' Monsta for the rest of the game."
       },
       {
         "id": "vizier",
@@ -183,11 +187,11 @@
     "jinx": [
       {
         "id": "fanggu",
-        "reason": "If the Fang Gu chooses an Outsider and dies, the Scarlet Woman does not become the Fang Gu."
+        "reason": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman remains the Scarlet Woman."
       },
       {
         "id": "alhadikhia",
-        "reason": "If there are two living Al-Hadikhias, the Scarlet Woman Al-Hadikhia becomes the Scarlet Woman again."
+        "reason": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman becomes the Scarlet Woman again."
       }
     ]
   },
@@ -196,7 +200,7 @@
     "jinx": [
       {
         "id": "poppygrower",
-        "reason": "If the Poppy Grower is in play, the Spy does not see the Grimoire until the Poppy Grower dies."
+        "reason": "If the Poppy Grower has their ability, the Spy does not see the Grimoire."
       },
       {
         "id": "damsel",
@@ -329,7 +333,7 @@
       },
       {
         "id": "slayer",
-        "reason": "If the Slayer slays the Lleech's host, the host dies."
+        "reason": "If the Slayer slays the Lleech host, the host dies."
       }
     ]
   },
@@ -351,10 +355,6 @@
       {
         "id": "choirboy",
         "reason": "The Kazali can not choose the King to become a Minion if a Choirboy is in play."
-      },
-      {
-        "id": "soldier",
-        "reason": "The Kazali can choose that the Soldier player is one of their evil Minions."
       }
     ]
   },
@@ -363,11 +363,11 @@
     "jinx": [
       {
         "id": "mayor",
-        "reason": "The Mayor may choose to stop nominations. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins."
+        "reason": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins."
       },
       {
         "id": "monk",
-        "reason": "If Riot is in play, the Monk-protected player is safe from all evil abilities."
+        "reason": "If Riot nominates and executes the Monk-protected player, good wins."
       },
       {
         "id": "farmer",
@@ -391,7 +391,7 @@
       },
       {
         "id": "soldier",
-        "reason": "If Riot is in play, the Soldier is safe from all evil abilities."
+        "reason": "If Riot nominates and executes the Soldier, good wins."
       },
       {
         "id": "grandmother",
@@ -421,7 +421,7 @@
     "jinx": [
       {
         "id": "investigator",
-        "reason": "If the Investigator learns that the Vizier is in play, the existence of the Vizier is not announced by the Storyteller."
+        "reason": "The Storyteller doesn't declare the Vizier is in play."
       },
       {
         "id": "preacher",
@@ -497,7 +497,7 @@
       },
       {
         "id": "drunk",
-        "reason": "If the Demon would have the Drunk ability, the Boffin chooses a Townsfolk player to have this ability instead."
+        "reason": "The Demon cannot have the Drunk ability."
       },
       {
         "id": "villageidiot",
@@ -522,11 +522,11 @@
       },
       {
         "id": "spy",
-        "reason": "If the Plague Doctor dies, a living Minion gains the Spy ability in addition to their own ability, and learns this."
+        "reason": "If the Storyteller would gain the Spy ability, a Minion gains it, and learns this."
       },
       {
         "id": "scarletwoman",
-        "reason": "If the Plague Doctor dies, a living Minion gains the Scarlet Woman ability in addition to their own ability, and learns this."
+        "reason": "If the Storyteller would gain the Scarlet Woman ability, a Minion gains it, and learns this."
       },
       {
         "id": "boomdandy",
@@ -534,7 +534,7 @@
       },
       {
         "id": "baron",
-        "reason": "If the Storyteller gains the Baron ability, up to two players become not-in-play Outsiders."
+        "reason": "If the Storyteller would gain the Baron ability, up to two players become Outsiders."
       },
       {
         "id": "marionette",
@@ -555,7 +555,7 @@
       },
       {
         "id": "baron",
-        "reason": "The Baron might only add 1 Outsider, not 2."
+        "reason": "Only 1 jinxed character can be in play."
       },
       {
         "id": "pithag",
@@ -610,7 +610,7 @@
       },
       {
         "id": "spy",
-        "reason": "If the Alchemist has the Spy ability, they do not, and a Spy is in play. Each day, after the execution phase, the living Alchemist may publicly guess a living player as the Spy. If correct, the Demon must choose the Spy tonight."
+        "reason": "An Alchemist-Spy has no Spy ability & a Spy is in play. After each execution, a living Alchemist-Spy may publicly guess a living player as the Spy. If correct, the Demon must choose the Spy tonight."
       },
       {
         "id": "widow",
@@ -660,6 +660,15 @@
       {
         "id": "vizier",
         "reason": "If the Vizier and Magician are both in play, the Demon does not learn the Minions."
+      }
+    ]
+  },
+  {
+    "id": "recluse",
+    "jinx": [
+      {
+        "id": "sage",
+        "reason": "The Recluse might register as the Demon to the Sage."
       }
     ]
   }
