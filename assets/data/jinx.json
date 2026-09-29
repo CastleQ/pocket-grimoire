@@ -13,6 +13,10 @@
       {
         "id": "drunk",
         "reason": "The Mathematician learns if the Drunk’s ability yielded false info or failed to work properly."
+      },
+      {
+        "id": "marionette",
+        "reason": "The Mathematician learns if the Marionette's ability yielded false info or failed to work properly."
       }
     ]
   },
@@ -132,7 +136,7 @@
       },
       {
         "id": "pithag",
-        "reason": "After day 5, the Pit-Hag cannot choose Leviathan."
+        "reason": "The Leviathan cannot enter play after day 5."
       }
     ]
   },
@@ -239,7 +243,7 @@
     "jinx": [
       {
         "id": "clockmaker",
-        "reason": "If the Summoner is in play, the Clockmaker does not receive their information until a Demon is created."
+        "reason": "The Summoner registers as the Demon to the Clockmaker."
       },
       {
         "id": "poppygrower",
@@ -251,7 +255,7 @@
       },
       {
         "id": "pithag",
-        "reason": "The Summoner cannot create an in-play Demon. If the Summoner creates a not-in-play Demon, deaths tonight are arbitrary."
+        "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
       },
       {
         "id": "hatter",
@@ -450,7 +454,7 @@
     "jinx": [
       {
         "id": "banshee",
-        "reason": "If the Vortox is in play and the Demon kills the Banshee, the players still learn that the Banshee has died."
+        "reason": "If the Vortox kills the Banshee, all players learn that the Banshee has died."
       }
     ]
   },
@@ -510,7 +514,7 @@
     "jinx": [
       {
         "id": "eviltwin",
-        "reason": "The Storyteller cannot gain the Evil Twin ability if the Plague Doctor dies."
+        "reason": "If the Storyteller would gain the Evil Twin ability, a player becomes the Evil Twin."
       },
       {
         "id": "fearmonger",
@@ -559,7 +563,7 @@
       },
       {
         "id": "pithag",
-        "reason": "A Pit-Hag can not create a Heretic."
+        "reason": "Only 1 jinxed character can be in play."
       },
       {
         "id": "spy",
