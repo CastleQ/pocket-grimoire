@@ -1,0 +1,90 @@
+{
+    "id": "zealot",
+    "source": {
+        "page": "Zealot",
+        "oldid": 3021,
+        "lastEdited": "2025-11-19"
+    },
+    "artist": "John Grist",
+    "podcast": null,
+    "sections": [
+        {
+            "key": "summary",
+            "title": "Summary",
+            "blocks": [
+                {
+                    "p": "\"If there are 5 or more players alive, you must vote for every nomination.\""
+                },
+                {
+                    "p": "The Zealot votes."
+                },
+                {
+                    "ul": [
+                        "If there are 5 or more players alive, the Zealot must vote for every nomination. If there are 4 or fewer players alive, the Zealot can choose whether they vote or not.",
+                        "Travellers count as alive players.",
+                        "The Zealot can vote like a normal dead player when dead.",
+                        "The Zealot does not need to vote for exiles.",
+                        "A Zealot must vote even if they think they might be drunk or poisoned.",
+                        "It is not the Storyteller's responsibility to monitor the Zealot. They're responsible for their own voting. Deliberately not voting when they should is considered cheating."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "how-to-run",
+            "title": "How to Run",
+            "blocks": [
+                {
+                    "p": "During each nomination, if there are 5 or more players alive, the Zealot must raise their hand to vote."
+                },
+                {
+                    "p": "If the Zealot accidentally forgets to vote, do not tally the Zealot's vote. If you do tally the vote, the total will be more than it should be, and all players will know which player is the Zealot, which is unfair for the evil team. Mistakes happen. Just play on and have a private chat later."
+                }
+            ]
+        },
+        {
+            "key": "examples",
+            "title": "Examples",
+            "blocks": [
+                {
+                    "example": "There are 7 players alive. The Zealot votes for the {c:alsaahir}, the {c:summoner}, {c:ogre}, and the {c:banshee}. The next day, there are 5 players alive. The Zealot votes for the {c:yaggababble}, and the {c:highpriestess}. The next day, there are 3 players alive. The Zealot votes for the {c:yaggababble}, but chooses not to vote for the {c:highpriestess}."
+                },
+                {
+                    "example": "There are 9 players alive. The Zealot is dead. The Zealot doesn't vote for 3 days, and uses their vote token when just 3 players are alive to vote for the {c:farmer}."
+                }
+            ]
+        },
+        {
+            "key": "tips",
+            "title": "Tips & Tricks",
+            "blocks": [
+                {
+                    "ul": [
+                        "VOTE!!!!",
+                        "Actively take part in conversations about who should be nominated. While you must vote on every nomination, you can gain agency over executions by convincing other players to nominate people you'd prefer to vote on.",
+                        "Pretend to be a character that benefits from other players' executions, like the {c:undertaker} or the {c:cannibal}. This might help create confusion amongst players - are you voting all the time because you're the Zealot, or do you just really want to see someone executed?",
+                        "Tell everyone you are the Zealot. If other players are aware that you will be voting on every nomination, that will help them decide who they want to vote for.",
+                        "Be aware that people might find you suspicious because you are voting on everything.",
+                        "If a Traveller is joining the game, encourage them to play as the {c:bureaucrat} or the {c:thief}!",
+                        "Work with your team to get the game to a day where fewer than 5 players live, so you can vote how you like.",
+                        "If you are alive towards the end of the game, make the most of the final day! It's likely the first time in the game that you will have agency over your own votes.",
+                        "If there is a Zealot on the script, watch votes very carefully to figure out if there is a Zealot in play.",
+                        "If you are a character who wants to die in the night, vote on everything to convince the evil team that you are the Zealot."
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "bluffing",
+            "title": "Bluffing as the Zealot",
+            "blocks": [
+                {
+                    "ul": [
+                        "VOTE!!!!",
+                        "If there is a Zealot on the script, watch good players' votes very carefully to figure out if there is a Zealot in play. If a good player is voting on everything, they might be the Zealot, and you likely know where one Outsider is. If no good player votes on every nomination, Zealot is probably out-of-play and therefore a great bluff for Minions."
+                    ]
+                }
+            ]
+        }
+    ]
+}
