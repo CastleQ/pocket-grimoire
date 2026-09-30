@@ -1,0 +1,1182 @@
+{
+  "id": "changelog",
+  "source": {
+    "page": "Changelog",
+    "oldid": 2857
+  },
+  "sections": [
+    {
+      "key": "intro",
+      "level": 0,
+      "title": "",
+      "blocks": [
+        {
+          "p": "Since experimental characters do not yet have a home script, some character descriptions, jinxes, and almanac entries may be updated to resolve an issue with the way that character works, or to make it more fun."
+        },
+        {
+          "p": "Changes are released in conjunction with regular updates to the official app, and will be updated on the wiki accordingly. These updates may be modified or updated again in the future. This page is a record of all changes made from May 2024."
+        }
+      ]
+    },
+    {
+      "key": "july-17th-2025",
+      "level": 1,
+      "title": "July 17th 2025",
+      "blocks": []
+    },
+    {
+      "key": "new-characters",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "cacklejack",
+      "level": 3,
+      "title": "Cacklejack",
+      "blocks": [
+        {
+          "p": "Don't get attached to your character. Welcome the {c:cacklejack}."
+        }
+      ]
+    },
+    {
+      "key": "july-3rd-2025",
+      "level": 1,
+      "title": "July 3rd 2025",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-2",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "wraith",
+      "level": 3,
+      "title": "Wraith",
+      "blocks": [
+        {
+          "p": "Eyes open! Welcome the {c:wraith}."
+        }
+      ]
+    },
+    {
+      "key": "june-26th-2025",
+      "level": 1,
+      "title": "June 26th 2025",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-3",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "princess",
+      "level": 3,
+      "title": "Princess",
+      "blocks": [
+        {
+          "p": "Carpe Diem (at least the first one anyway). Welcome the {c:princess}."
+        }
+      ]
+    },
+    {
+      "key": "june-19th-2025",
+      "level": 1,
+      "title": "June 19th 2025",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-4",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "deus-ex-fiasco",
+      "level": 3,
+      "title": "Deus ex Fiasco",
+      "blocks": [
+        {
+          "p": "Make some mistakes. Welcome the {c:deusexfiasco}."
+        }
+      ]
+    },
+    {
+      "key": "june-12th-2025",
+      "level": 1,
+      "title": "June 12th 2025",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-5",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "hermit",
+      "level": 3,
+      "title": "Hermit",
+      "blocks": [
+        {
+          "p": "3 for the price of 1. Welcome the {c:hermit}."
+        }
+      ]
+    },
+    {
+      "key": "january-17th-2025",
+      "level": 1,
+      "title": "January 17th 2025",
+      "blocks": []
+    },
+    {
+      "key": "ability-text-changes",
+      "level": 2,
+      "title": "Ability text changes",
+      "blocks": []
+    },
+    {
+      "key": "vizier",
+      "level": 3,
+      "title": "Vizier",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → All players know you are the Vizier. You can not die during the day. If good voted, you may choose to execute immediately.",
+            "Current → All players know you are the Vizier. You cannot die during the day. If good voted, you may choose to execute immediately."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "organ-grinder",
+      "level": 3,
+      "title": "Organ Grinder",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk or not.",
+            "Current → All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk until dusk."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "january-3rd-2025",
+      "level": 1,
+      "title": "January 3rd 2025",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-6",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "wizard",
+      "level": 3,
+      "title": "Wizard",
+      "blocks": [
+        {
+          "p": "Genies are overrated. Welcome the {c:wizard}."
+        }
+      ]
+    },
+    {
+      "key": "december-6th-2024",
+      "level": 1,
+      "title": "December 6th 2024",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-7",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "knock-knock-open-up-the-door-it-s-real",
+      "level": 3,
+      "title": "Knock-knock, open up the door, it's real",
+      "blocks": [
+        {
+          "p": "Start counting Outsiders. Welcome the {c:xaan}."
+        }
+      ]
+    },
+    {
+      "key": "ability-text-changes-2",
+      "level": 2,
+      "title": "Ability text changes",
+      "blocks": []
+    },
+    {
+      "key": "alchemist",
+      "level": 3,
+      "title": "Alchemist",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → You have a not-in-play Minion ability.",
+            "Current → You have a Minion ability. When using this, the Storyteller may prompt you to choose differently."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "al-hadikhia",
+      "level": 3,
+      "title": "Al-Hadikhia",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Each night*, choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die.",
+            "Current → Each night*, you may choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "riot",
+      "level": 3,
+      "title": "Riot",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Nominees die, but may nominate again immediately (on day 3, they must). After day 3, evil wins. [All Minions are Riot]",
+            "Current → On day 3, Minions become Riot & nominees die but nominate an alive player immediately. This must happen."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "updated-jinxes",
+      "level": 2,
+      "title": "Updated Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "jinx-list-recalibration",
+      "level": 3,
+      "title": "Jinx list recalibration.",
+      "blocks": [
+        {
+          "p": "The jinx list has been recalibrated. This has been done to result in a cleaner presentation, and it will be easier to remember which characters are jinxed. You can see the recalibrated list on the {c:djinn} page."
+        }
+      ]
+    },
+    {
+      "key": "riot-leviathan",
+      "level": 3,
+      "title": "Riot / Leviathan",
+      "blocks": [
+        {
+          "p": "All Riot and most Leviathan jinxes have been updated, or removed."
+        }
+      ]
+    },
+    {
+      "key": "november-8th-2024",
+      "level": 1,
+      "title": "November 8th 2024",
+      "blocks": []
+    },
+    {
+      "key": "ability-text-changes-3",
+      "level": 2,
+      "title": "Ability text changes",
+      "blocks": []
+    },
+    {
+      "key": "alsaahir",
+      "level": 3,
+      "title": "Alsaahir",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Once per day, if you publicly guess which players are Minion(s) and which are Demon(s), good wins.",
+            "Current → Each day, if you publicly guess which players are Minion(s) and which are Demon(s), good wins."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "damsel",
+      "level": 3,
+      "title": "Damsel",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → All Minions know you are in play. If a Minion publicly guesses you (once), your team loses.",
+            "Current → All Minions know a Damsel is in play. If a Minion publicly guesses you (once), your team loses."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "farmer",
+      "level": 3,
+      "title": "Farmer",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → If you die at night, an alive good player becomes a Farmer.",
+            "Current → When you die at night, an alive good player becomes a Farmer."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "king",
+      "level": 3,
+      "title": "King",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows who you are.",
+            "Current → Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows you are the King."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "nightwatchman",
+      "level": 3,
+      "title": "Nightwatchman",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Once per game, at night, choose a player: they learn who you are.",
+            "Current → Once per game, at night, choose a player: they learn you are the Nightwatchman."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "plague-doctor",
+      "level": 3,
+      "title": "Plague Doctor",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → If you die, the Storyteller gains a Minion ability.",
+            "Current → When you die, the Storyteller gains a Minion ability."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "snitch",
+      "level": 3,
+      "title": "Snitch",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Minions start knowing 3 not-in-play characters.",
+            "Current → Each Minion gets 3 bluffs."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vizier-2",
+      "level": 3,
+      "title": "Vizier",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → All players know who you are. You can not die during the day. If good voted, you may choose to execute immediately.",
+            "Current → All players know you are the Vizier. You can not die during the day. If good voted, you may choose to execute immediately."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "new-jinxes",
+      "level": 2,
+      "title": "New Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "cannibal",
+      "level": 3,
+      "title": "Cannibal",
+      "blocks": [
+        {
+          "ul": [
+            "{c:cannibal} / {c:poppygrower}: If the Cannibal eats the Poppy Grower, then dies or loses the Poppy Grower ability, the Demon and Minions learn each other that night."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "removed-jinxes",
+      "level": 2,
+      "title": "Removed Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "lycanthrope-gambler",
+      "level": 3,
+      "title": "Lycanthrope / Gambler",
+      "blocks": [
+        {
+          "ul": [
+            "{c:lycanthrope} & {c:gambler} are no longer jinxed."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "november-1st-2024",
+      "level": 1,
+      "title": "November 1st 2024",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-8",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "gnome",
+      "level": 3,
+      "title": "Gnome",
+      "blocks": [
+        {
+          "p": "GNOME MERCY! Welcome the {c:gnome}."
+        }
+      ]
+    },
+    {
+      "key": "ability-text-changes-4",
+      "level": 2,
+      "title": "Ability text changes",
+      "blocks": []
+    },
+    {
+      "key": "boomdandy",
+      "level": 3,
+      "title": "Boomdandy",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → If you are executed, all but 3 players die. 1 minute later, the player with the most players pointing at them, dies.",
+            "Current → If you are executed, all but 3 players die. After a 10 to 1 countdown, the player with the most players pointing at them, dies."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "lycanthrope",
+      "level": 3,
+      "title": "Lycanthrope",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Each night*, choose an alive player: if good, they die, but they are the only player that can die tonight.",
+            "Current → Each night*, choose an alive player. If good, they die & the Demon doesn’t kill tonight. One good player registers as evil."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "removed-jinxes-2",
+      "level": 2,
+      "title": "Removed Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "organ-grinder-2",
+      "level": 3,
+      "title": "Organ Grinder",
+      "blocks": [
+        {
+          "ul": [
+            "{c:organgrinder} & {c:lilmonsta} are no longer jinxed."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "october-18th-2024",
+      "level": 1,
+      "title": "October 18th 2024",
+      "blocks": []
+    },
+    {
+      "key": "ability-text-changes-5",
+      "level": 2,
+      "title": "Ability text changes",
+      "blocks": []
+    },
+    {
+      "key": "organ-grinder-3",
+      "level": 3,
+      "title": "Organ Grinder",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → All players keep their eyes closed when voting & the vote tally is secret. Votes for you only count if you vote.",
+            "Current → All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk or not."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "acrobat",
+      "level": 3,
+      "title": "Acrobat",
+      "blocks": [
+        {
+          "p": "The Acrobat has become a Townsfolk."
+        },
+        {
+          "ul": [
+            "Previous → Each night*, if either good living neighbour is drunk or poisoned, you die.",
+            "Current → Each night*, choose a player: if they are or become drunk or poisoned tonight, you die."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "updated-jinxes-2",
+      "level": 2,
+      "title": "Updated Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "kazali-goon",
+      "level": 3,
+      "title": "Kazali / Goon",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → If the Kazali chooses the Goon to become a Minion, remaining Minion choices are decided by the Storyteller.",
+            "Current → The Kazali can choose that the Goon player is one of their evil Minions."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "kazali-soldier",
+      "level": 3,
+      "title": "Kazali / Soldier",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → If the Kazali turns the Soldier into a Minion, the Soldier chooses which not-in-play Minion to become.",
+            "Current → The Kazali can choose that the Soldier player is one of their evil Minions."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "removed-jinxes-3",
+      "level": 2,
+      "title": "Removed Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "organ-grinder-4",
+      "level": 3,
+      "title": "Organ Grinder",
+      "blocks": [
+        {
+          "ul": [
+            "{c:organgrinder} & {c:minstrel} are no longer jinxed.",
+            "{c:organgrinder} & {c:preacher} are no longer jinxed."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "september-27th-2024",
+      "level": 1,
+      "title": "September 27th 2024",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-9",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "boffin",
+      "level": 3,
+      "title": "Boffin",
+      "blocks": [
+        {
+          "p": "Be confirmed and be evil! Welcome the {c:boffin}."
+        }
+      ]
+    },
+    {
+      "key": "august-29th-2024",
+      "level": 1,
+      "title": "August 29th 2024",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-10",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "lord-of-typhon",
+      "level": 3,
+      "title": "Lord of Typhon",
+      "blocks": [
+        {
+          "p": "Keep your enemies close, but your friends closer. Welcome the {c:lordoftyphon}."
+        }
+      ]
+    },
+    {
+      "key": "updated-jinxes-3",
+      "level": 2,
+      "title": "Updated Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "marionette-balloonist",
+      "level": 3,
+      "title": "Marionette / Balloonist",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → If the Marionette thinks that they are the Balloonist, +1 Outsider was added.",
+            "Current → If the Marionette thinks that they are the Balloonist, +1 Outsider might have been added."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "july-26th-2024",
+      "level": 1,
+      "title": "July 26th 2024",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-11",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "zealot",
+      "level": 3,
+      "title": "Zealot",
+      "blocks": [
+        {
+          "p": "They've got my vote. It's the {c:zealot}."
+        }
+      ]
+    },
+    {
+      "key": "ability-text-changes-6",
+      "level": 2,
+      "title": "Ability text changes",
+      "blocks": []
+    },
+    {
+      "key": "lleech",
+      "level": 3,
+      "title": "Lleech",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Each night*, choose a player: they die. You start by choosing an alive player: they are poisoned - you die if (& only if) they die.",
+            "Current → Each night*, choose a player: they die. You start by choosing a player: they are poisoned. You die if & only if they are dead."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "june-27th-2024",
+      "level": 1,
+      "title": "June 27th 2024",
+      "blocks": []
+    },
+    {
+      "key": "new-characters-12",
+      "level": 2,
+      "title": "New characters",
+      "blocks": []
+    },
+    {
+      "key": "alsaahir-2",
+      "level": 3,
+      "title": "Alsaahir",
+      "blocks": [
+        {
+          "p": "Guess who? It's the {c:alsaahir}."
+        }
+      ]
+    },
+    {
+      "key": "ability-text-changes-7",
+      "level": 2,
+      "title": "Ability text changes",
+      "blocks": []
+    },
+    {
+      "key": "balloonist",
+      "level": 3,
+      "title": "Balloonist",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Each night, you learn 1 player of each character type, until there are no more types to learn. [+1 Outsider]",
+            "Current → Each night, you learn a player of a different character type than last night. [+0 or +1 Outsider]"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "harpy",
+      "level": 3,
+      "title": "Harpy",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Each night, choose 2 players: tomorrow, the 1st player is mad that the 2nd is evil, or both might die.",
+            "Current → Each night, choose 2 players: tomorrow, the 1st player is mad that the 2nd is evil, or one or both might die."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "lil-monsta",
+      "level": 3,
+      "title": "Lil' Monsta",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Each night, Minions choose who babysits Lil' Monsta's token & \"is the Demon\". A player dies each night*. [+1 Minion]",
+            "Current → Each night, Minions choose who babysits Lil' Monsta & 'is the Demon'. Each night*, a player might die. [+1 Minion]"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "plague-doctor-2",
+      "level": 3,
+      "title": "Plague Doctor",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → If you die, the Storyteller gains a not-in-play Minion ability.",
+            "Current → If you die, the Storyteller gains a Minion ability."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "new-jinxes-2",
+      "level": 2,
+      "title": "New Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "kazali",
+      "level": 3,
+      "title": "Kazali",
+      "blocks": [
+        {
+          "ul": [
+            "{c:kazali} / {c:soldier}: If the Kazali turns the Soldier into a Minion, the Soldier chooses which not-in-play Minion to become."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "legion",
+      "level": 3,
+      "title": "Legion",
+      "blocks": [
+        {
+          "ul": [
+            "{c:legion} / {c:minstrel}: If Legion died by execution today, Legion keeps their ability, but the Minstrel might learn they are Legion."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "summoner",
+      "level": 3,
+      "title": "Summoner",
+      "blocks": [
+        {
+          "ul": [
+            "{c:summoner} / {c:preacher}: If the Preacher chose the Summoner on or before the 3rd night, the Summoner chooses which Demon, but the Storyteller chooses which player."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "updated-jinxes-4",
+      "level": 2,
+      "title": "Updated Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "al-hadikhia-mastermind",
+      "level": 3,
+      "title": "Al-Hadikhia / Mastermind",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Only 1 jinxed character can be in play. Evil players start knowing which player and character it is.",
+            "Current → If the Al-Hadikhia dies by execution, and the Mastermind is alive, the Al-Hadikhia chooses 3 good players tonight: if all 3 choose to live, evil wins. Otherwise, good wins."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "legion-preacher",
+      "level": 3,
+      "title": "Legion / Preacher",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Only 1 jinxed character can be in play.",
+            "Current → If the Preacher chooses Legion, Legion keeps their ability, but the Preacher might learn they are Legion."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "lil-monsta-magician",
+      "level": 3,
+      "title": "Lil' Monsta / Magician",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Only 1 jinxed character can be in play.",
+            "Current → Each night, the Magician chooses a Minion: if that Minion & Lil' Monsta are alive, that Minion babysits Lil’ Monsta."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "organ-grinder-minstrel",
+      "level": 3,
+      "title": "Organ Grinder / Minstrel",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Only 1 jinxed character can be in play. Evil players start knowing which player and character it is.",
+            "Current → If the Minstrel makes everyone drunk, the Organ Grinder keeps their ability but the Minstrel keeps their eyes open when voting."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "organ-grinder-preacher",
+      "level": 3,
+      "title": "Organ Grinder / Preacher",
+      "blocks": [
+        {
+          "ul": [
+            "Previous → Only 1 jinxed character can be in play. Evil players start knowing which player and character it is.",
+            "Current → If the Preacher removes the Organ Grinder ability, the Organ Grinder keeps their ability but the Preacher keeps their eyes open when voting."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "removed-jinxes-4",
+      "level": 2,
+      "title": "Removed Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "organ-grinder-5",
+      "level": 3,
+      "title": "Organ Grinder",
+      "blocks": [
+        {
+          "ul": [
+            "{c:organgrinder} & {c:flowergirl} are no longer jinxed."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "june-6th-2024",
+      "level": 1,
+      "title": "June 6th 2024",
+      "blocks": []
+    },
+    {
+      "key": "new-jinxes-3",
+      "level": 2,
+      "title": "New Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "philosopher",
+      "level": 3,
+      "title": "Philosopher",
+      "blocks": [
+        {
+          "ul": [
+            "{c:philosopher} / {c:bountyhunter}: If the Philosopher gains the Bounty Hunter ability, a Townsfolk might turn evil."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "updated-jinxes-5",
+      "level": 2,
+      "title": "Updated Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "organ-grinder-flowergirl",
+      "level": 3,
+      "title": "Organ Grinder / Flowergirl",
+      "blocks": [
+        {
+          "ul": [
+            "**Previous** → If players' eyes were closed during the nominations, the Flowergirl learns how many times the Demon voted.",
+            "**Current** → If the Organ Grinder is causing eyes-closed voting, the Flowergirl wakes tonight to choose a player: they learn if that player voted today. (instead of their normal ability)"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "may-24th-2024",
+      "level": 1,
+      "title": "May 24th 2024",
+      "blocks": []
+    },
+    {
+      "key": "new-jinxes-4",
+      "level": 2,
+      "title": "New Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "cannibal-2",
+      "level": 3,
+      "title": "Cannibal",
+      "blocks": [
+        {
+          "ul": [
+            "{c:cannibal} / {c:juggler}: If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "updated-jinxes-6",
+      "level": 2,
+      "title": "Updated Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "vizier-magician",
+      "level": 3,
+      "title": "Vizier / Magician",
+      "blocks": [
+        {
+          "ul": [
+            "**Previous** → Only 1 jinxed character can be in play. Evil players start knowing which player and character it is.",
+            "**Current** → If the Vizier and Magician are both in play, the Demon does not learn the Minions."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "may-15th-2024",
+      "level": 1,
+      "title": "May 15th 2024",
+      "blocks": []
+    },
+    {
+      "key": "ability-text-changes-8",
+      "level": 2,
+      "title": "Ability text changes",
+      "blocks": []
+    },
+    {
+      "key": "king-2",
+      "level": 3,
+      "title": "King",
+      "blocks": [
+        {
+          "ul": [
+            "**Previous** → Each night, if the dead outnumber the living, you learn 1 alive character. The Demon knows who you are.",
+            "**Current** → Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows who you are."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "almanac-changes",
+      "level": 2,
+      "title": "Almanac changes",
+      "blocks": []
+    },
+    {
+      "key": "goblin",
+      "level": 3,
+      "title": "Goblin",
+      "blocks": [
+        {
+          "ul": [
+            "The {c:goblin} now has a rulebook entry in the experimental almanac."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "new-jinxes-5",
+      "level": 2,
+      "title": "New Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "pit-hag",
+      "level": 3,
+      "title": "Pit-Hag",
+      "blocks": [
+        {
+          "ul": [
+            "{c:pithag} / {c:cultleader}: If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability.",
+            "{c:pithag} / {c:goon}: If the Pit-Hag turns an evil player into the Goon, they can't turn good due to their own ability."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "politician",
+      "level": 3,
+      "title": "Politician",
+      "blocks": [
+        {
+          "ul": [
+            "{c:politician} / {c:vizier}: The Politician might register as evil to the Vizier."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "summoner-2",
+      "level": 3,
+      "title": "Summoner",
+      "blocks": [
+        {
+          "ul": [
+            "{c:summoner} / {c:courtier}: If the Summoner is drunk on the 3rd night, the Summoner chooses which Demon, but the Storyteller chooses which player.",
+            "{c:summoner} / {c:engineer}: If the Engineer removes a Summoner from play before that Summoner uses their ability, the Summoner uses their ability immmediately.",
+            "{c:summoner} / {c:hatter}: The Summoner cannot create an in-play Demon. If the Summoner creates a not-in-play Demon, deaths tonight are arbitrary.",
+            "{c:summoner} / {c:pithag}: The Summoner cannot create an in-play Demon. If the Summoner creates a not-in-play Demon, deaths tonight are arbitrary.",
+            "{c:summoner} / {c:pukka}: The Summoner may choose a player to become the Pukka on the 2nd night.",
+            "{c:summoner} / {c:zombuul}: If the Summoner turns a dead player into the Zombuul, the Storyteller treats that player as a Zombuul that has died once."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "updated-jinxes-7",
+      "level": 2,
+      "title": "Updated Jinxes",
+      "blocks": []
+    },
+    {
+      "key": "pit-hag-politician",
+      "level": 3,
+      "title": "Pit-Hag / Politician",
+      "blocks": [
+        {
+          "ul": [
+            "**Previous** → The Pit-Hag cannot create an evil Politician.",
+            "**Current** → If the Pit-Hag turns an evil player into the Politician, they can't turn good due to their own ability."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "spy-damsel",
+      "level": 3,
+      "title": "Spy / Damsel",
+      "blocks": [
+        {
+          "ul": [
+            "**Previous** → Only 1 jinxed character can be in play.",
+            "**Current** → If the Spy is (or has been) in play, the Damsel is poisoned."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "summoner-kazali",
+      "level": 3,
+      "title": "Summoner / Kazali",
+      "blocks": [
+        {
+          "ul": [
+            "**Previous** → The Kazali can not choose to create a Summoner.",
+            "**Current** → The Summoner cannot create an in-play Demon. If the Summoner creates a not-in-play Demon, deaths tonight are arbitrary."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "summoner-riot",
+      "level": 3,
+      "title": "Summoner / Riot",
+      "blocks": [
+        {
+          "ul": [
+            "**Previous** → If the Summoner creates Riot, the chosen player and all evil players become Riot. The chosen player must be one of the Summoner's living good neighbours.",
+            "**Current** → If the Summoner creates Riot, all Minions become Riot."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "widow-damsel",
+      "level": 3,
+      "title": "Widow / Damsel",
+      "blocks": [
+        {
+          "ul": [
+            "**Previous** → Only 1 jinxed character can be in play.",
+            "**Current** → If the Widow is (or has been) in play, the Damsel is poisoned."
+          ]
+        }
+      ]
+    },
+    {
+      "key": "miscellaneous",
+      "level": 2,
+      "title": "Miscellaneous",
+      "blocks": []
+    },
+    {
+      "key": "teensyville",
+      "level": 3,
+      "title": "Teensyville",
+      "blocks": [
+        {
+          "ul": [
+            "Teensyville scripts now have 6 Townsfolk, 2 Outsiders, 2 Minions, and 2 Demons."
+          ]
+        }
+      ]
+    }
+  ]
+}
