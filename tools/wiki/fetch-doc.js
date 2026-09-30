@@ -6,7 +6,8 @@
 //
 // 정리 규칙
 //  - 섹션: 위키 제목(= … =) 단위. level은 문서 안에서 가장 큰 제목을 1로 맞춘 단계. 첫 제목 앞 글은 제목 없는 섹션.
-//  - 블록: 빈 줄로 나뉜 문단 → { p }, 연속된 * 항목 → { ul: [...] }. ** 하위 항목이 있으면 그 항목은 { t, ul: [...] }
+//  - 블록: 빈 줄(또는 <br>만 있는 줄)로 나뉜 문단 → { p }, 연속된 * 항목 → { ul: [...] }. ** 하위 항목이 있으면 그 항목은 { t, ul: [...] }
+//    <div class="example"> 안의 문단 → { example }
 //  - {{Good|Butler}} 같은 캐릭터 틀 → {c:butler} (영문자만 남겨 소문자)
 //  - '''굵게''' → **굵게**, ''기울임'' → __기울임__ (능력 문구의 * 표시와 헷갈리지 않게)
 //  - [[문서|글자]] → [글자](wiki:문서), [https://주소 글자] → [글자](https://주소)
@@ -24,8 +25,17 @@ const PAGES = {
     "glossary": "Glossary",
     "storyteller-advice": "Storyteller_Advice",
     "player-strategy": "Player_Strategy",
-    "changelog": "Changelog"
+    "changelog": "Changelog",
+    "setup": "Setup",
+    "rules": "Rules_Explanation",
+    "abilities": "Abilities",
+    "states": "States",
+    "teensyville": "Teensyville",
+    "script-tool": "Script_Tool"
 };
+
+// 캐릭터 틀({{Good|…}})에 캐릭터가 아닌 이름(Travellers·Fabled 등 유형)이 오면 캐릭터 표시 대신 위키 문서 링크로
+const catalogIds = new Set(JSON.parse(fs.readFileSync(path.join(root, "public", "guide", "data", "catalog.json"), "utf8")).map((entry) => entry.id));
 
 function get(url) {
     return new Promise((resolve, reject) => {
@@ -47,9 +57,11 @@ function get(url) {
 function inline(text) {
     return text
         .replace(/<br\s*\/?>/g, " ")
-        .replace(/\{\{\s*(?:Good|Evil|Traveler|Traveller|Fabled|Loric)\s*\|([^|}]+)\|?\s*\}\}/g, (all, name) => (
-            "{c:" + name.toLowerCase().replace(/[^a-z]/g, "") + "}"
-        ))
+        .replace(/<\/?span[^>]*>/g, "")
+        .replace(/\{\{\s*(?:Good|Evil|Traveler|Traveller|Fabled|Loric)\s*\|([^|}]+)\|?\s*\}\}/g, (all, name) => {
+            const id = name.toLowerCase().replace(/[^a-z]/g, "");
+            return catalogIds.has(id) ? "{c:" + id + "}" : "[" + name.trim() + "](wiki:" + name.trim().replace(/ /g, "_") + ")";
+        })
         .replace(/'''(.+?)'''/g, "**$1**")
         .replace(/''(.+?)''/g, "__$1__")
         .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, (all, page, label) => "[" + label + "](wiki:" + page.trim().replace(/ /g, "_") + ")")
@@ -71,11 +83,13 @@ function parse(key, wikitext, oldid) {
     const used = {};
     let section = { key: "intro", level: 0, title: "", blocks: [] };
     let paragraph = [];
+    let inExample = false;
 
+    // 예시 상자(<div class="example">) 안의 문단은 { example } 블록
     function flush() {
         const text = inline(paragraph.join(" "));
         if (text) {
-            section.blocks.push({ p: text });
+            section.blocks.push(inExample ? { example: text } : { p: text });
         }
         paragraph = [];
     }
@@ -115,7 +129,19 @@ function parse(key, wikitext, oldid) {
             }
             return;
         }
-        if (!line.trim() || /^<\/?div/.test(line.trim())) {
+        const trimmed = line.trim();
+        if (/^<div[^>]*class="example"/.test(trimmed)) {
+            flush();
+            inExample = true;
+            return;
+        }
+        if (trimmed === "</div>" && inExample) {
+            flush();
+            inExample = false;
+            return;
+        }
+        // 빈 줄, 틀 div, 구분선, <br>만 있는 줄은 문단 나눔
+        if (!trimmed || /^<\/?div/.test(trimmed) || /^<hr\s*\/?>$/.test(trimmed) || /^(<br\s*\/?>\s*)+$/.test(trimmed)) {
             flush();
             return;
         }
