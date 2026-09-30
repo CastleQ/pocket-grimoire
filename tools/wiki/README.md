@@ -18,7 +18,7 @@ Blood on the Clocktower 공식 위키(`wiki.bloodontheclocktower.com`)의 캐릭
 | `public/guide/data/jinxes.json` | 관련 징크스(앱의 징크스 문구) — **자동 생성**. 위키 징크스 표는 따로 번역하지 않고, 앱 징크스를 위키 기준으로 최신화해 쓴다(아래 징크스 도구) |
 | `public/guide/img/` | 위키 장식 이미지(배경·양피지·액자·로고·판 로고). 원본을 줄여 webp로 저장 |
 | `tools/wiki/fetch-src.js` | 위키 원문 수집. `node tools/wiki/fetch-src.js <id> ...` (있으면 SKIP, `--force`로 다시) |
-| `tools/wiki/fetch-doc.js` | 캐릭터가 아닌 위키 문서(용어집·이야기꾼 조언·플레이어 전략·변경 이력) 원문을 `src-pages/<키>.json`으로 수집. `node tools/wiki/fetch-doc.js <키> ...` (있으면 SKIP, `--force`로 다시). 번역은 같은 칸 구조로 `public/guide/data/pages/<키>.json` |
+| `tools/wiki/fetch-doc.js` | 캐릭터가 아닌 위키 문서(게임 정보 4종·규칙서 6종, 키 목록은 파일 안 PAGES) 원문을 `src-pages/<키>.json`으로 수집. `node tools/wiki/fetch-doc.js <키> ...` (있으면 SKIP, `--force`로 다시). 번역은 같은 칸 구조로 `public/guide/data/pages/<키>.json` |
 | `tools/wiki/src/<id>.json` | 영어 원문 + 위키 판번호(oldid). 사이트에는 나가지 않음 |
 | `tools/wiki/glossary.csv` | 용어집. `한글_official` 칸 우선, 비어 있으면 `한글_variants` |
 | `tools/wiki/build-guide-data.js` | roles.json·index.json·catalog.json 생성 + 점검. `bake.sh`가 자동 실행 |
