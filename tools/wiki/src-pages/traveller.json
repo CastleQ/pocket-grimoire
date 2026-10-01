@@ -1,0 +1,24 @@
+{
+  "id": "traveller",
+  "source": {
+    "page": "Travellers",
+    "oldid": 2853
+  },
+  "sections": [
+    {
+      "key": "intro",
+      "title": "",
+      "blocks": [
+        {
+          "p": "Traveller characters are for players that turn up late, or will need to leave early. Traveller players may join the game at any time, and may leave the game at any time."
+        },
+        {
+          "p": "Travellers tend to have extremely effective abilities, but gain little information. They have maximum power, and minimum responsibility."
+        },
+        {
+          "p": "If they are evil, they learn who the Demon is; they do not learn any additional evil characters or receive any bluffs."
+        }
+      ]
+    }
+  ]
+}

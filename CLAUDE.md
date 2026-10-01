@@ -118,6 +118,9 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 `docs/data/` · `docs/scripts/` · `docs/img/` 모두 `bake.sh`가 매번 지우고 다시 만든다. 고칠 곳은 **`public/scripts/`** 와 `assets/data/`다.
 `docs/`는 GitHub Pages가 서비스하는 공개 폴더이므로, 작업 메모나 문서를 여기에 두지 않는다.
 
+**⑬ `guide/data/`·`img/official/` 위치를 바꾸면 캐릭터 도감 사이트가 깨진다**
+별도 사이트 `CastleQ/botc-wiki-ko`(캐릭터 도감)가 PG+ 배포본의 `/pocket-grimoire/guide/data/…`(roles·index·jinxes·chars)와 `/pocket-grimoire/img/official/<id>_0.webp`, `/pocket-grimoire/guide/img/…`를 **절대 경로로 직접 읽는다.** 이 폴더·파일 이름·데이터 형식을 바꾸려면 도감 쪽도 함께 고친다.
+
 ---
 
 ## 5. 시트 데이터 규칙
@@ -195,7 +198,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | 시트 열기/공유 연결 | `assets/js/processes/setup/character-sheet.js` |
 | 커스텀 시트 아카이브 | `assets/js/processes/setup/script-archive.js` |
 | 온라인 배포 | `assets/js/processes/setup/distribute.js` |
-| **캐릭터 가이드**(공식 위키 번역) | `public/guide.html` / `public/guide/data/` / `tools/wiki/` — 작업 방법은 `tools/wiki/README.md` |
+| **캐릭터 가이드**(공식 위키 번역) | `public/guide.html` / `public/guide/data/` / `tools/wiki/` — 작업 방법은 `tools/wiki/README.md` · 도감 사이트가 이 데이터를 읽음(함정 ⑬) |
 | 공식 3종 순번표 | `assets/js/data/official-order.js` |
 | 공식 아이콘 매핑 ⚠️ | `assets/data/role-images.json` |
 | 아이콘 | `public/img/official/` / `assets/img/download.png` |

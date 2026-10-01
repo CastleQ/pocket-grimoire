@@ -1,0 +1,21 @@
+{
+  "id": "experimental",
+  "source": {
+    "page": "Experimental",
+    "oldid": 3071
+  },
+  "sections": [
+    {
+      "key": "intro",
+      "title": "",
+      "blocks": [
+        {
+          "p": "Experimental characters are characters which do not yet have a home script. At some point in the future, these may be released as part of official expansion scripts. For now, you are encouraged to experiment with them in your own scripts."
+        },
+        {
+          "p": "Recommended for players and Storytellers who have experienced many games of Blood on the Clocktower."
+        }
+      ]
+    }
+  ]
+}

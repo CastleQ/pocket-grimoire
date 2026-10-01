@@ -1,0 +1,51 @@
+{
+  "id": "bmr",
+  "source": {
+    "page": "Bad_Moon_Rising",
+    "oldid": 2871
+  },
+  "sections": [
+    {
+      "key": "synopsis",
+      "title": "Synopsis",
+      "blocks": [
+        {
+          "p": "_The sun is swallowed by a jagged horizon as another winter's day surrenders to the night. Flecks of orange and red decay into deeper browns, the forest transforming in silent anticipation of the coming snow._"
+        },
+        {
+          "p": "_Ravenous wolves howl from the bowels of a rocky crevasse beyond the town borders, sending birds scattering from their cozy rooks. Travellers hurry into the inn, seeking shelter from the gathering chill. They warm themselves with hot tea, sweet strains of music and hearty ale, unaware that strange and nefarious eyes stalk them from the ruins of this once great city._"
+        },
+        {
+          "p": "_Tonight, even the livestock know there is a... **Bad Moon Rising.**_"
+        }
+      ]
+    },
+    {
+      "key": "gameplay",
+      "title": "Gameplay",
+      "blocks": [
+        {
+          "p": "Bad Moon Rising is a death extravaganza. Demons kill multiple times per night, and Minions get in on the action too. Good players can take great risks to gain reliable information, but may accidentally kill their friends in the process. Luckily, there are many options to keep players alive long past their use-by date. If the good team cannot determine which specific Minions and Demons are in play, however, their doom is all but certain."
+        },
+        {
+          "p": "Intermediate. Recommended for players who are proactive, dedicated to working as a team, and don't fear dying."
+        },
+        {
+          "p": "When playing Bad Moon Rising…"
+        },
+        {
+          "p": "**Good players** will receive little information by being passive. Some Townsfolk abilities require the good team to execute players in order to gain information (such as the Tea Lady or the Pacifist), whilst others encourage good players to take risks that may end in death in order to find out who is who (such as the Gambler or the Gossip). When good players do something, they learn something."
+        },
+        {
+          "p": "The good team will also need to pay close attention to who died at night, and how. If they ignore this, they risk losing unexpectedly at the end of a day with four, five, or even six players still left alive. However, if they can figure out how each player died at night, they can figure out which evil characters are in play — letting them avoid losing the game to the dreaded Mastermind or the intimidating Po — and get helpful clues on which good characters accidentally killed which players (such as the Moonchild or the Tinker)."
+        },
+        {
+          "p": "**Evil players** may feel invincible at first, but they will need to use their abilities with precision and prudence in order to win. The Demon may need to convince the good team that a different Demon is in play to avoid the crippling effects of some good characters (such as the Exorcist or the Courtier), and may need to deliberately not kill to do so. But if the Demon can figure out who to attack and who to avoid attacking (such as the Tea Lady's neighbours, or the Fool), then the good team is in serious trouble."
+        },
+        {
+          "p": "The Minions will need to time their abilities well. A well-timed Assassin's kill, a patient Devil's Advocate, or a Mastermind that can read a room can pull victory from the jaws of defeat."
+        }
+      ]
+    }
+  ]
+}
