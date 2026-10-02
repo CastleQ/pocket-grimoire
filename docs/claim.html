@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>캐릭터 받기 - Pocket Grimoire PLUS+ by Castle_Q</title>
 <style>
+  body::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; background:#efe6d6 url("build/img/parchment-bg.webp") center / cover no-repeat; }
   :root { --bg:#d9d6cf; --text:#1c1c1c; --btn:#7ba7cc; --btn-border:#46637e; }
   * { box-sizing: border-box; }
-  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background-color:var(--bg); background-image:url("build/img/background-img.webp"); background-repeat:repeat; color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background-color:#efe6d6; color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
   .wrap { width:100%; max-width:420px; text-align:center; }
   .title { font-size:1.6rem; font-weight:800; line-height:1.4; margin-bottom:28px; }
   /* ST앱 [캐릭터 배포](.button) 디자인 차용 — 크기(width/padding/font/margin)는 현행 유지 */
@@ -27,7 +28,7 @@
   .name-input { width:100%; padding:14px; font-size:1.1rem; border:3px solid #333; border-radius:6px; text-align:center; }
   .msg { font-size:1.15rem; line-height:1.7; }
   .overlay { position:fixed; inset:0; background:rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; padding:24px; }
-  .modal { background-color:var(--bg); background-image:url("build/img/background-img.webp"); background-repeat:repeat; border:3px solid var(--btn-border); border-radius:10px; padding:24px; max-width:340px; width:100%; text-align:center; }
+  .modal { background:#efe6d6 url("build/img/parchment-bg.webp") center / cover no-repeat; border:3px solid var(--btn-border); border-radius:10px; padding:24px; max-width:340px; width:100%; text-align:center; }
   .modal p { font-size:1.1rem; line-height:1.5; margin:0 0 20px; }
   /* 캐릭터 가이드(공식 위키 번역) — 뽑기 화면 위에 전체 화면으로 덮는다.
      페이지를 떠나지 않으므로 캐릭터 화면과 이탈 방지 장치가 그대로 유지된다. */
