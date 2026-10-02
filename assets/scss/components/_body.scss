@@ -1,8 +1,16 @@
 .body-grimoire {
-    background-color: #d0d0d0;
-    background-image: url("../../img/background-img.webp");
-    background-repeat: repeat;
-    background-position: 0 0;
+    background-color: transparent;
+
+    // 양피지 한 장을 화면(창) 크기에 맞춰 고정해 깐다. 페이지가 길어도 늘어나지 않는다.
+    // html 에 흰 배경이 있으므로 z-index:-1 판이 그 위·본문 아래에 놓인다.
+    &::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background: #efe6d6 url("../../img/parchment-bg.webp") center / cover no-repeat;
+    }
 }
 
 .body-sheet {
