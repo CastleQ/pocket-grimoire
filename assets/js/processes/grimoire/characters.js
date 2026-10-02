@@ -261,6 +261,14 @@ tokenObserver.on("character-click", ({ detail }) => {
         ? showButton.dataset.labelWiki
         : showButton.dataset.labelDefault
     );
+    // Wiki 바로가기일 때만 보라색·흰 글자 (마도서 메뉴 [공식 Wiki 사이트 바로가기]와 같은 색)
+    if (wikiId) {
+        showButton.style.setProperty("--bg-colour", "#542152");
+        showButton.style.color = "#fff";
+    } else {
+        showButton.style.removeProperty("--bg-colour");
+        showButton.style.color = "";
+    }
     recentReminders.dataset.coords = JSON.stringify(pad.getTokenPosition(element));
 
     characterShowDialog.show();
