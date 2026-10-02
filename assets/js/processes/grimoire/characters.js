@@ -31,28 +31,168 @@ const wikiConfirmDialog = Dialog.create(lookupOneCached("#character-wiki-confirm
 const guideBase = /\/[a-z]{2}_[A-Z]{2}(\/|$)/.test(window.location.pathname)
     ? "/"
     : window.location.pathname.replace(/[^/]*$/, "");
+//
+// 커스텀 시트(파일·URL·내장 커스텀/틴시빌)의 캐릭터는 앱에서 홈브류(isCustom)로 만들어지는 경우가
+// 많다(시트 id 가 "noble1"처럼 정발 데이터 방식이라 앱 id "noble"과 짝이 안 맞음). 그래서 위키 버튼
+// 판단에만 아래 순서로 공식 캐릭터를 추론한다. 화면의 능력 문구 등 시트 내용은 그대로 둔다(A안).
+//   1) id 그대로 / 끝의 "1" 제거 / 알려진 철자 오타  → 그 캐릭터 가이드
+//   2) 한글 이름(띄어쓰기 무시)이 정발 이름과 같고 유형(team)도 같음, 또는 옛 이름 대조표 → 그 캐릭터 가이드
+//   3) 확신하기 어려움(이름이 정발 이름을 포함하거나, 이름은 같은데 유형이 다름) → 도감 메인 페이지
+//      단, 시트 대부분이 공식 캐릭터로 추론되는 "커스텀 시트"일 때만. 홈브류 위주 시트는 [자세히보기] 그대로.
+const WIKI_SITE_URL = "https://castleq.github.io/botc-wiki-ko/";
+const ID_TYPOS = { begger: "beggar", spritofivory: "spiritofivory" };
+// 내장 커스텀 시트의 옛 번역 이름 → 정발 id (능력 문구로 대조 확인함)
+const OLD_NAMES = {
+    몽상가: "dreamer",
+    야간경비대: "nightwatchman",
+    궁정신하: "courtier",
+    어부: "fisherman",
+    까마귀사육사: "ravenkeeper",
+    양귀비재배자: "poppygrower",
+    고자질쟁이: "snitch",
+    돌연변이: "mutant",
+    공포조장가: "fearmonger",
+    붐댄디: "boomdandy",
+    팡구: "fanggu",
+    슈겐자: "shugenja",
+    기구조종사: "balloonist",
+    마을바보: "villageidiot",
+    진홍색여인: "scarletwoman",
+    비고모르티스: "vigormortis",
+    밀수업자: "bootlegger",
+    "진(지니)": "djinn",
+    상아의정령: "spiritofivory"
+};
+const CUSTOM_SCRIPT_KEY = "pg_wiki_custom_script";
 let guideIds = [];
+let officialByName = Object.create(null);
+let officialTeam = Object.create(null);
+let customScript = false;
 
-fetch(guideBase + "guide/data/index.json", { cache: "no-cache" })
-    .then((response) => (response.ok ? response.json() : []))
-    .then((ids) => {
-        guideIds = Array.isArray(ids) ? ids : [];
-    })
-    .catch(() => {
-        guideIds = [];
+function squash(text) {
+    return String(text || "").replace(/\s+/g, "");
+}
+
+const wikiDataReady = Promise.all([
+    fetch(guideBase + "guide/data/index.json", { cache: "no-cache" })
+        .then((response) => (response.ok ? response.json() : [])),
+    fetch(guideBase + "guide/data/roles.json", { cache: "no-cache" })
+        .then((response) => (response.ok ? response.json() : {}))
+]).then(([ids, roles]) => {
+
+    guideIds = Array.isArray(ids) ? ids : [];
+    Object.entries(roles || {}).forEach(([id, role]) => {
+        officialByName[squash(role.name)] = id;
+        officialTeam[id] = role.team;
     });
 
-function getWikiId(character) {
+}).catch(() => {
+    guideIds = [];
+});
 
-    if (!character || character.isCustom()) {
-        return "";
+// 새로고침 뒤에도 같은 시트라면 "커스텀 시트" 판정을 이어서 쓴다.
+try {
+    const saved = JSON.parse(window.localStorage.getItem(CUSTOM_SCRIPT_KEY) || "null");
+    customScript = Boolean(
+        saved
+        && saved.name === (window.localStorage.getItem("pg_current_script") || "")
+        && saved.custom
+    );
+} catch (ignore) {
+    customScript = false;
+}
+
+function findOfficialId(character) {
+
+    const rawId = String(character.getId() || "").replace(/[-_]/g, "").toLowerCase();
+    const candidates = [rawId, rawId.replace(/1$/, "")];
+
+    candidates.push(ID_TYPOS[candidates[1]] || "");
+
+    const byId = candidates.find((id) => id && guideIds.includes(id));
+
+    if (byId) {
+        return byId;
     }
 
-    const id = character.getId();
+    const name = squash(character.getName());
+    const byName = officialByName[name];
 
-    return guideIds.includes(id) ? id : "";
+    if (byName && officialTeam[byName] === character.getTeam()) {
+        return byName;
+    }
+
+    return OLD_NAMES[name] || "";
 
 }
+
+function isUncertainOfficial(character) {
+
+    const name = squash(character.getName());
+
+    if (officialByName[name]) {
+        return true; // 이름은 같은데 유형이 다름
+    }
+
+    return Object.keys(officialByName).some((official) => (
+        official.length >= 2 && name.includes(official)
+    ));
+
+}
+
+// 반환: { url, subject } 또는 null(홈브류 → [자세히보기])
+function getWikiTarget(character) {
+
+    if (!character) {
+        return null;
+    }
+
+    if (!character.isCustom()) {
+        const id = character.getId();
+        return guideIds.includes(id)
+            ? { url: guideBase + "guide.html?id=" + encodeURIComponent(id), subject: "이 캐릭터의" }
+            : null;
+    }
+
+    const officialId = findOfficialId(character);
+
+    if (officialId) {
+        return { url: guideBase + "guide.html?id=" + encodeURIComponent(officialId), subject: "이 캐릭터의" };
+    }
+
+    if (customScript && isUncertainOfficial(character)) {
+        return { url: WIKI_SITE_URL, subject: "공식" };
+    }
+
+    return null;
+
+}
+
+// 시트를 고를 때마다, 그 시트의 캐릭터 대부분(절반 이상)이 공식으로 추론되면 "커스텀 시트"로 본다.
+gameObserver.on("characters-selected", ({ detail }) => {
+
+    const characters = (detail && detail.characters) || [];
+
+    wikiDataReady.then(() => {
+
+        const official = characters.filter((character) => (
+            character && (!character.isCustom() || findOfficialId(character))
+        )).length;
+
+        customScript = characters.length > 0 && official / characters.length >= 0.5;
+
+        try {
+            window.localStorage.setItem(CUSTOM_SCRIPT_KEY, JSON.stringify({
+                name: (detail && detail.name) || "",
+                custom: customScript
+            }));
+        } catch (ignore) {
+            // localStorage 사용 불가 시 무시
+        }
+
+    });
+
+});
 
 // ── 작업 5: 사망/제거/변경 시 관련 리마인더 자동 제거 ─────────────────────────
 // 캐릭터의 ability에 "죽어도(사망 후에도) 효과가 유지"됨을 뜻하는 문구가 있으면
@@ -112,8 +252,10 @@ tokenObserver.on("character-click", ({ detail }) => {
     lookupOneCached("#character-show-ability").textContent = character.getAbility();
 
     const showButton = lookupOneCached("#character-show-token");
-    const wikiId = getWikiId(character);
+    const wikiTarget = getWikiTarget(character);
+    const wikiId = wikiTarget ? wikiTarget.url : "";
     showButton.dataset.wikiId = wikiId;
+    showButton.dataset.wikiSubject = wikiTarget ? wikiTarget.subject : "";
     showButton.textContent = (
         wikiId
         ? showButton.dataset.labelWiki
@@ -165,8 +307,8 @@ TokenStore.ready(() => {
 
         if (wikiId) {
 
-            wikiConfirmDialog.getElement().dataset.url = guideBase + "guide.html?id=" + encodeURIComponent(wikiId);
-            lookupOneCached("#character-wiki-subject").textContent = "이 캐릭터의";
+            wikiConfirmDialog.getElement().dataset.url = wikiId;
+            lookupOneCached("#character-wiki-subject").textContent = target.dataset.wikiSubject || "이 캐릭터의";
             hideDialog(target);
             wikiConfirmDialog.show();
             return;
