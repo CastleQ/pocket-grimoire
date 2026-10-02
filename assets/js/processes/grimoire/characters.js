@@ -165,7 +165,8 @@ TokenStore.ready(() => {
 
         if (wikiId) {
 
-            wikiConfirmDialog.getElement().dataset.wikiId = wikiId;
+            wikiConfirmDialog.getElement().dataset.url = guideBase + "guide.html?id=" + encodeURIComponent(wikiId);
+            lookupOneCached("#character-wiki-subject").textContent = "이 캐릭터의";
             hideDialog(target);
             wikiConfirmDialog.show();
             return;
@@ -185,16 +186,12 @@ TokenStore.ready(() => {
 
 lookupOne("#character-wiki-yes").addEventListener("click", () => {
 
-    const wikiId = wikiConfirmDialog.getElement().dataset.wikiId;
+    const url = wikiConfirmDialog.getElement().dataset.url;
 
     wikiConfirmDialog.hide();
 
-    if (wikiId) {
-        window.open(
-            guideBase + "guide.html?id=" + encodeURIComponent(wikiId),
-            "_blank",
-            "noopener"
-        );
+    if (url) {
+        window.open(url, "_blank", "noopener");
     }
 
 });

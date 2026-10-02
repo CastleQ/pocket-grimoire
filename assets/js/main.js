@@ -35,4 +35,5 @@ import "./processes/store.js";
 
 import "./processes/setup/distribute.js";
 import "./processes/setup/whale-bucket.js";
+import "./processes/details-slide.js";
 

@@ -142,7 +142,7 @@ grimoire:
         add_traveller: 여행자 추가
         add_fabled: 전설 추가하기
         show_tokens: 토큰 보여주기
-        reset_height: 패드 높이 초기화
+        reset_height: 공식 Wiki 사이트 바로가기
         clear_grimoire: 마도서 지우기
         clear_grimoire_warning: 모든 토큰을 정말로 지우시겠습니까?
         show_night_order: 밤순서 보여주기

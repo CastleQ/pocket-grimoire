@@ -1,4 +1,5 @@
 import Observer from "../../classes/Observer.js";
+import Dialog from "../../classes/Dialog.js";
 import {
     lookupOne,
     lookupOneCached
@@ -7,8 +8,18 @@ import {
 const gameObserver = Observer.create("game");
 const pad = lookupOneCached(".js--pad").pad;
 
+// (옛 [패드 높이 초기화] 자리) 공식 캐릭터 도감 사이트를 확인창 후 새 창으로 연다.
+// 확인창은 캐릭터 토큰의 [캐릭터 Wiki 바로가기]와 같은 것(characters.js 가 [확인] 처리).
+const WIKI_SITE_URL = "https://castleq.github.io/botc-wiki-ko/";
+
 lookupOne("#reset-height").addEventListener("click", () => {
-    lookupOneCached(".js--pad").style.height = "";
+
+    const confirmDialog = Dialog.create(lookupOneCached("#character-wiki-confirm"));
+
+    confirmDialog.getElement().dataset.url = WIKI_SITE_URL;
+    lookupOneCached("#character-wiki-subject").textContent = "공식";
+    confirmDialog.show();
+
 });
 
 lookupOne("#clear-grimoire").addEventListener("click", ({ target }) => {

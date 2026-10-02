@@ -66,12 +66,10 @@
     font-display: swap;
 }
 
+/* 한국어 명조(제목 등): 국민대학교 성곡 세리프 (눈누 배포, jsDelivr). 이 글꼴을 못 받으면 기본 명조로 보인다. */
 @font-face {
-    font-family: "Noto Serif Korean";
-    src:
-        url("../../fonts/NotoSerifKR-VariableFont_wght.woff2") format("woff2"),
-        url("../../fonts/NotoSerifKR-VariableFont_wght.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
+    font-family: "KookminUniversitySunggokSerif";
+    src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2607101542@kmu80sungkokserif/kmu80sungkokserif/KMU80SungkokSerif.woff2") format("woff2");
+    font-weight: 500;
     font-display: swap;
 }
