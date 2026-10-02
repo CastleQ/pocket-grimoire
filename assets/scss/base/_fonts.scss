@@ -66,6 +66,17 @@
     font-display: swap;
 }
 
+/* 한국어 캐릭터 토큰 이름 전용 명조 (토큰 안 글자는 예전 글꼴 유지) */
+@font-face {
+    font-family: "Noto Serif Korean";
+    src:
+        url("../../fonts/NotoSerifKR-VariableFont_wght.woff2") format("woff2"),
+        url("../../fonts/NotoSerifKR-VariableFont_wght.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* 한국어 명조(제목 등): 국민대학교 성곡 세리프 (눈누 배포, jsDelivr). 이 글꼴을 못 받으면 기본 명조로 보인다. */
 @font-face {
     font-family: "KookminUniversitySunggokSerif";

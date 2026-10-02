@@ -1,4 +1,7 @@
 :root {
+    // 캐릭터 토큰 안 이름 글꼴. 기본은 각 언어의 명조와 같고, 한국어만 따로 지정한다.
+    --token-serif-font: var(--serif-font);
+
     // Fonts
     --serif-font:
         "Goudy Mediaeval",
@@ -171,6 +174,12 @@
 // that it's the same as the Thai stack.
 
 :lang(ko) {
+    --token-serif-font:
+        "Noto Serif Korean",
+        "Times New Roman",
+        Georgia,
+        Times,
+        serif;
     --serif-font:
         "KookminUniversitySunggokSerif",
         "Times New Roman",
