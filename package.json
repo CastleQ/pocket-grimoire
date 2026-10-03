@@ -20,6 +20,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "html2canvas": "^1.4.1"
+        "html2canvas": "^1.4.1",
+        "modern-screenshot": "4.7.0"
     }
 }
