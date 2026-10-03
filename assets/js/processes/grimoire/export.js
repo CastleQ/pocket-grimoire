@@ -322,11 +322,69 @@ lookupOne("#game-export-winner").addEventListener("click", ({ target }) => {
 
 });
 
-copyButton.addEventListener("click", () => {
+// 휴대폰에서는 [클립보드에 복사] 대신 [공유하기]를 쓴다.
+// 안드로이드 클립보드는 그림 대신 임시 파일 주소(content://…)를 담는다.
+// 그림 붙여넣기를 지원하지 않는 앱(카카오톡 입력창 등)에는 그 주소가 글자로 붙는다.
+// 공유하기는 휴대폰 공유 창으로 그림 파일을 그대로 넘긴다.
+// PC 브라우저 일부도 공유를 지원하지만, PC는 클립보드 복사가 잘 되므로 그대로 둔다.
+// 판정 기준: 주 입력이 터치(손가락)이고, 그림 파일 공유를 지원할 때.
+const useShare = (() => {
 
-    if (!blob) {
-        return;
+    try {
+
+        return (
+            typeof window.matchMedia === "function"
+            && window.matchMedia("(pointer: coarse)").matches
+            && typeof navigator.share === "function"
+            && typeof navigator.canShare === "function"
+            && navigator.canShare({
+                files: [new File([""], "grimoire.png", { type: "image/png" })]
+            })
+        );
+
+    } catch (ignore) {
+        return false;
     }
+
+})();
+
+if (useShare) {
+    copyButton.textContent = "공유하기";
+}
+
+// 한글 파일 이름은 일부 브라우저에서 "download"로 바뀌어 영문으로 둔다.
+function makeFileName() {
+
+    const now = new Date();
+    const two = (number) => String(number).padStart(2, "0");
+
+    return "grimoire-" + now.getFullYear() + two(now.getMonth() + 1)
+        + two(now.getDate()) + "-" + two(now.getHours()) + two(now.getMinutes())
+        + ".png";
+
+}
+
+function shareImage() {
+
+    const file = new File([blob], makeFileName(), { type: "image/png" });
+
+    navigator.share({ files: [file] }).then(() => {
+        setStatus("");
+    }).catch((error) => {
+
+        // 공유 창에서 그냥 닫은 경우는 실패가 아니다.
+        if (error && error.name === "AbortError") {
+            return;
+        }
+
+        console.error(error);
+        setStatus("공유하지 못했어요. [이미지로 저장]을 눌러 저장한 뒤 보내 주세요.");
+
+    });
+
+}
+
+function copyImage() {
 
     const supported = (
         navigator.clipboard
@@ -348,6 +406,20 @@ copyButton.addEventListener("click", () => {
         setStatus("복사하지 못했어요. 그림을 길게 눌러 복사하거나 [이미지로 저장]을 눌러 주세요.");
     });
 
+}
+
+copyButton.addEventListener("click", () => {
+
+    if (!blob) {
+        return;
+    }
+
+    if (useShare) {
+        shareImage();
+    } else {
+        copyImage();
+    }
+
 });
 
 saveButton.addEventListener("click", () => {
@@ -356,15 +428,10 @@ saveButton.addEventListener("click", () => {
         return;
     }
 
-    const now = new Date();
-    const two = (number) => String(number).padStart(2, "0");
     const link = document.createElement("a");
 
     link.href = imageUrl;
-    // 한글 파일 이름은 일부 브라우저에서 "download"로 바뀌어 영문으로 둔다.
-    link.download = "grimoire-" + now.getFullYear() + two(now.getMonth() + 1)
-        + two(now.getDate()) + "-" + two(now.getHours()) + two(now.getMinutes())
-        + ".png";
+    link.download = makeFileName();
     document.body.append(link);
     link.click();
     link.remove();
