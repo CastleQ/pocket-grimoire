@@ -183,6 +183,12 @@ function buildCopy(settings) {
             tally.remove();
         }
 
+        // 게임이 끝났으므로 모든 참가자를 생존으로 보여 준다
+        // (회색 처리·수의·유령표가 모두 is-dead 하나에 달려 있다).
+        copy.querySelectorAll(".js--character.is-dead").forEach((character) => {
+            character.classList.remove("is-dead");
+        });
+
         const winner = WINNERS[settings.winner];
         const banner = document.createElement("div");
         const inner = Math.min(width - borderX, height - borderY);
