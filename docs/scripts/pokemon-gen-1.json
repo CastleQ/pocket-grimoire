@@ -6,6 +6,17 @@
     "logo": "https://i.imgur.com/bcDbAAw.png",
     "hideTitle": true,
     "background": "https://i.imgur.com/5xlYPWz.jpeg",
+    "infoTokens": [
+      {
+        "text": "오늘 낮 동안 **마자~용** 이라고만 하세요^^",
+        "character": "ko_KR_wobbuffet"
+      },
+      {
+        "text": "축하합니다! 당신은",
+        "characterSelect": true,
+        "suffix": "으로 진화했습니다!"
+      }
+    ],
     "firstNight": [
       "dusk",
       "ko_KR_teamrocket",
