@@ -52,6 +52,8 @@
     font-size: clamp(1rem, 10vw, 3rem);
     margin: 0;
     color: #fff;
+    // 한국어가 단어 중간("당/신은")에서 끊기지 않게 단어 단위로 줄바꿈한다.
+    word-break: keep-all;
 
     &:lang(cs),
     &:lang(de),

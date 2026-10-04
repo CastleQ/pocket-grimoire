@@ -91,10 +91,15 @@ export default class InfoToken {
      *         to pick a character token to display.
      * @param  {String} [characterSelectSuffix=""]
      *         Optional text shown below the character slot (e.g. "입니다.").
+     * @param  {String} [holder]
+     *         Which holder the button goes in (see {@link InfoToken.setHolders}).
+     *         Defaults to "custom" for custom tokens, otherwise "button".
+     * @param  {String} [label]
+     *         Text for the button. Defaults to the dialog text.
      * @return {Object}
      *         Interpretted data.
      */
-    static interpret({ raw, markup, id, colour, custom, characterSelect, characterSelectSuffix }) {
+    static interpret({ raw, markup, id, colour, custom, characterSelect, characterSelectSuffix, holder, label }) {
 
         if (raw && !markup) {
             markup = markdown2html(raw);
@@ -120,7 +125,9 @@ export default class InfoToken {
             colour: `var(--${colour || "grey"})`,
             custom: Boolean(custom),
             characterSelect: Boolean(characterSelect),
-            characterSelectSuffix: characterSelectSuffix || ""
+            characterSelectSuffix: characterSelectSuffix || "",
+            holder: holder || (custom ? "custom" : "button"),
+            label: label || text
         };
 
     }
@@ -155,25 +162,20 @@ export default class InfoToken {
     drawTrigger() {
 
         const {
-            text,
+            label,
             id,
-            colour,
-            custom
+            colour
         } = this.data;
         const {
             holders,
             templates
         } = this.constructor;
-        const holder = holders[
-            custom
-            ? "custom"
-            : "button"
-        ];
+        const holder = holders[this.data.holder];
 
         const trigger = templates.button.draw({
             ".js--info-token--button"(element) {
 
-                element.textContent = text;
+                element.textContent = label;
                 element.style.setProperty("--bg-colour", colour);
                 element.dataset.dialog = `#${id}`;
 
@@ -328,6 +330,7 @@ export default class InfoToken {
 
         data.raw = raw;
         data.text = text;
+        data.label = text;
         lookupOne(".js--info-token--button", trigger).textContent = text;
         data.markup = markup;
         lookupOne(".js--info-token--dialog-text", dialog).innerHTML = markup;
