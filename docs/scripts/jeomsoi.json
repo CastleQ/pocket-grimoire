@@ -1,0 +1,508 @@
+[
+  {
+    "id": "_meta",
+    "name": "🖐🏻점소이! 여기 술 한잔!",
+    "author": "",
+    "logo": "https://user-images.klutzbanana.com/iklvju9lf1yfm8eryo25d6db.png",
+    "hideTitle": true,
+    "almanac": "https://klutzbanana.com/scripts/jj7k3zzwp6/%EC%A0%90%EC%86%8C%EC%9D%B4!%20%EC%97%AC%EA%B8%B0%20%EC%88%A0%20%ED%95%9C%EC%9E%94!",
+    "firstNight": [
+      "dusk",
+      "minioninfo",
+      "demoninfo",
+      "22muhub",
+      "21muhub",
+      "24muhub",
+      "9muhub",
+      "3muhub",
+      "5muhub",
+      "2muhub",
+      "1muhub",
+      "dawn"
+    ],
+    "otherNight": [
+      "dusk",
+      "18muhub",
+      "16muhub",
+      "19muhub",
+      "4muhub",
+      "6muhub",
+      "21muhub",
+      "22muhub",
+      "24muhub",
+      "2muhub",
+      "23muhub",
+      "20muhub",
+      "11muhub",
+      "12muhub",
+      "1muhub",
+      "7muhub",
+      "3muhub",
+      "5muhub",
+      "dawn"
+    ]
+  },
+  {
+    "id": "muhub",
+    "name": "신산맹",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 낮, 이야기꾼을 찾아가 모든 악한 참가자들과 당신 사이의 거리 합을 추측할 수 있습니다. 이야기꾼은 당신의 추측이 큰지 작은지 정확한지 알려줍니다.",
+    "reminders": [
+      "정확함"
+    ],
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "1muhub",
+    "name": "아미파",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/1_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "게임 시작 시, 불완전한 진실을 알게 됩니다. 매일 밤*, 당신이 낮에 살아있는 선한 참가자를 지명하고 처형한다면, 이 진실은 더욱 완전해질 것입니다.",
+    "firstNight": 19,
+    "firstNightReminder": "불완전한 사실을 노트 등에 적어 알려줍니다.",
+    "otherNight": 17,
+    "otherNightReminder": "아미파가 선한 참가자를 지명하여 처형되었다면, *처형 성공* 알림토큰을 둡니다. 밤에 아미파에 *처형 성공* 알림토큰이 있다면, 깨워서 게임 시작 시 알려준 사실을 완전한 명제로 다시 알려줍니다. :reminder:",
+    "reminders": [
+      "처형 성공"
+    ],
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "2muhub",
+    "name": "개방",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/2_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "게임 시작 시, 선한 참가자 1명을 알게 됩니다. 매일 밤*, 그가 중독되거나 만취하면 당신이 사망하고, 그 후 그는 개방이 됩니다. 개방은 중독되거나 만취하지 않습니다.",
+    "firstNight": 18,
+    "firstNightReminder": "선한 참가자 1명에 *개방* 알림 토큰을 둡니다. 개방에게 그 참가자를 알려줍니다. :reminder:",
+    "otherNight": 12,
+    "otherNightReminder": "*개방* 토큰이 놓인 참가자가 중독 또는 만취했다면, 그 참가자를 개방 토큰으로 교체한 다음 깨워서 개방이 되었음을 알려주고 원래 개방은 사망합니다. 새 개방에게 다른 선한 참가자 1명을 알려주고 그 옆으로 *개방* 알림 토큰을 옮깁니다. :reminder:",
+    "reminders": [
+      "개방"
+    ],
+    "setup": false,
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "3muhub",
+    "name": "천기각",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/3_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 밤, 이웃하게 붙어 앉은 2명의 참가자(본인 제외)를 선택합니다. 이후 지난 밤보다 더 많은 사악한 참가자를 선택했는지 추가로 알게 됩니다.",
+    "firstNight": 16,
+    "firstNightReminder": "천기각이 이웃하게 붙어 앉은 참가자 2명(본인 제외)을 선택합니다. 선택된 두 참가자 옆에 각각 *조사* 알림 토큰을 둡니다. :reminder: :reminder:",
+    "otherNight": 19,
+    "otherNightReminder": "천기각이 이웃하게 붙어 앉은 참가자 2명(본인 제외)을 선택합니다. 새로 선택된 두 참가자 중 악한 참가자가 이전보다 더 많으면 고개를 끄덕입니다. 토큰을 새로 선택된 두 참가자로 옮깁니다. :reminder: :reminder:",
+    "reminders": [
+      "조사",
+      "조사"
+    ],
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "5muhub",
+    "name": "화산파",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/5_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 밤, 3명의 참가자를 선택할 수 있습니다. 그들에게 없는 캐릭터 유형을 배웁니다. 또는 세 명의 선한 캐릭터를 선택 한다면, 1명의 참가자를 배우거나, 셋다 없다는 사실을 배웁니다.",
+    "firstNight": 17,
+    "firstNightReminder": "화산파가 참가자 3명을 선택하면 그들 모두 해당하지 않는 캐릭터 유형 1개를 알려줍니다. 선한 캐릭터 3개를 선택하면 그중 1명을 알려주고, 모두 없다면 고개를 젓습니다.",
+    "otherNight": 20,
+    "otherNightReminder": "화산파가 참가자 3명을 선택하면 그들 모두 해당하지 않는 캐릭터 유형 1개를 알려줍니다. 선한 캐릭터 3개를 선택하면 그중 1명을 알려주고, 모두 없다면 고개를 젓습니다.",
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "6muhub",
+    "name": "무당파",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/6_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 밤* 본인을 제외한 2개의 주민 캐릭터를 선택합니다. 만약 그들이 모두 참가중이며 살아있다면, 그날 밤 그들은 죽지 않을 것입니다.",
+    "otherNight": 8,
+    "otherNightReminder": "무당파가 본인을 제외한 주민 캐릭터 2개를 선택합니다. 둘 모두 참가 중이며 살아있다면, 그 두 참가자 옆에 *태극 보호* 알림 토큰을 두며 그들은 오늘 밤 사망하지 않습니다. :reminder: :reminder:",
+    "reminders": [
+      "태극 보호",
+      "태극 보호"
+    ],
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "7muhub",
+    "name": "육선문",
+    "image": [
+      "https://www.bloodstar.xyz/p/Zonas_Liu/WuXia/6_wuxia.png"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 밤*, 당신이 오늘 낮에 지명한 참가자와 이웃한 참가자 중 주민이 아닌 참가자가 있는지 알게 됩니다.",
+    "otherNight": 18,
+    "otherNightReminder": "육선문이 낮에 지명한 참가자 옆에 *추적* 알림 토큰을 둡니다. 밤에 육선문에게 그 참가자의 양쪽 이웃(사망자 포함) 중 주민이 아닌 참가자가 있으면 고개를 끄덕이고, 없으면 고개를 젓습니다. :reminder:",
+    "reminders": [
+      "추적"
+    ],
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "8muhub",
+    "name": "소림",
+    "image": [
+      "https://www.bloodstar.xyz/p/Zonas_Liu/WuXia/7_wuxia.png"
+    ],
+    "team": "townsfolk",
+    "ability": "매일 낮, 이야기꾼을 찾아가 비밀리에 다음 정보를 순서대로 하나씩 알 수 있습니다: 정확한 정보 1개; 중독 또는 만취한 참가자 1명의 캐릭터; 살아있는 악마의 캐릭터; 하수인 참가자 1명과 그의 캐릭터. [+1외지인]",
+    "setup": true,
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "10muhub",
+    "name": "당문",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/10_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "당신과 배신자 사이의 시계방향으로 있는 선한 참가자 1명이 중독됩니다. 매일 낮, 이야기꾼이 주는 질문에 대한 답을 하면, 답변이 얼마나 정확한지 알게 됩니다. 처음으로 정확을 받으면, 당신으로 인한 중독이 풀립니다. [+배신자]",
+    "reminders": [
+      "정확",
+      "중독"
+    ],
+    "setup": true,
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "4muhub",
+    "name": "공동파",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/4_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "게임당 한 번, 당신이 살아있는 선한 참가자를 지명하고 처형한다면, 그날 밤 선한 참가자는 사망하지 않습니다.",
+    "otherNight": 7,
+    "otherNightReminder": "공동파가 처음으로 선한 참가자를 지명하여 처형했다면, *칠상 보호!* 알림 토큰을 두며 오늘 밤 선한 참가자는 사망하지 않습니다. :reminder:",
+    "reminders": [
+      "칠상 보호!"
+    ],
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "9muhub",
+    "name": "용문표국",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/9_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "게임 시작 시, 악마가 아닌 살아있는 참가자 1명이 용문표국 캐릭터가 참가중인 사실을 배웁니다. 그가 사망하거나 악마가 되면, 악마가 아닌 다른 살아있는 참가자 1명이 배웁니다. 당신이 중독되거나 만취하면 영원히 능력을 잃어버립니다.",
+    "firstNight": 15,
+    "firstNightReminder": "악마가 아닌 살아있는 참가자 1명 옆에 *배움1* 알림 토큰을 두고, 그에게 용문표국 캐릭터 토큰을 보여줍니다. :reminder:",
+    "reminders": [
+      "배움1",
+      "배움2",
+      "배움3",
+      "배움4",
+      "배움5",
+      "배움6",
+      "만취"
+    ],
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "11muhub",
+    "name": "관외호가",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/11_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "당신이 밤에 사망하면, 2명의 참가자(본인 제외)를 선택합니다. 그들은 그날 밤 서로의 캐릭터를 배웁니다.",
+    "otherNight": 15,
+    "otherNightReminder": "밤에 사망했다면, 본인을 제외한 참가자 2명을 선택합니다. 선택된 두 참가자 옆에 *선택* 알림 토큰을 두고 서로를 각각 따로 깨워 캐릭터를 알려줍니다. :reminder: :reminder:",
+    "reminders": [
+      "선택",
+      "선택"
+    ],
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "12muhub",
+    "name": "중원묘가",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/12_muhub.png"
+    ],
+    "team": "townsfolk",
+    "ability": "당신이 밤에 사망하면 살아있는 관외호가가 대신 죽고, 동시에 당신은 악마의 블러프를 배웁니다. [+관외호가]",
+    "otherNight": 16,
+    "otherNightReminder": "밤에 사망할 때 관외호가가 살아있다면, 그가 대신 사망하고 중원묘가에게 악마의 블러프 3개를 알려줍니다.",
+    "setup": true,
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "16muhub",
+    "name": "일품당",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/16_muhub.png"
+    ],
+    "team": "outsider",
+    "ability": "당신은 낮마다 한번만 투표할 수 있습니다. 당신이 투표한 참가자가 처형되지 않거나 당신이 투표하지 않으면, 그날 밤 악마는 참가자 1명을 다음 황혼까지 중독시킵니다. 일품당이 처형당한다면, 악한 참가자 1명이 일품당의 능력을 얻습니다.",
+    "otherNight": 5,
+    "otherNightReminder": "일품당이 투표하지 않았거나 투표한 참가자가 처형되지 않았다면, 악마에게 일품당 캐릭터 토큰을 보여준 다음 선택한 참가자에 *중독* 토큰을 둡니다. 일품당이 낮에 처형되었다면, 악한 참가자 1명 옆에 *처형 성공* 알림 토큰을 두고 일품당 캐릭터 토큰을 보여줍니다. :reminder: :reminder:",
+    "reminders": [
+      "중독",
+      "처형 성공"
+    ]
+  },
+  {
+    "id": "13muhub",
+    "name": "배신자",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/13_muhub.png"
+    ],
+    "team": "outsider",
+    "ability": "참여중인 주민으로 착각하고 있지만, 당신은 배신자입니다. 당신의 승패는 반전되어있습니다(죽더라도). 당신의 지명으로 당신이 착각한 캐릭터인 참가자를 처형한다면, 당신은 만취합니다.",
+    "remindersGlobal": [
+      "배신자"
+    ],
+    "setup": true,
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-disabled"
+      },
+      {
+        "type": "reveal",
+        "name": "replace-character"
+      },
+      {
+        "type": "selection",
+        "name": "good-duplicate"
+      }
+    ]
+  },
+  {
+    "id": "14muhub",
+    "name": "소요곡",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/14_muhub.png"
+    ],
+    "team": "outsider",
+    "ability": "당신과 가장 멀거나, 가장 가까운 선한 참가자 1명은 만취합니다.(당신이 죽어도) 당신이 그 참가자를 지명하고 처형한다면, 사악한 참가자 중 1명이 만취합니다.",
+    "reminders": [
+      "만취"
+    ]
+  },
+  {
+    "id": "15muhub",
+    "name": "협객",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/15_muhub.png"
+    ],
+    "team": "outsider",
+    "ability": "당신이 처형되면, 그때 당신과 이웃한 살아있는 참가자 2명은 악팀의 승리조건에서 제외됩니다. 이는 게임 중 추가되거나 바뀌지 않습니다.",
+    "reminders": [
+      "초대장",
+      "초대장"
+    ]
+  },
+  {
+    "id": "18muhub",
+    "name": "오독",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/18_muhub.png"
+    ],
+    "team": "minion",
+    "ability": "매일 밤*, 당신이 전날 낮에 지명한 참가자의 캐릭터를 배웁니다. 그는 다음날 황혼까지 중독됩니다. 만약 그가 처형으로 사망하거나 악팀이라면, 지명된 자로부터 시계 방향으로 가장 가까운 선한 참가자가 중독됩니다.",
+    "otherNight": 4,
+    "otherNightReminder": "오독에게 전날 낮 지명한 참가자의 캐릭터를 알려줍니다. 그가 처형으로 사망하거나 악팀이라면 시계 방향으로 가장 가까운 선한 참가자 옆에 *중독(시계)* 알림 토큰을, 아니라면 그 참가자 옆에 *중독* 알림 토큰을 둡니다. :reminder:",
+    "reminders": [
+      "중독",
+      "중독(시계)"
+    ]
+  },
+  {
+    "id": "19muhub",
+    "name": "모용가",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/19_muhub.png"
+    ],
+    "team": "minion",
+    "ability": "살아있는 참가자가 6명 이상일 경우, 악팀은 패배하지 않습니다. 매일 밤*, 낮에 처형으로 사망한 참가자의 캐릭터 유형을 배우고, 그 캐릭터 유형의 캐릭터를 선택해야 합니다. 만약 그가 참여중이지 않다면, 당신은 그 캐릭터가 됩니다.",
+    "otherNight": 6,
+    "otherNightReminder": "낮에 처형된 참가자의 캐릭터 유형을 모용가에게 알려줍니다. 모용가가 그 유형의 캐릭터 1개를 선택하며, 참가 중이 아니라면 모용가의 캐릭터 토큰을 그 캐릭터로 교체하고 보여줍니다.",
+    "reminders": [
+      "모용가"
+    ]
+  },
+  {
+    "id": "20muhub",
+    "name": "청의루",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/20_muhub.png"
+    ],
+    "team": "minion",
+    "ability": "당신이 처형되면, 매일 밤, 참가자 1명을 선택해 죽입니다.",
+    "otherNight": 14,
+    "otherNightReminder": "청의루가 처형으로 사망하면, *사망* 토큰을 두고 매일 밤 깨웁니다.청의루가 참가자 1명을 선택하면, 그 참가자 옆에 *사망* 토큰을 두고 죽입니다. :reminder:",
+    "reminders": [
+      "사망",
+      "사망"
+    ]
+  },
+  {
+    "id": "17muhub",
+    "name": "백소생",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/17_muhub.png"
+    ],
+    "team": "minion",
+    "ability": "매일 낮마다, 모든 참가자의 캐릭터를 공개적으로 추측할 수 있습니다.(사망하더라도) 이야기꾼은 정확하게 맞춘 수를 발표합니다. 모든 참가자의 캐릭터를 정확히 추측한다면, 악팀이 승리합니다.",
+    "reminders": [
+      "추측 정확"
+    ]
+  },
+  {
+    "id": "21muhub",
+    "name": "명교",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/21_muhub.png"
+    ],
+    "team": "demon",
+    "ability": "매일 밤*, 당신이 선택한 참가자 1명은 사망합니다. 게임 시작 시, 당신은 주민들이 받는 정보를 모두 잘못되거나, 모두 정확하도록 결정할 수 있습니다, 사악한 참가자가 사망할때 마다, 해당 능력이 반전됩니다.",
+    "firstNight": 13,
+    "firstNightReminder": "명교가 주민이 받는 정보를 모두 정확하게 할지 모두 거짓으로 할지 선택합니다. 모두 정확이면 *정상*, 모두 거짓이면 *반전* 알림 토큰을 둡니다. :reminder:",
+    "otherNight": 9,
+    "otherNightReminder": "명교가 선택한 참가자가 사망합니다. 악한 참가자가 사망할 때마다 *정상*과 *반전* 알림 토큰을 서로 바꿉니다. :reminder: :reminder:",
+    "reminders": [
+      "정상",
+      "반전",
+      "사망"
+    ]
+  },
+  {
+    "id": "22muhub",
+    "name": "무명",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/22_muhub.png"
+    ],
+    "team": "demon",
+    "ability": "매일 밤*, 당신이 선택한 참가자 1명은 사망합니다. 게임 시작 시, 1명의 참가자와 선한 캐릭터를 1개 선택합니다. 만약 그 캐릭터가 참여중이지 않다면, 그는 그 캐릭터의 능력을 얻으며, 참가중이라면 다음 밤에 다시 일어나 능력을 사용합니다.",
+    "firstNight": 12,
+    "firstNightReminder": "무명이 참가자 1명과 선한 캐릭터 1개를 선택합니다. 그 캐릭터가 참가 중이 아니라면 선택된 참가자 옆에 *능력부여* 알림 토큰을 둔 다음, 무명에게 선택된 사실과, 얻은 선한 캐릭터 토큰을 보여줍니다. :reminder:",
+    "otherNight": 10,
+    "otherNightReminder": "무명이 선택한 참가자가 사망합니다. 마도서에 *능력부여* 알림 토큰이 없다면 첫날 밤 오더를 다시 진행합니다. :reminder: :reminder:",
+    "reminders": [
+      "능력부여",
+      "사망"
+    ]
+  },
+  {
+    "id": "24muhub",
+    "name": "천룡교",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/24_muhub.png"
+    ],
+    "team": "demon",
+    "ability": "매일 밤* 당신이 선택한 참가자 1명은 사망합니다. 게임 시작 시, 모든 외지인 참가자와 캐릭터를 알게 됩니다. 그 중 1명을 선택해 그로부터 시계 방향으로 가장 가까운 주민이 중독됩니다. 그가 처형당하면 그날 밤 다시 다른 살아있는 외지인 참가자를 선택합니다. [외지인 최소 2명]",
+    "firstNight": 14,
+    "firstNightReminder": "천룡교에게 모든 외지인 참가자를 알려줍니다. 천룡교가 그중 1명을 선택하면 그 옆에 *선택* 알림 토큰을, 그에게서 시계 방향으로 가장 가까운 주민 옆에 *중독* 알림 토큰을 둡니다. :reminder: :reminder:",
+    "otherNight": 11,
+    "otherNightReminder": "천룡교가 선택한 참가자가 사망합니다. *선택* 알림 토큰이 놓인 외지인이 처형되었다면, 천룡교가 다른 살아있는 외지인 1명을 선택하고 그 옆으로 *선택* 알림 토큰을, 그에게서 시계 방향으로 가장 가까운 주민 옆으로 *중독* 알림 토큰을 옮깁니다. :reminder: :reminder: :reminder:",
+    "reminders": [
+      "선택",
+      "사망",
+      "중독"
+    ],
+    "setup": true
+  },
+  {
+    "id": "23muhub",
+    "name": "일월신교",
+    "image": [
+      "https://www.bloodstar.xyz/p/starocean19/muhub/23_muhub.png"
+    ],
+    "team": "demon",
+    "ability": "매일 밤*, 당신이 선택한 참가자 1명은 사망합니다. 짝수 밤에는 선택된 사람을 무조건 사망 시킵니다. 홀수 밤에는 2명을 선택합니다. [-1외지인]",
+    "otherNight": 13,
+    "otherNightReminder": "홀수 밤에는 *홀수(두번)* 알림 토큰을 두고 일월신교가 참가자를 2번 선택하며, 짝수 밤에는 *짝수(무조건)* 알림 토큰을 두고 1명을 선택합니다. 선택된 참가자 옆에 *사망* 알림 토큰을 두고 사망시키며, 짝수 밤의 사망은 어떤 방법으로도 막을 수 없습니다. :reminder: :reminder: :reminder:",
+    "reminders": [
+      "홀수(두번)",
+      "짝수(무조건)",
+      "사망",
+      "사망"
+    ],
+    "setup": true
+  },
+  "bootlegger"
+]
