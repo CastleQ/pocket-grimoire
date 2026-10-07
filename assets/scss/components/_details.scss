@@ -84,3 +84,17 @@
     opacity: 0.6;
     padding: 0.3em 0;
 }
+
+// 릴리즈 노트는 내용이 길어져 글씨를 60%로 줄인다(제목·항목 모두).
+// 항목 사이 간격(1rem)도 같은 비율로 줄여 글씨에 비해 벌어지지 않게 한다.
+#release-notes .details__body {
+    font-size: 60%;
+
+    :where(h3, li) {
+        margin-bottom: 0.6rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
