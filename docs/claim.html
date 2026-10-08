@@ -180,9 +180,12 @@ function updateGuideButtons() {
 }
 function openGuide() {
   el("guide-warn-overlay").classList.add("hidden");
-  el("guide-iframe").src = (guideIds.indexOf(claimState.characterId) !== -1)
-    ? "guide.html?id=" + encodeURIComponent(claimState.characterId)
-    : sheetWikiUrl();
+  // 시트 제작자 위키는 새 창으로 연다. 화면 안 창(iframe)에서는 그 사이트가 캐릭터 위치(#id)로 이동하지 않았다.
+  if (guideIds.indexOf(claimState.characterId) === -1 && sheetWikiUrl()) {
+    window.open(sheetWikiUrl(), "_blank", "noopener");
+    return;
+  }
+  el("guide-iframe").src = "guide.html?id=" + encodeURIComponent(claimState.characterId);
   el("guide-frame").classList.remove("hidden");
 }
 function closeGuide() {
