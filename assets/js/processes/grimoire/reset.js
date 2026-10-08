@@ -4,6 +4,10 @@ import {
     lookupOne,
     lookupOneCached
 } from "../../utils/elements.js";
+import {
+    sheetWikiReady,
+    getCurrentSheetWiki
+} from "../../utils/sheet-wiki.js";
 
 const gameObserver = Observer.create("game");
 const pad = lookupOneCached(".js--pad").pad;
@@ -12,13 +16,24 @@ const pad = lookupOneCached(".js--pad").pad;
 // 확인창은 캐릭터 토큰의 [캐릭터 Wiki 바로가기]와 같은 것(characters.js 가 [확인] 처리).
 const WIKI_SITE_URL = "https://castleq.github.io/botc-wiki-ko/";
 
+// 제작자 위키가 있는 시트(점소이 등)를 불러온 상태에서는 공식 도감 대신 그 위키 첫 화면으로 간다.
 lookupOne("#reset-height").addEventListener("click", () => {
 
     const confirmDialog = Dialog.create(lookupOneCached("#character-wiki-confirm"));
 
-    confirmDialog.getElement().dataset.url = WIKI_SITE_URL;
-    lookupOneCached("#character-wiki-subject").textContent = "공식";
-    confirmDialog.show();
+    sheetWikiReady.then(() => {
+
+        const sheetWiki = getCurrentSheetWiki();
+
+        confirmDialog.getElement().dataset.url = sheetWiki || WIKI_SITE_URL;
+        lookupOneCached("#character-wiki-subject").textContent = (
+            sheetWiki
+            ? "이 시트의"
+            : "공식"
+        );
+        confirmDialog.show();
+
+    });
 
 });
 

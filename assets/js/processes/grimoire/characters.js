@@ -4,6 +4,11 @@ import Observer from "../../classes/Observer.js";
 import Pad from "../../classes/Pad.js";
 import Template from "../../classes/Template.js";
 import TokenStore from "../../classes/TokenStore.js";
+import {
+    sheetWikiReady,
+    getCurrentSheetWiki,
+    getSheetWikiForCharacter
+} from "../../utils/sheet-wiki.js";
 import TokenDialog from "../../classes/TokenDialog.js";
 import Names from "../../classes/Names.js";
 import {
@@ -64,10 +69,6 @@ const OLD_NAMES = {
     상아의정령: "spiritofivory"
 };
 const CUSTOM_SCRIPT_KEY = "pg_wiki_custom_script";
-// 시트 제작자가 만든 위키가 있는 홈브류 캐릭터 → 그 위키의 캐릭터 위치(#id).
-// 목록: public/scripts/sheet-wikis.json [{ url, ids: [...] }] (뽑기 화면 claim.html 도 같은 파일을 읽는다)
-const scriptsBase = (typeof URLS !== "undefined" && URLS.scriptsBase) || "/scripts/";
-let sheetWikiById = Object.create(null);
 let guideIds = [];
 let officialByName = Object.create(null);
 let officialTeam = Object.create(null);
@@ -82,22 +83,8 @@ const wikiDataReady = Promise.all([
         .then((response) => (response.ok ? response.json() : [])),
     fetch(guideBase + "guide/data/roles.json", { cache: "no-cache" })
         .then((response) => (response.ok ? response.json() : {})),
-    fetch(scriptsBase + "sheet-wikis.json", { cache: "no-cache" })
-        .then((response) => (response.ok ? response.json() : []))
-        .catch(() => [])
-]).then(([ids, roles, sheetWikis]) => {
-
-    (Array.isArray(sheetWikis) ? sheetWikis : []).forEach(({ url, ids: wikiIds }) => {
-
-        if (typeof url !== "string" || !url.startsWith("https://") || !Array.isArray(wikiIds)) {
-            return;
-        }
-
-        wikiIds.forEach((id) => {
-            sheetWikiById[TokenStore.normaliseId(String(id))] = url + "#" + encodeURIComponent(id);
-        });
-
-    });
+    sheetWikiReady
+]).then(([ids, roles]) => {
 
     guideIds = Array.isArray(ids) ? ids : [];
     Object.entries(roles || {}).forEach(([id, role]) => {
@@ -166,17 +153,24 @@ function getWikiTarget(character) {
         return null;
     }
 
+    // 제작자 위키가 있는 시트를 불러온 상태: 어떤 캐릭터든 공식 위키 대신 그 위키로.
+    // 목록의 캐릭터는 캐릭터 위치(#id), 그 밖의 캐릭터(전설·설화 등)는 위키 첫 화면.
+    const currentSheetWiki = getCurrentSheetWiki();
+    const sheetWiki = getSheetWikiForCharacter(character.getId());
+
+    if (currentSheetWiki) {
+        return { url: sheetWiki || currentSheetWiki, subject: "이 캐릭터의" };
+    }
+
+    if (character.isCustom() && sheetWiki) {
+        return { url: sheetWiki, subject: "이 캐릭터의" };
+    }
+
     if (!character.isCustom()) {
         const id = character.getId();
         return guideIds.includes(id)
             ? { url: guideBase + "guide.html?id=" + encodeURIComponent(id), subject: "이 캐릭터의" }
             : null;
-    }
-
-    const sheetWiki = sheetWikiById[TokenStore.normaliseId(String(character.getId() || ""))];
-
-    if (sheetWiki) {
-        return { url: sheetWiki, subject: "이 캐릭터의" };
     }
 
     const officialId = findOfficialId(character);
