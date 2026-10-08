@@ -64,6 +64,10 @@ const OLD_NAMES = {
     상아의정령: "spiritofivory"
 };
 const CUSTOM_SCRIPT_KEY = "pg_wiki_custom_script";
+// 시트 제작자가 만든 위키가 있는 홈브류 캐릭터 → 그 위키의 캐릭터 위치(#id).
+// 목록: public/scripts/sheet-wikis.json [{ url, ids: [...] }] (뽑기 화면 claim.html 도 같은 파일을 읽는다)
+const scriptsBase = (typeof URLS !== "undefined" && URLS.scriptsBase) || "/scripts/";
+let sheetWikiById = Object.create(null);
 let guideIds = [];
 let officialByName = Object.create(null);
 let officialTeam = Object.create(null);
@@ -77,8 +81,23 @@ const wikiDataReady = Promise.all([
     fetch(guideBase + "guide/data/index.json", { cache: "no-cache" })
         .then((response) => (response.ok ? response.json() : [])),
     fetch(guideBase + "guide/data/roles.json", { cache: "no-cache" })
-        .then((response) => (response.ok ? response.json() : {}))
-]).then(([ids, roles]) => {
+        .then((response) => (response.ok ? response.json() : {})),
+    fetch(scriptsBase + "sheet-wikis.json", { cache: "no-cache" })
+        .then((response) => (response.ok ? response.json() : []))
+        .catch(() => [])
+]).then(([ids, roles, sheetWikis]) => {
+
+    (Array.isArray(sheetWikis) ? sheetWikis : []).forEach(({ url, ids: wikiIds }) => {
+
+        if (typeof url !== "string" || !url.startsWith("https://") || !Array.isArray(wikiIds)) {
+            return;
+        }
+
+        wikiIds.forEach((id) => {
+            sheetWikiById[TokenStore.normaliseId(String(id))] = url + "#" + encodeURIComponent(id);
+        });
+
+    });
 
     guideIds = Array.isArray(ids) ? ids : [];
     Object.entries(roles || {}).forEach(([id, role]) => {
@@ -152,6 +171,12 @@ function getWikiTarget(character) {
         return guideIds.includes(id)
             ? { url: guideBase + "guide.html?id=" + encodeURIComponent(id), subject: "이 캐릭터의" }
             : null;
+    }
+
+    const sheetWiki = sheetWikiById[TokenStore.normaliseId(String(character.getId() || ""))];
+
+    if (sheetWiki) {
+        return { url: sheetWiki, subject: "이 캐릭터의" };
     }
 
     const officialId = findOfficialId(character);
