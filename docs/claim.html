@@ -107,6 +107,10 @@ let unloadGuardActive = false;
 // 이름을 이야기꾼에게 보낸 뒤의 완료 화면에서만 연다(가이드를 읽느라 이름 보내기를 미루지 않도록). 캐릭터를 실제로 보여준 흐름에서만 허용한다. 재접속 복구 화면에서는 열지 않는다.
 let guideIds = [];
 let guideAllowed = false;
+// 시트 제작자 위키가 있는 홈브류 캐릭터(scripts/sheet-wikis.json): id → 그 위키의 캐릭터 위치(#id)
+let sheetWikiById = {};
+function normaliseId(id) { return String(id || "").replace(/[-_]/g, "").toLowerCase(); }
+function sheetWikiUrl() { return (claimState && sheetWikiById[normaliseId(claimState.characterId)]) || ""; }
 
 function show(id) {
   ["screen-gate", "screen-char", "screen-done"].forEach(function (s) { el(s).classList.add("hidden"); });
@@ -165,7 +169,7 @@ function blockScreen(msg) {
 }
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]; }); }
 function hasGuide() {
-  return !!(guideAllowed && claimState && claimState.characterId && guideIds.indexOf(claimState.characterId) !== -1);
+  return !!(guideAllowed && claimState && claimState.characterId && (guideIds.indexOf(claimState.characterId) !== -1 || sheetWikiUrl()));
 }
 function updateGuideButtons() {
   el("btn-guide-done").classList.toggle("hidden", !hasGuide() || el("screen-done").classList.contains("hidden"));
@@ -176,7 +180,9 @@ function updateGuideButtons() {
 }
 function openGuide() {
   el("guide-warn-overlay").classList.add("hidden");
-  el("guide-iframe").src = "guide.html?id=" + encodeURIComponent(claimState.characterId);
+  el("guide-iframe").src = (guideIds.indexOf(claimState.characterId) !== -1)
+    ? "guide.html?id=" + encodeURIComponent(claimState.characterId)
+    : sheetWikiUrl();
   el("guide-frame").classList.remove("hidden");
 }
 function closeGuide() {
@@ -230,6 +236,16 @@ el("guide-close").addEventListener("click", closeGuide);
 fetch("guide/data/index.json", { cache: "no-cache" })
   .then(function (res) { return res.ok ? res.json() : []; })
   .then(function (list) { guideIds = Array.isArray(list) ? list : []; updateGuideButtons(); })
+  .catch(function () {});
+fetch("scripts/sheet-wikis.json", { cache: "no-cache" })
+  .then(function (res) { return res.ok ? res.json() : []; })
+  .then(function (list) {
+    (Array.isArray(list) ? list : []).forEach(function (wiki) {
+      if (!wiki || typeof wiki.url !== "string" || wiki.url.indexOf("https://") !== 0 || !Array.isArray(wiki.ids)) { return; }
+      wiki.ids.forEach(function (id) { sheetWikiById[normaliseId(id)] = wiki.url + "#" + encodeURIComponent(id); });
+    });
+    updateGuideButtons();
+  })
   .catch(function () {});
 window.addEventListener("beforeunload", function (e) { if (unloadGuardActive) { e.preventDefault(); e.returnValue = ""; } });
 
