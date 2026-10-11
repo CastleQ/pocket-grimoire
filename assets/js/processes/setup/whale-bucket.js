@@ -415,8 +415,20 @@ if (startButton) {
 
         if (session && session.gameId) {
 
-            showReady();
-            startPolling();
+            // 지난 방은 기한 없이 남는다. 새로고침 복구용이지만, 다음 게임에서 지난 링크를
+            // 그대로 나눠주는 사고가 있었다(지난 참가자에게 지난 결과가 바로 뜸). 먼저 묻는다.
+            const keep = window.confirm(
+                "지난 게임 방이 남아 있습니다.\n\n"
+                + "[확인] 지난 방 이어서 진행 (게임 도중 새로고침한 경우)\n"
+                + "[취소] 새 게임 방 만들기 (지난 링크는 더 이상 쓸 수 없습니다)"
+            );
+
+            if (keep) {
+                showReady();
+                startPolling();
+            } else {
+                resetSession();
+            }
 
         }
 
@@ -989,61 +1001,71 @@ if (restartButton) {
             return;
         }
 
-        if (pollTimer) {
-            window.clearInterval(pollTimer);
-            pollTimer = null;
-        }
-
-        session = null;
-        latestState = null;
-        counterOpen = false;
-
-        try {
-            window.localStorage.removeItem(STORAGE_KEY);
-        } catch (ignore) {
-            // 저장소를 못 쓰면 그냥 넘어간다.
-        }
-
-        // 화면을 처음 상태로 되돌린다.
-        const status = document.querySelector("#whale-bucket-status");
-        const create = document.querySelector("#whale-bucket-create");
-        const wrap = document.querySelector("#whale-bucket-link-wrap");
-        const stage = document.querySelector("#whale-bucket-stage");
-        const roster = document.querySelector("#whale-bucket-roster");
-        const count = document.querySelector("#whale-bucket-count");
-
-        if (status) {
-            status.textContent = "아직 게임 방을 만들지 않았습니다.";
-        }
-
-        if (create) {
-            create.hidden = false;
-            create.disabled = false;
-            create.textContent = "게임 방 만들기";
-        }
-
-        if (copyButton) {
-            copyButton.hidden = true;
-        }
-
-        restartButton.hidden = true;
-
-        if (wrap) {
-            wrap.hidden = true;
-        }
-
-        if (stage) {
-            stage.hidden = true;
-        }
-
-        if (roster) {
-            roster.textContent = "";
-        }
-
-        if (count) {
-            count.textContent = "0";
-        }
+        resetSession();
 
     });
+
+}
+
+/**
+ * 지난 게임 방을 버리고 화면을 "게임 방 만들기" 전 상태로 되돌린다.
+ * ([🔄 새 게임 시작], 그리고 [양동이 진행]에서 "새 게임"을 고른 경우)
+ */
+function resetSession() {
+
+    if (pollTimer) {
+        window.clearInterval(pollTimer);
+        pollTimer = null;
+    }
+
+    session = null;
+    latestState = null;
+    counterOpen = false;
+
+    try {
+        window.localStorage.removeItem(STORAGE_KEY);
+    } catch (ignore) {
+        // 저장소를 못 쓰면 그냥 넘어간다.
+    }
+
+    // 화면을 처음 상태로 되돌린다.
+    const status = document.querySelector("#whale-bucket-status");
+    const create = document.querySelector("#whale-bucket-create");
+    const wrap = document.querySelector("#whale-bucket-link-wrap");
+    const stage = document.querySelector("#whale-bucket-stage");
+    const roster = document.querySelector("#whale-bucket-roster");
+    const count = document.querySelector("#whale-bucket-count");
+
+    if (status) {
+        status.textContent = "아직 게임 방을 만들지 않았습니다.";
+    }
+
+    if (create) {
+        create.hidden = false;
+        create.disabled = false;
+        create.textContent = "게임 방 만들기";
+    }
+
+    if (copyButton) {
+        copyButton.hidden = true;
+    }
+
+    restartButton.hidden = true;
+
+    if (wrap) {
+        wrap.hidden = true;
+    }
+
+    if (stage) {
+        stage.hidden = true;
+    }
+
+    if (roster) {
+        roster.textContent = "";
+    }
+
+    if (count) {
+        count.textContent = "0";
+    }
 
 }
