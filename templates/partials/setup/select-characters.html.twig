@@ -238,3 +238,22 @@
     </ul>
     {% endblock %}
 {% endembed %}
+
+{# [캐릭터 나눠주기] — 이야기꾼 이름을 적어야 링크가 만들어진다 (distribute.js) #}
+{% embed "includes/dialog.html.twig" with {
+    id: "storyteller-name-dialog",
+    background: "blur",
+    title: "캐릭터 나눠주기"
+} %}
+    {% block body %}
+    <form id="storyteller-name-form" novalidate>
+        <label for="storyteller-name-input" style="display: block; text-align: center; word-break: keep-all;">이야기꾼 이름을 적어주세요.</label>
+        <input type="text" class="input mt-2" id="storyteller-name-input" maxlength="20" autocomplete="off" style="width: 100%;">
+        <p id="storyteller-name-error" class="mt-2" style="text-align: center; color: var(--red);" hidden>이야기꾼 이름을 적어야 링크를 만들 수 있어요.</p>
+        <ul class="button-list mt-4" style="--columns: 2; max-width: 20em; margin-inline: auto;">
+            <li><button type="submit" class="button">확인</button></li>
+            <li><button type="button" class="button" style="--bg-colour: var(--red);" data-dialog-hide>취소</button></li>
+        </ul>
+    </form>
+    {% endblock %}
+{% endembed %}

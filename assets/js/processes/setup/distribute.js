@@ -3,6 +3,12 @@
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase-config.js";
 import TokenStore from "../../classes/TokenStore.js";
 import Observer from "../../classes/Observer.js";
+import Dialog from "../../classes/Dialog.js";
+import {
+    cleanStorytellerName,
+    getStorytellerName,
+    setStorytellerName
+} from "../../utils/storyteller-name.js";
 
 const WATCH_GAME_KEY = "pg_watch_game";
 let watchTimer = null;
@@ -33,10 +39,13 @@ function getSelectedCharacters() {
     return result;
 }
 
-function supabaseInsert(table, rows) {
+// returnRows 가 false 면 저장한 행을 돌려받지 않는다(slots — 돌려받을 필요가 없고,
+// 공개 키로 읽을 수 없는 칸이 있어 돌려받으려 하면 저장이 거부된다).
+function supabaseInsert(table, rows, returnRows) {
+    const wantRows = returnRows !== false;
     return fetch(SUPABASE_URL + "/rest/v1/" + table, {
         method: "POST",
-        headers: Object.assign(sbHeaders(), { "Prefer": "return=representation" }),
+        headers: Object.assign(sbHeaders(), { "Prefer": wantRows ? "return=representation" : "return=minimal" }),
         body: JSON.stringify(rows)
     }).then(function (response) {
         if (!response.ok) {
@@ -44,7 +53,7 @@ function supabaseInsert(table, rows) {
                 throw new Error(table + " 저장 실패 (" + response.status + "): " + text);
             });
         }
-        return response.json();
+        return wantRows ? response.json() : null;
     });
 }
 
@@ -142,6 +151,50 @@ function handleDistributeClick() {
         window.alert("아직 선택된 캐릭터가 없습니다.\n먼저 배포할 캐릭터를 체크해 주세요.");
         return;
     }
+    // 이야기꾼 이름을 적어야 링크가 만들어진다. 뽑기 화면 첫 화면에 보여 주어
+    // 다른 지역에서 동시에 열린 게임의 링크를 잘못 누르는 일을 막는다.
+    askStorytellerName(function (storytellerName) {
+        runDistribute(characters, storytellerName);
+    });
+}
+
+// ---- 이야기꾼 이름 모달 ----
+
+let onStorytellerName = null;
+
+function askStorytellerName(callback) {
+    const dialog = document.querySelector("#storyteller-name-dialog");
+    const input = document.querySelector("#storyteller-name-input");
+    if (!dialog || !input) {
+        return;
+    }
+    onStorytellerName = callback;
+    input.value = getStorytellerName();
+    document.querySelector("#storyteller-name-error").hidden = true;
+    Dialog.create(dialog).show();
+    window.setTimeout(function () { input.focus(); }, 50);
+}
+
+document.addEventListener("submit", function (event) {
+    if (!event.target || event.target.id !== "storyteller-name-form") {
+        return;
+    }
+    event.preventDefault();
+    const name = cleanStorytellerName(document.querySelector("#storyteller-name-input").value);
+    if (!name) {
+        document.querySelector("#storyteller-name-error").hidden = false;
+        return;
+    }
+    setStorytellerName(name);
+    Dialog.create(document.querySelector("#storyteller-name-dialog")).hide();
+    const callback = onStorytellerName;
+    onStorytellerName = null;
+    if (callback) {
+        callback(name);
+    }
+});
+
+function runDistribute(characters, storytellerName) {
     const button = document.querySelector("#player-select-distribute");
     if (button) {
         button.disabled = true;
@@ -218,10 +271,11 @@ function handleDistributeClick() {
                         character_id: d.character_id,
                         character_name: d.character_name,
                         character_ability: d.character_ability,
-                        character_image: d.character_image
+                        character_image: d.character_image,
+                        storyteller_name: storytellerName
                     };
                 });
-                return supabaseInsert("slots", slotRows);
+                return supabaseInsert("slots", slotRows, false);
             })
             .then(function () {
                 startWatching(createdGame.id);

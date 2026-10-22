@@ -10,6 +10,7 @@
 //   - 아카이브 실패는 절대 시트 로드를 방해하지 않는다.
 
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase-config.js";
+import { getStorytellerName } from "../../utils/storyteller-name.js";
 
 // 이 페이지에서 이미 전송한 해시. 같은 시트를 반복 로드해도 중복 전송하지 않는다.
 const sentHashes = new Set();
@@ -130,6 +131,28 @@ export function archiveCustomScript(json) {
             p_char_count: characterCount,
             p_json: json
         })
+    }).then(() => {
+
+        // 이 기기에서 적어 둔 이야기꾼 이름이 있으면 함께 남긴다.
+        const storyteller = getStorytellerName();
+
+        if (!storyteller) {
+            return null;
+        }
+
+        return fetch(SUPABASE_URL + "/rest/v1/rpc/set_custom_script_storyteller", {
+            method: "POST",
+            headers: {
+                "apikey": SUPABASE_ANON_KEY,
+                "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                p_hash: hash,
+                p_storyteller: storyteller
+            })
+        });
+
     }).catch(() => {
         // 아카이브 실패는 시트 로드에 영향을 주지 않는다.
     });

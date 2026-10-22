@@ -53,7 +53,7 @@
 <body>
 <div class="wrap">
   <div id="screen-gate">
-    <div class="title">실제로 플레이 할<br>사람만 확인 해주세요!</div>
+    <div class="title" id="gate-title" style="visibility: hidden; word-break: keep-all;">실제로 플레이 할<br>사람만 확인 해주세요!</div>
     <button class="btn" id="btn-reveal">내 캐릭터 확인하기</button>
   </div>
   <div id="screen-char" class="hidden">
@@ -192,12 +192,30 @@ function closeGuide() {
   el("guide-frame").classList.add("hidden");
   el("guide-iframe").src = "about:blank";
 }
+// 첫 화면에 이야기꾼 이름을 보여 준다("OO 님의 게임입니다"). 여러 지역에서 동시에 열린 게임의
+// 링크를 잘못 눌러 다른 게임의 캐릭터를 뽑지 않도록. 이름이 없는(예전) 게임은 기존 문구 그대로.
+function showStoryteller() {
+  const title = el("gate-title");
+  fetch(SUPABASE_URL + "/rest/v1/rpc/get_game_storyteller", { method: "POST", headers: sbHeaders(), body: JSON.stringify({ p_game_id: gameId }) })
+    .then(function (res) { return res.ok ? res.json() : ""; })
+    .then(function (name) {
+      const clean = (typeof name === "string") ? name.trim().slice(0, 20) : "";
+      if (!clean) { return; }
+      const strong = document.createElement("b");
+      strong.textContent = clean;
+      title.textContent = "";
+      title.append(strong, " 님의 게임입니다.", document.createElement("br"), "당신의 캐릭터를 확인해주세요.");
+    })
+    .catch(function () {})
+    .then(function () { title.style.visibility = ""; });
+}
 function init() {
   if (!gameId) { blockScreen("잘못된 링크입니다.<br>게임 정보가 없습니다."); return; }
   const st = loadState();
   if (st && st.submitted) { blockScreen("이미 캐릭터를 확인하고<br>이야기꾼에게 보냈습니다.<br><br>이 링크는 다시 사용할 수 없습니다."); return; }
   if (st && st.claimed) { claimState = st; showRecover(); return; }
   show("screen-gate");
+  showStoryteller();
 }
 el("btn-reveal").addEventListener("click", function () { el("confirm-overlay").classList.remove("hidden"); });
 el("confirm-no").addEventListener("click", function () { el("confirm-overlay").classList.add("hidden"); try { history.back(); } catch (e) {} });

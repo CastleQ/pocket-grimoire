@@ -1,6 +1,7 @@
 import Store from "../../classes/Store.js";
 import Dialog from "../../classes/Dialog.js";
 import Observer from "../../classes/Observer.js";
+import { clearStorytellerName } from "../../utils/storyteller-name.js";
 import {
     lookupOne,
     lookupCached,
@@ -47,6 +48,9 @@ lookupOne("#cache-form").addEventListener("submit", (e) => {
         }
 
     });
+
+    // 캐시 삭제(초기화) 때는 기억해 둔 이야기꾼 이름도 지운다.
+    clearStorytellerName();
 
     // 지워진 저장값을 화면에 반영한다 (마도서 인원 현황 등).
     Observer.create("game").trigger("cache-cleared");
