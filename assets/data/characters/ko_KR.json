@@ -365,7 +365,7 @@
   {
     "id": "courtier",
     "name": "궁정대신",
-    "ability": "게임당 1번, 밤에, 캐릭터 1명을 선택합니다: 그 참가자는 3일 밤낮 동안 취합니다.",
+    "ability": "게임당 1번, 밤에, 캐릭터 1개를 선택합니다: 그 캐릭터인 참가자는 3일 밤낮 동안 취합니다.",
     "firstNightReminder": "궁정대신이 캐릭터 1명을 선택할 수도 있습니다. :reminder: :reminder:",
     "otherNightReminder": "궁정대신이 캐릭터 1명을 선택할 수도 있습니다. :reminder: :reminder:",
     "remindersGlobal": [],

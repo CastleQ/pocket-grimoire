@@ -745,7 +745,7 @@
       "https://script.bloodontheclocktower.com/src/assets/icons/bmr/courtier_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "게임당 1번, 밤에, 캐릭터 1명을 선택합니다: 그 참가자는 3일 밤낮 동안 취합니다.",
+    "ability": "게임당 1번, 밤에, 캐릭터 1개를 선택합니다: 그 캐릭터인 참가자는 3일 밤낮 동안 취합니다.",
     "flavor": "사자 한 마리가 이끄는 양 백 마리의 군대가, 양 한 마리가 이끄는 사자 백 마리의 군대보다 더 두렵소.",
     "firstNight": 34,
     "firstNightReminder": "궁정대신이 캐릭터 1명을 선택할 수도 있습니다. :reminder: :reminder:",
