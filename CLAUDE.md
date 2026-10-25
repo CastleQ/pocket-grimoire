@@ -121,6 +121,13 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 **⑬ `guide/data/`·`img/official/` 위치를 바꾸면 캐릭터 도감 사이트가 깨진다**
 별도 사이트 `CastleQ/botc-wiki-ko`(캐릭터 도감)가 PG+ 배포본의 `/pocket-grimoire/guide/data/…`(roles·index·jinxes·chars)와 `/pocket-grimoire/img/official/<id>_0.webp`, `/pocket-grimoire/guide/img/…`를 **절대 경로로 직접 읽는다.** 이 폴더·파일 이름·데이터 형식을 바꾸려면 도감 쪽도 함께 고친다.
 
+**⑭ Supabase 공개 키 권한을 좁히는 변경은 순서와 점검 범위를 지켜라 (실사용 중단 2회)**
+공개 키(anon) 권한을 줄이면 **이미 배포된 옛 앱**과 **그 표를 쓰는 DB 함수**가 함께 깨진다. 증상은 `permission denied for table …`(401, 42501) — 나눠주기 저장 실패, 플레이어 뽑기(claim) 실패로 나타났다.
+- 순서는 **앱 배포 → 캐시(최대 10분) 경과 → DB 권한 변경**. 반대로 하면 옛 앱이 즉시 멈춘다.
+- 바꾸기 전에 **그 표를 쓰는 DB 함수 목록을 뽑아 함수마다 실제로 불러 점검**한다. 앱 요청만 점검하면 안 된다. (조회문·복구 절차는 비공개 문서 — §11)
+- 앱에서 `slots`는 **필요한 칸만 지정해 읽는다.** `select=*`, 저장 시 `Prefer: return=representation` 금지 — 공개 키로 읽을 수 없는 칸이 있다.
+- DB 변경 SQL은 CastleQ가 대시보드에서 실행한다. 변경 전후로 공개 키 점검(읽기·저장·함수 호출)을 하고, 데이터를 쓰지 않는 방식(없는 id 대상)으로 확인한다.
+
 ---
 
 ## 5. 시트 데이터 규칙
