@@ -886,7 +886,7 @@ if (revealButton) {
         }).then(() => {
 
             placeAllTokens((latestState && latestState.players) || []);
-            window.alert("🎭 공개되었습니다.\n그리모어에 토큰을 배치했습니다.");
+            window.alert("🎭 공개되었습니다.\n마도서에 토큰을 배치했습니다.");
             pollOnce();
 
         }).catch((error) => {

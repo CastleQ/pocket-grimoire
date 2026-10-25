@@ -50,10 +50,10 @@
             "title": "예시",
             "blocks": [
                 {
-                    "example": "마리아나는 {c:hermit}이며, {c:klutz}, {c:butler}, {c:recluse}의 능력을 가지고 있습니다. {c:butler}의 능력 때문에, 마리아나는 매일 밤 플레이어 1명을 주인으로 선택합니다. {c:ravenkeeper}가 죽고, {c:recluse}의 능력 때문에 마리아나가 {c:lordoftyphon}라는 것을 알게 됩니다. 마리아나가 처형당하고, {c:klutz}의 능력 때문에 플레이어 1명을 선택합니다. 마리아나는 {c:wizard}를 선택합니다. 선한 팀이 패배합니다."
+                    "example": "마리아나는 {c:hermit}이며, {c:klutz}, {c:butler}, {c:recluse}의 능력을 가지고 있습니다. {c:butler}의 능력 때문에, 마리아나는 매일 밤 참가자 1명을 주인으로 선택합니다. {c:ravenkeeper}가 죽고, {c:recluse}의 능력 때문에 마리아나가 {c:lordoftyphon}라는 것을 알게 됩니다. 마리아나가 처형당하고, {c:klutz}의 능력 때문에 참가자 1명을 선택합니다. 마리아나는 {c:wizard}를 선택합니다. 선한 팀이 패배합니다."
                 },
                 {
-                    "example": "루이스는 {c:hermit}이며, {c:drunk}, {c:mutant}, {c:sweetheart}의 능력을 가지고 있습니다. 자신이 {c:exorcist}라고 생각하며, 루이스는 매일 밤 플레이어 1명을 선택합니다. 루이스가 자신이 {c:drunk}일지도 모르겠다고 말하자, 이야기꾼은 {c:mutant}의 능력 때문에 루이스를 처형합니다. {c:sweetheart}의 능력 때문에, 이제 {c:alchemist}가 취함 상태가 됩니다."
+                    "example": "루이스는 {c:hermit}이며, {c:drunk}, {c:mutant}, {c:sweetheart}의 능력을 가지고 있습니다. 자신이 {c:exorcist}라고 생각하며, 루이스는 매일 밤 참가자 1명을 선택합니다. 루이스가 자신이 {c:drunk}일지도 모르겠다고 말하자, 이야기꾼은 {c:mutant}의 능력 때문에 루이스를 처형합니다. {c:sweetheart}의 능력 때문에, 이제 {c:alchemist}가 취함 상태가 됩니다."
                 }
             ]
         }
