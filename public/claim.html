@@ -52,6 +52,9 @@
   .tips { margin-top:22px; text-align:left; display:flex; flex-direction:column; gap:10px; }
   .tips-write { display:flex; flex-direction:column; }
   .tips-write textarea { display:block; width:100%; font:inherit; font-size:1rem; line-height:1.4; padding:8px 10px; border:2px solid #333; border-radius:6px; resize:none; overflow:hidden; background:#fff; color:var(--text); }
+  /* 앱 본체의 .button(시나리오 선택 등)과 같은 얇은 두께 */
+  .tips-write .btn { margin-top:8px; padding:0 .5em; font-size:.85rem; font-weight:400; line-height:1.4; border-width:1px; border-radius:.2em;
+         box-shadow: inset .1em .1em .2em rgba(255,255,255,.3), inset -.1em -.1em .2em rgba(0,0,0,.3), .1em .1em .2em rgba(0,0,0,.4); }
   .tips-write textarea::placeholder { font-size:var(--tip-ph-size, 1rem); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .tips-empty { text-align:center; padding:12px 6px; line-height:1.6; }
   .tips-list { display:flex; flex-direction:column; gap:8px; }
