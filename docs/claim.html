@@ -48,6 +48,26 @@
   .warn-head { color:#c0141b; font-weight:800; }
   #guide-warn-overlay .modal p { word-break:keep-all; }
   .guide-frame iframe { flex:1 1 auto; width:100%; border:0; background:#efe6d6; }
+  /* 플레이팁 댓글 — 완료 화면 위키 버튼 아래에 펼친 채로 나열 */
+  .tips { margin-top:22px; text-align:left; display:flex; flex-direction:column; gap:10px; }
+  .tips-write { display:flex; gap:8px; align-items:flex-end; }
+  .tips-write textarea { flex:1 1 auto; min-width:0; font:inherit; font-size:1rem; line-height:1.4; padding:8px 10px; border:2px solid #333; border-radius:6px; resize:none; overflow:hidden; background:#fff; color:var(--text); }
+  .tips-write .btn { width:auto; margin:0; padding:8px 18px; font-size:1rem; flex:0 0 auto; }
+  .tips-empty { text-align:center; padding:16px 6px; border:2px dashed #cbbfa8; border-radius:8px; line-height:1.6; }
+  .tips-list { display:flex; flex-direction:column; gap:8px; }
+  .tip { background:#f8f2e6; border:1px solid #cbbfa8; border-radius:6px; padding:9px 10px; display:grid; grid-template-columns:1fr auto; gap:4px 10px; }
+  .tip.is-pending { opacity:.55; }
+  .tip-body { line-height:1.5; min-width:0; word-break:keep-all; overflow-wrap:anywhere; white-space:pre-wrap; }
+  .tip-meta { grid-column:1; font-size:.78rem; color:#5b5348; display:flex; gap:8px; align-items:center; }
+  .tip-mine { background:#2b1633; color:#fff; border-radius:3px; padding:0 5px; }
+  .tip-del { color:#a33; text-decoration:underline; cursor:pointer; background:none; border:0; padding:0; font:inherit; }
+  .tip-heart { grid-column:2; grid-row:1 / span 2; align-self:center; display:flex; flex-direction:column; align-items:center; background:none; border:0; cursor:pointer; color:#5b5348; font:inherit; font-size:.8rem; padding:2px 4px; }
+  .tip-heart svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:2; transition:transform .15s; }
+  .tip-heart.on { color:#d23a4f; } .tip-heart.on svg { fill:currentColor; }
+  .tip-heart:active svg { transform:scale(1.3); }
+  .tip-heart:disabled { opacity:.35; cursor:default; }
+  .tips-more { background:none; border:0; color:#5b5348; font:inherit; cursor:pointer; padding:6px; }
+  @media (prefers-reduced-motion: reduce) { .tip-heart svg { transition:none; } }
 </style>
 </head>
 <body>
@@ -69,6 +89,15 @@
     <div class="msg hidden" id="guide-tip">기다리는 동안 뽑은 캐릭터의 플레이 팁을 아래에서 확인하세요↓</div>
     <div class="msg hidden" id="close-tip">이 창은 닫으셔도 됩니다.</div>
     <button class="btn btn--guide hidden" id="btn-guide-done" data-guide-open>캐릭터 공식 Wiki 읽어보기</button>
+    <div class="tips hidden" id="tips">
+      <div class="tips-write">
+        <textarea id="tip-input" rows="1" maxlength="300" aria-label="플레이 팁 쓰기"></textarea>
+        <button class="btn" id="tip-send">쓰기</button>
+      </div>
+      <div class="tips-empty hidden" id="tips-empty">아직 아무도 남기지 않았어요.<br><b>이 캐릭터의 첫 기록</b>을 남겨주세요.</div>
+      <div class="tips-list" id="tips-list"></div>
+      <button class="tips-more hidden" id="tips-more">더 보기 ↓</button>
+    </div>
   </div>
 </div>
 <div id="confirm-overlay" class="overlay hidden">
@@ -175,8 +204,8 @@ function updateGuideButtons() {
   el("btn-guide-done").classList.toggle("hidden", !hasGuide() || el("screen-done").classList.contains("hidden"));
   // 이름을 보낸 직후: 가이드가 있으면 버튼 안내, 없으면(번역 전 캐릭터) 예전처럼 "닫으셔도 됩니다"
   var submitted = el("screen-done").classList.contains("is-submitted");
-  el("guide-tip").classList.toggle("hidden", !submitted || !hasGuide());
-  el("close-tip").classList.toggle("hidden", !submitted || hasGuide());
+  el("guide-tip").classList.toggle("hidden", !submitted || !(hasGuide() || tipsReady));
+  el("close-tip").classList.toggle("hidden", !submitted || hasGuide() || tipsReady);
 }
 function openGuide() {
   el("guide-warn-overlay").classList.add("hidden");
@@ -192,6 +221,162 @@ function closeGuide() {
   el("guide-frame").classList.add("hidden");
   el("guide-iframe").src = "about:blank";
 }
+
+// ── 플레이팁 댓글 ──
+// 목록·쓰기·지우기·공감은 DB 함수(tip_*)로만. 함수가 없거나 실패하면 댓글 칸을 숨긴 채 둔다.
+// 공감은 낙관적 업데이트: 누르는 즉시 바꾸고, 연타가 멈추면 마지막 상태만 보낸다. 실패하면 조용히 되돌린다.
+const TIP_PAGE = 20;
+const TIP_PLACEHOLDERS = ["이 캐릭터로 했던 최고의 블러핑은?", "다음엔 꼭 해보고 싶은 전략은?", "이 캐릭터로 겪은 웃긴 순간은?", "처음 하는 사람에게 한마디", "이 캐릭터, 이렇게 하면 망한다"];
+const HEART_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>';
+let tipsReady = false;
+let tipOffset = 0;
+const tipShown = {};
+function newId() { return (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : (Date.now() + "-" + Math.random()); }
+// 공감 중복 방지용 기기 표시. 저장소를 못 쓰면 이 화면에서만 쓰는 값.
+const tipDevice = (function () {
+  try { let d = localStorage.getItem("pg_tip_device"); if (!d) { d = newId(); localStorage.setItem("pg_tip_device", d); } return d; }
+  catch (e) { return newId(); }
+}());
+function rpc(name, body) {
+  return fetch(SUPABASE_URL + "/rest/v1/rpc/" + name, { method: "POST", headers: sbHeaders(), body: JSON.stringify(body) })
+    .then(function (res) { if (!res.ok) { return res.text().then(function (t) { throw new Error(t); }); } return res.json(); });
+}
+function tipDate(iso) {
+  const d = new Date(iso);
+  const p = function (n) { return String(n).padStart(2, "0"); };
+  return p(d.getFullYear() % 100) + "/" + p(d.getMonth() + 1) + "/" + p(d.getDate());
+}
+function isMyTip(id) { return !!(claimState && claimState.tipIds && claimState.tipIds.indexOf(id) !== -1); }
+function renderTip(row) {
+  const card = document.createElement("div");
+  card.className = "tip";
+  const body = document.createElement("div");
+  body.className = "tip-body";
+  body.textContent = row.body;
+  const meta = document.createElement("div");
+  meta.className = "tip-meta";
+  const heart = document.createElement("button");
+  heart.type = "button";
+  heart.className = "tip-heart";
+  heart.innerHTML = HEART_SVG + "<span></span>";
+  card.append(body, meta, heart);
+  fillTip(card, row);
+  return card;
+}
+// 글 카드에 id·날짜·내 글 표시·공감 상태를 채운다(보내는 중이던 카드도 저장되면 이걸로 마무리).
+function fillTip(card, row) {
+  const meta = card.querySelector(".tip-meta");
+  const heart = card.querySelector(".tip-heart");
+  const count = heart.querySelector("span");
+  const mine = isMyTip(row.id);
+  meta.textContent = "";
+  if (mine) { const tag = document.createElement("span"); tag.className = "tip-mine"; tag.textContent = "내 글"; meta.append(tag); }
+  meta.append(row.created_at ? tipDate(row.created_at) : "보내는 중");
+  if (mine) {
+    const del = document.createElement("button");
+    del.type = "button"; del.className = "tip-del"; del.textContent = "지우기";
+    del.addEventListener("click", function () { deleteTip(row.id, card); });
+    meta.append(del);
+  }
+  const state = { confirmed: !!row.liked, confirmedCount: row.like_count || 0, shown: !!row.liked, timer: 0, busy: false };
+  function paint() {
+    heart.classList.toggle("on", state.shown);
+    heart.setAttribute("aria-pressed", state.shown ? "true" : "false");
+    count.textContent = String(state.confirmedCount + (state.shown === state.confirmed ? 0 : (state.shown ? 1 : -1)));
+  }
+  function send() {
+    if (state.busy || state.shown === state.confirmed) { return; }
+    const want = state.shown;
+    state.busy = true;
+    rpc("tip_like", { p_id: row.id, p_device: tipDevice, p_on: want })
+      .then(function (n) { state.confirmed = want; state.confirmedCount = Number(n) || 0; })
+      .catch(function () { state.shown = state.confirmed; })
+      .then(function () { state.busy = false; paint(); send(); });
+  }
+  heart.disabled = mine || !row.created_at;
+  heart.setAttribute("aria-label", mine ? "내 글에는 공감할 수 없음" : "공감");
+  heart.onclick = function () {
+    state.shown = !state.shown;
+    paint();
+    clearTimeout(state.timer);
+    state.timer = setTimeout(send, 400);
+  };
+  paint();
+}
+function loadTips() {
+  if (!claimState || !claimState.characterId) { return; }
+  rpc("tip_list", { p_character: claimState.characterId, p_device: tipDevice, p_offset: tipOffset })
+    .then(function (rows) {
+      if (!Array.isArray(rows)) { return; }
+      tipOffset += rows.length;
+      rows.forEach(function (row) {
+        if (tipShown[row.id]) { return; }
+        tipShown[row.id] = true;
+        el("tips-list").append(renderTip(row));
+      });
+      el("tips-more").classList.toggle("hidden", rows.length < TIP_PAGE);
+      el("tips-empty").classList.toggle("hidden", el("tips-list").children.length > 0);
+      if (!tipsReady) {
+        tipsReady = true;
+        el("tip-input").placeholder = TIP_PLACEHOLDERS[Math.floor(Math.random() * TIP_PLACEHOLDERS.length)];
+        el("tips").classList.remove("hidden");
+        updateGuideButtons();
+      }
+    })
+    .catch(function () {});
+}
+function growTipInput() {
+  const input = el("tip-input");
+  input.style.height = "auto";
+  input.style.height = input.scrollHeight + 2 + "px";
+}
+function postTip() {
+  const input = el("tip-input");
+  const text = input.value.trim();
+  if (!text) { return; }
+  el("tip-send").disabled = true;
+  input.value = "";
+  growTipInput();
+  // 보내는 동안 맨 위에 흐리게 먼저 보여 준다. 실패하면 카드를 빼고 글을 입력칸에 돌려놓는다.
+  const card = renderTip({ id: 0, body: text, like_count: 0 });
+  card.classList.add("is-pending");
+  el("tips-list").prepend(card);
+  el("tips-empty").classList.add("hidden");
+  rpc("tip_post", { p_slot: claimState.slotId, p_token: claimState.token, p_body: text })
+    .then(function (rows) {
+      const saved = rows && rows[0];
+      if (!saved) { throw new Error(""); }
+      claimState.tipIds = (claimState.tipIds || []).concat(saved.id);
+      saveState(claimState);
+      tipShown[saved.id] = true;
+      card.classList.remove("is-pending");
+      fillTip(card, { id: saved.id, created_at: saved.created_at, like_count: 0 });
+    })
+    .catch(function (err) {
+      card.remove();
+      el("tips-empty").classList.toggle("hidden", el("tips-list").children.length > 0);
+      if (!input.value) { input.value = text; growTipInput(); }
+      const m = String(err && err.message);
+      window.alert(m.indexOf("limit") !== -1 ? "한 게임에서는 5개까지 쓸 수 있어요."
+        : m.indexOf("duplicate") !== -1 ? "같은 글을 이미 남겼어요."
+        : "글을 보내지 못했습니다. 잠시 후 다시 시도해주세요.");
+    })
+    .then(function () { el("tip-send").disabled = false; });
+}
+function deleteTip(id, card) {
+  if (!window.confirm("이 글을 지울까요?")) { return; }
+  rpc("tip_delete", { p_id: id, p_slot: claimState.slotId, p_token: claimState.token })
+    .then(function () {
+      card.remove();
+      claimState.tipIds = (claimState.tipIds || []).filter(function (x) { return x !== id; });
+      saveState(claimState);
+      el("tips-empty").classList.toggle("hidden", el("tips-list").children.length > 0);
+    })
+    .catch(function () { window.alert("지우지 못했습니다. 잠시 후 다시 시도해주세요."); });
+}
+el("tip-input").addEventListener("input", growTipInput);
+el("tip-send").addEventListener("click", postTip);
+el("tips-more").addEventListener("click", loadTips);
 // 첫 화면에 이야기꾼 이름을 보여 준다("OO 님의 게임입니다"). 여러 지역에서 동시에 열린 게임의
 // 링크를 잘못 눌러 다른 게임의 캐릭터를 뽑지 않도록. 이름이 없는(예전) 게임은 기존 문구 그대로.
 function showStoryteller() {
@@ -242,6 +427,8 @@ el("btn-submit").addEventListener("click", function () {
     blockScreen("<b>이야기꾼에게 전달했습니다!</b><br><br>" + escapeHtml(name) + " 님, 게임이 곧 시작됩니다.");
     el("screen-done").classList.add("is-submitted");
     updateGuideButtons();
+    // 다시 열면 팁·위키가 숨겨지므로(캐릭터를 보여준 흐름에서만 연다) 대기 중 실수로 닫지 않게 경고
+    if (guideAllowed) { unloadGuardActive = true; loadTips(); }
   }).catch(function (err) {
     el("btn-submit").disabled = false; el("btn-submit").textContent = "이야기꾼에게 보내기";
     window.alert("문제가 발생했습니다:\n" + err.message);
