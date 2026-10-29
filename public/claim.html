@@ -229,7 +229,8 @@ function closeGuide() {
 // 목록·쓰기·지우기·공감은 DB 함수(tip_*)로만. 함수가 없거나 실패하면 댓글 칸을 숨긴 채 둔다.
 // 공감은 낙관적 업데이트: 누르는 즉시 바꾸고, 연타가 멈추면 마지막 상태만 보낸다. 실패하면 조용히 되돌린다.
 const TIP_PAGE = 20;
-const TIP_PLACEHOLDERS = ["이 캐릭터로 했던 최고의 블러핑은?", "다음엔 꼭 해보고 싶은 전략은?", "이 캐릭터로 겪은 웃긴 순간은?", "처음 하는 사람에게 한마디", "이 캐릭터, 이렇게 하면 망한다"];
+// {이름} = 뽑은 캐릭터 이름, {로}·{를} = 이름 받침에 맞춘 조사
+const TIP_PLACEHOLDERS = ["이번 게임을 어떻게 풀어갈 예정인가요?", "{이름}{로} 겪은 웃긴 순간은?", "{이름}{를} 처음 하는 사람에게 하고 싶은 말", "{이름}, 이렇게 하면 망한다", "{이름} 뽑은 사람에게 한마디", "밤에 어떤 캐릭터를 선택할 건가요?"];
 const HEART_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>';
 let tipsReady = false;
 let tipOffset = 0;
@@ -248,6 +249,14 @@ function tipDate(iso) {
   const d = new Date(iso);
   const p = function (n) { return String(n).padStart(2, "0"); };
   return p(d.getFullYear() % 100) + "/" + p(d.getMonth() + 1) + "/" + p(d.getDate());
+}
+function tipPlaceholder(name) {
+  const last = name.charCodeAt(name.length - 1) - 0xAC00;
+  const jong = (last >= 0 && last < 11172) ? last % 28 : 0;   // 한글이 아니면 받침 없음으로
+  return TIP_PLACEHOLDERS[Math.floor(Math.random() * TIP_PLACEHOLDERS.length)]
+    .replace("{이름}", name)
+    .replace("{로}", (jong === 0 || jong === 8) ? "로" : "으로")
+    .replace("{를}", jong === 0 ? "를" : "을");
 }
 function isMyTip(id) { return !!(claimState && claimState.tipIds && claimState.tipIds.indexOf(id) !== -1); }
 function renderTip(row) {
@@ -321,7 +330,7 @@ function loadTips() {
       el("tips-empty").classList.toggle("hidden", el("tips-list").children.length > 0);
       if (!tipsReady) {
         tipsReady = true;
-        el("tip-input").placeholder = TIP_PLACEHOLDERS[Math.floor(Math.random() * TIP_PLACEHOLDERS.length)];
+        el("tip-input").placeholder = tipPlaceholder(el("char-name").textContent.trim() || "이 캐릭터");
         el("tips").classList.remove("hidden");
         fitTipPlaceholder();
         updateGuideButtons();
