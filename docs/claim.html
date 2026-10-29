@@ -50,9 +50,9 @@
   .guide-frame iframe { flex:1 1 auto; width:100%; border:0; background:#efe6d6; }
   /* 플레이팁 댓글 — 완료 화면 위키 버튼 아래에 펼친 채로 나열 */
   .tips { margin-top:22px; text-align:left; display:flex; flex-direction:column; gap:10px; }
-  .tips-write { display:flex; gap:8px; align-items:flex-end; }
-  .tips-write textarea { flex:1 1 auto; min-width:0; font:inherit; font-size:1rem; line-height:1.4; padding:8px 10px; border:2px solid #333; border-radius:6px; resize:none; overflow:hidden; background:#fff; color:var(--text); }
-  .tips-write .btn { width:auto; margin:0; padding:8px 18px; font-size:1rem; flex:0 0 auto; }
+  .tips-write { display:flex; flex-direction:column; }
+  .tips-write textarea { display:block; width:100%; font:inherit; font-size:1rem; line-height:1.4; padding:8px 10px; border:2px solid #333; border-radius:6px; resize:none; overflow:hidden; background:#fff; color:var(--text); }
+  .tips-write textarea::placeholder { font-size:var(--tip-ph-size, 1rem); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .tips-empty { text-align:center; padding:12px 6px; line-height:1.6; }
   .tips-list { display:flex; flex-direction:column; gap:8px; }
   .tip { background:#f8f2e6; border:1px solid #cbbfa8; border-radius:6px; padding:9px 10px; display:grid; grid-template-columns:1fr auto; gap:4px 10px; }
@@ -293,8 +293,8 @@ function fillTip(card, row) {
       .catch(function () { state.shown = state.confirmed; })
       .then(function () { state.busy = false; paint(); send(); });
   }
-  heart.disabled = mine || !row.created_at;
-  heart.setAttribute("aria-label", mine ? "내 글에는 공감할 수 없음" : "공감");
+  heart.disabled = !row.created_at;
+  heart.setAttribute("aria-label", "공감");
   heart.onclick = function () {
     state.shown = !state.shown;
     paint();
@@ -320,6 +320,7 @@ function loadTips() {
         tipsReady = true;
         el("tip-input").placeholder = TIP_PLACEHOLDERS[Math.floor(Math.random() * TIP_PLACEHOLDERS.length)];
         el("tips").classList.remove("hidden");
+        fitTipPlaceholder();
         updateGuideButtons();
       }
     })
@@ -327,8 +328,18 @@ function loadTips() {
 }
 function growTipInput() {
   const input = el("tip-input");
-  input.style.height = "auto";
-  input.style.height = input.scrollHeight + 2 + "px";
+  input.style.height = "";
+  if (input.value) { input.style.height = "auto"; input.style.height = input.scrollHeight + 2 + "px"; }
+}
+function fitTipPlaceholder() {
+  const input = el("tip-input");
+  const cs = getComputedStyle(input);
+  const ctx = document.createElement("canvas").getContext("2d");
+  const base = parseFloat(cs.fontSize);
+  ctx.font = base + "px " + cs.fontFamily;
+  const room = input.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 4;
+  const size = Math.max(11, Math.min(base, Math.floor(base * room / ctx.measureText(input.placeholder).width)));
+  input.style.setProperty("--tip-ph-size", size + "px");
 }
 function postTip() {
   const input = el("tip-input");
