@@ -453,7 +453,7 @@ if (editionDirect && customRadio) {
 const scriptsBase = (typeof URLS !== "undefined" && URLS.scriptsBase) || "/scripts/";
 
 // 공식 시트: 파일 없이 tb/bmr/snv 에디션으로 로드. 이름은 앱 표기와 동일하게 유지.
-const OFFICIAL_SHEETS = [
+export const OFFICIAL_SHEETS = [
     { value: "tb", name: "Trouble Brewing(점철되는 혼란)" },
     { value: "bmr", name: "Bad Moon Rising(피로 물든 달)" },
     { value: "snv", name: "Sects and Violets(화단에 꽃피운 이단)" }

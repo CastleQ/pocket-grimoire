@@ -8,10 +8,39 @@
 //    async / await 를 쓰지 않고 Promise 체인으로만 작성한다. (규약 C-8)
 
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase-config.js";
+import { OFFICIAL_SHEETS } from "./select-edition.js";
 
 const MAX_BYTES = 900000;   // 서버 상한 1MB보다 낮게 잡아 여유를 둔다
 const MIN_BYTES = 20;
 const RESET_DELAY = 5000;
+
+/**
+ * 내장 시트면 링크 미리보기용 고정 페이지 키(tb·bmr·snv 또는 manifest 파일 이름)를 찾는다.
+ * 페이지는 bake 때 tools/build-sheet-og.js 가 굽는다. 못 찾거나 실패하면 빈 문자열.
+ */
+function findSheetKey(name) {
+
+    const official = OFFICIAL_SHEETS.find((sheet) => sheet.name === name);
+
+    if (official) {
+        return Promise.resolve(official.value);
+    }
+
+    const base = (typeof URLS !== "undefined" && URLS.scriptsBase) || "/scripts/";
+
+    return fetch(base + "manifest.json")
+        .then((response) => response.json())
+        .then((manifest) => {
+
+            const groups = Object.keys(manifest).map((group) => manifest[group]);
+            const sheet = [].concat(...groups).find((item) => item.name === name);
+
+            return sheet ? sheet.file.replace(/\.json$/, "") : "";
+
+        })
+        .catch(() => "");
+
+}
 
 function sbHeaders() {
     return {
@@ -188,9 +217,15 @@ export function initSheetShare(getPayload) {
         setLabel("링크 만드는 중…");
         result.hidden = true;
 
-        saveSharedSheet(payload).then(function (token) {
+        Promise.all([
+            saveSharedSheet(payload),
+            findSheetKey(payload.name)
+        ]).then(function ([token, key]) {
 
-            const url = new URL("sheet.html", window.location.href);
+            const url = new URL(
+                key ? "sheet-" + key + ".html" : "sheet.html",
+                window.location.href
+            );
 
             url.search = "";
             url.hash = "";

@@ -50,6 +50,7 @@ node tools/rewrite-images.js "$BASE"
 
 curl -s "http://localhost:8000/ko_KR/sheet" -o docs/sheet.html
 node -e 'const fs=require("fs"),base=process.argv[1],p="docs/sheet.html";let h=fs.readFileSync(p,"utf8");h=h.replace(/src="\/build\//g,"src=\""+base+"/build/");fs.writeFileSync(p,h);console.log("   docs/sheet.html = "+h.length+" bytes");' "$BASE"
+node tools/build-sheet-og.js || { echo "❌ 시트 미리보기 페이지 생성 실패"; exit 1; }
 
 echo "▶ 6/7 빌드 자원 + 참가자 페이지 복사 + Jekyll 비활성화..."
 rm -rf docs/build && cp -r public/build docs/build
