@@ -12,8 +12,8 @@
     "id": "steward1",
     "name": "관리인",
     "image": [
-      "https://botc.app/assets/steward_g-ASO14Teu.webp",
-      "https://botc.app/assets/steward_e-BJUqXXmp.webp"
+      "https://release.botc.app/resources/characters/carousel/steward_g.webp",
+      "https://release.botc.app/resources/characters/carousel/steward_e.webp"
     ],
     "ability": "선한 플레이어 1명을 알고 시작합니다.",
     "firstNight": 62,
@@ -27,8 +27,8 @@
     "id": "knight1",
     "name": "기사",
     "image": [
-      "https://botc.app/assets/knight_g-rWciCOvN.webp",
-      "https://botc.app/assets/knight_e-DErJZl0C.webp"
+      "https://release.botc.app/resources/characters/carousel/knight_g.webp",
+      "https://release.botc.app/resources/characters/carousel/knight_e.webp"
     ],
     "ability": "악마가 아닌 플레이어 2명을 알고 시작합니다.",
     "firstNight": 63,
@@ -43,8 +43,8 @@
     "id": "highpriestess1",
     "name": "대사제",
     "image": [
-      "https://botc.app/assets/highpriestess_g-D0i0Myk4.webp",
-      "https://botc.app/assets/highpriestess_e-Cl1icXV6.webp"
+      "https://release.botc.app/resources/characters/carousel/highpriestess_g.webp",
+      "https://release.botc.app/resources/characters/carousel/highpriestess_e.webp"
     ],
     "ability": "매일 밤, 이야기꾼이 당신이 가장 대화를 나눠야 한다고 생각하는 플레이어가 누구인지 알게 됩니다.",
     "firstNight": 73,
@@ -57,8 +57,8 @@
     "id": "villageidiot1",
     "name": "바보",
     "image": [
-      "https://botc.app/assets/villageidiot_g-CdZf6FkN.webp",
-      "https://botc.app/assets/villageidiot_e-D6AONnUX.webp"
+      "https://release.botc.app/resources/characters/carousel/villageidiot_g.webp",
+      "https://release.botc.app/resources/characters/carousel/villageidiot_e.webp"
     ],
     "ability": "매일 밤, 플레이어를 1명 선택합니다. 해당 플레이어의 진영을 알게 됩니다. [+0 ~ +2 바보. 바보가 2명 이상이라면 그중 1명이 취해 있습니다.]",
     "firstNight": 67,
@@ -81,8 +81,8 @@
     "id": "snakecharmer1",
     "name": "뱀 조련사",
     "image": [
-      "https://botc.app/assets/snakecharmer_g-DYwjThVr.webp",
-      "https://botc.app/assets/snakecharmer_e-D6CrPRGR.webp"
+      "https://release.botc.app/resources/characters/snv/snakecharmer_g.webp",
+      "https://release.botc.app/resources/characters/snv/snakecharmer_e.webp"
     ],
     "ability": "매일 밤, 살아있는 플레이어를 1명 선택합니다. 악마라면, 당신과 진영 및 캐릭터를 바꾸고, 그 후 해당 플레이어는 중독됩니다.",
     "firstNight": 36,
@@ -98,8 +98,8 @@
     "id": "fortuneteller1",
     "name": "점쟁이",
     "image": [
-      "https://botc.app/assets/fortuneteller_g-lQQzYvkg.webp",
-      "https://botc.app/assets/fortuneteller_e-BWljoXp7.webp"
+      "https://release.botc.app/resources/characters/tb/fortuneteller_g.webp",
+      "https://release.botc.app/resources/characters/tb/fortuneteller_e.webp"
     ],
     "ability": "매일 밤, 플레이어 2명을 선택합니다. 그중 악마가 있는지 알게 됩니다. 당신에게 악마로 보이는 선한 플레이어가 1명 있습니다.",
     "firstNight": 56,
@@ -115,8 +115,8 @@
     "id": "oracle1",
     "name": "신관",
     "image": [
-      "https://botc.app/assets/oracle_g-HZdhcJUJ.webp",
-      "https://botc.app/assets/oracle_e-BgNZAuGG.webp"
+      "https://release.botc.app/resources/characters/snv/oracle_g.webp",
+      "https://release.botc.app/resources/characters/snv/oracle_e.webp"
     ],
     "ability": "매일 밤*, 죽은 플레이어 중 악한 진영이 얼마나 있는지 알게 됩니다.",
     "otherNight": 81,
@@ -127,8 +127,8 @@
     "id": "monk1",
     "name": "수도승",
     "image": [
-      "https://botc.app/assets/monk_g-D4wNFA-b.webp",
-      "https://botc.app/assets/monk_e-OTOQUKVm.webp"
+      "https://release.botc.app/resources/characters/tb/monk_g.webp",
+      "https://release.botc.app/resources/characters/tb/monk_e.webp"
     ],
     "ability": "매일 밤*, 본인을 제외하고 플레이어를 1명 선택합니다. 해당 플레이어는 오늘 밤 악마로부터 안전합니다.",
     "otherNight": 23,
@@ -142,8 +142,8 @@
     "id": "seamstress1",
     "name": "재봉사",
     "image": [
-      "https://botc.app/assets/seamstress_g-B4RHsroR.webp",
-      "https://botc.app/assets/seamstress_e-BfBRBNhv.webp"
+      "https://release.botc.app/resources/characters/snv/seamstress_g.webp",
+      "https://release.botc.app/resources/characters/snv/seamstress_e.webp"
     ],
     "ability": "게임당 한 번, 밤에 본인을 제외하고 플레이어 2명을 선택할 수 있습니다. 해당 플레이어들이 같은 진영인지 알게 됩니다.",
     "firstNight": 61,
@@ -159,8 +159,8 @@
     "id": "fisherman1",
     "name": "어부",
     "image": [
-      "https://botc.app/assets/fisherman_g-D4SVpSql.webp",
-      "https://botc.app/assets/fisherman_e-Da2Y5IG7.webp"
+      "https://release.botc.app/resources/characters/carousel/fisherman_g.webp",
+      "https://release.botc.app/resources/characters/carousel/fisherman_e.webp"
     ],
     "ability": "게임당 한 번, 낮에 이야기꾼을 방문해 당신의 진영의 승리에 도움이 되는 조언을 들을 수 있습니다.",
     "reminders": [
@@ -172,8 +172,8 @@
     "id": "cannibal1",
     "name": "식인종",
     "image": [
-      "https://botc.app/assets/cannibal_g-eP3mwaD2.webp",
-      "https://botc.app/assets/cannibal_e-PuVaqnSr.webp"
+      "https://release.botc.app/resources/characters/carousel/cannibal_g.webp",
+      "https://release.botc.app/resources/characters/carousel/cannibal_e.webp"
     ],
     "ability": "당신은 최근에 처형으로 죽은 플레이어의 능력을 가지고 있습니다. (무슨 능력인지는 모릅니다.) 해당 플레이어가 악하다면, 선한 플레이어가 처형으로 죽을 때까지 중독됩니다.",
     "reminders": [
@@ -204,8 +204,8 @@
     "id": "amnesiac1",
     "name": "기억상실자",
     "image": [
-      "https://botc.app/assets/amnesiac_g-1rV8CyUl.webp",
-      "https://botc.app/assets/amnesiac_e-CEaf8TX1.webp"
+      "https://release.botc.app/resources/characters/carousel/amnesiac_g.webp",
+      "https://release.botc.app/resources/characters/carousel/amnesiac_e.webp"
     ],
     "ability": "당신은 자신의 능력을 모릅니다. 매일 낮, 이야기꾼을 방문하여 비밀리에 본인의 능력을 추측할 수 있습니다. (이야기꾼은 차가움/시원함/따뜻함/뜨거움/정답으로 단계별 답변을 줍니다.)",
     "firstNight": 50,
@@ -223,8 +223,8 @@
     "id": "farmer1",
     "name": "농부",
     "image": [
-      "https://botc.app/assets/farmer_g-aC9H7ek9.webp",
-      "https://botc.app/assets/farmer_e-BKzmeJOt.webp"
+      "https://release.botc.app/resources/characters/carousel/farmer_g.webp",
+      "https://release.botc.app/resources/characters/carousel/farmer_e.webp"
     ],
     "ability": "당신이 밤에 죽을 때, 살아있는 선한 플레이어가 농부가 됩니다.",
     "otherNight": 69,
@@ -235,8 +235,8 @@
     "id": "goon1",
     "name": "깡패",
     "image": [
-      "https://botc.app/assets/goon_g-qCN1CxKh.webp",
-      "https://botc.app/assets/goon_e-DmCcVOv-.webp"
+      "https://release.botc.app/resources/characters/bmr/goon_g.webp",
+      "https://release.botc.app/resources/characters/bmr/goon_e.webp"
     ],
     "ability": "매일 밤, 자신의 능력으로 당신을 선택한 첫번째 플레이어는 다음 날 황혼까지 취합니다. 당신은 해당 플레이어의 진영이 됩니다.",
     "reminders": [
@@ -248,8 +248,8 @@
     "id": "ogre1",
     "name": "오우거",
     "image": [
-      "https://botc.app/assets/ogre_g-B3Q_ybOi.webp",
-      "https://botc.app/assets/ogre_e-k2lur_NF.webp"
+      "https://release.botc.app/resources/characters/carousel/ogre_g.webp",
+      "https://release.botc.app/resources/characters/carousel/ogre_e.webp"
     ],
     "ability": "첫날 밤, 본인을 제외하고 플레이어를 1명 선택합니다. 당신은 해당 플레이어의 진영이 됩니다. (어디인지는 알 수 없습니다.) 이 능력은 당신이 만취/중독 상태여도 유지됩니다.",
     "firstNight": 72,
@@ -263,8 +263,8 @@
     "id": "drunk1",
     "name": "주정뱅이",
     "image": [
-      "https://botc.app/assets/drunk_g--QNmv0ZY.webp",
-      "https://botc.app/assets/drunk_e-bRjLB9FX.webp"
+      "https://release.botc.app/resources/characters/tb/drunk_g.webp",
+      "https://release.botc.app/resources/characters/tb/drunk_e.webp"
     ],
     "ability": "당신은 자신이 주정뱅이인 것을 모릅니다. 자신이 주민 캐릭터라고 생각하지만, 그렇지 않습니다.",
     "remindersGlobal": [
@@ -286,8 +286,8 @@
     "id": "recluse1",
     "name": "은둔자",
     "image": [
-      "https://botc.app/assets/recluse_g-DxMFqO0r.webp",
-      "https://botc.app/assets/recluse_e-BUtHsTp3.webp"
+      "https://release.botc.app/resources/characters/tb/recluse_g.webp",
+      "https://release.botc.app/resources/characters/tb/recluse_e.webp"
     ],
     "ability": "당신은 하수인이나 악마로 보일 수도 있습니다. 이 능력은 당신이 죽어도 유지됩니다.",
     "team": "outsider",
@@ -306,8 +306,8 @@
     "id": "mezepheles1",
     "name": "메제펠레스",
     "image": [
-      "https://botc.app/assets/mezepheles_e-B7tfHUqC.webp",
-      "https://botc.app/assets/mezepheles_g-DlDB5-jk.webp"
+      "https://release.botc.app/resources/characters/carousel/mezepheles_e.webp",
+      "https://release.botc.app/resources/characters/carousel/mezepheles_g.webp"
     ],
     "ability": "비밀 단어 1개를 알고 시작합니다. 게임 중 비밀 단어를 첫번째로 말한 선한 플레이어는 그날 밤에 악한 진영이 됩니다. (이야기꾼이 들어야 합니다.)",
     "firstNight": 45,
@@ -324,8 +324,8 @@
     "id": "poisoner1",
     "name": "독살범",
     "image": [
-      "https://botc.app/assets/poisoner_e-Usf7TcoY.webp",
-      "https://botc.app/assets/poisoner_g-DHNIHhxZ.webp"
+      "https://release.botc.app/resources/characters/tb/poisoner_e.webp",
+      "https://release.botc.app/resources/characters/tb/poisoner_g.webp"
     ],
     "ability": "매일 밤, 플레이어를 1명 선택합니다. 해당 플레이어는 다음 날 황혼까지 중독됩니다.",
     "firstNight": 32,
@@ -341,8 +341,8 @@
     "id": "spy1",
     "name": "스파이",
     "image": [
-      "https://botc.app/assets/spy_e-DU0tdGGe.webp",
-      "https://botc.app/assets/spy_g-7hnV_AFT.webp"
+      "https://release.botc.app/resources/characters/tb/spy_e.webp",
+      "https://release.botc.app/resources/characters/tb/spy_g.webp"
     ],
     "ability": "매일 밤, 마도서를 봅니다. 당신은 죽어도 주민이나 외지인으로 보일 수 있습니다.",
     "firstNight": 71,
@@ -376,8 +376,8 @@
     "id": "harpy1",
     "name": "하피",
     "image": [
-      "https://botc.app/assets/harpy_e-ChKTPCeL.webp",
-      "https://botc.app/assets/harpy_g-Bp6VIdav.webp"
+      "https://release.botc.app/resources/characters/carousel/harpy_e.webp",
+      "https://release.botc.app/resources/characters/carousel/harpy_g.webp"
     ],
     "ability": "매일 밤, 플레이어 2명을 선택합니다. 다음 날 첫번째로 선택된 플레이어는 두번째로 선택된 플레이어가 악한 진영이라고 \"광기\"해야 합니다. 그렇지 않으면, 그중 0~2명이 죽을 수 있습니다.",
     "firstNight": 44,
@@ -394,8 +394,8 @@
     "id": "imp1",
     "name": "임프",
     "image": [
-      "https://botc.app/assets/imp_e-DNpveOPY.webp",
-      "https://botc.app/assets/imp_g-D-G7pJEY.webp"
+      "https://release.botc.app/resources/characters/tb/imp_e.webp",
+      "https://release.botc.app/resources/characters/tb/imp_g.webp"
     ],
     "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 만약 자살하면 하수인이 임프가 됩니다.",
     "otherNight": 39,
@@ -409,8 +409,8 @@
     "id": "ojo1",
     "name": "오호",
     "image": [
-      "https://botc.app/assets/ojo_e-BwP-O6LJ.webp",
-      "https://botc.app/assets/ojo_g-jY2iz8BT.webp"
+      "https://release.botc.app/resources/characters/carousel/ojo_e.webp",
+      "https://release.botc.app/resources/characters/carousel/ojo_g.webp"
     ],
     "ability": "매일 밤*, 캐릭터를 1개 선택합니다. 해당 캐릭터의 플레이어는 죽습니다. 만약 참가하지 않은 캐릭터라면, 이야기꾼이 선택하여 죽입니다.",
     "otherNight": 49,
@@ -424,8 +424,8 @@
     "id": "kazali1",
     "name": "카잘리",
     "image": [
-      "https://botc.app/assets/kazali_e-Bhxi3sLd.webp",
-      "https://botc.app/assets/kazali_g-BZsxV8YM.webp"
+      "https://release.botc.app/resources/characters/carousel/kazali_e.webp",
+      "https://release.botc.app/resources/characters/carousel/kazali_g.webp"
     ],
     "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. [첫날 밤, 하수인이 될 플레이어와 그 캐릭터를 선택합니다.  -? ~ +? 외지인]",
     "firstNight": 7,
@@ -442,8 +442,8 @@
     "id": "fanggu1",
     "name": "팡구",
     "image": [
-      "https://botc.app/assets/fanggu_e-6DavSWxL.webp",
-      "https://botc.app/assets/fanggu_g-Dwai_VtD.webp"
+      "https://release.botc.app/resources/characters/snv/fanggu_e.webp",
+      "https://release.botc.app/resources/characters/snv/fanggu_g.webp"
     ],
     "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 첫 번째로 팡구가 죽이는 외지인은 악한 팡구가 되고 대신 당신이 죽습니다. [+1 외지인]",
     "otherNight": 44,
@@ -456,9 +456,9 @@
     "team": "demon"
   },
   {
-    "id": "spritofivory1",
+    "id": "spiritofivory1",
     "name": "상아의 정령",
-    "image": "https://botc.app/assets/spiritofivory-8gBtDAQc.webp",
+    "image": "https://release.botc.app/resources/characters/fabled/spiritofivory.webp",
     "team": "fabled",
     "ability": "악한 플레이어는 1명까지만 추가될 수 있습니다.",
     "reminders": [

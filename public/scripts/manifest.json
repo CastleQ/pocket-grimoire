@@ -44,6 +44,11 @@
       "file": "grimm-brothers-choir.json",
       "name": "그림 형제 합창단",
       "author": "Zets"
+    },
+    {
+      "file": "irrational-behavior.json",
+      "name": "비이성적인 행동",
+      "author": "josh :)"
     }
   ],
   "homebrew": [
