@@ -142,6 +142,8 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - **캐릭터는 이름이 아니라 id로 처리한다.** 이름이 서로 엇갈리는 함정이 있다. 예: `acrobat1` = 기예꾼, `juggler1` = 곡예사.
 - 시트 안에 공식 캐릭터가 들어 있어도 앱은 id로 자기 DB의 정발 데이터를 먼저 쓴다(`select-edition.js`의 `getOfficialCharacter()`). **번역 방침: 공식 캐릭터는 정발 용어로 통일, 홈브류 고유 캐릭터는 원문 유지.**
 - `_meta`의 `firstNight` / `otherNight` 배열은 **이름이 아니라 id로** 적는다. `dusk`·`minioninfo`·`demoninfo`·`dawn` 같은 특수 키가 섞인다.
+- **수정본 시트를 받으면 JSON을 통째로 덮어쓰고 `_meta.name`만 기존 PG+ 이름으로 되돌린다**(CastleQ 방침). 새 시트는 먼저 기존 manifest에 같은 이름이 있는지 확인한다(갱신일 수 있음).
+- **manifest의 `file` 이름은 `[a-z0-9-]+.json`만, 한 번 정하면 바꾸지 않는다.** 이 이름이 공유 링크 주소 `sheet-<파일이름>.html`이 되어(§8 시트 링크 미리보기), 바꾸거나 시트를 빼면 이미 퍼진 그 시트의 공유 링크가 404가 된다. 시트를 뺄 때는 CastleQ에게 이 점을 알린다.
 
 ---
 
@@ -201,7 +203,8 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | 정발 번역 기준 | `tools/official-master.json` (공식 캐릭터의 단일 기준. 눈금 주의 — 함정 ⑪) |
 | 내장 시트 | `public/scripts/*.json` / `public/scripts/manifest.json` |
 | 시트 선택·`_meta` 처리 | `assets/js/processes/setup/select-edition.js` |
-| 시트 공유 | `assets/js/processes/setup/sheet-share.js` |
+| 시트 공유 | `assets/js/processes/setup/sheet-share.js` — 내장 시트면 `sheet-<키>.html?s=번호`, 아니면 `sheet.html?s=번호` |
+| 시트 링크 미리보기 | `tools/build-sheet-og.js` — bake가 `docs/sheet-<키>.html`(오픈그래프 제목 `{시트 이름} - 캐릭터 시트`)을 굽는다. 키: 공식 `tb`·`bmr`·`snv`(`select-edition.js`의 `OFFICIAL_SHEETS`와 **두 곳 함께**), 그 밖은 manifest 파일 이름 |
 | 시트 열기/공유 연결 | `assets/js/processes/setup/character-sheet.js` |
 | 커스텀 시트 아카이브 | `assets/js/processes/setup/script-archive.js` |
 | 온라인 배포 | `assets/js/processes/setup/distribute.js` |
@@ -226,6 +229,8 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - ⚠️ **`Jinx: unable to find target role`은 무해하지 않다.** 함정 ⑩ 참조.
 - **Codespace 파이썬이 손상돼 있다**(`shutil` 없음). 네트워크·파일 작업은 Node나 curl로 한다.
 - **Claude 클라우드 세션(관리자 계정 root)에서는 `deploy.sh`가 준비 단계에서 멈춘다.** composer가 root에서 플러그인을 꺼 버려 `symfony-cmd: not found`가 나고, 그 뒤로 배포가 진행되지 않는다. 앞에 설정을 붙여 실행한다: `COMPOSER_ALLOW_SUPERUSER=1 bash deploy.sh "커밋 메시지"`
+- **클라우드 세션의 배포 순서:** `deploy.sh`는 **지금 가지**에 커밋·푸시한다. `git fetch origin && git checkout -B main origin/main && git merge --ff-only <작업가지>` → deploy → `git push origin main:<작업가지>`. 다른 대화가 main에 먼저 배포했을 수 있으니 fetch부터 한다.
+- **클라우드 로컬 확인:** `docs/`를 `<폴더>/pocket-grimoire`로 링크해 `python3 -m http.server`로 띄우고 Playwright로 누른다. 공유 기능은 `route`로 `rpc/save_shared_sheet`·`rpc/get_shared_sheet`를 가짜 응답으로 바꿔 **실데이터를 쓰지 않는다.**
 - **내장 시트 상당수가 YAML `entry_order`와 어긋난 순서** — 현행 방침상 문제 없음.
 - **`git push`가 설명 없이 실패하면 Git LFS 훅을 의심한다.** 이 프로젝트는 LFS를 전혀 쓰지 않는데 훅만 잔재로 남아 푸시를 막은 적이 있다. 증상은 `error: failed to push some refs`뿐이고 전송 기록이 아예 없다.
   - 즉시 우회: `git push --no-verify`
@@ -262,6 +267,6 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 
 > 이 항목은 빨리 낡는다. **반드시 `bash status.sh`로 실제 값을 확인하고, 이 줄과 다르면 실제 값을 따른다.**
 
-- 2026-09-16 기준 VERSION 0.15.0, 내장 시트 19종
+- 2026-10-30 기준 VERSION 0.15.3, 내장 시트 공식 3종 + manifest 21종
 - 진행 중: 시트 데이터 작업 — 내장 홈브류 스크립트 추가 및 기존 내장 시트 점검
 - 보류: `ballad-of-seat-7` 시트의 정보 단계 중복 (시트 데이터가 아니라 `sheet.js` 코드 문제로 판단, 새 시트 입고 후 별도 처리) / 그리모어 타원 배치
