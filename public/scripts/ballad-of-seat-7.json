@@ -3,10 +3,12 @@
     "id": "_meta",
     "author": "TrashWarlock",
     "name": "7번 시트의 발라드 v6.0.0",
-    "hideTitle":true,
-    "logo":"https://www.bloodstar.xyz/p/kotpgusv7/TheBalladofSeat7-v6/_meta.png",
-    "background":"https://release.botc.app/wc25/background.webp",
-    "bootlegger":["7번 자리는 비어있습니다. 비어있는 자리의 캐릭터는 임의적인 선택을 합니다. 게임당 한번, 이야기꾼이 7번 시트 캐릭터를 대신해서 발언 할 수 있습니다."],
+    "hideTitle": true,
+    "logo": "https://www.bloodstar.xyz/p/kotpgusv7/TheBalladofSeat7-v6/_meta.png",
+    "background": "https://release.botc.app/wc25/background.webp",
+    "bootlegger": [
+      "7번 자리는 비어있습니다. 비어있는 자리의 캐릭터는 임의적인 선택을 합니다. 게임당 한번, 이야기꾼이 7번 시트 캐릭터를 대신해서 발언 할 수 있습니다."
+    ],
     "almanac": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/almanac.html",
     "firstNight": [
       "dusk",
@@ -55,333 +57,387 @@
     "name": "귀족",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/4_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "첫날 밤, 당신은 3명의 참가자 중 악한 참가자가 1명이라는 것을 알게됩니다.",
+    "ability": "게임 시작 시, 참가자 3명 중 1명이 악한 팀임을 알게 됩니다(3명 중 단 1명만 악한 팀).",
     "firstNight": 23,
     "otherNight": 0,
-    "firstNightReminder": "악한 참가자가 포함하여 3명의 참가자를 알려주세요.",
+    "firstNightReminder": "*알아냄*으로 표시된 참가자 3명을 가리킵니다.",
     "reminders": [
-      "알고 있음",
-      "알고 있음",
-      "알고 있음",
-      "알고 있음 (사악함)"
-    ]
+      "알아냄",
+      "알아냄",
+      "알아냄"
+    ],
+    "flavor": "비꼼이야말로 가장 수준 낮은 재치라는 건 사실이지요. 하지만 선생의 비판에 답하자면, 그래도 그것 역시 재치의 한 형태이긴 합니다."
   },
   {
     "id": "5theballadofseat7",
     "name": "사서",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/5_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "당신은 2명 중 1명이 특정 이방인 캐릭터임을 알고 시작합니다. (이야기꾼 선택)",
+    "ability": "게임 시작 시, 참가자 2명 중 1명이 특정 외지인임을 (또는 게임에 참여하는 외지인이 없음을) 알게 됩니다.",
     "firstNight": 20,
     "otherNight": 0,
-    "firstNightReminder": "참가 중인 이방인 토큰과 참가자 2명을 알려주세요.",
+    "firstNightReminder": "외지인 캐릭터 토큰을 보여줍니다. 해당 *외지인* 참가자와 *오인* 참가자를 가리킵니다.",
     "reminders": [
-      "이방인",
-      "거짓"
-    ]
+      "외지인",
+      "오인"
+    ],
+    "flavor": "물론이죠, 부인. 일반적으로는 코덱스 말리피카리움을 대여하실 수 있습니다만, 안타깝게도 부인께서는 저희 도서관 회원이 아니라서요."
   },
   {
     "id": "6theballadofseat7",
-    "name": "슈겐자",
+    "name": "수행자",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/6_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "가장 가까운 악한 참가자가 당신을 기준으로 시계 방향인지 반 시계 방향인지 알려줍니다. 방향 거리가 같다면, 임의의 정보를 받게 됩니다.",
+    "ability": "게임 시작 시, 가장 가까운 악한 참가자가 시계 방향에 있는지 반시계 방향에 있는지 알게 됩니다. 동거리라면, 이 정보는 임의로 주어집니다.",
     "firstNight": 25,
     "otherNight": 0,
-    "firstNightReminder": "슈겐자를 깨워 슈겐자 기준 가장 가까운 악한 참가자가 시계 방향인지 반 시계  방향 인지 알려주세요"
+    "firstNightReminder": "시계 방향 또는 반시계 방향을 가리킵니다.",
+    "flavor": "이것은 꿈이오. 그것도 꿈이오. 모든 것은 한낱 꿈에 불과하오."
   },
   {
     "id": "7theballadofseat7",
-    "name": "기구 조종사",
+    "name": "열기구 조종사",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/7_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "매일 밤, 당신은 어젯밤과 다른 캐릭터 유형(마을주민, 이방인, 하수인, 악마, 여행자)의 참가자를 알게 됩니다. [+0~1 이방인]",
+    "ability": "매일 밤, 직전 밤과는 다른 유형에 속한 캐릭터 참가자 1명을 알게 됩니다. [외지인 +0명 또는 +1명]",
     "firstNight": 24,
     "otherNight": 15,
-    "firstNightReminder": "어젯밤과 다른 유형의 참가자를 기구조종사한테 알려주세요(마을주민, 이방인, 하수인, 악마, 여행자)",
-    "otherNightReminder": "어젯밤과 다른 유형의 참가자를 기구조종사한테 알려주세요(마을주민, 이방인, 하수인, 악마, 여행자)",
+    "firstNightReminder": "아무 참가자 1명을 가리킵니다. :reminder:",
+    "otherNightReminder": "이전에 보여준 참가자와 다른 캐릭터 유형의 참가자 1명을 가리킵니다. :reminder:",
     "reminders": [
-      "마을주민",
-      "이방인",
+      "주민",
+      "외지인",
       "하수인",
       "악마",
-      "여행자"
+      "알아냄"
     ],
-    "setup": true
+    "setup": true,
+    "flavor": "불을 더! 더 높이! 더 높이! 더 위로! 아아... 여기서 보면 정말 아름답지 않나요? 강가 버드나무 아래서 아이들이 낚시하는 게 보이시나요? 서커스 천막 기둥에 햇빛이 반짝이는 것도요? 저건 또 뭐지? 포도밭에 혼자 쓰러져 있는 저 노인 말이에요? 불을 줄여! 더 아래로! 더 아래로! 더 내려가!"
   },
   {
     "id": "8theballadofseat7",
-    "name": "마을 바보",
+    "name": "마을 백치",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/8_theballadofseat7.png",
     "team": "townsfolk",
-    "special":[{"type":"selection","name":"bag-duplicate"}],
-    "ability": "매일 밤, 참가자 1명을 선택하세요. 당신은 그들의 성향을 알게 됩니다. 셋팅시 처음 마을주민 0~2명이 마을 바보가 될 수 있습니다. (최대 3명) 처음 구성 시 참가한 마을 바보까지 최대 3명이 중복 참가될 수 있으며, 2명 이상 참가 중이라면 1명은 '취함' 상태입니다.",
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-duplicate"
+      }
+    ],
+    "ability": "매일 밤, 참가자 1명을 선택합니다: 그의 팀을 알게 됩니다. [+0~+2 마을 백치. 그중 1명은 취함.]",
     "firstNight": 26,
     "otherNight": 16,
-    "firstNightReminder": "마을바보를 깨워 그가 선택한 참가자의 성향을 알려주세요.",
-    "otherNightReminder": "마을바보를 깨워 그가 선택한 참가자의 성향을 알려주세요.",
+    "firstNightReminder": "마을 백치가 여러 명이라면, 그중 1명을 *취함*으로 표시합니다. :reminder: 마을 백치는 각각 일어나 참가자 1명을 선택합니다. 엄지를 펴서 신호를 줍니다.",
+    "otherNightReminder": "마을 백치는 각각 일어나 참가자 1명을 선택합니다. 엄지를 펴서 신호를 줍니다.",
     "reminders": [
       "취함"
-    ]
+    ],
+    "flavor": "장미는 파랗고, 제비꽃은 빨갛다네. 방금 말 일부러 거꾸로 한거야. 진짜야."
   },
   {
     "id": "9theballadofseat7",
-    "name": "몽상가",
+    "name": "꿈꾸는 자",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/9_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "매일 밤, 당신은 참가자 1명을(자신 제외) 선택합니다. 이야기꾼은 캐릭터(선,악) 2개를 보여줍니다. 그 중 1개는 선택한 참가자 캐릭터입니다.",
+    "ability": "매일 밤, (당신과 여행자를 제외하고) 참가자 1명을 선택합니다: 선한 캐릭터 하나와 악한 캐릭터 하나를 알게 됩니다. 둘 중 하나가 그의 정체입니다.",
     "firstNight": 21,
     "otherNight": 12,
-    "firstNightReminder": "몽상가에게 참가자를 선택하게 하세요. 캐릭터(선,악) 2개를 보여주세요. 둘 중 하나는 선택한 참가자의 캐릭터여야합니다.(본인, 여행자 제외)",
-    "otherNightReminder": "몽상가에게 참가자를 선택하게 하세요. 캐릭터(선,악) 2개를 보여주세요. 둘 중 하나는 선택한 참가자의 캐릭터여야합니다.(본인, 여행자 제외)"
+    "firstNightReminder": "꿈꾸는 자가 참가자 1명을 가리킵니다. 선한 캐릭터, 악한 캐릭터 토큰을 1개씩 보여줍니다. 그중 하나가 그의 캐릭터입니다.",
+    "otherNightReminder": "꿈꾸는 자가 참가자 1명을 가리킵니다. 선한 캐릭터, 악한 캐릭터 토큰을 1개씩 보여줍니다. 그중 하나가 그의 캐릭터입니다.",
+    "flavor": "기억나는군. 시계공이었어. 시뻘건 하늘에서 프랙탈 삼각형이 비처럼 퍼부었지. 제비꽃 향기가 나고 부글거리는 소리가 들렸어. 듬성듬성 수염이 자란 여자가 빛나는 눈을 하고 뱀처럼 하늘에 쉿 쉿 댔지. 그러고는 꿈에서 깨어났어."
   },
   {
     "id": "10theballadofseat7",
     "name": "예언자",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/10_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "매일 밤* (첫날 제외), 당신은 '사망'한 참가자 중 몇 명이 악한지 알게 됩니다.",
+    "ability": "매일 밤*, 사망한 참가자 가운데 몇 명이나 악한 팀인지를 알게 됩니다.",
     "firstNight": 0,
     "otherNight": 13,
-    "otherNightReminder": "사망한 참가자 중 악한 참가자가 몇 명인지 숫자로 알려주세요"
+    "otherNightReminder": "손가락을 펴서 신호를 줍니다.",
+    "flavor": "오직 선택받은 자만이 장막 너머를 들여다볼 수 있소. 망자는 쉬이 잠들지 못한 채, 침묵 속에서 얼어붙은 북녘을 가리키고 있소."
   },
   {
     "id": "11theballadofseat7",
-    "name": "여관주인",
+    "name": "여관 주인",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/11_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "매일 밤*(첫날 제외), 참가자 2명을 선택합니다. 그 둘은 오늘 밤 '보호'하여 죽지 않습니다. 당신이 선택한 참가자 2명 중 1명은 선택한 밤부터 다음 날 해가 질 때까지 '취함' 상태가 됩니다.",
+    "ability": "매일 밤*, 참가자 2명을 선택합니다: 이들은 오늘 밤 사망할 수 없으나, 그중 1명은 황혼까지 취합니다.",
     "firstNight": 0,
     "otherNight": 4,
-    "otherNightReminder": "이전에 보호받았던 참가자와 취한 플레이어의 토큰을 제거하고, 여관 주인이 선택한 참가자 2명은 보호 받고, 그 중 한 명은 '취함' 토큰을 넣으세요",
+    "otherNightReminder": "여관 주인이 참가자 2명을 선택합니다. :reminder: :reminder: :reminder:",
     "reminders": [
-      "보호",
-      "보호",
+      "보호받음",
+      "보호받음",
       "취함"
-    ]
+    ],
+    "flavor": "어서 와요, 여행자여. 우리 여관에서 여독을 푸세요. 마시고 즐기세요. 오늘 밤에는 그 어떤 어둠의 군세도 당신을 해치지 못해요."
   },
   {
     "id": "12theballadofseat7",
     "name": "재봉사",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/12_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "게임 중 한 번, 밤에 참가자 두 명(본인 제외)을 선택하고 그 둘이 같은 성향인지 확인할 수 있습니다.",
+    "ability": "게임당 1번, 밤에, (당신을 제외하고) 참가자 2명을 선택합니다: 그들이 같은 소속인지 아닌지를 알게 됩니다.",
     "firstNight": 22,
     "otherNight": 14,
-    "firstNightReminder": "재봉사에게 능력 사용 여부를 물어보세요. 사용한다면, 참가자 두 명을 선택하게 하고, 두 명이 같은 성향인지 다른 성향인지 알려줍니다.",
-    "otherNightReminder": "재봉사에게 능력 사용 여부를 물어보세요. 사용한다면, 참가자 두 명을 선택하게 하고, 두명이 같은 성향인지 다른 성향인지 알려줍니다.",
+    "firstNightReminder": "재봉사가 참가자 2명을 선택할 수도 있습니다. 고개를 젓거나 끄덕입니다. :reminder:",
+    "otherNightReminder": "재봉사가 참가자 2명을 선택할 수도 있습니다. 고개를 젓거나 끄덕입니다. :reminder:",
     "reminders": [
       "능력 없음"
-    ]
+    ],
+    "flavor": "캐시미어 코트를 입은 이방인이 우리 어여쁜 벨에게 개수작 걸었다는 이야기 들었죠? 그런데 벨이 승낙했다지 뭐예요? 하지만 해리랑 곡예사가 유랑 서커스에서 벌인 짓에 비하면 별것도 아니라죠? 어휴, 제가 입이 싼 사람이었으면 어쩔뻔 했나... 어휴, 정말이지."
   },
   {
     "id": "13theballadofseat7",
-    "name": "어부",
+    "name": "낚시꾼",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/13_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "게임 당 한 번, 낮에 이야기꾼을 찾아가서 팀의 승리에 도움이 되는 조언을 얻을 수 있습니다.",
+    "ability": "게임당 1번, 낮 동안, 이야기꾼을 방문하여 당신의 팀이 승리하기 위한 조언을 구합니다.",
     "firstNight": 0,
     "otherNight": 0,
     "reminders": [
       "능력 없음"
-    ]
+    ],
+    "flavor": "여기가 내가 가장 좋아하던 강가였지... 햇빛이 수도원에서 시장까지 무지개를 걸어놓는 게 보이나? 큰 물고기는 꼭 여기서 잡혔어. 그리고 내가 나이를 먹을수록, 그놈들은 점점 더 커졌지."
   },
   {
     "id": "14theballadofseat7",
     "name": "농부",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/14_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "밤에 사망하면, 살아있는 선한 참가자 1명의 캐릭터를 농부로 교체하고 새로운 농부에게 그 사실을 알려 줍니다.",
+    "ability": "당신이 밤에 사망하면, 생존한 선한 참가자 1명이 농부가 됩니다.",
     "firstNight": 0,
     "otherNight": 11,
-    "otherNightReminder": "밤에 사망하면, 살아있는 선한 참가자 1명의 캐릭터를 농부로 교체하고 새로운 농부에게 그 사실을 알려 줍니다.",
+    "otherNightReminder": "농부가 밤에 사망하면, 생존한 선한 참가자 1명을 깨웁니다. *당신은* 정보 토큰과 농부 토큰을 보여줍니다.",
     "reminders": [
       "농부",
       "농부",
       "농부",
       "농부",
       "농부"
-    ]
+    ],
+    "flavor": "높으신 분들이라고 해서 밥 없이 살 수 있는 건 아니지. 우리 없이는 이 도시는 굶어 죽는단다."
   },
   {
     "id": "15theballadofseat7",
     "name": "성결자",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/15_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "게임당 한번 당신을 처음으로 지명하는 참가자가 마을주민이라면, 지명한 참가자는 즉시 처형으로 사망 합니다.",
+    "ability": "처음으로 지명당했을 때, 당신을 지명한 참가자가 주민이라면, 그는 즉시 처형당합니다.",
     "firstNight": 0,
     "otherNight": 0,
     "reminders": [
       "능력 없음"
-    ]
+    ],
+    "flavor": "저는 무결하답니다. 그대 중에 누구든지 죄 없는 자가 있다면, 홀연히 몸을 던져 제 고난을 대신하시지요. 그대들의 마귀 같은 혓바닥으로는 결코 제 명예를 더럽힐 수 없을 겁니다."
   },
   {
     "id": "16theballadofseat7",
     "name": "마술사",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/16_theballadofseat7.png",
     "team": "townsfolk",
-    "ability": "악마는 당신을 하수인으로 봅니다. 하수인은 당신을 악마로 봅니다.",
+    "ability": "악마는 당신을 하수인이라고 생각합니다. 하수인들은 당신을 악마라고 생각합니다.",
     "firstNight": 14,
     "otherNight": 0,
-    "firstNightReminder": "첫날 밤, 하수인들에게 악마와 마술사 두 명중 1명이 악마라고 알려 줍니다. 악마에게 하수인들과 마술사를 알려주고 하수인들이 라고 알려 줍니다."
+    "firstNightReminder": "하수인 정보 단계에, 마술사와 악마를 가리킵니다. 악마 정보 단계에, 마술사와 하수인을 가리킵니다.",
+    "flavor": "하나... 둘... 수리수리... 셋... 넷... 마수리... *펑!* 자, 신사 숙녀 여러분. 보시다시피 판스워스 선장의 금주머니가 사라졌습니다! 감쪽같이, 흔적도 없이! 그럼 이만, 좋은 밤 되시길!"
   },
   {
     "id": "17theballadofseat7",
     "name": "주정뱅이",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/17_theballadofseat7.png",
     "team": "outsider",
-    "ability": "당신은 자신이 마을주민 캐릭터로 알고 있지만, 사실은 주정뱅입니다. 자신이 '취함' 상태임을 알 수 없습니다.",
-    "special":[{"type":"selection","name":"bag-disabled"},{"type":"reveal","name":"replace-character"}],"remindersGlobal": ["주정뱅이"],
+    "ability": "당신은 자신이 주정뱅이라는 사실을 모릅니다. 대신 다른 주민 캐릭터라고 착각하지만, 사실은 주정뱅이입니다.",
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-disabled"
+      },
+      {
+        "type": "reveal",
+        "name": "replace-character"
+      }
+    ],
+    "remindersGlobal": [
+      "주정뱅이입니다"
+    ],
     "firstNight": 0,
     "otherNight": 0,
     "reminders": [
       "취함"
     ],
-    "setup": true
+    "setup": true,
+    "flavor": "난 *딸꾹* 친구하고만 마시는 사람이야. 다만 친구가 *꺼억* 좀 많아야지."
   },
   {
     "id": "18theballadofseat7",
     "name": "은둔자",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/18_theballadofseat7.png",
     "team": "outsider",
-    "ability": "악한 성향으로, 하수인으로, 악마로 보일 수 있습니다. 심지어 죽은 상태에서도 유지됩니다.",
+    "ability": "당신은 악한 팀 소속의 하수인 또는 악마로 위장될 수도 있습니다(사망한 상태에서도).",
     "firstNight": 0,
-    "otherNight": 0
+    "otherNight": 0,
+    "flavor": "히익... 꺼, 꺼져 이놈아... 이 썩을 자식아... 내 거, 내 거에 더러운 손 대지마! 크르르. 저, 저 남쪽 어딘가서... 으, 으시시한 것들이... 너 따라오고 있어, 알아?! 썩 꺼지라고 했지! 나, 나는... 그런거 몰라! 악마니 귀신이니 뭐니... 나랑은 상관없단 말이야! 당장 꺼져, 이 자식아!"
   },
   {
     "id": "19theballadofseat7",
     "name": "성자",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/19_theballadofseat7.png",
     "team": "outsider",
-    "ability": "만약 당신이 처형으로 사망 한다면 당신의 팀이 패배합니다.  ",
+    "ability": "당신이 처형으로 사망하면, 당신이 속한 팀이 패배합니다.",
     "firstNight": 0,
-    "otherNight": 0
+    "otherNight": 0,
+    "flavor": "지혜는 마음에 평화를 심고, 참된 인내는 지혜의 열매를 맺게 하느니라. 두려워하지 말지어다. 이 모든 두려움 주님 안에서 사라질 날이 오리라. 한 마음으로 기도하라. 함께 뜻 모은다면, 모두가 거룩함에 이르리라."
   },
   {
     "id": "20theballadofseat7",
     "name": "아가씨",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/20_theballadofseat7.png",
     "team": "outsider",
-    "ability": "게임 당 한 번, 낮에 하수인 중 1명이 공개적으로 당신을 선택하고 아가씨라고 선언한다면, 당신의 팀은 패배합니다. 하수인들은 아가씨가 참가중인 사실을 알고 있습니다.",
+    "ability": "모든 하수인은 아가씨가 게임에 참여한다는 사실을 압니다. 하수인이 당신을 공개적으로 추측해 내면(여러명 중 단 1번만 가능), 당신이 속한 팀이 패배합니다.",
     "firstNight": 19,
     "otherNight": 10,
-    "firstNightReminder": "모든 하수인을 깨워, 아가씨가 있음을 알려주세요",
-    "otherNightReminder": "사냥꾼이 아가씨를 찾는다면, 아가씨 토큰을 참가중이지 않은 마을주민 토큰으로 바꿉니다.",
+    "firstNightReminder": "하수인 정보 단계에, 하수인에게 아가씨 토큰을 보여줍니다. 아직 하지 않았다면, 즉시 그렇게 합니다. 아가씨가 사냥꾼에게 선택되었다면, *당신은* 정보 토큰과 바뀐 캐릭터 토큰을 보여줍니다.",
+    "otherNightReminder": "아가씨가 사냥꾼에게 선택되었다면, *당신은* 정보 토큰과 바뀐 캐릭터 토큰을 보여줍니다.",
     "reminders": [
-      "추측 사용됨"
-    ]
+      "추측 사용함"
+    ],
+    "flavor": "머리카락엔 손대지 마, 자기야."
   },
   {
     "id": "21theballadofseat7",
     "name": "하피",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/21_theballadofseat7.png",
     "team": "minion",
-    "ability": "매일 밤, 당신은 2명의 참가자를 1명씩 지명합니다. 다음날 첫번째로 선택된 자는 두번째로 선택 된자를 악하다고 '광기' 하며 말하지 않을 경우, 해당 참가자 중 0~2명이 사망할 수 있습니다. (이야기꾼 선택) ",
+    "ability": "매일 밤 참가자 2명을 선택합니다: 다음 날, 첫 번째 참가자는 두 번째 참가자가 악한 팀이라는 사실에 집착해야 합니다. 그렇지 않으면, 둘 중 하나 또는 둘 다 사망할 수 있습니다.",
     "firstNight": 17,
     "otherNight": 5,
-    "firstNightReminder": "하피를 깨워 참가자 2명을 순서대로 고르게 하세요. 첫번째가 두번째를 악하다고 '광기'합니다. (하피 광기 능력 기한은 선택된 밤 부터 새로운 광기참가자 고르기 전까지)",
-    "otherNightReminder": "하피를 깨워 참가자 2명을 순서대로 고르게 하세요. 첫번째가 두번째를 악하다고 '광기'합니다. (하피 광기 능력 기한은 선택된 밤 부터 새로운 광기참가자 고르기 전까지)",
+    "firstNightReminder": "하피가 참가자 2명을 선택합니다. :reminder: :reminder: 하피를 재웁니다. 첫 번째로 선택된 참가자를 깨웁니다. *이 캐릭터가 당신을 선택했습니다* 토큰과 하피 토큰을 보여주고 두 번째로 선택된 참가자를 가리킵니다.",
+    "otherNightReminder": "하피가 참가자 2명을 선택합니다. :reminder: :reminder: 하피를 재웁니다. 첫 번째로 선택된 참가자를 깨웁니다. *이 캐릭터가 당신을 선택했습니다* 토큰과 하피 토큰을 보여주고 두 번째로 선택된 참가자를 가리킵니다.",
     "reminders": [
-      "광기",
+      "집착",
       "두번째"
-    ]
+    ],
+    "flavor": "이토록 고운 날은 처음 보았는데, 이토록 흉조 어린 존재가 내 위에 드리운 것도 처음이로다."
   },
   {
     "id": "22theballadofseat7",
-    "name": "붐댄디",
+    "name": "폭탄마",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/22_theballadofseat7.png",
     "team": "minion",
-    "special":[{"name":"pointing","type":"ability","time":"day"}],
-    "ability": "붐댄디가 처형당하면, 폭발하여 이야기꾼이 선택한  악마 포함 3명을 제외하고 모두 사망합니다. 10초 동안 모든 참가자는 생존자중 1명을 지명합니다(10초 동안 변경 가능). 가장 많이 지명된 참가자가 사망합니다. ",
+    "special": [
+      {
+        "name": "pointing",
+        "type": "ability",
+        "time": "day"
+      }
+    ],
+    "ability": "당신이 처형당하면, 참가자 3명 외에 모두 사망합니다. 10부터 1까지 카운트다운 후, 가장 많은 참가자가 가리킨 참가자가 사망합니다.",
     "firstNight": 0,
-    "otherNight": 0
+    "otherNight": 0,
+    "flavor": "째깍... 째깍... 째깍... 땡."
   },
   {
     "id": "23theballadofseat7",
-    "name": "진홍색 여인",
+    "name": "탕녀",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/23_theballadofseat7.png",
     "team": "minion",
-    "ability": "5명 이상의 참가자가 생존 중이라면, 악마가 죽을 경우 당신은 새로운 악마가 됩니다. ",
+    "ability": "참가자가 5명 이상(여행자는 세지 않음) 생존해 있는 상황에서 악마가 사망하면, 당신이 악마가 됩니다.",
     "firstNight": 0,
     "otherNight": 6,
-    "otherNightReminder": "진홍색여인이 악마가 되었다면(5명 이상 참가자 생존중 일때 악마 사망), 그녀를 깨워 알려주세요.",
+    "otherNightReminder": "오늘 낮에 탕녀가 악마가 되었다면, *당신은* 토큰을 보여준 다음 악마 토큰을 보여줍니다.",
     "reminders": [
-      "악마"
-    ]
+      "악마입니다"
+    ],
+    "flavor": "보랏빛 화염 평의회의 비밀을 보여주신 그대. 불길처럼 타오르는 욕정으로 가득 차 야성의 교감을 나눔으로써, 저는 실로 그대의 영원한 종을 자처하였습니다. 허나 오늘 밤에는 제가 그대의 주인이 되려 합니다."
   },
   {
     "id": "24theballadofseat7",
     "name": "과학자",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/24_theballadofseat7.png",
     "team": "minion",
-    "ability": "악마는(취하거나 중독되어도) 참가중이지 않은 선한 캐릭터 능력을 가지고 있습니다. 과학자 는 그 캐릭터를 알고 있고 악마는 그 캐릭터 능력을 추가로 얻습니다.",
-    "jinxes":[{"id":"8theballadofseat7","reason":"마을바보 토큰이 남아있다면, 과학자는 악마에게 마을 바보 능력을 줄 수 있습니다."},{"id":"17theballadofseat7","reason":"악마는 주정뱅이 능력을 가지고 있지 않습니다."}],
+    "ability": "악마는 (악마가 취함/중독 상태더라도) 게임에 참여하지 않는 선한 캐릭터의 능력을 갖습니다. 악마와 당신은 그 능력을 알게 됩니다.",
+    "jinxes": [
+      {
+        "id": "8theballadofseat7",
+        "reason": "마을바보 토큰이 남아있다면, 과학자는 악마에게 마을 바보 능력을 줄 수 있습니다."
+      },
+      {
+        "id": "17theballadofseat7",
+        "reason": "악마는 주정뱅이 능력을 가지고 있지 않습니다."
+      }
+    ],
     "firstNight": 13,
     "otherNight": 0,
-    "firstNightReminder": "과학자에게 캐릭터 토큰을 알려주고, 악마에게도 알려줍니다.",
+    "firstNightReminder": "과학자와 악마를 깨웁니다. *이 캐릭터가 당신을 선택했습니다* 정보 토큰과 과학자 토큰을 보여주고, 게임에 참여하지 않는 선한 캐릭터 토큰 1개를 보여줍니다.",
     "reminders": [
       "과학자 능력"
-    ]
+    ],
+    "flavor": "광대하고 무정한 항성의 수소, 탄소, 산소, 네온 가스까지 전부 망쳐 놓았지. 분자적 혼돈과 엔트로피가 새로운 우주 현상을 낳고, 원자적 혼돈에서 밀집한 물질의 붕괴와 재탄생이 일어난다. 전부 이 조그마한 병 하나 안에서 말이야."
   },
   {
     "id": "25theballadofseat7",
     "name": "남작",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/25_theballadofseat7.png",
     "team": "minion",
-    "ability": "캐릭터 구성 시, 기존 구성에서 마을주민 2명이 이방인으로 교체됩니다. [+2 이방인]",
+    "ability": "외지인이 추가로 게임에 참여합니다. [외지인 +2명]",
     "firstNight": 0,
     "otherNight": 0,
-    "setup": true
+    "setup": true,
+    "flavor": "이거 마을이 완전 개판이 되지 않았나? 값싼 외국인 노동자가 역시 해법이라니까. 죄다 광산에 처박아 버려야 해. 누가 열심히 일한다고 죽기라도 하나? 불평이나 지껄이는 새끼들에게는 귀싸대기를 갈겨버려야 정신 차리지. 수익을 내지 못하면 미래도 없잖아. 안 그래?"
   },
   {
     "id": "26theballadofseat7",
     "name": "푸카",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/26_theballadofseat7.png",
     "team": "demon",
-    "ability": "매일 밤, 선택한 참가자는 '중독' 상태가 됩니다. 지난 밤에 '중독' 된 참가자는 사망 처리 후 '중독'이 풀리고 건강해 집니다.",
+    "ability": "매일 밤, 참가자 1명을 선택합니다: 그는 중독됩니다. 이전에 당신이 중독시켰던 참가자는 사망하고, 건강한 상태가 됩니다.",
     "firstNight": 18,
     "otherNight": 8,
-    "firstNightReminder": "푸카에게 참가자 1명을 선택하게 하세요. 선택된 참가자는 '중독'됩니다.",
-    "otherNightReminder": "푸카에게 참가자 1명을 선택하게 하세요. 선택된 참가자는 '중독'됩니다. 어젯밤 '중독' 된 참가자는 '사망' 후  '중독'이 풀립니다. ",
+    "firstNightReminder": "푸카가 참가자 1명을 선택합니다. :reminder:",
+    "otherNightReminder": "푸카가 참가자 1명을 선택합니다. :reminder: 이전에 중독시킨 참가자는 사망한 다음 건강한 상태가 됩니다. :reminder:",
     "reminders": [
-      "중독",
-      "사망"
-    ]
+      "사망",
+      "중독"
+    ],
+    "flavor": "이토록 아름다운 집에서 환대해 주시다니 실로 친절하시군요. 실수로 긁어버린 건 죄송합니다. 부디 별 탈이 없기를. 아무쪼록, 이 황금 이쑤시개를 사과의 뜻으로 받아주시겠어요?"
   },
   {
     "id": "27theballadofseat7",
     "name": "임프",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/27_theballadofseat7.png",
     "team": "demon",
-    "ability": "매일 밤*(첫날 제외 밤), 당신이 선택한 참가자는 사망합니다. 이 방법으로 자신을 선택했다면 자신은 죽고 살아있는 하수인이 임프가 됩니다.",
+    "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. 이 방법으로 자결하면, 하수인 1명이 임프가 됩니다.",
     "firstNight": 0,
     "otherNight": 7,
-    "otherNightReminder": "임프가 선택한 참가자에게 '사망' 토큰을 놓으세요. 임프를 선택한다면, 임프를 '사망'시키고 살아있는 하수인에게 임프가 되었음을 알려주세요",
+    "otherNightReminder": "임프가 참가자 1명을 선택합니다. :reminder: 임프가 자기 자신을 선택하면: 생존한 하수인 토큰 1개를 여분의 임프 토큰으로 대체합니다. 방금 전까지 임프였던 참가자를 다시 재웁니다. 새로운 임프를 깨웁니다. *당신은* 토큰을 보여준 다음 임프 토큰을 보여줍니다.",
     "reminders": [
       "사망"
-    ]
+    ],
+    "flavor": "지혜를 예리하게, 칼끝은 더욱더 예리하게 벼려내십시오. 악은 사이를 거닐며 선한 주민과 마을을 파멸로 몰아넣기 위해서라면 무슨 짓이든 서슴지 않으리니, 그 누구도 믿지 마십시오. 허나 진정 누군가를 믿어야 한다면, 오직 저만을 믿으십시오."
   },
   {
     "id": "28theballadofseat7",
-    "name": "비고모르티스",
+    "name": "비고르모르티스",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/28_theballadofseat7.png",
     "team": "demon",
-    "ability": "매일 밤*(첫날 제외), 참가자 한 명을 선택해 '사망' 시킵니다. 하수인을 선택하면, 하수인은 사망 하지만 능력은 지속됩니다. 그리고 하수인의 이웃 마을주민 중 한 명을 ‘중독’ 상태로 만듭니다. [이방인 -1]",
+    "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. 당신이 죽인 하수인은 능력을 유지하며, 그와 가까운 양쪽 이웃 주민 중 1명이 중독됩니다. [외지인 -1명]",
     "firstNight": 0,
     "otherNight": 9,
-    "otherNightReminder": "참가자 한명을 선택해 '사망'시킵니다. 선택한 참가자가 하수인이라면, 능력은 지속되며, 이웃 마을주민(사망 여부 관계 없음) 한명을 '중독' 상태로 만듭니다. ",
+    "otherNightReminder": "비고르모르티스가 참가자 1명을 선택합니다. :reminder: 그가 하수인이면, 이웃 주민 1명을 중독시킵니다. :reminder: :reminder:",
     "reminders": [
       "사망",
-      "능력 얻음",
-      "능력 얻음",
-      "능력 얻음",
-      "능력 얻음",
-      "중독",
+      "능력 가짐",
+      "능력 가짐",
+      "능력 가짐",
       "중독",
       "중독",
       "중독"
     ],
-    "setup": true
+    "setup": true,
+    "flavor": "모든 문은 곧 하나요, 모든 열쇠는 곧 하나며, 모든 잔은 곧 하나니라. 허나 내가 주는 물을 마시는 자는, 영원토록 목마르지 아니하리니. 내가 주는 물은 그 속에서 영생토록 솟아나는 샘물 되리라."
   },
   {
     "id": "29theballadofseat7",
@@ -389,7 +445,12 @@
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/29_theballadofseat7.png",
     "team": "demon",
     "ability": "첫 날밤, 하수인들에게 서로를 알려주고 악마를 알려주세요",
-    "special":[{"type":"selection","name":"bag-disabled"}],
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-disabled"
+      }
+    ],
     "firstNight": 15,
     "otherNight": 0,
     "firstNightReminder": "첫 날밤, 하수인들에게 서로를 알려주고 악마를 알려주세요"
@@ -397,7 +458,12 @@
   {
     "id": "30theballadofseat7",
     "name": "악마 정보",
-    "special":[{"type":"selection","name":"bag-disabled"}],
+    "special": [
+      {
+        "type": "selection",
+        "name": "bag-disabled"
+      }
+    ],
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/30_theballadofseat7.png",
     "team": "demon",
     "ability": "첫 날밤, 악마에게 하수인들을 알려주세요 참가중이지 않은 선한 캐릭터 3개를 알려주세요",
@@ -410,63 +476,58 @@
     "name": "희생양",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/2_theballadofseat7.png",
     "team": "traveller",
-    "ability": "당신의 성향의 참가자가 처형으로 사망 하게 될 경우 당신이 대신 처형으로 사망 합니다.(이야기꾼 선택)",
+    "ability": "당신의 팀 소속 참가자 1명이 처형당하면, 당신이 대신 처형당할 수도 있습니다.",
     "firstNight": 0,
     "otherNight": 0,
     "reminders": [
       "선함",
       "악함",
       "희생(처형)"
-    ]
+    ],
+    "flavor": "좋은 저녁입니다! 연회에 초대해 주셔서 정말 감사합니다. 이 마을 사람이 아닌데도, 이렇게 친절하게 맞아주시다니요. 금방 친해질 수 있을 것만 같은걸요. 잠깐! 그 밧줄은 뭐죠?"
   },
   {
     "id": "3theballadofseat7",
     "name": "매춘부",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/3_theballadofseat7.png",
     "team": "traveller",
-    "ability": "매일 밤*, 살아있는 참가자 한 명 선택합니다. 그 참가자가 동의 하면 그 참가자 캐릭터를 알 수 있지만, 둘 다 사망할 수도 있습니다.\"",
+    "ability": "매일 밤*, 생존한 참가자 1명을 선택합니다: 그가 동의한다면, 그의 캐릭터를 알게 되지만 둘 다 사망할 수도 있습니다.",
     "firstNight": 0,
     "otherNight": 3,
-    "otherNightReminder": "매일 밤*, 살아있는 참가자 한 명 선택합니다. 그 참가자가 동의 하면 그 참가자 캐릭터를 알 수 있지만, 둘 다 사망할 수도 있습니다.\"",
+    "otherNightReminder": "매춘부가 생존한 참가자 1명을 선택합니다. 매춘부를 재웁니다. 대상을 깨웁니다. *이 캐릭터가 당신을 선택했습니다* 토큰과 매춘부 토큰을 보여줍니다. 대상 참가자가 고개를 끄덕이면, 매춘부를 깨우고 그의 캐릭터 토큰을 보여줍니다. 두 참가자 모두 사망할 수도 있습니다. :reminder: :reminder:",
     "reminders": [
       "사망",
-      "사망",
-      "동의"
-    ]
+      "사망"
+    ],
+    "flavor": "만나서 반가워요, 멋진 선원 아저씨. 속마음을 터놓을 사람이 필요하시군요. 제가 들어드릴 수 있는데. 아주, 아주 잘 들어드릴게요."
   },
   {
     "id": "theballadofseat7",
     "name": "노움",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/_theballadofseat7.png",
     "team": "traveller",
-    "ability": "모든 참가자들은 당신의 성향과 같은 참가자를 1명이 노움의 친구임을 이야기꾼이 공개적으로 알려줍니다. 당신은 그 참가자를 지명하는 사람을 죽일 수도 있습니다.",
+    "ability": "게임 시작 시, 모든 참가자는 당신과 같은 팀에 속한 참가자 1명을 알게 됩니다 그를 지명한 참가자를 죽일 수 있습니다.",
     "firstNight": 0,
     "otherNight": 0,
     "reminders": [
-      "노움 친구",
-      "사망",
-      "사망",
-      "사망",
-      "사망",
-      "사망"
-    ]
+      "짝궁"
+    ],
+    "flavor": "점수 네 점이든 맥주 일곱 잔이든, 나와 내 녀석들에겐 공연도 출발도 다 같은 말이지. 바닥 판자와 들보를 뒤흔들 장난 하나면, 전부 뒤집혀버려. 기쁨의 시냇물 아래로 거대한 수필들이 흘러내리고, 그보다 더한 광경은 없지, 전혀. 흐르릉, 흠!"
   },
   {
     "id": "1theballadofseat7",
     "name": "관료",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/1_theballadofseat7.png",
     "team": "traveller",
-    "ability": "매일 밤, (본인 제외) 참가자 1명을 선택하세요. 그 참가자는 투표는 3표로 계산됩니다. 관료가 추방 또는 사망할 경우 관료가 선택한 참가자는 즉시 패배 합니다.",
+    "ability": "매일 밤, (당신을 제외하고) 참가자 1명을 선택합니다: 다음 날, 그의 투표는 3표로 계산합니다.",
     "firstNight": 12,
     "otherNight": 2,
-    "firstNightReminder": "매일 밤, (본인 제외) 참가자 1명을 선택하세요. 그 참가자는 투표는 3표로 계산됩니다. 관료가 추방 또는 사망할 경우 관료가 선택한 참가자는 즉시 패배 합니다. (추방자는 능력에 영향을 받지 않아서 3표가 아닌 1표로 처리 됩니다. 단 사망한 참가자는 3표 가능 합니다.)",
-    "otherNightReminder": "매일 밤, (본인 제외) 참가자 1명을 선택하세요. 그 참가자는 투표는 3표로 계산됩니다. 관료가 추방 또는 사망할 경우 관료가 선택한 참가자는 즉시 패배 합니다. (추방자는 능력에 영향을 받지 않아서 3표가 아닌 1표로 처리 됩니다. 단 사망한 참가자는 3표 가능 합니다.)",
+    "firstNightReminder": "관료가 참가자 1명을 선택합니다. :reminder:",
+    "otherNightReminder": "관료가 참가자 1명을 선택합니다. :reminder:",
     "reminders": [
-      "선함",
-      "악함 ",
-      "투표권 3표",
-      "패배"
-    ]
+      "3표"
+    ],
+    "flavor": "여기 서명해 주시겠어요? 여기도. 여기도. 그리고 여어어어어기도요. 모두의 서명이 적합하다는 가정하에, 서류는 오늘 안으로 처리될 겁니다. 저희가 서류상 착오만 안 저지르면 되는 일이죠. 그런 적은 흔치 않아요. 마지막이 어제 점심쯤이었나, 벌써 기억도 안 나네요."
   },
   "bootlegger",
   {
@@ -508,21 +569,23 @@
   },
   {
     "id": "32theballadofseat7",
-    "name": "밀수업자",
+    "name": "밀주업자",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/32_theballadofseat7.png",
     "team": "fabled",
-    "ability": "특별한 규칙을 사용할 때 사용 합니다. 7번 자리는 비어있습니다. 시트의 캐릭터는 임의적인 선택을 합니다.게임당 한 번, 이야기꾼이 7번 시트 캐릭터를 대신해서 발언 할 수 있습니다.",
+    "ability": "이 스크립트에는 홈브루 캐릭터나 규칙이 있습니다.",
     "firstNight": 0,
-    "otherNight": 0
+    "otherNight": 0,
+    "flavor": "내가 태어났을 때, 아버지와 마찬가지로 내 이름도 '홈브루이 맥홈브루페이스'였지. 참으로 위엄 있는 시대에 어울리는, 아주 점잖은 이름이었어."
   },
   {
     "id": "31theballadofseat7",
-    "name": "진(지니)",
+    "name": "진",
     "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/31_theballadofseat7.png",
     "team": "fabled",
-    "ability": "진(지니) 진의 특수 규칙을 사용하세요. 모든 참가자가 그 규칙을 알고 있습니다. 스크립트에 징크스 아이콘이 있는 모든 게임에 진을 추가합니다. 진은 고유한 규칙을 만들어 징크스를 해결합니다.",
+    "ability": "진의 특수 규칙을 사용합니다. 이 규칙을 모두에게 알립니다.",
     "firstNight": 0,
-    "otherNight": 0
+    "otherNight": 0,
+    "flavor": "نحن لسنا هنا. انت لست حقيقي. كل شيء هو وهم. أسئلتك هي جبل نار في يوم صافٍ.\n우리는 여기에 없다. 너는 실재하지 않는다. 모든 것은 환상이다. 너의 질문은 맑은 날 솟아오른 불의 산과도 같다."
   },
   {
     "id": "71theballadofseat7",
