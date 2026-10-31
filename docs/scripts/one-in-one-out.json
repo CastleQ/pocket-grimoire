@@ -10,18 +10,19 @@
   },
   {
     "id": "steward1",
-    "name": "관리인",
+    "name": "시종",
     "image": [
       "https://release.botc.app/resources/characters/carousel/steward_g.webp",
       "https://release.botc.app/resources/characters/carousel/steward_e.webp"
     ],
-    "ability": "선한 플레이어 1명을 알고 시작합니다.",
+    "team": "townsfolk",
+    "ability": "게임 시작 시, 선한 참가자 1명을 알게 됩니다.",
+    "flavor": "감히 우리 마님께 잘못이 있다고 모함하다니, 어찌 그럴 수가 있습니까? 저는 그분을 평생 알아왔습니다! 무려 9년이나 말입니다!",
     "firstNight": 62,
-    "firstNightReminder": "선한 플레이어 1명을 알려주세요.",
+    "firstNightReminder": "*알아냄*으로 표시된 참가자를 가리킵니다.",
     "reminders": [
-      "알고있음"
-    ],
-    "team": "townsfolk"
+      "알아냄"
+    ]
   },
   {
     "id": "knight1",
@@ -30,14 +31,15 @@
       "https://release.botc.app/resources/characters/carousel/knight_g.webp",
       "https://release.botc.app/resources/characters/carousel/knight_e.webp"
     ],
-    "ability": "악마가 아닌 플레이어 2명을 알고 시작합니다.",
+    "team": "townsfolk",
+    "ability": "게임 시작 시, 악마가 아닌 참가자 2명을 알게 됩니다.",
+    "flavor": "누군가 거짓을 말할 때 마다, 이 세상의 일부가 죽어 간다.",
     "firstNight": 63,
-    "firstNightReminder": "악마가 아닌 플레이어 2명을 알려주세요.",
+    "firstNightReminder": "*알아냄*으로 표시된 참가자 2명을 가리킵니다.",
     "reminders": [
-      "알고있음",
-      "알고있음"
-    ],
-    "team": "townsfolk"
+      "알아냄",
+      "알아냄"
+    ]
   },
   {
     "id": "highpriestess1",
@@ -46,29 +48,31 @@
       "https://release.botc.app/resources/characters/carousel/highpriestess_g.webp",
       "https://release.botc.app/resources/characters/carousel/highpriestess_e.webp"
     ],
-    "ability": "매일 밤, 이야기꾼이 당신이 가장 대화를 나눠야 한다고 생각하는 플레이어가 누구인지 알게 됩니다.",
+    "team": "townsfolk",
+    "ability": "매일 밤, 이야기꾼이 보기에 당신이 가장 많이 이야기해봐야 할 사람을 알게 됩니다.",
+    "flavor": "인격이라는 가면을 쓰고 있는 것의 뒤편에는 또 다른 삶이 있다. 그리고 때로 삶은 그 가면을 벗고, 깊은 것은 깊은 것에 대답한다.",
     "firstNight": 73,
-    "firstNightReminder": "대사제가 가장 대화를 나눠야 한다고 생각하는 플레이어를 알려줍니다.",
+    "firstNightReminder": "참가자 1명을 가리킵니다.",
     "otherNight": 92,
-    "otherNightReminder": "대사제가 가장 대화를 나눠야 한다고 생각하는 플레이어를 알려줍니다.",
-    "team": "townsfolk"
+    "otherNightReminder": "참가자 1명을 가리킵니다."
   },
   {
     "id": "villageidiot1",
-    "name": "바보",
+    "name": "마을 백치",
     "image": [
       "https://release.botc.app/resources/characters/carousel/villageidiot_g.webp",
       "https://release.botc.app/resources/characters/carousel/villageidiot_e.webp"
     ],
-    "ability": "매일 밤, 플레이어를 1명 선택합니다. 해당 플레이어의 진영을 알게 됩니다. [+0 ~ +2 바보. 바보가 2명 이상이라면 그중 1명이 취해 있습니다.]",
-    "firstNight": 67,
-    "firstNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어의 진영을 알려주세요.",
-    "otherNight": 85,
-    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어의 진영을 알려주세요.",
-    "reminders": [
-      "만취"
-    ],
     "team": "townsfolk",
+    "ability": "매일 밤, 참가자 1명을 선택합니다: 그의 팀을 알게 됩니다. [+0~+2 마을 백치. 그중 1명은 취함.]",
+    "flavor": "장미는 파랗고, 제비꽃은 빨갛다네. 방금 말 일부러 거꾸로 한거야. 진짜야.",
+    "firstNight": 67,
+    "firstNightReminder": "마을 백치가 여러 명이라면, 그중 1명을 *취함*으로 표시합니다. :reminder: 마을 백치는 각각 일어나 참가자 1명을 선택합니다. 엄지를 펴서 신호를 줍니다.",
+    "otherNight": 85,
+    "otherNightReminder": "마을 백치는 각각 일어나 참가자 1명을 선택합니다. 엄지를 펴서 신호를 줍니다.",
+    "reminders": [
+      "취함"
+    ],
     "setup": true,
     "special": [
       {
@@ -84,15 +88,16 @@
       "https://release.botc.app/resources/characters/snv/snakecharmer_g.webp",
       "https://release.botc.app/resources/characters/snv/snakecharmer_e.webp"
     ],
-    "ability": "매일 밤, 살아있는 플레이어를 1명 선택합니다. 악마라면, 당신과 진영 및 캐릭터를 바꾸고, 그 후 해당 플레이어는 중독됩니다.",
+    "team": "townsfolk",
+    "ability": "매일 밤, 생존한 참가자 1명을 선택합니다: 악마를 선택했다면, 악마는 당신과 소속 및 캐릭터를 맞바꾼 다음 중독됩니다.",
+    "flavor": "나리... 저는 비천하지만, 제 황금 피리의 한 곡조만으로도 사나운 진조차도 길들일 수 있사옵니다, 인샬라. 탐욕은 밧줄보다도 더 많은 이들을 목매단다지만, 저는 아니옵니다. 나리, 절대 아니옵니다.",
     "firstNight": 36,
-    "firstNightReminder": "선택한 플레이어가 악마라면, 뱀 조련사와 진영 및 캐릭터를 바꾸고, 새로운 뱀 조련사에게 이를 알린 후 중독시킵니다.",
+    "firstNightReminder": "뱀 조련사가 참가자 1명을 선택합니다. 악마를 선택했다면: *당신은* 토큰과 악마 토큰을 보여줍니다. 엄지를 내립니다. 뱀 조련사와 악마 토큰을 맞바꿉니다. 이전 뱀 조련사를 재웁니다. 이전 악마를 깨웁니다. *당신은* 토큰과 뱀 조련사 토큰을 보여주고 엄지를 올립니다. :reminder:",
     "otherNight": 22,
-    "otherNightReminder": "선택한 플레이어가 악마라면, 뱀 조련사와 진영 및 캐릭터를 바꾸고, 새로운 뱀 조련사에게 이를 알린 후 중독시킵니다.",
+    "otherNightReminder": "뱀 조련사가 참가자 1명을 선택합니다. 악마를 선택했다면: *당신은* 토큰과 악마 토큰을 보여줍니다. 엄지를 내립니다. 뱀 조련사와 악마 토큰을 맞바꿉니다. 이전 뱀 조련사를 재웁니다. 이전 악마를 깨웁니다. *당신은* 토큰과 뱀 조련사 토큰을 보여주고 엄지를 올립니다. :reminder:",
     "reminders": [
       "중독"
-    ],
-    "team": "townsfolk"
+    ]
   },
   {
     "id": "fortuneteller1",
@@ -101,42 +106,45 @@
       "https://release.botc.app/resources/characters/tb/fortuneteller_g.webp",
       "https://release.botc.app/resources/characters/tb/fortuneteller_e.webp"
     ],
-    "ability": "매일 밤, 플레이어 2명을 선택합니다. 그중 악마가 있는지 알게 됩니다. 당신에게 악마로 보이는 선한 플레이어가 1명 있습니다.",
+    "team": "townsfolk",
+    "ability": "매일 밤, 참가자 2명을 선택합니다: 그중 악마가 있는지 알게 됩니다. 단, 선한 참가자 중 1명이 당신에게는 악마로 위장되어 보입니다.",
+    "flavor": "당신의 영혼에 깃든 어마어마한 악이 느껴집니다! 하지만... 설마 이건 향수 냄새인가요? 제가 실은 엘더베리에 알레르기가 있어서...",
     "firstNight": 56,
-    "firstNightReminder": "플레이어 2명을 선택하게 합니다. 그중 악마나 붉은 청어가 있다면 이를 알려줍니다.",
+    "firstNightReminder": "점쟁이가 참가자 2명을 선택합니다. 그중 악마 또는 *허상*이 있다면 고개를 끄덕입니다.",
     "otherNight": 76,
-    "otherNightReminder": "플레이어 2명을 선택하게 합니다. 그중 악마나 붉은 청어가 있다면 이를 알려줍니다.",
+    "otherNightReminder": "점쟁이가 참가자 2명을 선택합니다. 그중 악마 또는 *허상*이 있다면 고개를 끄덕입니다.",
     "reminders": [
-      "붉은 청어"
-    ],
-    "team": "townsfolk"
+      "허상"
+    ]
   },
   {
     "id": "oracle1",
-    "name": "신관",
+    "name": "예언자",
     "image": [
       "https://release.botc.app/resources/characters/snv/oracle_g.webp",
       "https://release.botc.app/resources/characters/snv/oracle_e.webp"
     ],
-    "ability": "매일 밤*, 죽은 플레이어 중 악한 진영이 얼마나 있는지 알게 됩니다.",
+    "team": "townsfolk",
+    "ability": "매일 밤*, 사망한 참가자 가운데 몇 명이나 악한 팀인지를 알게 됩니다.",
+    "flavor": "오직 선택받은 자만이 장막 너머를 들여다볼 수 있소. 망자는 쉬이 잠들지 못한 채, 침묵 속에서 얼어붙은 북녘을 가리키고 있소.",
     "otherNight": 81,
-    "otherNightReminder": "죽은 플레이어 중 악한 진영이 얼마나 있는지 알려줍니다.",
-    "team": "townsfolk"
+    "otherNightReminder": "손가락을 펴서 신호를 줍니다."
   },
   {
     "id": "monk1",
-    "name": "수도승",
+    "name": "수도사",
     "image": [
       "https://release.botc.app/resources/characters/tb/monk_g.webp",
       "https://release.botc.app/resources/characters/tb/monk_e.webp"
     ],
-    "ability": "매일 밤*, 본인을 제외하고 플레이어를 1명 선택합니다. 해당 플레이어는 오늘 밤 악마로부터 안전합니다.",
+    "team": "townsfolk",
+    "ability": "매일 밤*, (당신을 제외하고) 참가자 1명을 선택합니다: 그는 오늘 밤 악마로부터 안전합니다.",
+    "flavor": "오늘 밤바람에 불길한 죽음의 향취가 섞여 드는군. 이리 오게 형제여. 폭풍이 휘몰아치는 동안 수도원에서 쉬어 가시게. 내 목숨을 걸고 그대를 지키겠네.",
     "otherNight": 23,
-    "otherNightReminder": "본인을 제외하고 플레이어를 1명 선택합니다. 해당 플레이어는 오늘 밤 악마로부터 안전합니다.",
+    "otherNightReminder": "수도사가 참가자 1명을 선택합니다. :reminder:",
     "reminders": [
-      "보호"
-    ],
-    "team": "townsfolk"
+      "보호받음"
+    ]
   },
   {
     "id": "seamstress1",
@@ -145,28 +153,30 @@
       "https://release.botc.app/resources/characters/snv/seamstress_g.webp",
       "https://release.botc.app/resources/characters/snv/seamstress_e.webp"
     ],
-    "ability": "게임당 한 번, 밤에 본인을 제외하고 플레이어 2명을 선택할 수 있습니다. 해당 플레이어들이 같은 진영인지 알게 됩니다.",
+    "team": "townsfolk",
+    "ability": "게임당 1번, 밤에, (당신을 제외하고) 참가자 2명을 선택합니다: 그들이 같은 소속인지 아닌지를 알게 됩니다.",
+    "flavor": "캐시미어 코트를 입은 이방인이 우리 어여쁜 벨에게 개수작 걸었다는 이야기 들었죠? 그런데 벨이 승낙했다지 뭐예요? 하지만 해리랑 곡예사가 유랑 서커스에서 벌인 짓에 비하면 별것도 아니라죠? 어휴, 제가 입이 싼 사람이었으면 어쩔뻔 했나... 어휴, 정말이지.",
     "firstNight": 61,
-    "firstNightReminder": "플레이어 2명을 선택했다면, 해당 플레이어들이 같은 진영인지 알려줍니다.",
+    "firstNightReminder": "재봉사가 참가자 2명을 선택할 수도 있습니다. 고개를 젓거나 끄덕입니다. :reminder:",
     "otherNight": 82,
-    "otherNightReminder": "플레이어 2명을 선택했다면, 해당 플레이어들이 같은 진영인지 알려줍니다.",
+    "otherNightReminder": "재봉사가 참가자 2명을 선택할 수도 있습니다. 고개를 젓거나 끄덕입니다. :reminder:",
     "reminders": [
-      "무능력"
-    ],
-    "team": "townsfolk"
+      "능력 없음"
+    ]
   },
   {
     "id": "fisherman1",
-    "name": "어부",
+    "name": "낚시꾼",
     "image": [
       "https://release.botc.app/resources/characters/carousel/fisherman_g.webp",
       "https://release.botc.app/resources/characters/carousel/fisherman_e.webp"
     ],
-    "ability": "게임당 한 번, 낮에 이야기꾼을 방문해 당신의 진영의 승리에 도움이 되는 조언을 들을 수 있습니다.",
+    "team": "townsfolk",
+    "ability": "게임당 1번, 낮 동안, 이야기꾼을 방문하여 당신의 팀이 승리하기 위한 조언을 구합니다.",
+    "flavor": "여기가 내가 가장 좋아하던 강가였지... 햇빛이 수도원에서 시장까지 무지개를 걸어놓는 게 보이나? 큰 물고기는 꼭 여기서 잡혔어. 그리고 내가 나이를 먹을수록, 그놈들은 점점 더 커졌지.",
     "reminders": [
-      "무능력"
-    ],
-    "team": "townsfolk"
+      "능력 없음"
+    ]
   },
   {
     "id": "cannibal1",
@@ -175,29 +185,12 @@
       "https://release.botc.app/resources/characters/carousel/cannibal_g.webp",
       "https://release.botc.app/resources/characters/carousel/cannibal_e.webp"
     ],
-    "ability": "당신은 최근에 처형으로 죽은 플레이어의 능력을 가지고 있습니다. (무슨 능력인지는 모릅니다.) 해당 플레이어가 악하다면, 선한 플레이어가 처형으로 죽을 때까지 중독됩니다.",
-    "reminders": [
-      "점심",
-      "중독"
-    ],
     "team": "townsfolk",
-    "jinxes": [
-      {
-        "id": "butler1",
-        "reason": "식인종이 집사의 능력을 얻었다면, 식인종은 이 사실을 알게 됩니다."
-      },
-      {
-        "id": "juggler1",
-        "reason": "저글러가 첫 날에 추측하고 처형되어 죽을 경우, 살아있는 식인종은 저글러가 한 추측의 결과를 알게 됩니다."
-      },
-      {
-        "id": "princess1",
-        "reason": "식인종이 공주를 지명하고 처형한다면, 악마는 오늘 밤 플레이어를 죽일 수 없습니다."
-      },
-      {
-        "id": "zealot1",
-        "reason": "식인종이 광신도의 능력을 얻는다면, 식인종은 이 사실을 알게 됩니다."
-      }
+    "ability": "최근에 처형당해 사망한 캐릭터의 능력을 갖습니다. 그가 악한 팀이었다면, 선한 참가자가 처형으로 사망하기 전까지 당신은 중독됩니다.",
+    "flavor": "난 광대가 싫어. 맛이 영 이상하거든.",
+    "reminders": [
+      "점심 식사",
+      "중독"
     ]
   },
   {
@@ -207,17 +200,18 @@
       "https://release.botc.app/resources/characters/carousel/amnesiac_g.webp",
       "https://release.botc.app/resources/characters/carousel/amnesiac_e.webp"
     ],
-    "ability": "당신은 자신의 능력을 모릅니다. 매일 낮, 이야기꾼을 방문하여 비밀리에 본인의 능력을 추측할 수 있습니다. (이야기꾼은 차가움/시원함/따뜻함/뜨거움/정답으로 단계별 답변을 줍니다.)",
+    "team": "townsfolk",
+    "ability": "당신의 능력이 무엇인지 모릅니다. 매일 낮, 비공개로 능력을 추측합니다: 추측이 얼마나 정확한지 알아냅니다.",
+    "flavor": "잠깐. 뭐라고. 누구? 아, 그래. 잠깐. 뭐라고?",
     "firstNight": 50,
-    "firstNightReminder": "기억상실자가 밤에 능력을 쓴다면 깨우세요.",
+    "firstNightReminder": "기억상실자의 능력에 필요한 것들을 합니다.",
     "otherNight": 68,
-    "otherNightReminder": "기억상실자가 밤에 능력을 쓴다면 깨우세요.",
+    "otherNightReminder": "기억상실자의 능력에 필요한 것들을 합니다.",
     "reminders": [
       "?",
       "?",
       "?"
-    ],
-    "team": "townsfolk"
+    ]
   },
   {
     "id": "farmer1",
@@ -226,23 +220,25 @@
       "https://release.botc.app/resources/characters/carousel/farmer_g.webp",
       "https://release.botc.app/resources/characters/carousel/farmer_e.webp"
     ],
-    "ability": "당신이 밤에 죽을 때, 살아있는 선한 플레이어가 농부가 됩니다.",
+    "team": "townsfolk",
+    "ability": "당신이 밤에 사망하면, 생존한 선한 참가자 1명이 농부가 됩니다.",
+    "flavor": "높으신 분들이라고 해서 밥 없이 살 수 있는 건 아니지. 우리 없이는 이 도시는 굶어 죽는단다.",
     "otherNight": 69,
-    "otherNightReminder": "밤에 사망하면, 살아있는 선한 참가자 1명의 캐릭터를 농부로 교체하고 새로운 농부에게 그 사실을 알려 줍니다.",
-    "team": "townsfolk"
+    "otherNightReminder": "농부가 밤에 사망하면, 생존한 선한 참가자 1명을 깨웁니다. *당신은* 정보 토큰과 농부 토큰을 보여줍니다."
   },
   {
     "id": "goon1",
-    "name": "깡패",
+    "name": "건달",
     "image": [
       "https://release.botc.app/resources/characters/bmr/goon_g.webp",
       "https://release.botc.app/resources/characters/bmr/goon_e.webp"
     ],
-    "ability": "매일 밤, 자신의 능력으로 당신을 선택한 첫번째 플레이어는 다음 날 황혼까지 취합니다. 당신은 해당 플레이어의 진영이 됩니다.",
+    "team": "outsider",
+    "ability": "매일 밤, 자기 능력으로 당신을 선택하는 첫 참가자는 황혼까지 취합니다. 당신은 그 참가자가 소속한 팀이 됩니다.",
+    "flavor": "알겠습니다, 두목. 노친네에겐 잘 일러두었습니다. 다시 설명해 달란 말은 없더군요. 아닙니다, 두목. 의사 따윈 필요 없습니다. 칼에 스친 것뿐입니다. 아침이면 멀쩡할 겁니다.",
     "reminders": [
-      "만취"
-    ],
-    "team": "outsider"
+      "취함"
+    ]
   },
   {
     "id": "ogre1",
@@ -251,13 +247,14 @@
       "https://release.botc.app/resources/characters/carousel/ogre_g.webp",
       "https://release.botc.app/resources/characters/carousel/ogre_e.webp"
     ],
-    "ability": "첫날 밤, 본인을 제외하고 플레이어를 1명 선택합니다. 당신은 해당 플레이어의 진영이 됩니다. (어디인지는 알 수 없습니다.) 이 능력은 당신이 만취/중독 상태여도 유지됩니다.",
+    "team": "outsider",
+    "ability": "당신의 첫 번째 밤에, (당신을 제외하고) 참가자 1명을 선택합니다: 당신은 그와 같은 팀(어느 팀인지까지는 알지 못하지만)이 됩니다. (취함/중독 상태에서도)",
+    "flavor": "<으르렁><씨익></으르렁>",
     "firstNight": 72,
-    "firstNightReminder": "본인을 제외하고 플레이어를 1명 선택합니다. 해당 플레이어의 진영으로 표시합니다.",
+    "firstNightReminder": "오우거가 참가자 1명을 선택합니다. :reminder:",
     "reminders": [
       "선택"
-    ],
-    "team": "outsider"
+    ]
   },
   {
     "id": "drunk1",
@@ -266,9 +263,11 @@
       "https://release.botc.app/resources/characters/tb/drunk_g.webp",
       "https://release.botc.app/resources/characters/tb/drunk_e.webp"
     ],
-    "ability": "당신은 자신이 주정뱅이인 것을 모릅니다. 자신이 주민 캐릭터라고 생각하지만, 그렇지 않습니다.",
+    "team": "outsider",
+    "ability": "당신은 자신이 주정뱅이라는 사실을 모릅니다. 대신 다른 주민 캐릭터라고 착각하지만, 사실은 주정뱅이입니다.",
+    "flavor": "난 *딸꾹* 친구하고만 마시는 사람이야. 다만 친구가 *꺼억* 좀 많아야지.",
     "remindersGlobal": [
-      "주정뱅이"
+      "주정뱅이입니다"
     ],
     "special": [
       {
@@ -279,8 +278,7 @@
         "type": "reveal",
         "name": "replace-character"
       }
-    ],
-    "team": "outsider"
+    ]
   },
   {
     "id": "recluse1",
@@ -289,16 +287,13 @@
       "https://release.botc.app/resources/characters/tb/recluse_g.webp",
       "https://release.botc.app/resources/characters/tb/recluse_e.webp"
     ],
-    "ability": "당신은 하수인이나 악마로 보일 수도 있습니다. 이 능력은 당신이 죽어도 유지됩니다.",
     "team": "outsider",
+    "ability": "당신은 악한 팀 소속의 하수인 또는 악마로 위장될 수도 있습니다(사망한 상태에서도).",
+    "flavor": "히익... 꺼, 꺼져 이놈아... 이 썩을 자식아... 내 거, 내 거에 더러운 손 대지마! 크르르. 저, 저 남쪽 어딘가서... 으, 으시시한 것들이... 너 따라오고 있어, 알아?! 썩 꺼지라고 했지! 나, 나는... 그런거 몰라! 악마니 귀신이니 뭐니... 나랑은 상관없단 말이야! 당장 꺼져, 이 자식아!",
     "jinxes": [
       {
         "id": "ogre1",
-        "reason": "은둔자가 오우거에게 악하게 보인다면, 오우거는 자신이 악한 진영이라는 사실을 알게 됩니다."
-      },
-      {
-        "id": "sage1",
-        "reason": "은둔자는 현자에게 악마로 보일 수도 있습니다."
+        "reason": "은둔자가 오우거에게 악한 팀 소속으로 위장되어 보인다면, 오우거는 자신이 악한 팀 소속이라는 사실을 알게 됩니다."
       }
     ]
   },
@@ -309,16 +304,17 @@
       "https://release.botc.app/resources/characters/carousel/mezepheles_e.webp",
       "https://release.botc.app/resources/characters/carousel/mezepheles_g.webp"
     ],
-    "ability": "비밀 단어 1개를 알고 시작합니다. 게임 중 비밀 단어를 첫번째로 말한 선한 플레이어는 그날 밤에 악한 진영이 됩니다. (이야기꾼이 들어야 합니다.)",
+    "team": "minion",
+    "ability": "게임 시작 시, 비밀 단어를 알게 됩니다. 비밀 단어를 가장 먼저 말하는 선한 참가자는 그날 밤 악한 팀이 됩니다.",
+    "flavor": "마음에서 우러나온 진심만 있다면, 다른 이들의 마음을 얻을 수 있어.",
     "firstNight": 45,
-    "firstNightReminder": "비밀 단어를 알려줍니다.",
+    "firstNightReminder": "비밀 단어를 보여줍니다.",
     "otherNight": 31,
-    "otherNightReminder": "'타락' 알림 토큰이 놓인 플레이어를 깨우고, '당신은' 정보 카드를 보여주고 악한 진영이 되었음을 알려줍니다. 메제펠레스는 능력을 잃습니다.",
+    "otherNightReminder": "선한 참가자가 비밀 단어를 말했다면, 그 참가자를 깨웁니다. *당신은* 정보 토큰을 보여주고 엄지를 내려서 신호를 줍니다. :reminder: :reminder:",
     "reminders": [
-      "타락",
-      "무능력"
-    ],
-    "team": "minion"
+      "악으로 바뀜",
+      "능력 없음"
+    ]
   },
   {
     "id": "poisoner1",
@@ -327,29 +323,31 @@
       "https://release.botc.app/resources/characters/tb/poisoner_e.webp",
       "https://release.botc.app/resources/characters/tb/poisoner_g.webp"
     ],
-    "ability": "매일 밤, 플레이어를 1명 선택합니다. 해당 플레이어는 다음 날 황혼까지 중독됩니다.",
+    "team": "minion",
+    "ability": "매일 밤, 참가자 1명을 선택합니다: 그는 황혼까지 중독됩니다.",
+    "flavor": "알파 화합물을 베타 화합물에 혼합하면... 이런, 그렇게 많이 넣지는 말라고!!",
     "firstNight": 32,
-    "firstNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 다음 날 황혼까지 중독됩니다.",
+    "firstNightReminder": "독살범이 참가자 1명을 선택합니다. :reminder:",
     "otherNight": 16,
-    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 다음 날 황혼까지 중독됩니다.",
+    "otherNightReminder": "독살범이 참가자 1명을 선택합니다. :reminder:",
     "reminders": [
       "중독"
-    ],
-    "team": "minion"
+    ]
   },
   {
     "id": "spy1",
-    "name": "스파이",
+    "name": "첩자",
     "image": [
       "https://release.botc.app/resources/characters/tb/spy_e.webp",
       "https://release.botc.app/resources/characters/tb/spy_g.webp"
     ],
-    "ability": "매일 밤, 마도서를 봅니다. 당신은 죽어도 주민이나 외지인으로 보일 수 있습니다.",
-    "firstNight": 71,
-    "firstNightReminder": "스파이에게 마도서를 보여주세요.",
-    "otherNight": 91,
-    "otherNightReminder": "스파이에게 마도서를 보여주세요.",
     "team": "minion",
+    "ability": "매일 밤, 마도서를 확인해 봅니다. 당신은 선한 팀 소속의 특정 주민 또는 외지인으로 위장될 수도 있습니다(사망한 상태에서도).",
+    "flavor": "실력 좋은 양조사라면 잘 알지. 첩자를 두 배로 보이게 만드는 술이야말로 가장 빠르고 확실한 화근이라는 걸.",
+    "firstNight": 71,
+    "firstNightReminder": " 첩자에게 충분한 시간 동안 마도서를 보여줍니다.",
+    "otherNight": 91,
+    "otherNightReminder": " 첩자에게 충분한 시간 동안 마도서를 보여줍니다.",
     "special": [
       {
         "type": "signal",
@@ -359,16 +357,8 @@
     ],
     "jinxes": [
       {
-        "id": "poppygrower1",
-        "reason": "양귀비 재배자가 능력이 있다면, 스파이는 마도서를 볼 수 없습니다."
-      },
-      {
-        "id": "damsel1",
-        "reason": "스파이가 참가 중이거나 이전에 참가 했었다면, 아가씨는 중독됩니다."
-      },
-      {
         "id": "ogre1",
-        "reason": "스파이는 오우거에게 악한 진영으로 취급됩니다."
+        "reason": "첩자는 오우거에게 악한 팀 소속으로 위장됩니다."
       }
     ]
   },
@@ -379,16 +369,17 @@
       "https://release.botc.app/resources/characters/carousel/harpy_e.webp",
       "https://release.botc.app/resources/characters/carousel/harpy_g.webp"
     ],
-    "ability": "매일 밤, 플레이어 2명을 선택합니다. 다음 날 첫번째로 선택된 플레이어는 두번째로 선택된 플레이어가 악한 진영이라고 \"광기\"해야 합니다. 그렇지 않으면, 그중 0~2명이 죽을 수 있습니다.",
+    "team": "minion",
+    "ability": "매일 밤 참가자 2명을 선택합니다: 다음 날, 첫 번째 참가자는 두 번째 참가자가 악한 팀이라는 사실에 집착해야 합니다. 그렇지 않으면, 둘 중 하나 또는 둘 다 사망할 수 있습니다.",
+    "flavor": "이토록 고운 날은 처음 보았는데, 이토록 흉조 어린 존재가 내 위에 드리운 것도 처음이로다.",
     "firstNight": 44,
-    "firstNightReminder": "플레이어 2명을 선택합니다. 첫번째로 선택된 플레이어를 깨워 '이 캐릭터가 당신을 선택했습니다' 정보 토큰과 하피 캐릭터, 그리고 두번째로 선택된 플레이어를 알려줍니다.",
+    "firstNightReminder": "하피가 참가자 2명을 선택합니다. :reminder: :reminder: 하피를 재웁니다. 첫 번째로 선택된 참가자를 깨웁니다. *이 캐릭터가 당신을 선택했습니다* 토큰과 하피 토큰을 보여주고 두 번째로 선택된 참가자를 가리킵니다.",
     "otherNight": 30,
-    "otherNightReminder": "플레이어 2명을 선택합니다. 첫번째로 선택된 플레이어를 깨워 '이 캐릭터가 당신을 선택했습니다' 정보 토큰과 하피 캐릭터, 그리고 두번째로 선택된 플레이어를 알려줍니다.",
+    "otherNightReminder": "하피가 참가자 2명을 선택합니다. :reminder: :reminder: 하피를 재웁니다. 첫 번째로 선택된 참가자를 깨웁니다. *이 캐릭터가 당신을 선택했습니다* 토큰과 하피 토큰을 보여주고 두 번째로 선택된 참가자를 가리킵니다.",
     "reminders": [
-      "1",
-      "2"
-    ],
-    "team": "minion"
+      "집착",
+      "두번째"
+    ]
   },
   {
     "id": "imp1",
@@ -397,28 +388,30 @@
       "https://release.botc.app/resources/characters/tb/imp_e.webp",
       "https://release.botc.app/resources/characters/tb/imp_g.webp"
     ],
-    "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 만약 자살하면 하수인이 임프가 됩니다.",
+    "team": "demon",
+    "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. 이 방법으로 자결하면, 하수인 1명이 임프가 됩니다.",
+    "flavor": "지혜를 예리하게, 칼끝은 더욱더 예리하게 벼려내십시오. 악은 사이를 거닐며 선한 주민과 마을을 파멸로 몰아넣기 위해서라면 무슨 짓이든 서슴지 않으리니, 그 누구도 믿지 마십시오. 허나 진정 누군가를 믿어야 한다면, 오직 저만을 믿으십시오.",
     "otherNight": 39,
-    "otherNightReminder": "참가자 한명을 선택해 '사망'시킵니다.",
+    "otherNightReminder": "임프가 참가자 1명을 선택합니다. :reminder: 임프가 자기 자신을 선택하면: 생존한 하수인 토큰 1개를 여분의 임프 토큰으로 대체합니다. 방금 전까지 임프였던 참가자를 다시 재웁니다. 새로운 임프를 깨웁니다. *당신은* 토큰을 보여준 다음 임프 토큰을 보여줍니다.",
     "reminders": [
-      "죽음"
-    ],
-    "team": "demon"
+      "사망"
+    ]
   },
   {
     "id": "ojo1",
-    "name": "오호",
+    "name": "오조",
     "image": [
       "https://release.botc.app/resources/characters/carousel/ojo_e.webp",
       "https://release.botc.app/resources/characters/carousel/ojo_g.webp"
     ],
-    "ability": "매일 밤*, 캐릭터를 1개 선택합니다. 해당 캐릭터의 플레이어는 죽습니다. 만약 참가하지 않은 캐릭터라면, 이야기꾼이 선택하여 죽입니다.",
+    "team": "demon",
+    "ability": "매일 밤*, 캐릭터 1명을 선택합니다: 그는 사망합니다. 해당 캐릭터가 게임에 참여하고 있지 않다면, 이야기꾼이 누가 사망할지를 선택합니다.",
+    "flavor": "달 없는 밤의 모닥불처럼... 네가 보이는구나, 필멸자여.",
     "otherNight": 49,
-    "otherNightReminder": "캐릭터를 1개 선택합니다. 해당 플레이어는 죽습니다. 한 캐릭터가 여러 명인 경우 1명만 죽습니다. 만약 참가하지 않은 캐릭터라면, 이야기꾼이 선택하여 죽입니다.",
+    "otherNightReminder": "오조가 캐릭터 1명을 선택합니다. :reminder:",
     "reminders": [
-      "죽음"
-    ],
-    "team": "demon"
+      "사망"
+    ]
   },
   {
     "id": "kazali1",
@@ -427,42 +420,45 @@
       "https://release.botc.app/resources/characters/carousel/kazali_e.webp",
       "https://release.botc.app/resources/characters/carousel/kazali_g.webp"
     ],
-    "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. [첫날 밤, 하수인이 될 플레이어와 그 캐릭터를 선택합니다.  -? ~ +? 외지인]",
-    "firstNight": 7,
-    "firstNightReminder": "하수인이 될 플레이어들과 그 캐릭터를 선택합니다. 이 선택은 해당 플레이어의 능력에 영향을 받지 않습니다. (군인 등)",
-    "otherNight": 54,
-    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다.",
-    "reminders": [
-      "죽음"
-    ],
     "team": "demon",
+    "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. [당신은 하수인 참가자와 캐릭터를 직접 선택할 수 있습니다. 외지인 -?명~+?명]",
+    "flavor": "곤ㅈrz레s. 주으l㈛십んı오. ブl계ㅈБ치㉮ 묃넞경. નાસ 발생. ₰재구₱성.",
+    "firstNight": 7,
+    "firstNightReminder": "카잘리가 하수인이 될 참가자와 그의 캐릭터를 선택합니다. 각 대상을 깨우고, *당신은* 정보 토큰과 하수인 토큰을 보여주고 엄지를 내려서 신호를 줍니다.",
+    "otherNight": 54,
+    "otherNightReminder": "카잘리가 참가자 1명을 선택합니다. :reminder:",
+    "reminders": [
+      "사망"
+    ],
     "setup": true
   },
   {
     "id": "fanggu1",
-    "name": "팡구",
+    "name": "팡 구",
     "image": [
       "https://release.botc.app/resources/characters/snv/fanggu_e.webp",
       "https://release.botc.app/resources/characters/snv/fanggu_g.webp"
     ],
-    "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 첫 번째로 팡구가 죽이는 외지인은 악한 팡구가 되고 대신 당신이 죽습니다. [+1 외지인]",
+    "team": "demon",
+    "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. 이 능력으로 사망한 첫 외지인만이 악한 팡 구가 되고 당신이 대신 사망합니다. [외지인 +1명]",
+    "flavor": "그대들이 쌓아 올린 벽도 무기도, 그저 꿈속에서 피어오른 연기일 뿐이니라.",
     "otherNight": 44,
-    "otherNightReminder": "팡구가 선택한 참가자에게 '사망' 토큰을 놓으세요. 외지인을 선택한다면, 팡구를 '사망'시키고 해당 외지인에게 팡구가 되었음을 알려주세요.",
+    "otherNightReminder": "팡 구가 참가자 1명을 선택합니다. :reminder: 외지인을 선택했다면(오직 1번만): 해당 외지인 토큰을 여분의 팡 구 토큰으로 대체합니다. 팡 구를 재웁니다. 대상을 깨웁니다. *당신은* 토큰과 팡 구 토큰을 보여주고 엄지를 내립니다. :reminder:",
     "reminders": [
-      "죽음",
-      "외지인 죽음"
+      "사망",
+      "첫번째"
     ],
-    "setup": true,
-    "team": "demon"
+    "setup": true
   },
   {
     "id": "spiritofivory1",
-    "name": "상아의 정령",
+    "name": "상아의 혼",
     "image": "https://release.botc.app/resources/characters/fabled/spiritofivory.webp",
     "team": "fabled",
-    "ability": "악한 플레이어는 1명까지만 추가될 수 있습니다.",
+    "ability": "악한 참가자는 최대 1명까지만 추가로 존재할 수 있습니다.",
+    "flavor": "황무지가 부른다. 뼈는 살로, 끝내는 먼지로 바스러진다. 위대한 혼이 자라나리. 위대한 혼이 지켜보리. 위대한 혼이 인도하리. 인간은 따르거나, 존재가 지워지리라.",
     "reminders": [
-      "악 추가 X"
+      "악한 팀 추가 불가"
     ]
   }
 ]
