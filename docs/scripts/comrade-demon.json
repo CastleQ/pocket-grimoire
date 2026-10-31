@@ -15,31 +15,33 @@
       "https://botc.app/assets/noble_g-B0vksP8B.webp",
       "https://botc.app/assets/noble_e-BFJBeujm.webp"
     ],
-    "ability": "플레이어 3명을 알고 시작합니다. 그중 1명은 악한 진영입니다.",
+    "ability": "게임 시작 시, 참가자 3명 중 1명이 악한 팀임을 알게 됩니다(3명 중 단 1명만 악한 팀).",
     "firstNight": 64,
-    "firstNightReminder": "악한 플레이어 1명 포함, 플레이어 3명을 알려줍니다.",
+    "firstNightReminder": "*알아냄*으로 표시된 참가자 3명을 가리킵니다.",
     "reminders": [
-      "알고있음",
-      "알고있음",
-      "알고있음"
+      "알아냄",
+      "알아냄",
+      "알아냄"
     ],
-    "team": "townsfolk"
+    "team": "townsfolk",
+    "flavor": "비꼼이야말로 가장 수준 낮은 재치라는 건 사실이지요. 하지만 선생의 비판에 답하자면, 그래도 그것 역시 재치의 한 형태이긴 합니다."
   },
   {
     "id": "investigator1",
-    "name": "조사관",
+    "name": "수사관",
     "image": [
       "https://botc.app/assets/investigator_g-DWSOiA6Q.webp",
       "https://botc.app/assets/investigator_e-CR-lRqwj.webp"
     ],
-    "ability": "플레이어 2명 중 1명이 특정 하수인이라는 걸 알고 시작합니다.",
+    "ability": "게임 시작 시, 참가자 2명 중 1명이 특정 하수인임을 알게 됩니다.",
     "firstNight": 53,
-    "firstNightReminder": "플레이어 2명과 하수인 캐릭터를 알려줍니다.",
+    "firstNightReminder": "하수인 캐릭터 토큰을 보여줍니다. 해당 *하수인* 참가자와 *오인* 참가자를 가리킵니다.",
     "reminders": [
       "하수인",
-      "거짓"
+      "오인"
     ],
-    "team": "townsfolk"
+    "team": "townsfolk",
+    "flavor": "산책하기 참 좋은 밤 아닙니까? 모로조프 씨. 아니, 모로조프 남작이라고 불러드려야 하나?"
   },
   {
     "id": "empath1",
@@ -48,56 +50,60 @@
       "https://botc.app/assets/empath_g-vVEkU0cf.webp",
       "https://botc.app/assets/empath_e-CWeYvCJ9.webp"
     ],
-    "ability": "매일 밤, 살아있는 이웃 플레이어 중 몇 명이 악한 진영인지 알게 됩니다.",
+    "ability": "매일 밤, 이웃 생존자 2명 중 몇 명이나 악한지를 알게 됩니다.",
     "firstNight": 55,
-    "firstNightReminder": "초공감자의 살아있는 이웃 2명 중 몇 명이 악한지 알려주세요.",
+    "firstNightReminder": "손가락을 펴서 신호를 줍니다.",
     "otherNight": 75,
-    "otherNightReminder": "초공감자의 살아있는 이웃 2명 중 몇 명이 악한지 알려주세요.",
-    "team": "townsfolk"
+    "otherNightReminder": "손가락을 펴서 신호를 줍니다.",
+    "team": "townsfolk",
+    "flavor": "오싹한 느낌이 들어요. 뭔가 수상한 일이 벌어지고 있나 봐요. 전 느낄 수 있다고요!"
   },
   {
     "id": "dreamer1",
-    "name": "몽상가",
+    "name": "꿈꾸는 자",
     "image": [
       "https://botc.app/assets/dreamer_g-CjKsf0eE.webp",
       "https://botc.app/assets/dreamer_e-9zGefVKW.webp"
     ],
-    "ability": "매일 밤, 본인을 제외하고 플레이어를 1명 선택합니다. 그리고 선한 캐릭터와 악한 캐릭터를 각 1개씩 알게 됩니다. 그중 1개가 해당 플레이어의 캐릭터입니다.",
+    "ability": "매일 밤, (당신과 여행자를 제외하고) 참가자 1명을 선택합니다: 선한 캐릭터 하나와 악한 캐릭터 하나를 알게 됩니다. 둘 중 하나가 그의 정체입니다.",
     "firstNight": 60,
-    "firstNightReminder": "플레이어를 1명 선택하면, 선한 캐릭터와 악한 캐릭터를 각 1개씩 알려줍니다.",
+    "firstNightReminder": "꿈꾸는 자가 참가자 1명을 가리킵니다. 선한 캐릭터, 악한 캐릭터 토큰을 1개씩 보여줍니다. 그중 하나가 그의 캐릭터입니다.",
     "otherNight": 78,
-    "otherNightReminder": "플레이어를 1명 선택하면, 선한 캐릭터와 악한 캐릭터를 각 1개씩 알려줍니다.",
-    "team": "townsfolk"
+    "otherNightReminder": "꿈꾸는 자가 참가자 1명을 가리킵니다. 선한 캐릭터, 악한 캐릭터 토큰을 1개씩 보여줍니다. 그중 하나가 그의 캐릭터입니다.",
+    "team": "townsfolk",
+    "flavor": "기억나는군. 시계공이었어. 시뻘건 하늘에서 프랙탈 삼각형이 비처럼 퍼부었지. 제비꽃 향기가 나고 부글거리는 소리가 들렸어. 듬성듬성 수염이 자란 여자가 빛나는 눈을 하고 뱀처럼 하늘에 쉿 쉿 댔지. 그러고는 꿈에서 깨어났어."
   },
   {
     "id": "nightwatchman1",
-    "name": "야경단원",
+    "name": "야경꾼",
     "image": [
       "https://botc.app/assets/nightwatchman_g-CaasqmRn.webp",
       "https://botc.app/assets/nightwatchman_e-DcwB8vOD.webp"
     ],
-    "ability": "게임당 한 번, 밤에 플레이어를 1명 선택합니다. 해당 플레이어는 당신이 누구인지 알게 됩니다.",
+    "ability": "게임당 1번, 밤에 참가자 1명을 선택합니다: 그는 당신이 야경꾼임을 알게 됩니다.",
     "firstNight": 69,
-    "firstNightReminder": "플레이어를 1명 선택했다면, 해당 플레이어에게 야경단원이 누구인지 알려줍니다.",
+    "firstNightReminder": "야경꾼이 참가자 1명을 선택할 수 있습니다. 야경꾼을 재우고, 대상을 깨웁니다. *이 참가자는* 정보 토큰과 야경꾼 토큰을 보여주고, 야경꾼을 가리킵니다. :reminder:",
     "otherNight": 88,
-    "otherNightReminder": "플레이어를 1명 선택했다면, 해당 플레이어에게 야경단원이 누구인지 알려줍니다.",
+    "otherNightReminder": "야경꾼이 참가자 1명을 선택할 수 있습니다. 야경꾼을 재우고, 대상을 깨웁니다. *이 참가자는* 정보 토큰과 야경꾼 토큰을 보여주고, 야경꾼을 가리킵니다. :reminder:",
     "reminders": [
-      "무능력"
+      "능력 없음"
     ],
-    "team": "townsfolk"
+    "team": "townsfolk",
+    "flavor": "밤은 차갑고 외롭지만, 내겐 벗이 있다. 달과 별, 시원한 바람, 그리고 자갈길 위를 두드리는 가죽 장화의 부드러운 소리 말이다. 저기 탁한 창문 너머로 촛불이 흔들리고 있군..."
   },
   {
     "id": "fisherman1",
-    "name": "어부",
+    "name": "낚시꾼",
     "image": [
       "https://botc.app/assets/fisherman_g-D4SVpSql.webp",
       "https://botc.app/assets/fisherman_e-Da2Y5IG7.webp"
     ],
-    "ability": "게임당 한 번, 낮에 이야기꾼을 방문해 당신의 진영의 승리에 도움이 되는 조언을 들을 수 있습니다.",
+    "ability": "게임당 1번, 낮 동안, 이야기꾼을 방문하여 당신의 팀이 승리하기 위한 조언을 구합니다.",
     "reminders": [
-      "무능력"
+      "능력 없음"
     ],
-    "team": "townsfolk"
+    "team": "townsfolk",
+    "flavor": "여기가 내가 가장 좋아하던 강가였지... 햇빛이 수도원에서 시장까지 무지개를 걸어놓는 게 보이나? 큰 물고기는 꼭 여기서 잡혔어. 그리고 내가 나이를 먹을수록, 그놈들은 점점 더 커졌지."
   },
   {
     "id": "lunatic1",
@@ -106,32 +112,34 @@
       "https://botc.app/assets/lunatic_g-Bz2ai2Da.webp",
       "https://botc.app/assets/lunatic_e-D53Boxpa.webp"
     ],
-    "ability": "당신은 자신이 악마 캐릭터라고 생각하지만, 그렇지 않습니다. 악마는 당신이 누구인지, 그리고 당신이 밤에 누구를 선택하는지 알고 있습니다.",
+    "ability": "당신은 악마가 아니지만, 악마라고 착각합니다. 악마는 당신이 누구인지 알고, 밤에 당신이 누구를 선택하는지 알게 됩니다.",
     "firstNight": 21,
-    "firstNightReminder": "미치광이에게 하수인과, 블러핑 캐릭터 3개를 알려주세요. 악마에게도 미치광이를 알려줍니다.",
+    "firstNightReminder": "참가자 7명 이상이 게임을 즐기고 있다면, 미치광이를 깨웁니다: *이들이 당신의 하수인입니다* 토큰을 보여줍니다. 아무 참가자들을 가리킵니다. *이 캐릭터는 참여하지 않습니다* 토큰을 보여줍니다. 선한 캐릭터 토큰 3개를 보여줍니다. 미치광이를 다시 재웁니다. 악마를 깨웁니다. *당신은* 정보 토큰과 악마 토큰을 보여줍니다. *이 참가자는* 정보 토큰과 미치광이 토큰을 보여준 다음, 미치광이를 가리킵니다.",
     "otherNight": 34,
-    "otherNightReminder": "미치광이를 깨워 참가자를 선택하게 하고, 공격토큰을 배치하세요. 이후 악마에게 미치광이가 누구를 공격했는지 알려주세요.",
+    "otherNightReminder": "미치광이가 악마라고 믿을 수 있도록 필요한 행동을 합니다. 미치광이를 다시 재웁니다. 악마를 깨웁니다. 미치광이 토큰을 보여주고 미치광이 참가자를 가리킨 다음, 그 대상(들)을 가리킵니다.",
     "reminders": [
       "선택",
       "선택",
       "선택"
     ],
-    "team": "outsider"
+    "team": "outsider",
+    "flavor": "이 몸은 밤이다... 아마도."
   },
   {
     "id": "moonchild1",
-    "name": "달의 아이",
+    "name": "달의 자손",
     "image": [
       "https://botc.app/assets/moonchild_g-DKURQEzF.webp",
       "https://botc.app/assets/moonchild_e-D-P3dKVK.webp"
     ],
-    "ability": "당신이 죽었다는 것을 알게 되면, 공개적으로 살아있는 플레이어 1명을 선택합니다. 해당 플레이어가 선한 진영이라면 오늘 밤 죽습니다.",
+    "ability": "당신이 사망했음을 알게 될 때, 생존한 참가자 1명을 공개적으로 선택합니다. 그가 선한 참가자라면, 오늘 밤 그는 사망합니다.",
     "otherNight": 71,
-    "otherNightReminder": "달의 아이가 선택한 플레이어를 죽입니다.",
+    "otherNightReminder": "달의 자손의 조건이 충족되었다면, 선한 참가자 1명이 사망합니다. :reminder:",
     "reminders": [
-      "죽음"
+      "사망"
     ],
-    "team": "outsider"
+    "team": "outsider",
+    "flavor": "전갈자리가 연인을 곁눈질하여, 그대에게 선택을 종용하니. 내 손에 은화 한 닢 올린다면, 그대의 운명을 드러내 주리. 목에 철검을 겨눈다면, 별에 맹세컨대 그는 후회하게 되리라."
   },
   {
     "id": "barber1",
@@ -140,26 +148,27 @@
       "https://botc.app/assets/barber_g-CP7mk8b9.webp",
       "https://botc.app/assets/barber_e-BJbMUslE.webp"
     ],
-    "ability": "만약 당신이 밤이나 낮에 죽었다면, 악마는 캐릭터를 맞바꿀 플레이어 2명(다른 악마 제외)을 선택할 수 있습니다.",
+    "ability": "오늘 낮 또는 오늘 밤에 사망했다면, 악마는 참가자 2명(다른 악마는 제외)을 선택하여 그 두 명의 캐릭터를 맞바꿀 수 있습니다.",
     "otherNight": 59,
-    "otherNightReminder": "이발사가 죽은 날 밤, 악마를 깨워 플레이어(악마 제외)를 2명 선택하게 하고, 해당 플레이어들을 깨워 자신이 바뀐 캐릭터를 알려줍니다. 성향은 바뀌지 않습니다.",
+    "otherNightReminder": "이발사가 오늘 낮/밤에 사망했다면, 악마에게 *이 캐릭터가 당신을 선택했습니다* 토큰과 이발사 토큰을 보여줍니다. 악마가 참가자 2명을 선택했다면, 이들을 순서대로 깨웁니다. *당신은* 토큰과 바뀐 캐릭터 토큰을 보여줍니다.",
     "reminders": [
-      "오늘 이발"
+      "오늘 밤에 이발"
     ],
-    "team": "outsider"
+    "team": "outsider",
+    "flavor": "이발사와 외과의사가 원래 같은 직종이었다는 사실, 알고 계셨습니까? 모르신다고요? 그럼, 이제 알게 되겠군요."
   },
   {
     "id": "spy1",
-    "name": "스파이",
+    "name": "첩자",
     "image": [
       "https://botc.app/assets/spy_e-DU0tdGGe.webp",
       "https://botc.app/assets/spy_g-7hnV_AFT.webp"
     ],
-    "ability": "매일 밤, 마도서를 봅니다. 당신은 죽어도 주민이나 외지인으로 보일 수 있습니다.",
+    "ability": "매일 밤, 마도서를 확인해 봅니다. 당신은 선한 팀 소속의 특정 주민 또는 외지인으로 위장될 수도 있습니다(사망한 상태에서도).",
     "firstNight": 71,
-    "firstNightReminder": "스파이에게 마도서를 보여주세요.",
+    "firstNightReminder": " 첩자에게 충분한 시간 동안 마도서를 보여줍니다.",
     "otherNight": 91,
-    "otherNightReminder": "스파이에게 마도서를 보여주세요.",
+    "otherNightReminder": " 첩자에게 충분한 시간 동안 마도서를 보여줍니다.",
     "team": "minion",
     "special": [
       {
@@ -181,7 +190,8 @@
         "id": "ogre1",
         "reason": "스파이는 오우거에게 악한 진영으로 취급됩니다."
       }
-    ]
+    ],
+    "flavor": "실력 좋은 양조사라면 잘 알지. 첩자를 두 배로 보이게 만드는 술이야말로 가장 빠르고 확실한 화근이라는 걸."
   },
   {
     "id": "marionette1",
@@ -190,11 +200,11 @@
       "https://botc.app/assets/marionette_e-BVmqAITW.webp",
       "https://botc.app/assets/marionette_g-XJqVphtg.webp"
     ],
-    "ability": "당신은 자신이 선한 캐릭터라고 생각하지만, 그렇지 않습니다. 악마는 당신을 알고 있습니다. (하수인을 깨우는 능력 등에 일어나지 않습니다.) [악마는 당신의 이웃입니다.] ",
+    "ability": "당신은 선한 캐릭터라고 착각하지만, 실제로는 아닙니다. 악마는 당신이 누구인지 압니다. [당신은 악마와 이웃합니다]",
     "firstNight": 26,
-    "firstNightReminder": "악마를 깨워, 꼭두각시 알림 토큰이 놓인 플레이어를 가리키고, '이 플레이어는' 정보 카드와 꼭두각시의 캐릭터 토큰을 보여줍니다.",
+    "firstNightReminder": "악마를 깨웁니다. *이 참가자는* 정보 토큰과 꼭두각시 토큰을 보여주고 꼭두각시를 가리킵니다.",
     "remindersGlobal": [
-      "꼭두각시"
+      "꼭두각시입니다"
     ],
     "team": "minion",
     "setup": true,
@@ -210,26 +220,11 @@
     ],
     "jinxes": [
       {
-        "id": "balloonist1",
-        "reason": "꼭두각시가 자신을 열기구 조종사라고 생각한다면, 외지인이 1명 더 참가할 수도 있습니다."
-      },
-      {
-        "id": "huntsman1",
-        "reason": "꼭두각시가 자신을 사냥꾼이라고 생각한다면, 아가씨가 게임에 참가합니다."
-      },
-      {
-        "id": "summoner1",
-        "reason": "꼭두각시가 참가 예정이라면, 꼭두각시는 악마 이후에 등장하고 악마의 이웃으로 시작해야 합니다."
-      },
-      {
         "id": "lilmonsta1",
-        "reason": "꼭두각시가 참가 예정이라면, 꼭두각시는 악마 이후에 등장하고 악마의 이웃으로 시작해야 합니다."
-      },
-      {
-        "id": "kazali1",
-        "reason": "꼭두각시가 참가 예정이라면, 꼭두각시는 악마 이후에 등장하고 악마의 이웃으로 시작해야 합니다."
+        "reason": "꼭두각시가 참여 예정이라면, 꼭두각시는 악마 이후에 등장하고 악마의 이웃으로 시작해야 합니다."
       }
-    ]
+    ],
+    "flavor": "말, 말, 결국 우리에게 남은 건 그것뿐이야."
   },
   {
     "id": "pukka1",
@@ -238,33 +233,34 @@
       "https://botc.app/assets/pukka_e-CmZzVHPM.webp",
       "https://botc.app/assets/pukka_g-D7il5SFF.webp"
     ],
-    "ability": "매일 밤, 플레이어를 1명 선택합니다. 해당 플레이어는 중독됩니다. 이전에 중독당한 플레이어는 죽고 건강해집니다.",
+    "ability": "매일 밤, 참가자 1명을 선택합니다: 그는 중독됩니다. 이전에 당신이 중독시켰던 참가자는 사망하고, 건강한 상태가 됩니다.",
     "firstNight": 46,
-    "firstNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 중독됩니다.",
+    "firstNightReminder": "푸카가 참가자 1명을 선택합니다. :reminder:",
     "otherNight": 41,
-    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 중독됩니다. 이전에 중독당한 플레이어는 죽고 건강해집니다.",
+    "otherNightReminder": "푸카가 참가자 1명을 선택합니다. :reminder: 이전에 중독시킨 참가자는 사망한 다음 건강한 상태가 됩니다. :reminder:",
     "reminders": [
-      "죽음",
+      "사망",
       "중독"
     ],
-    "team": "demon"
+    "team": "demon",
+    "flavor": "이토록 아름다운 집에서 환대해 주시다니 실로 친절하시군요. 실수로 긁어버린 건 죄송합니다. 부디 별 탈이 없기를. 아무쪼록, 이 황금 이쑤시개를 사과의 뜻으로 받아주시겠어요?"
   },
   {
     "id": "lilmonsta1",
-    "name": "릴몬스타",
+    "name": "릴 몬스타",
     "image": [
       "https://botc.app/assets/lilmonsta_e-cdABFMUI.webp",
       "https://botc.app/assets/lilmonsta_g-DD3Lbp-C.webp"
     ],
     "team": "demon",
-    "ability": "매일 밤, 하수인들은 누가 릴몬스타를 돌보고 악마가 될지 정합니다, 매일 밤*, 플레이어 1명이 죽을 수도 있습니다. [+1 하수인]",
+    "ability": "매일 밤, 하수인들은 누가 릴 몬스타를 돌볼지 선택합니다. 돌보는 참가자는 \"악마입니다.\" 매일 밤*, 참가자 1명이 사망할 수 있습니다. [하수인 +1명]",
     "firstNight": 29,
-    "firstNightReminder": "모든 하수인을 깨워 누가 베이비시터가 될지 정하게 합니다.",
+    "firstNightReminder": "하수인들을 깨웁니다. 하수인들이 참가자 1명을 선택합니다. :reminder: 하수인들을 재웁니다. 대상을 깨우고, *당신은* 정보 토큰과 릴 몬스타 토큰을 보여줍니다.",
     "otherNight": 52,
-    "otherNightReminder": "모든 하수인을 깨워 누가 베이비시터가 될지 정하게 합니다. 플레이어 1명이 죽을 수도 있습니다.",
+    "otherNightReminder": "하수인들을 깨웁니다. 하수인들이 참가자 1명을 선택합니다. :reminder: 하수인들을 재웁니다. 대상을 깨우고, *당신은* 정보 토큰과 릴 몬스타 토큰을 보여줍니다. 참가자 1명이 사망할 수도 있습니다. :reminder:",
     "remindersGlobal": [
       "릴몬스타",
-      "죽음"
+      "사망"
     ],
     "setup": true,
     "special": [
@@ -304,26 +300,29 @@
         "id": "vizier1",
         "reason": "수상이 릴몬스타를 돌보고 있다면, 처형으로 죽을 수 있습니다."
       }
-    ]
+    ],
+    "flavor": "스텝 원, 귀엽기. 스텝 투, 세계 정복. 스텝 쓰리, 맘마 먹기."
   },
   {
     "id": "revolutionary1",
     "name": "혁명가",
     "image": "https://botc.app/assets/revolutionary-D1FL8eUK.webp",
     "team": "fabled",
-    "ability": "이웃 플레이어 2명이 같은 진영으로 알려져 있습니다. 게임당 한 번, 그중 1명이 다른 진영으로 보입니다.",
+    "ability": "이웃한 참가자 2명이 동일한 소속이 됩니다. 게임 중 1번, 그중 1명이 위장될 수 있습니다.",
     "reminders": [
-      "연대",
-      "연대",
+      "동지",
+      "동지",
       "오해?"
-    ]
+    ],
+    "flavor": "뭉치면 거짓이고, 흩어지면 고립된다."
   },
   {
     "id": "sentinel1",
-    "name": "경비병",
+    "name": "보초",
     "image": "https://botc.app/assets/sentinel-BaOVo1PE.webp",
     "team": "fabled",
-    "ability": "외지인이 1명 더 참가하거나 1명 더 적을 수 있습니다.",
-    "setup": true
+    "ability": "게임에 참여하는 외지인 수가 1명 적거나 많을 수도 있습니다.",
+    "setup": true,
+    "flavor": "성함이 어떻게 되십니까? 서류 부탁드립니다. 무기는 여기 맡기시길 바랍니다."
   }
 ]

@@ -15,25 +15,27 @@
       "https://botc.app/assets/snakecharmer_g-DYwjThVr.webp",
       "https://botc.app/assets/snakecharmer_e-D6CrPRGR.webp"
     ],
-    "ability": "매일 밤, 살아있는 플레이어를 1명 선택합니다. 악마라면, 당신과 진영 및 캐릭터를 바꾸고, 그 후 해당 플레이어는 중독됩니다.",
+    "ability": "매일 밤, 생존한 참가자 1명을 선택합니다: 악마를 선택했다면, 악마는 당신과 소속 및 캐릭터를 맞바꾼 다음 중독됩니다.",
     "firstNight": 36,
-    "firstNightReminder": "살아있는 플레이어를 1명 선택합니다. 악마라면, 당신과 진영 및 캐릭터를 바꾸고, 그 후 해당 플레이어는 중독됩니다.",
+    "firstNightReminder": "뱀 조련사가 참가자 1명을 선택합니다. 악마를 선택했다면: *당신은* 토큰과 악마 토큰을 보여줍니다. 엄지를 내립니다. 뱀 조련사와 악마 토큰을 맞바꿉니다. 이전 뱀 조련사를 재웁니다. 이전 악마를 깨웁니다. *당신은* 토큰과 뱀 조련사 토큰을 보여주고 엄지를 올립니다. :reminder:",
     "otherNight": 22,
-    "otherNightReminder": "살아있는 플레이어를 1명 선택합니다. 악마라면, 당신과 진영 및 캐릭터를 바꾸고, 그 후 해당 플레이어는 중독됩니다.",
+    "otherNightReminder": "뱀 조련사가 참가자 1명을 선택합니다. 악마를 선택했다면: *당신은* 토큰과 악마 토큰을 보여줍니다. 엄지를 내립니다. 뱀 조련사와 악마 토큰을 맞바꿉니다. 이전 뱀 조련사를 재웁니다. 이전 악마를 깨웁니다. *당신은* 토큰과 뱀 조련사 토큰을 보여주고 엄지를 올립니다. :reminder:",
     "reminders": [
       "중독"
     ],
-    "team": "townsfolk"
+    "team": "townsfolk",
+    "flavor": "나리... 저는 비천하지만, 제 황금 피리의 한 곡조만으로도 사나운 진조차도 길들일 수 있사옵니다, 인샬라. 탐욕은 밧줄보다도 더 많은 이들을 목매단다지만, 저는 아니옵니다. 나리, 절대 아니옵니다."
   },
   {
     "id": "alsaahir1",
-    "name": "주술사",
+    "name": "알사히르",
     "image": [
       "https://botc.app/assets/alsaahir_g-CpjMnnMq.webp",
       "https://botc.app/assets/alsaahir_e-DiydqcyG.webp"
     ],
-    "ability": "매일 낮, 공개적으로 어떤 플레이어가 악마고, 어떤 플레이어가 하수인인지 추측할 수 있습니다. 전부 맞다면, 선한 진영이 승리합니다. (정확한 캐릭터X)",
-    "team": "townsfolk"
+    "ability": "매일 낮, 공개적으로 누가 하수인이고 악마인지 추측합니다. 성공하면 선한 팀이 승리합니다.",
+    "team": "townsfolk",
+    "flavor": "내가 여기 있는 건 당신 때문이고, 당신이 여기 있는 것도 나 때문입니다."
   },
   {
     "id": "philosopher1",
@@ -42,16 +44,16 @@
       "https://botc.app/assets/philosopher_g-DOk3eWqe.webp",
       "https://botc.app/assets/philosopher_e-sc5zSJy2.webp"
     ],
-    "ability": "게임당 한 번, 밤에 선한 캐릭터를 선택하여 그 능력을 얻을 수 있습니다. 해당 캐릭터가 참가 중이라면, 그 캐릭터의 플레이어는 취합니다.",
+    "ability": "게임당 1번, 밤에, 선한 캐릭터 1명을 선택합니다: 그의 능력을 얻습니다. 그 캐릭터가 이미 게임에 참여하고 있다면, 그는 취합니다.",
     "firstNight": 14,
-    "firstNightReminder": "능력을 사용하고 캐릭터를 선택하면, 해당 캐릭터 토큰으로 교체하고, '철학자' 알림 토큰으로 표시합니다. 해당 캐릭터가 참가 중이라면, 그 캐릭터의 플레이어는 취합니다.",
+    "firstNightReminder": "철학자가 캐릭터 하나를 선택할 수도 있습니다. 필요하다면, 철학자의 캐릭터 토큰을 맞바꿉니다. :reminder:",
     "otherNight": 10,
-    "otherNightReminder": "능력을 사용하고 캐릭터를 선택하면, 해당 캐릭터 토큰으로 교체하고, '철학자' 알림 토큰으로 표시합니다. 해당 캐릭터가 참가 중이라면, 그 캐릭터의 플레이어는 취합니다.",
+    "otherNightReminder": "철학자가 캐릭터 하나를 선택할 수도 있습니다. 필요하다면, 철학자의 캐릭터 토큰을 맞바꿉니다. :reminder:",
     "reminders": [
-      "만취"
+      "취함"
     ],
     "remindersGlobal": [
-      "철학자"
+      "철학자입니다"
     ],
     "special": [
       {
@@ -59,7 +61,8 @@
         "name": "replace-character"
       }
     ],
-    "team": "townsfolk"
+    "team": "townsfolk",
+    "flavor": "세상에 실재하는 것이 있다면, 그건 맥주요. 들이키시오, 내일이면 죽을지도 모르니."
   },
   {
     "id": "slayer1",
@@ -68,11 +71,12 @@
       "https://botc.app/assets/slayer_g-BO_75tK_.webp",
       "https://botc.app/assets/slayer_e-4pQk5kJR.webp"
     ],
-    "ability": "게임당 한 번, 낮에 공개적으로 플레이어를 1명 선택할 수 있습니다. 해당 플레이어가 악마라면, 죽습니다.",
+    "ability": "게임당 1번, 낮 동안, 공개적으로 참가자 1명을 선택합니다: 그가 악마면 그는 사망합니다.",
     "reminders": [
-      "무능력"
+      "능력 없음"
     ],
-    "team": "townsfolk"
+    "team": "townsfolk",
+    "flavor": "죽어라."
   },
   {
     "id": "alchemist1",
@@ -81,11 +85,11 @@
       "https://botc.app/assets/alchemist_g-DtcrLn7_.webp",
       "https://botc.app/assets/alchemist_e-DjjClIsL.webp"
     ],
-    "ability": "당신은 하수인 캐릭터의 능력을 가지고 있습니다. 능력을 사용할 때, 이야기꾼이 다른 선택을 조언할 수 있습니다.",
+    "ability": "당신은 하수인 하나의 능력을 갖습니다. 이 능력을 사용할 때, 이야기꾼이 다른 선택을 하라고 지시할 수도 있습니다.",
     "firstNight": 15,
-    "firstNightReminder": "연금술사에게 '당신은' 카드와 하수인 캐릭터를 보여줍니다.",
+    "firstNightReminder": "*당신은* 정보 토큰과 하수인 토큰을 보여줍니다.",
     "remindersGlobal": [
-      "연금술사"
+      "연금술사입니다"
     ],
     "special": [
       {
@@ -127,7 +131,8 @@
         "id": "wraith1",
         "reason": "연금술사가 레이스의 능력을 얻는다면, 연금술사는 능력이 없고, 레이스가 게임에 참가합니다. 매일 처형 단계 후, 살아있는 연금술사는 레이스를 공개적으로 추측할 수 있습니다. 맞다면, 악마는 오늘 레이스를 선택해야 합니다."
       }
-    ]
+    ],
+    "flavor": "대지의 내면을 찾아가라. 정련을 거치면 숨겨진 돌을 얻게 되리니. 금 위에는 붉은 것이 놓여 있고, 말쿠트 안에는 케테르가 있도다."
   },
   {
     "id": "virgin1",
@@ -136,21 +141,23 @@
       "https://botc.app/assets/virgin_g-DfRSMLSj.webp",
       "https://botc.app/assets/virgin_e-BB20SAPv.webp"
     ],
-    "ability": "처음으로 지명될 때, 지명자가 주민인 경우, 지명자는 즉시 처형됩니다.",
+    "ability": "처음으로 지명당했을 때, 당신을 지명한 참가자가 주민이라면, 그는 즉시 처형당합니다.",
     "reminders": [
-      "무능력"
+      "능력 없음"
     ],
-    "team": "townsfolk"
+    "team": "townsfolk",
+    "flavor": "저는 무결하답니다. 그대 중에 누구든지 죄 없는 자가 있다면, 홀연히 몸을 던져 제 고난을 대신하시지요. 그대들의 마귀 같은 혓바닥으로는 결코 제 명예를 더럽힐 수 없을 겁니다."
   },
   {
     "id": "klutz1",
-    "name": "얼간이",
+    "name": "얼뜨기",
     "image": [
       "https://botc.app/assets/klutz_g-DRcV_Rgl.webp",
       "https://botc.app/assets/klutz_e-C-CdPEop.webp"
     ],
-    "ability": "당신이 죽었다는 것을 알게 되면, 공개적으로 살아있는 플레이어 1명을 선택합니다. 악한 플레이어라면 당신의 진영은 패배합니다.",
-    "team": "outsider"
+    "ability": "당신이 사망했음을 알게 될 때, 생존한 참가자 1명을 공개적으로 선택합니다: 그가 악한 참가자라면, 당신이 속한 팀이 패배합니다.",
+    "team": "outsider",
+    "flavor": "아뿔사."
   },
   {
     "id": "damsel1",
@@ -159,24 +166,25 @@
       "https://botc.app/assets/damsel_g-NwMWC09c.webp",
       "https://botc.app/assets/damsel_e-fpsIFV1Z.webp"
     ],
-    "ability": "하수인들은 당신이 참가 중임을 알고 있습니다. 게임당 한 번, 하수인은 공개적으로 당신이 누구인지 추측할 수 있습니다. 맞다면, 당신의 진영은 패배합니다.",
+    "ability": "모든 하수인은 아가씨가 게임에 참여한다는 사실을 압니다. 하수인이 당신을 공개적으로 추측해 내면(여러명 중 단 1번만 가능), 당신이 속한 팀이 패배합니다.",
     "firstNight": 49,
-    "firstNightReminder": "모든 하수인을 깨워, '이 캐릭터가 당신을 선택했습니다.' 카드와 아가씨의 캐릭터 토큰을 보여줍니다.",
+    "firstNightReminder": "하수인 정보 단계에, 하수인에게 아가씨 토큰을 보여줍니다. 아직 하지 않았다면, 즉시 그렇게 합니다. 아가씨가 사냥꾼에게 선택되었다면, *당신은* 정보 토큰과 바뀐 캐릭터 토큰을 보여줍니다.",
     "otherNight": 67,
-    "otherNightReminder": "사냥꾼이 아가씨를 선택했다면, 아가씨를 깨우고 '당신은' 카드와 참가하지 않은 주민 캐릭터 토큰을 보여줍니다.",
+    "otherNightReminder": "아가씨가 사냥꾼에게 선택되었다면, *당신은* 정보 토큰과 바뀐 캐릭터 토큰을 보여줍니다.",
     "reminders": [
-      "추측"
+      "추측 사용함"
     ],
-    "team": "outsider"
+    "team": "outsider",
+    "flavor": "머리카락엔 손대지 마, 자기야."
   },
   {
     "id": "heretic1",
-    "name": "이교도",
+    "name": "배교자",
     "image": [
       "https://botc.app/assets/heretic_g-DKZZAGQ8.webp",
       "https://botc.app/assets/heretic_e-EZ4S5b8y.webp"
     ],
-    "ability": "어떤 진영이든 이겼다면 지고, 졌다면 이기게 됩니다. 이 능력은 당신이 죽어도 유지됩니다.",
+    "ability": "승리하는 팀은 패배하고 패배하는 팀은 승리합니다(당신이 사망한 상태더라도).",
     "team": "outsider",
     "jinxes": [
       {
@@ -203,17 +211,19 @@
         "id": "lleech1",
         "reason": "두 캐릭터가 동시에 참가 중일 수 없습니다."
       }
-    ]
+    ],
+    "flavor": "우박이 지붕을 박살 내고 대성당 창문의 유리를 산산이 깨뜨린 뒤에도, 그것은 다시 대지로 스며들어 사막의 태양 아래 죽어가는 어린양처럼 녹아내린다. 이것은 곧 광인의 우화다."
   },
   {
     "id": "psychopath1",
-    "name": "싸이코패스",
+    "name": "사이코패스",
     "image": [
       "https://botc.app/assets/psychopath_e-CStA2Nbh.webp",
       "https://botc.app/assets/psychopath_g-YqeVVosZ.webp"
     ],
-    "ability": "매일 낮, 지명 전에 당신은 공개적으로 플레이어를 1명 선택할 수 있습니다. 해당 플레이어는 죽습니다. 처형되면, 당신은 지명자와 가위바위보를 해서 졌을 때만 죽습니다.",
-    "team": "minion"
+    "ability": "매일 낮, 지명 절차 전에, 공개적으로 참가자 1명을 선택할 수 있습니다: 그는 사망합니다. 당신이 처형당하면, 가위바위보에 질 경우에만 사망합니다.",
+    "team": "minion",
+    "flavor": "서프라이즈!"
   },
   {
     "id": "goblin1",
@@ -222,20 +232,21 @@
       "https://botc.app/assets/goblin_e-5zp-L7ts.webp",
       "https://botc.app/assets/goblin_g-Dm3DHjuy.webp"
     ],
-    "ability": "만약 당신이 지명될 때 공개적으로 고블린이라고 주장한 뒤 처형되면, 당신의 진영이 승리합니다.",
+    "ability": "당신이 지명받았을 때 고블린이라고 공개적으로 주장한 후 그날 처형당한다면, 당신이 속한 팀이 승리합니다.",
     "reminders": [
-      "주장"
+      "주장함"
     ],
-    "team": "minion"
+    "team": "minion",
+    "flavor": "고블린을 모욕하면 안 되는거야. 정말로, 진짜로 안 돼. 다른 얘기긴 한데... 케이크 하나 더 먹어도 돼?"
   },
   {
     "id": "boomdandy1",
-    "name": "붐댄디",
+    "name": "폭탄마",
     "image": [
       "https://botc.app/assets/boomdandy_e-S13eahkU.webp",
       "https://botc.app/assets/boomdandy_g-DOTwgB8d.webp"
     ],
-    "ability": "만약 당신이 처형되면, 즉시 3명을 제외한 모든 플레이어가 죽습니다. 10초를 센 뒤 모든 플레이어는 3명 중 누구를 죽일지 손으로 가르킵니다. 제일 많은 표를 받은 플레이어가 죽습니다. (3명 중 1명은 악마입니다.)",
+    "ability": "당신이 처형당하면, 참가자 3명 외에 모두 사망합니다. 10부터 1까지 카운트다운 후, 가장 많은 참가자가 가리킨 참가자가 사망합니다.",
     "team": "minion",
     "special": [
       {
@@ -243,7 +254,8 @@
         "name": "pointing",
         "time": "day"
       }
-    ]
+    ],
+    "flavor": "째깍... 째깍... 째깍... 땡."
   },
   {
     "id": "pukka1",
@@ -252,29 +264,30 @@
       "https://botc.app/assets/pukka_e-CmZzVHPM.webp",
       "https://botc.app/assets/pukka_g-D7il5SFF.webp"
     ],
-    "ability": "매일 밤, 플레이어를 1명 선택합니다. 해당 플레이어는 중독됩니다. 이전에 중독당한 플레이어는 죽고 건강해집니다.",
+    "ability": "매일 밤, 참가자 1명을 선택합니다: 그는 중독됩니다. 이전에 당신이 중독시켰던 참가자는 사망하고, 건강한 상태가 됩니다.",
     "firstNight": 46,
-    "firstNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 중독됩니다.",
+    "firstNightReminder": "푸카가 참가자 1명을 선택합니다. :reminder:",
     "otherNight": 41,
-    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 중독됩니다. 이전에 중독당한 플레이어는 죽고 건강해집니다.",
+    "otherNightReminder": "푸카가 참가자 1명을 선택합니다. :reminder: 이전에 중독시킨 참가자는 사망한 다음 건강한 상태가 됩니다. :reminder:",
     "reminders": [
-      "죽음",
+      "사망",
       "중독"
     ],
-    "team": "demon"
+    "team": "demon",
+    "flavor": "이토록 아름다운 집에서 환대해 주시다니 실로 친절하시군요. 실수로 긁어버린 건 죄송합니다. 부디 별 탈이 없기를. 아무쪼록, 이 황금 이쑤시개를 사과의 뜻으로 받아주시겠어요?"
   },
   {
     "id": "vortox1",
-    "name": "볼톡스",
+    "name": "보르톡스",
     "image": [
       "https://botc.app/assets/vortox_e-CI-Cd8aG.webp",
       "https://botc.app/assets/vortox_g-w20-Mdd8.webp"
     ],
-    "ability": "매일 밤*, 플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다. 주민들의 능력은 거짓 정보만 생성합니다. 낮에 아무도 처형되지 않으면 악한 진영이 승리합니다.",
+    "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. 주민의 능력은 거짓 정보만 제공합니다. 매일 낮, 누구도 처형되지 않으면 악한 팀이 승리합니다.",
     "otherNight": 46,
-    "otherNightReminder": "플레이어를 1명 선택합니다. 해당 플레이어는 죽습니다.",
+    "otherNightReminder": "보르톡스가 참가자 1명을 선택합니다. :reminder:",
     "reminders": [
-      "죽음"
+      "사망"
     ],
     "team": "demon",
     "jinxes": [
@@ -282,28 +295,31 @@
         "id": "banshee1",
         "reason": "볼톡스가 밴시를 죽이면, 모든 플레이어는 이 사실을 알게 됩니다."
       }
-    ]
+    ],
+    "flavor": "흑은 백이요, 옮은 것은 그른 것이며, 왼쪽은 오른쪽, 위는 길고, 아래는 개안이고, 짧음은 눈먼 것. 나를 따른다면, 답도 따르리라."
   },
   {
     "id": "duchess1",
     "name": "공작부인",
     "image": "https://botc.app/assets/duchess-CHpS7XMx.webp",
     "team": "fabled",
-    "ability": "매일 낮, 3명의 플레이어가 당신을 방문하기로 선택할 수 있습니다. 밤*에 각 방문자는 얼마나 많은 방문자가 악한지 알게 되지만, 1명은 거짓 정보를 얻습니다.",
+    "ability": "매일 낮, 3명의 참가자가 당신을 방문할 것을 자원합니다. 매일 밤*, 각 방문자는 그중 몇 명이나 악한지 알게 되나, 그중 1명은 거짓 정보를 얻습니다.",
     "otherNight": 2,
-    "otherNightReminder": "'방문자'나 '거짓 정보' 알림 토큰으로 표시된 플레이어들을 1명씩 깨웁니다. '공작 부인' 토큰을 보여주고, 방문한 플레이어 중 악한 플레이어의 수를 알려줍니다. 또는 '거짓 정보' 알림 토큰으로 표시된 플레이어를 깨웠다면, 방문한 플레이어 중 악한 플레이어 수에 해당하지 않는 숫자 중 아무거나 보여줍니다.",
+    "otherNightReminder": "1번에 1명씩: *방문자* 또는 *거짓 정보*로 표시된 참가자를 깨웁니다. 깨어난 참가자에게 *이 캐릭터가 당신을 선택했습니다* 정보 토큰과 공작부인 토큰을 보여준 다음, 손가락을 펴서 신호를 줍니다.",
     "reminders": [
       "방문자",
       "방문자",
       "거짓 정보"
-    ]
+    ],
+    "flavor": "접객 시간은 정확히 6시부터 7시까지입니다. 차는 6시 15분에, 스콘은 6시 45분에 제공하겠습니다. 부디 늦지 마시길. 평소와 같이, 정장 차림으로 부탁드립니다."
   },
   {
     "id": "sentinel1",
-    "name": "경비병",
+    "name": "보초",
     "image": "https://botc.app/assets/sentinel-BaOVo1PE.webp",
     "team": "fabled",
-    "ability": "외지인이 1명 더 참가하거나 1명 더 적을 수 있습니다.",
-    "setup": true
+    "ability": "게임에 참여하는 외지인 수가 1명 적거나 많을 수도 있습니다.",
+    "setup": true,
+    "flavor": "성함이 어떻게 되십니까? 서류 부탁드립니다. 무기는 여기 맡기시길 바랍니다."
   }
 ]
