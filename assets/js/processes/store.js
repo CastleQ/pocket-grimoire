@@ -215,6 +215,24 @@ TokenStore.ready((tokenStore) => {
 
     let finalZIndex = 0;
 
+    // 다른 시트로 바꾸면 이전 시트 전용 캐릭터(예: "toymaker1")가 사라진다.
+    // 찾을 수 없는 토큰 하나 때문에 마도서 전체 복원이 멈추지 않도록 미리 뺀다.
+    // (저장 목록은 마도서 위 순서와 칸 번호로 짝지어지므로 복원 전에 목록에서 빼야 한다.)
+    storeData.tokens = storeData.tokens.filter(({ id }) => {
+
+        const found = TokenStore.isCharacterId(id)
+            ? tokenStore.getCharacter(id)
+            : tokenStore.getReminder(id);
+
+        if (!found) {
+            console.warn("마도서 복원: 찾을 수 없는 토큰을 뺌", id);
+        }
+
+        return Boolean(found);
+
+    });
+    store.data.tokens = storeData.tokens.slice();
+
     storeData.tokens.forEach(({
         id,
         left,
