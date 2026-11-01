@@ -190,7 +190,7 @@ export default class NightOrder {
             const next = this.data
                 .filter((datum) => datum[property])
                 .sort((a, b) => a[property].order - b[property].order)
-                .find(({ order }) => order > character[method]());
+                .find((datum) => datum[property].order > character[method]());
             const insertable = (
                 this.shouldShow(data)
                 ? data.element
@@ -202,9 +202,9 @@ export default class NightOrder {
                 this.holders[property].insertBefore(
                     insertable,
                     (
-                        next.element.parentElement
-                        ? next.element
-                        : next.placeholder
+                        next[property].element.parentElement
+                        ? next[property].element
+                        : next[property].placeholder
                     )
                 );
 
