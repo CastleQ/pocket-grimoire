@@ -1,3 +1,14 @@
+// 본문: Pretendard(필요한 글자만 내려받는 방식), 제목: 앱 제목과 같은 국민대 성곡 세리프.
+// 둘 다 jsDelivr 에서 받으며, 못 받으면 기기 기본 글꼴로 보인다.
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+@font-face {
+    font-family: "KookminUniversitySunggokSerif";
+    src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2607101542@kmu80sungkokserif/kmu80sungkokserif/KMU80SungkokSerif.woff2") format("woff2");
+    font-weight: 500;
+    font-display: swap;
+}
+
 /**
  * 캐릭터 시트 / 밤 순서 시트 전용 스타일.
  *
@@ -14,8 +25,8 @@ $ink: #1a1a1a;
 $muted: #7d7d7d;
 $rule: #b9b2a4;
 
-$serif: "Times New Roman", "Nanum Myeongjo", "바탕", serif;
-$sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
+$serif: "KookminUniversitySunggokSerif", "Noto Serif KR", "Nanum Myeongjo", serif;
+$sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
 
 .body-sheet {
     margin: 0;

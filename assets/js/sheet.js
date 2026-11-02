@@ -877,7 +877,7 @@ function renderSummaryPage(payload, characters) {
         legendList.append(element("p", "sheet-summary__empty", "없음"));
     }
 
-    // 추천: 여행자·기타 — 특별 규칙만 있고 밀수업자 캐릭터가 없으면 밀수업자를 표시한다.
+    // 여행자 · 전설과 설화 — 특별 규칙만 있고 밀수업자 캐릭터가 없으면 밀수업자를 표시한다.
     const others = legends.slice();
 
     if (rules.length && !all.some((character) => normaliseId(character.id).replace(/\d+$/, "") === "bootlegger")) {
@@ -888,7 +888,7 @@ function renderSummaryPage(payload, characters) {
 
     [
         ["여행자", all.filter((character) => character.team === "traveller")],
-        ["기타", others]
+        ["전설과 설화", others]
     ].forEach(([label, members]) => {
 
         const column = element("div", "sheet-summary__list");
@@ -904,7 +904,7 @@ function renderSummaryPage(payload, characters) {
 
     });
 
-    center.append(summaryHeading("추천: 여행자·기타"), recommend);
+    center.append(summaryHeading("여행자 · 전설과 설화"), recommend);
 
     body.append(
         summaryNight("첫날 밤", buildNightOrder(payload, characters, "firstNight")),
@@ -1102,7 +1102,8 @@ function exportPage(page, inner, box, button, fileName) {
     button.disabled = true;
     button.classList.add("is-loading");
 
-    inlineImages(page).then((undo) => {
+    // 웹 글꼴이 다 받아지기 전에 찍으면 기본 글꼴로 저장되므로 기다린다.
+    document.fonts.ready.then(() => inlineImages(page)).then((undo) => {
 
         undoInline = undo;
 
