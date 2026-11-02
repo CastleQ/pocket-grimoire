@@ -36,9 +36,19 @@ const STORAGE_KEY = "pg-sheet-data";
 // A4 세로 비율(210mm x 297mm). 내보낼 때 이 비율로 높이를 맞춘다.
 const A4_RATIO = 297 / 210;
 
-// A4 안에 담기지 않을 때 글자와 여백을 줄이는 하한과 간격.
-const SCALE_FLOOR = 0.6;
-const SCALE_STEP = 0.03;
+// A4 안에 담을 때 줄이는 순서와 하한(글자는 절대 빼지 않는다). CastleQ 지정 순서:
+// 1) 행간 2) 요소 사이 공백 3) 글자·아이콘 크기. [변수, 하한, 간격]
+const FIT_STEPS = [
+    ["--sheet-leading", 0.88, 0.02],
+    ["--sheet-gap", 0.5, 0.05],
+    ["--sheet-font", 0.6, 0.02]
+];
+
+// 화면도 A4 한 장으로 보여 주는 시트 조건: 시계피 표준 최대 인원(주민13·외지인4·하수인4·악마4) 이하,
+// 캐릭터마다 능력 글자 수가 공식 최장(마귀할멈 110자)의 +20% 이하. 글자를 이보다 더 줄여야 하면 제외.
+const A4_SCREEN_MAX = { townsfolk: 13, outsider: 4, minion: 4, demon: 4 };
+const A4_SCREEN_ABILITY_MAX = 132;
+const A4_SCREEN_FONT_FLOOR = 0.7;
 
 // 요약표는 이 수보다 캐릭터(주민·외지인·하수인·악마)가 많으면 만들지 않는다.
 const SUMMARY_MAX = 30;
@@ -832,7 +842,7 @@ function renderSummaryPage(payload, characters) {
 
         });
 
-        fitPages();
+        layoutPages();
 
     });
 
@@ -920,6 +930,93 @@ function renderSummaryPage(payload, characters) {
     page.append(body, renderFooter(""));
 
     return page;
+
+}
+
+/**
+ * 페이지를 A4 비율(가로:세로 = 1:1.414) 안에 담는다. 행간 → 공백 → 글자 크기 순으로
+ * 조금씩 줄이고, 담기면 페이지 높이를 A4로 맞춘다. 담기지 않으면 원래대로 되돌린다.
+ *
+ * @param  {Element} page
+ *         대상 페이지.
+ * @param  {Number} [fontFloor]
+ *         글자 크기를 이보다 작게는 줄이지 않는다.
+ * @return {Boolean}
+ *         A4 안에 담겼는지.
+ */
+function fitA4(page, fontFloor = 0) {
+
+    const reset = () => {
+        FIT_STEPS.forEach(([name]) => page.style.removeProperty(name));
+        page.style.removeProperty("min-height");
+    };
+
+    reset();
+
+    const limit = Math.round(page.offsetWidth * A4_RATIO);
+    // 화면 맞춤용 확대·축소(transform)에 영향받지 않는 offsetHeight 로 잰다.
+    const fits = () => page.offsetHeight <= limit;
+
+    const done = FIT_STEPS.some(([name, floor, step]) => {
+
+        const lowest = Math.max(floor, name === "--sheet-font" ? fontFloor : 0);
+
+        for (let value = 1; value >= lowest - 1e-9; value -= step) {
+
+            page.style.setProperty(name, value.toFixed(3));
+
+            if (fits()) {
+                return true;
+            }
+
+        }
+
+        return false;
+
+    });
+
+    if (!done) {
+        reset();
+        return false;
+    }
+
+    page.style.minHeight = limit + "px";
+
+    return true;
+
+}
+
+/**
+ * 화면에서도 A4 한 장으로 보여 줄 시트인지(A4_SCREEN_* 조건).
+ */
+function isA4ScreenSheet(characters) {
+
+    const counts = {};
+
+    characters.forEach((character) => {
+        counts[character.team] = (counts[character.team] || 0) + 1;
+    });
+
+    return Object.keys(A4_SCREEN_MAX).every((team) => (counts[team] || 0) <= A4_SCREEN_MAX[team])
+        && characters.every((character) => String(character.ability || "").length <= A4_SCREEN_ABILITY_MAX);
+
+}
+
+let a4Screen = false;
+
+/**
+ * 조건에 맞는 시트면 화면의 각 페이지를 A4 한 장으로 맞춘 뒤 화면 크기에 맞춘다.
+ * 웹 글꼴·징크스가 늦게 도착하면 높이가 바뀌므로 그때마다 다시 부른다.
+ */
+function layoutPages() {
+
+    if (a4Screen) {
+        document.querySelectorAll(".sheet-page").forEach((page) => {
+            page.classList.toggle("sheet-page--a4", fitA4(page, A4_SCREEN_FONT_FLOOR));
+        });
+    }
+
+    fitPages();
 
 }
 
@@ -1056,12 +1153,20 @@ function exportPage(page, inner, box, button, fileName) {
 
     let undoInline = () => {};
 
-    const pageHeight = page.style.minHeight;
+    // 화면에서 A4로 맞춰 둔 값까지 그대로 되돌리기 위해 통째로 기억한다.
+    const pageStyle = page.getAttribute("style");
+
+    const restorePage = () => {
+        if (pageStyle === null) {
+            page.removeAttribute("style");
+        } else {
+            page.setAttribute("style", pageStyle);
+        }
+    };
 
     const restore = () => {
         undoInline();
-        page.style.minHeight = pageHeight;
-        page.style.removeProperty("--sheet-scale");
+        restorePage();
         inner.style.transform = transform;
         box.style.height = height;
         button.classList.remove("is-loading");
@@ -1072,30 +1177,11 @@ function exportPage(page, inner, box, button, fileName) {
     inner.style.transform = "none";
     box.style.height = "auto";
 
-    // A4 안에 담길 때까지 글자와 여백을 조금씩 줄여본다.
-    let fitted = 0;
-
-    for (let scale = 1; scale >= SCALE_FLOOR; scale -= SCALE_STEP) {
-
-        page.style.setProperty("--sheet-scale", scale.toFixed(3));
-
-        const limit = Math.round(page.offsetWidth * A4_RATIO);
-
-        if (Math.round(page.getBoundingClientRect().height) <= limit) {
-            fitted = limit;
-            break;
-        }
-
-    }
-
-    if (fitted) {
-
-        page.style.minHeight = fitted + "px";
-
-    } else {
+    // A4 안에 담길 때까지 행간 → 공백 → 글자 크기 순으로 줄여 본다.
+    if (!fitA4(page)) {
 
         // 줄여도 담기지 않으면 읽기 편한 원래 크기로 되돌리고 물어본다.
-        page.style.removeProperty("--sheet-scale");
+        restorePage();
 
         if (!window.confirm("시트 이미지가 너무 큽니다. 그래도 저장 할까요?")) {
             inner.style.transform = transform;
@@ -1240,9 +1326,11 @@ function fitPages() {
 
         const available = box.clientWidth;
         const narrow = window.innerWidth <= NARROW_WIDTH;
-        const scale = narrow
-            ? Math.min(available / width, 1)
-            : Math.min(available / width, window.innerHeight / height, 1);
+        const whole = !narrow || box.querySelector(".sheet-page--a4");
+        // A4 페이지는 좁은 화면에서도 세로까지 맞춰 한 화면에 담는다(위아래 약간의 여백).
+        const scale = whole
+            ? Math.min(available / width, (window.innerHeight - 16) / height, 1)
+            : Math.min(available / width, 1);
 
         inner.style.transform = `scale(${scale})`;
         inner.style.width = `${width}px`;
@@ -1472,7 +1560,9 @@ function render(payload) {
     }
 
     root.append(wrapper);
-    fitPages();
+    a4Screen = isA4ScreenSheet(characters);
+    layoutPages();
+    document.fonts.ready.then(layoutPages);
 
     document.title = `${payload.name || "캐릭터 시트"} — 포그플러스`;
 
