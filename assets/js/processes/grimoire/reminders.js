@@ -158,6 +158,11 @@ TokenStore.ready((tokenStore) => {
             customText.value = reminder.data.text || "";
         }
 
+        // 커스텀 알림은 이 창을 플레이어에게 그대로 보여 주기도 하므로(비밀 문구 등)
+        // 뒤의 마도서가 비치지 않게 배경을 가린다. 일반 알림은 지금처럼 흐리게.
+        reminderDialog.dialog.classList.toggle("dialog--hide-background", isCustom);
+        reminderDialog.dialog.classList.toggle("dialog--blur-background", !isCustom);
+
         reminderDialog.show();
 
     }
