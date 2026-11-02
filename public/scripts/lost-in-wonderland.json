@@ -11,9 +11,9 @@
       "demoninfo",
       "bandersnatch_wonderland",
       "caterpillar_wonderland",
+      "tweedles_wonderland",
       "cheshirecat_wonderland",
       "mockturtle_wonderland",
-      "tweedles_wonderland",
       "dawn"
     ],
     "otherNight": [
@@ -22,9 +22,9 @@
       "caterpillar_wonderland",
       "jubjubbird_wonderland",
       "whiterabbit_wonderland",
-      "dormouse_wonderland",
-      "madhatter_wonderland",
       "gryphon_wonderland",
+      "madhatter_wonderland",
+      "dormouse_wonderland",
       "knaveofhearts_wonderland",
       "queenofhearts_wonderland",
       "jabberwocky_wonderland",
@@ -64,7 +64,7 @@
     "team": "townsfolk",
     "ability": "시작할 때 플레이어 1명을 압니다. 그 플레이어는 다른 트위들 형제입니다. 그 플레이어가 죽으면 당신도 죽습니다. [+1 트위들 형제]",
     "flavor": "트위들덤과 트위들디는 싸우기로 했습니다. 트위들덤은 트위들디가 자신의 멋진 새 딸랑이를 망가뜨렸다고 말했기 때문입니다.",
-    "firstNight": 19,
+    "firstNight": 3,
     "firstNightReminder": "다른 트위들 형제를 가리킵니다.",
     "setup": true,
     "special": [
@@ -84,9 +84,9 @@
     "team": "townsfolk",
     "ability": "매일 밤, 당신의 방랑 토큰이 올라간 플레이어의 캐릭터를 압니다. [방랑]",
     "flavor": "하지만 고양이 없는 웃음이라니! 평생 본 것 중 가장 이상한 일이야!",
-    "firstNight": 1,
+    "firstNight": 4,
     "firstNightReminder": "방랑 토큰이 올라간 플레이어의 캐릭터를 알려줍니다.",
-    "otherNight": 1,
+    "otherNight": 15,
     "otherNightReminder": "방랑 토큰이 올라간 플레이어의 캐릭터를 알려줍니다.",
     "reminders": [
       "방랑(시계)",
@@ -110,7 +110,7 @@
     "team": "townsfolk",
     "ability": "매일 밤*, 자신을 제외한, 전날 밤과 다른 플레이어 1명을 선택합니다. 그 플레이어는 황혼까지 하수인과 악마의 능력에 면역입니다.",
     "flavor": "“그래서 수업이라고 부르는 거야.” 그리폰이 말했다. “날마다 줄어드니까.”",
-    "otherNight": 1,
+    "otherNight": 5,
     "otherNightReminder": "그리폰이 플레이어 1명을 선택합니다. :reminder:",
     "reminders": [
       "면역"
@@ -127,7 +127,7 @@
     "team": "townsfolk",
     "ability": "매일 밤*, 오늘 당신이 지목하거나 투표하지 않았다면, 플레이어 1명을 선택합니다. 그 플레이어는 황혼까지 취합니다.",
     "flavor": "잠꼬대하듯 말하던 겨울잠 생쥐가 덧붙였다. “‘나는 잘 때 숨을 쉰다’와 ‘나는 숨을 쉴 때 잔다’가 같다고 말하는 셈이잖아!”",
-    "otherNight": 1,
+    "otherNight": 7,
     "otherNightReminder": "오늘 지목하거나 투표하지 않았다면, 겨울잠 생쥐가 플레이어 1명을 선택합니다. 그 플레이어는 취합니다. :reminder:",
     "reminders": [
       "능력 있음",
@@ -145,7 +145,7 @@
     "team": "townsfolk",
     "ability": "매일 밤*, 살아있는 플레이어 1명을 선택합니다. 당신은 황혼까지 그 플레이어의 능력을 가집니다. 당신과 그 플레이어 중 한 명은 황혼까지 취합니다.",
     "flavor": "하나는 살인자가 되기 위해. 하나는 순교자가 되기 위해. 하나는 군주가 되기 위해. 하나는 미쳐 버리기 위해.",
-    "otherNight": 1,
+    "otherNight": 6,
     "otherNightReminder": "모자장수가 플레이어 1명을 선택합니다. :reminder:",
     "reminders": [
       "취함",
@@ -163,7 +163,7 @@
     "team": "townsfolk",
     "ability": "첫째 날 낮에, 공개적으로 캐릭터를 최대 6개 추측합니다. 그날 밤, 그중 참여하지 않는 캐릭터가 몇 개인지 압니다.",
     "flavor": "“나는 가끔 아침 식사 전에도 불가능한 일을 여섯 가지나 믿곤 했단다.”",
-    "otherNight": 1,
+    "otherNight": 13,
     "otherNightReminder": "참여하지 않음 토큰의 수를 손가락으로 알려줍니다.",
     "reminders": [
       "참여하지 않음",
@@ -212,7 +212,7 @@
     "team": "townsfolk",
     "ability": "게임 중 한 번, 밤에 남은 밤 단계를 모두 건너뛸 수 있습니다.",
     "flavor": "늦었어, 늦었어, 아주 중요한 약속에 늦었어! “안녕”도 “잘 가”도 말할 시간이 없어. 늦었어, 늦었어, 늦었어!",
-    "otherNight": 1,
+    "otherNight": 4,
     "otherNightReminder": "능력을 사용할지 묻습니다. 사용했다면 능력 없음 알림 토큰을 놓고, 남은 밤 단계를 모두 건너뜁니다. :reminder:",
     "reminders": [
       "능력 없음"
@@ -244,7 +244,7 @@
     "team": "townsfolk",
     "ability": "매일 밤*, 방랑 토큰이 당신에게 도착했는지 압니다.",
     "flavor": "“사실은요, 아가씨, 이 장미나무는 원래 빨간 장미나무여야 했는데, 우리가 실수로 하얀 걸 심어 버렸어요.”",
-    "otherNight": 1,
+    "otherNight": 12,
     "otherNightReminder": "이 플레이어 위에 방랑 토큰이 있는지 확인합니다.",
     "setup": false
   },
@@ -275,7 +275,7 @@
     "team": "townsfolk",
     "ability": "당신이 처음 지목되면, 그날 밤 당신을 지목한 플레이어의 캐릭터를 압니다.",
     "flavor": "[노래한다] “여왕님께서 공작부인에게 크로케 경기 초대장을 보내셨네.”",
-    "otherNight": 1,
+    "otherNight": 14,
     "otherNightReminder": "이 플레이어가 지목되었다면, 지목자 토큰이 놓인 플레이어의 캐릭터를 알려줍니다. :reminder:",
     "reminders": [
       "지목자",
@@ -293,9 +293,9 @@
     "team": "outsider",
     "ability": "매일 밤, 당신의 살아있는 주민 이웃 중 1명이 취합니다. 전날 밤과는 다른 플레이어여야 합니다.",
     "flavor": "“시간이 지나면 익숙해질 거야.” 애벌레가 말했다. 그리고 물담배를 입에 물었다.",
-    "firstNight": 1,
+    "firstNight": 2,
     "firstNightReminder": "살아있는 주민 이웃 1명에게 취함 토큰을 놓습니다. :reminder:",
-    "otherNight": 1,
+    "otherNight": 2,
     "otherNightReminder": "전날 밤과 다른 살아있는 주민 이웃 1명에게 취함 토큰을 놓습니다. :reminder:",
     "reminders": [
       "취함"
@@ -312,7 +312,7 @@
     "team": "outsider",
     "ability": "매일 밤*, 당신의 방랑 토큰이 올라간 캐릭터의 진영을 알고, 당신은 그 진영이 됩니다. [방랑]",
     "flavor": "네가 그렇게 보이고 싶은 존재가 되어라. 더 쉽게 말하자면, 네가 그렇지 않은 존재라고 상상하지 마라.",
-    "otherNight": 1,
+    "otherNight": 17,
     "otherNightReminder": "방랑 토큰이 올라간 캐릭터의 진영을 알려주고, 공작부인의 진영을 그와 같게 바꿉니다. :reminder:",
     "reminders": [
       "방랑(시계)",
@@ -347,9 +347,9 @@
     "team": "outsider",
     "ability": "당신은 자신이 체셔 캣이라고 생각하지만, 짭북이입니다. 거짓 정보를 받을 수 있습니다. [방랑]",
     "flavor": "짭북이가 화를 내며 말했다. “우리는 그를 거북 선생이라고 불렀어. 우리를 가르쳤으니까. 정말 둔하구나!”",
-    "firstNight": 1,
+    "firstNight": 5,
     "firstNightReminder": "방랑 토큰이 올라간 플레이어의 캐릭터를 알려줍니다. 틀린 캐릭터여도 됩니다.",
-    "otherNight": 1,
+    "otherNight": 16,
     "otherNightReminder": "방랑 토큰이 올라간 플레이어의 캐릭터를 알려줍니다. 틀린 캐릭터여도 됩니다.",
     "reminders": [
       "방랑(시계)",
@@ -414,7 +414,7 @@
     "team": "minion",
     "ability": "매일 밤*, 오늘 당신이 투표했다면 플레이어 1명을 선택합니다. 그 플레이어는 오늘 밤 깨어나지 않습니다. [+1 외지인]",
     "flavor": "목을 쳐라!!! 쥬브쥬브 새를 풀어라! 네 말이 맞다, 스테인. 사랑받는 것보다 두려움의 대상이 되는 편이 훨씬 낫다.",
-    "otherNight": 1,
+    "otherNight": 3,
     "otherNightReminder": "오늘 투표했다면, 쥬브쥬브 새를 깨워 플레이어 1명을 선택하게 합니다. 선택된 플레이어에게 깨어나지 않음 알림 토큰을 놓습니다. :reminder:",
     "reminders": [
       "투표함",
@@ -447,7 +447,7 @@
     "team": "demon",
     "ability": "매일 밤*, 플레이어 1명을 선택합니다. 그 플레이어는 죽습니다. 오늘 당신이 지목되었다면 대신 2명을 선택합니다.",
     "flavor": "목을 쳐라!",
-    "otherNight": 1,
+    "otherNight": 9,
     "otherNightReminder": "하트 여왕이 죽일 플레이어를 선택합니다. :reminder: :reminder: :reminder:",
     "reminders": [
       "사망",
@@ -466,7 +466,7 @@
     "team": "demon",
     "ability": "매일 밤*, 플레이어 1명을 선택합니다. 그 플레이어는 죽습니다. 당신을 처음 지목한 선한 플레이어는 언제든 죽을 수 있습니다.",
     "flavor": "재버워크를 조심해라, 내 아들아! 물어뜯는 턱과 붙잡는 발톱을! 때는 브릴리그, 미끈한 토브들이 와브 속에서 빙빙 돌며 흔들렸네.",
-    "otherNight": 1,
+    "otherNight": 10,
     "otherNightReminder": "재버워키가 죽일 플레이어를 선택합니다. :reminder: :reminder: :reminder:",
     "reminders": [
       "첫 지목자",
@@ -485,7 +485,7 @@
     "team": "demon",
     "ability": "매일 밤*, 플레이어 1명을 선택합니다. 그 플레이어는 죽습니다. 오늘 외지인이 처형되었다면 대신 2명을 선택합니다. [+1 외지인]",
     "flavor": "우리는 앨리스라는 소녀를 찾고 있다… 그녀를 숨기고 있다면 너희 목은 날아갈 것이다.",
-    "otherNight": 1,
+    "otherNight": 8,
     "otherNightReminder": "하트 잭이 죽일 플레이어를 선택합니다. :reminder: :reminder: :reminder:",
     "reminders": [
       "오늘 사망",
@@ -504,7 +504,7 @@
     "team": "demon",
     "ability": "매일 밤*, 플레이어 1명을 선택합니다. 그 플레이어는 죽습니다. 이미 죽은 플레이어를 이 능력으로 선택했다면, 당신의 방랑 토큰이 1칸 더 이동합니다. 당신의 방랑 토큰이 당신에게 돌아오면 당신의 팀이 승리합니다. [방랑]",
     "flavor": "나는 네가 시간을 더 잘 쓸 수도 있다고 생각해.",
-    "otherNight": 1,
+    "otherNight": 11,
     "otherNightReminder": "시간이 죽일 플레이어를 선택합니다. :reminder: :reminder:",
     "reminders": [
       "사망",
