@@ -26,6 +26,8 @@ $muted: #7d7d7d;
 $rule: #b9b2a4;
 
 $serif: "KookminUniversitySunggokSerif", "Noto Serif KR", "Nanum Myeongjo", serif;
+// 시트 이미지(.sheet-page) 안의 본문(Pretendard) 자간. 명조 제목은 normal 로 되돌린다.
+$sans-tracking: -0.02em;
 $sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
 
 .body-sheet {
@@ -150,6 +152,7 @@ $sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", 
     box-sizing: border-box;
     width: 46rem;
     max-width: 100%;
+    letter-spacing: $sans-tracking;
     padding:
         calc(2rem * var(--sheet-scale))
         calc(2.2rem * var(--sheet-scale))
@@ -178,6 +181,7 @@ $sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", 
     font-family: $serif;
     font-size: calc(1.5rem * var(--sheet-scale));
     font-weight: 400;
+    letter-spacing: normal;
     line-height: 1.2;
     word-break: keep-all;
 }
@@ -530,6 +534,7 @@ $sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", 
     font-family: $serif;
     font-size: calc(0.85rem * var(--sheet-scale));
     font-weight: 700;
+    letter-spacing: normal;
 }
 
 .sheet-summary__entry,
