@@ -334,6 +334,13 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
     background: #f0a92a;
 }
 
+.sheet-bookend--info {
+    border: 2px solid #9a9a9a;
+    color: #6a6a6a;
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
 .sheet-bookend__shape {
     display: block;
     width: 1.1rem;
@@ -427,5 +434,136 @@ $sans: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
         clip: rect(0 0 0 0);
         white-space: nowrap;
     }
+}
+
+
+// ── 요약표 ──────────────────────────────────────────────────────
+// 공식 시트 뒷면처럼 양쪽 띠에 밤 순서, 가운데에 징크스·전설·설화·추천을 둔다.
+
+.sheet-summary {
+    display: grid;
+    grid-template-columns: 10.5rem minmax(0, 1fr) 10.5rem;
+    gap: calc(1.1rem * var(--sheet-scale));
+    align-items: start;
+}
+
+.sheet-summary__night {
+    padding: calc(0.6rem * var(--sheet-scale)) calc(0.5rem * var(--sheet-scale));
+    background: #f6f3ec;
+}
+
+.sheet-summary__night-title {
+    margin: 0 0 calc(0.6rem * var(--sheet-scale));
+    color: $red;
+    font-family: $serif;
+    font-size: calc(1rem * var(--sheet-scale));
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-align: center;
+}
+
+.sheet-summary__night-row {
+    display: flex;
+    align-items: center;
+    gap: calc(0.4rem * var(--sheet-scale));
+    margin-bottom: calc(0.3rem * var(--sheet-scale));
+
+    .sheet-role__name {
+        margin: 0;
+        font-size: calc(0.8rem * var(--sheet-scale));
+        line-height: 1.25;
+        word-break: keep-all;
+    }
+}
+
+.sheet-summary__icon {
+    flex: 0 0 calc(1.8rem * var(--sheet-scale));
+    width: calc(1.8rem * var(--sheet-scale));
+    min-height: calc(1.8rem * var(--sheet-scale));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .sheet-bookend {
+        width: calc(1.5rem * var(--sheet-scale));
+        height: calc(1.5rem * var(--sheet-scale));
+    }
+
+    .sheet-bookend__shape {
+        width: calc(0.75rem * var(--sheet-scale));
+        height: calc(0.75rem * var(--sheet-scale));
+    }
+}
+
+.sheet-summary__title {
+    margin-bottom: calc(0.6rem * var(--sheet-scale));
+    color: $red;
+    text-align: center;
+}
+
+.sheet-summary__heading {
+    margin: calc(0.9rem * var(--sheet-scale)) 0 calc(0.5rem * var(--sheet-scale));
+    color: $red;
+    font-size: calc(0.95rem * var(--sheet-scale));
+}
+
+.sheet-summary__subheading {
+    margin: calc(0.4rem * var(--sheet-scale)) 0 calc(0.3rem * var(--sheet-scale));
+    color: $olive;
+    font-family: $serif;
+    font-size: calc(0.85rem * var(--sheet-scale));
+    font-weight: 700;
+}
+
+.sheet-summary__entry,
+.sheet-summary__jinx {
+    display: flex;
+    align-items: flex-start;
+    gap: calc(0.5rem * var(--sheet-scale));
+    margin-bottom: calc(0.5rem * var(--sheet-scale));
+    break-inside: avoid;
+}
+
+.sheet-summary__pair {
+    flex: 0 0 auto;
+    display: flex;
+    gap: calc(0.2rem * var(--sheet-scale));
+
+    img {
+        width: calc(1.8rem * var(--sheet-scale));
+        height: auto;
+        display: block;
+    }
+}
+
+.sheet-summary__rules {
+    margin: 0;
+    padding-left: 1.1em;
+
+    li {
+        margin-bottom: calc(0.25rem * var(--sheet-scale));
+    }
+
+    a {
+        color: $blue;
+    }
+}
+
+.sheet-summary__recommend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(0.8rem * var(--sheet-scale));
+}
+
+.sheet-summary__empty {
+    margin: 0;
+    color: $muted;
+    font-size: calc(0.8rem * var(--sheet-scale));
 }
 

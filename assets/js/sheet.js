@@ -4,10 +4,12 @@
  * 새 탭으로 열리며, 마도서 쪽에서 브라우저 저장소에 넣어둔 시트 데이터를 읽어
  * 화면을 직접 그린다. 서버 렌더링에 의존하지 않는다.
  *
- * 3장을 세로로 그린다.
+ * 4장을 세로로 그린다.
  *   1) 캐릭터 시트  — 팀별 2단 구성
- *   2) 첫날 밤 시트 — 밤 순서 + 이야기꾼 지시문
- *   3) 다른 밤 시트 — 위와 동일
+ *   2) 요약표      — 첫날 밤·다른 밤 순서, 징크스, 전설·설화, 특별 규칙, 추천
+ *                    (주민·외지인·하수인·악마가 SUMMARY_MAX 명을 넘는 시트는 생략)
+ *   3) 첫날 밤 시트 — 밤 순서 + 이야기꾼 지시문
+ *   4) 다른 밤 시트 — 위와 동일
  */
 
 import html2canvas from "html2canvas";
@@ -31,6 +33,10 @@ const A4_RATIO = 297 / 210;
 // A4 안에 담기지 않을 때 글자와 여백을 줄이는 하한과 간격.
 const SCALE_FLOOR = 0.6;
 const SCALE_STEP = 0.03;
+
+// 요약표는 이 수보다 캐릭터(주민·외지인·하수인·악마)가 많으면 만들지 않는다.
+const SUMMARY_MAX = 30;
+const CORE_TEAMS = ["townsfolk", "outsider", "minion", "demon"];
 
 const TEAM_LABEL = {
     townsfolk: "주민",
@@ -568,22 +574,7 @@ function renderNightPage(title, rows) {
     rows.forEach((row) => {
 
         const line = element("div", `sheet-role sheet-role--${row.team}`);
-        const icon = element("div", "sheet-role__icon sheet-role__icon--night");
-
-        if (row.kind === "dusk" || row.kind === "dawn") {
-
-            icon.append(bookendIcon(row.kind));
-
-        } else if (row.image) {
-
-            const image = document.createElement("img");
-
-            image.src = row.image;
-            image.alt = "";
-            icon.append(image);
-
-        }
-
+        const icon = nightIcon(row, "sheet-role__icon sheet-role__icon--night");
         const body = element("div", "sheet-role__body");
 
         body.append(element("p", "sheet-role__name", row.name));
@@ -596,6 +587,331 @@ function renderNightPage(title, rows) {
 
     page.append(list);
     page.append(renderFooter(""));
+
+    return page;
+
+}
+
+/**
+ * 밤 순서 한 줄의 아이콘을 만든다. 황혼·새벽은 직접 그린 그림, 정보 단계는 이름 첫 글자 동그라미.
+ *
+ * @param  {Object} row
+ *         밤 순서 줄.
+ * @param  {String} className
+ *         아이콘 칸에 붙일 class.
+ * @return {Element}
+ *         아이콘 칸.
+ */
+function nightIcon(row, className) {
+
+    const icon = element("div", className);
+
+    if (row.kind === "dusk" || row.kind === "dawn") {
+
+        icon.append(bookendIcon(row.kind));
+
+    } else if (row.kind === "info") {
+
+        icon.append(element("span", "sheet-bookend sheet-bookend--info", (row.name || "").charAt(0)));
+
+    } else if (row.image) {
+
+        const image = document.createElement("img");
+
+        image.src = row.image;
+        image.alt = "";
+        icon.append(image);
+
+    }
+
+    return icon;
+
+}
+
+let officialJinxes = null;
+
+/**
+ * 앱이 쓰는 공식 징크스 목록(data/jinx.json)을 한 번만 읽는다. 실패하면 빈 목록.
+ *
+ * @return {Promise.<Array>}
+ *         [{ id, jinx: [{ id, reason }] }] 목록.
+ */
+function loadOfficialJinxes() {
+
+    if (!officialJinxes) {
+
+        officialJinxes = fetch(new URL("data/jinx.json", window.location.href).href)
+            .then((response) => (response.ok ? response.json() : []))
+            .then((list) => (Array.isArray(list) ? list : []))
+            .catch(() => []);
+
+    }
+
+    return officialJinxes;
+
+}
+
+/**
+ * 시트 안 캐릭터끼리의 징크스를 모은다. 시트에 적힌 징크스와 공식 목록을 합치고
+ * 같은 짝은 한 번만 남긴다. "cannibal1" 과 "cannibal" 은 같은 캐릭터로 본다.
+ *
+ * @param  {Array.<Object>} characters
+ *         시트의 모든 캐릭터.
+ * @param  {Array.<Object>} official
+ *         공식 징크스 목록.
+ * @return {Array.<Object>}
+ *         [{ a, b, reason }] — a·b 는 캐릭터.
+ */
+function collectJinxes(characters, official) {
+
+    const keyOf = (id) => normaliseId(id).replace(/\d+$/, "");
+    const byKey = new Map();
+    const seen = new Set();
+    const pairs = [];
+
+    characters.forEach((character) => {
+        if (!byKey.has(keyOf(character.id))) {
+            byKey.set(keyOf(character.id), character);
+        }
+    });
+
+    const add = (fromId, toId, reason) => {
+
+        const a = byKey.get(keyOf(fromId));
+        const b = byKey.get(keyOf(toId));
+        const pair = [keyOf(fromId), keyOf(toId)].sort().join("|");
+
+        if (!a || !b || a === b || !reason || seen.has(pair)) {
+            return;
+        }
+
+        seen.add(pair);
+        pairs.push({ a, b, reason });
+
+    };
+
+    characters.forEach((character) => {
+        (Array.isArray(character.jinxes) ? character.jinxes : []).forEach((jinx) => {
+            add(character.id, jinx.id, jinx.reason);
+        });
+    });
+
+    official.forEach((entry) => {
+        (Array.isArray(entry.jinx) ? entry.jinx : []).forEach((jinx) => {
+            add(entry.id, jinx.id, jinx.reason);
+        });
+    });
+
+    return pairs;
+
+}
+
+/**
+ * 요약표의 가운데 칸 제목을 만든다.
+ */
+function summaryHeading(text) {
+    return element("h2", "sheet-night__title sheet-summary__heading", text);
+}
+
+/**
+ * 아이콘 + 이름(+ 설명) 한 줄을 만든다.
+ */
+function summaryEntry(character, text) {
+
+    const row = element("div", `sheet-summary__entry sheet-role--${character.team || "fabled"}`);
+    const icon = element("div", "sheet-summary__icon");
+    const image = document.createElement("img");
+
+    image.src = characterImage(character);
+    image.alt = "";
+    icon.append(image);
+
+    const body = element("div", "sheet-role__body");
+
+    body.append(element("p", "sheet-role__name", character.name || character.id));
+
+    if (text) {
+
+        const ability = element("p", "sheet-role__ability");
+
+        appendRichText(ability, text, true);
+        body.append(ability);
+
+    }
+
+    row.append(icon, body);
+
+    return row;
+
+}
+
+/**
+ * 밤 순서 한쪽 띠(아이콘 + 이름)를 만든다.
+ */
+function summaryNight(title, rows) {
+
+    const column = element("div", "sheet-summary__night");
+
+    column.append(element("h3", "sheet-summary__night-title", title));
+
+    rows.forEach((row) => {
+
+        const line = element("div", `sheet-summary__night-row sheet-role--${row.team}`);
+
+        line.append(
+            nightIcon(row, "sheet-summary__icon"),
+            element("span", "sheet-role__name", row.name)
+        );
+        column.append(line);
+
+    });
+
+    return column;
+
+}
+
+/**
+ * 요약표 한 장을 그린다. 공식 시트 뒷면 배치(가운데 징크스·추천, 양쪽 밤 순서)를
+ * 따르고, 가운데에 전설·설화와 시트의 특별 규칙(_meta.bootlegger) 칸을 더한다.
+ *
+ * @param  {Object} payload
+ *         시트 데이터.
+ * @param  {Array.<Object>} characters
+ *         밤 순서에 쓸 캐릭터(밤 시트와 같은 목록).
+ * @return {Element}
+ *         완성된 페이지.
+ */
+function renderSummaryPage(payload, characters) {
+
+    const all = payload.characters;
+    const page = element("section", "sheet-page sheet-page--summary");
+    const body = element("div", "sheet-summary");
+    const center = element("div", "sheet-summary__center");
+
+    center.append(element("h1", "sheet-page__title sheet-summary__title", payload.name || "캐릭터 시트"));
+
+    // 징크스 — 공식 목록은 따로 받아오므로 도착하면 채운다.
+    const jinxList = element("div", "sheet-summary__list");
+
+    center.append(summaryHeading("징크스"), jinxList);
+
+    loadOfficialJinxes().then((official) => {
+
+        const pairs = collectJinxes(all, official);
+
+        if (!pairs.length) {
+            jinxList.append(element("p", "sheet-summary__empty", "없음"));
+        }
+
+        pairs.forEach(({ a, b, reason }) => {
+
+            const row = element("div", "sheet-summary__jinx");
+            const icons = element("div", "sheet-summary__pair");
+
+            [a, b].forEach((character) => {
+
+                const image = document.createElement("img");
+
+                image.src = characterImage(character);
+                image.alt = character.name || character.id;
+                icons.append(image);
+
+            });
+
+            const text = element("p", "sheet-role__ability");
+
+            appendRichText(text, reason, true);
+            row.append(icons, text);
+            jinxList.append(row);
+
+        });
+
+        fitPages();
+
+    });
+
+    // 전설·설화 + 특별 규칙
+    const legends = all.filter((character) => character.team === "fabled" || character.team === "loric");
+    const rules = (
+        payload.meta && payload.meta.bootlegger
+        ? [].concat(payload.meta.bootlegger).map((line) => String(line || "").trim()).filter(Boolean)
+        : []
+    );
+    const legendList = element("div", "sheet-summary__list");
+
+    center.append(summaryHeading("전설·설화"), legendList);
+    legends.forEach((character) => legendList.append(summaryEntry(character, character.ability)));
+
+    if (rules.length) {
+
+        legendList.append(element("h3", "sheet-summary__subheading", "특별 규칙"));
+
+        const list = element("ul", "sheet-summary__rules");
+
+        rules.forEach((line) => {
+
+            const item = element("li", "sheet-role__ability");
+
+            if (/^https?:\/\/\S+$/.test(line)) {
+
+                const link = element("a", null, "규칙 문서 열기");
+
+                link.href = line;
+                link.target = "_blank";
+                link.rel = "noopener";
+                item.append(link);
+
+            } else {
+                appendRichText(item, line, true);
+            }
+
+            list.append(item);
+
+        });
+
+        legendList.append(list);
+
+    }
+
+    if (!legends.length && !rules.length) {
+        legendList.append(element("p", "sheet-summary__empty", "없음"));
+    }
+
+    // 추천: 여행자·기타 — 특별 규칙만 있고 밀수업자 캐릭터가 없으면 밀수업자를 표시한다.
+    const others = legends.slice();
+
+    if (rules.length && !all.some((character) => normaliseId(character.id).replace(/\d+$/, "") === "bootlegger")) {
+        others.push({ id: "bootlegger", name: "밀주업자", team: "fabled" });
+    }
+
+    const recommend = element("div", "sheet-summary__recommend");
+
+    [
+        ["여행자", all.filter((character) => character.team === "traveller")],
+        ["기타", others]
+    ].forEach(([label, members]) => {
+
+        const column = element("div", "sheet-summary__list");
+
+        column.append(element("h3", "sheet-summary__subheading", label));
+        members.forEach((character) => column.append(summaryEntry(character, "")));
+
+        if (!members.length) {
+            column.append(element("p", "sheet-summary__empty", "없음"));
+        }
+
+        recommend.append(column);
+
+    });
+
+    center.append(summaryHeading("추천: 여행자·기타"), recommend);
+
+    body.append(
+        summaryNight("첫날 밤", buildNightOrder(payload, characters, "firstNight")),
+        center,
+        summaryNight("다른 밤", buildNightOrder(payload, characters, "otherNight"))
+    );
+    page.append(body, renderFooter(""));
 
     return page;
 
@@ -1069,11 +1385,16 @@ function render(payload) {
 
     const fileBase = payload.name || "캐릭터 시트";
 
+    const coreCount = payload.characters.filter(
+        (character) => CORE_TEAMS.includes(character.team)
+    ).length;
+
     [
         [renderCharacterPage(payload, characters), "캐릭터 시트"],
+        coreCount <= SUMMARY_MAX ? [renderSummaryPage(payload, characters), "요약표"] : null,
         [renderNightPage("첫날 밤", buildNightOrder(payload, characters, "firstNight")), "첫날 밤"],
         [renderNightPage("다른 밤", buildNightOrder(payload, characters, "otherNight")), "다른 밤"]
-    ].forEach(([page, label]) => wrapper.append(frame(page, label, fileBase)));
+    ].filter(Boolean).forEach(([page, label]) => wrapper.append(frame(page, label, fileBase)));
 
     root.append(wrapper);
     fitPages();
