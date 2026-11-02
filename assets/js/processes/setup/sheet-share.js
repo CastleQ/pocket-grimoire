@@ -9,10 +9,14 @@
 
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase-config.js";
 import { OFFICIAL_SHEETS } from "./select-edition.js";
+import Dialog from "../../classes/Dialog.js";
 
 const MAX_BYTES = 900000;   // 서버 상한 1MB보다 낮게 잡아 여유를 둔다
 const MIN_BYTES = 20;
 const RESET_DELAY = 5000;
+const CLOSE_SECONDS = 3;   // 링크 복사 뒤 마도서로 돌아가기까지
+
+let closeTimer = 0;
 
 /**
  * 내장 시트면 링크 미리보기용 고정 페이지 키(tb·bmr·snv 또는 manifest 파일 이름)를 찾는다.
@@ -135,6 +139,7 @@ function copyLink(text) {
  */
 function showResult(container, message, link) {
 
+    window.clearInterval(closeTimer);
     container.textContent = "";
     container.hidden = false;
 
@@ -158,6 +163,57 @@ function showResult(container, message, link) {
     });
 
     container.append(field);
+
+}
+
+/**
+ * 링크 복사가 끝나면 숫자를 3→2→1 로 세고 시트 창을 닫아 마도서로 돌아간다.
+ * 그 전에 사용자가 창을 닫으면 멈춘다.
+ *
+ * @param {Element} container
+ *        안내 문구를 넣을 곳.
+ */
+function startCloseCountdown(container) {
+
+    const dialog = container.closest("dialog") || document.querySelector("#qr-code-dialog");
+    const line = document.createElement("p");
+    const count = document.createElement("strong");
+    let left = CLOSE_SECONDS;
+
+    const show = () => {
+        count.textContent = String(left);
+        count.animate(
+            [{ transform: "scale(1.6)", opacity: 0.3 }, { transform: "scale(1)", opacity: 1 }],
+            { duration: 400, easing: "ease-out" }
+        );
+    };
+
+    count.style.display = "inline-block";
+    line.append(count, "초 뒤에 마도서로 돌아갑니다. X를 눌러서 닫으셔도 됩니다.");
+    container.firstElementChild.after(line);
+    show();
+
+    // 창이 닫히면(자동이든 X든) 세기를 멈추고, 다시 열었을 때 남지 않게 문구도 지운다.
+    const stop = () => {
+        window.clearInterval(closeTimer);
+        line.remove();
+    };
+
+    dialog.addEventListener(Dialog.HIDE, stop, { once: true });
+
+    closeTimer = window.setInterval(() => {
+
+        left -= 1;
+
+        if (left > 0) {
+            show();
+            return;
+        }
+
+        stop();
+        Dialog.create(dialog).hide();
+
+    }, 1000);
 
 }
 
@@ -238,6 +294,7 @@ export function initSheetShare(getPayload) {
                 if (copied) {
                     setLabel("✅ 복사 완료");
                     showResult(result, "✅ 링크가 복사되었습니다", link);
+                    startCloseCountdown(result);
                 } else {
                     setLabel("링크 생성됨");
                     showResult(
