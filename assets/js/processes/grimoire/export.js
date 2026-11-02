@@ -10,6 +10,7 @@
 // 안쪽 그림자를 못 그려 토큰이 갈색 원으로 나왔다.
 // 촬영 도구는 이 기능을 쓸 때만 따로 불러온다(첫 화면 용량 절약).
 import Dialog from "../../classes/Dialog.js";
+import { isInAppBrowser, LONG_PRESS_HINT } from "../../utils/in-app.js";
 import {
     lookupOne,
     lookupOneCached
@@ -288,6 +289,22 @@ function run(settings) {
         saveButton.disabled = false;
         setStatus("");
 
+        // 인앱 브라우저는 파일 저장을 무시한다. 길게 눌러 저장할 수 있게 그림을
+        // 데이터 주소(data:)로 바꿔 두고 안내한다.
+        if (isInAppBrowser()) {
+
+            const reader = new FileReader();
+
+            reader.addEventListener("load", () => {
+                if (blob === result) {
+                    image.src = reader.result;
+                }
+            });
+            reader.readAsDataURL(result);
+            setStatus(LONG_PRESS_HINT);
+
+        }
+
     }).catch((error) => {
 
         console.error(error);
@@ -431,6 +448,11 @@ copyButton.addEventListener("click", () => {
 saveButton.addEventListener("click", () => {
 
     if (!imageUrl) {
+        return;
+    }
+
+    if (isInAppBrowser()) {
+        setStatus(LONG_PRESS_HINT);
         return;
     }
 

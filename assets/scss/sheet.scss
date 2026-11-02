@@ -583,3 +583,72 @@ $sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", 
     font-size: calc(0.8rem * var(--sheet-scale));
 }
 
+
+// ── 인앱 브라우저(카카오톡 등) ─────────────────────────────────
+
+// 이미지 저장 대신 띄우는 그림 창. 그림을 길게 눌러 저장한다.
+.sheet-saved {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    overflow-y: auto;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.sheet-saved__panel {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #ffffff;
+    text-align: center;
+}
+
+.sheet-saved__hint {
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    word-break: keep-all;
+}
+
+.sheet-saved__close {
+    margin-bottom: 0.75rem;
+}
+
+.sheet-saved__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid $rule;
+}
+
+// 카카오톡으로 받은 공유 링크 맨 위 안내.
+.sheet-external {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
+    background: #fee500;
+    color: #191919;
+    text-align: center;
+}
+
+.sheet-external__text {
+    margin: 0;
+    font-size: 0.9rem;
+    word-break: keep-all;
+}
+
+.sheet-plain-button {
+    padding: 0.45rem 1rem;
+    border: 1px solid #191919;
+    border-radius: 0.4rem;
+    background: #ffffff;
+    color: #191919;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+}

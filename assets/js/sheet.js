@@ -16,6 +16,12 @@ import html2canvas from "html2canvas";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./processes/setup/supabase-config.js";
 import roleImages from "../data/role-images.json";
 import { appendRichText, appendReminderText } from "./utils/rich-text.js";
+import {
+    isInAppBrowser,
+    isKakaoTalk,
+    openInExternalBrowser,
+    LONG_PRESS_HINT
+} from "./utils/in-app.js";
 import officialNightOrder from "../data/night-order.json";
 import {
     NIGHT_INFO_STEPS,
@@ -1114,7 +1120,41 @@ function exportPage(page, inner, box, button, fileName) {
             logging: false
         });
 
-    }).then((canvas) => new Promise((resolve, reject) => {
+    }).then((canvas) => {
+
+        // 인앱 브라우저는 파일 저장을 무시하므로 그림을 띄워 길게 눌러 저장하게 한다.
+        if (isInAppBrowser()) {
+            showSavedImage(canvas.toDataURL("image/png"));
+            return null;
+        }
+
+        return saveCanvas(canvas, fileName);
+
+    }).catch((error) => {
+
+        window.alert(
+            "이미지 저장에 실패했습니다.\n"
+            + "외부 사이트의 캐릭터 그림이 저장을 막았을 수 있습니다.\n\n"
+            + error.message
+        );
+
+    }).then(restore, restore);
+
+}
+
+/**
+ * 촬영한 그림을 PNG 파일로 내려받는다.
+ *
+ * @param  {HTMLCanvasElement} canvas
+ *         촬영 결과.
+ * @param  {String} fileName
+ *         저장할 파일 이름(확장자 제외).
+ * @return {Promise}
+ *         내려받기를 시작하면 끝나는 약속.
+ */
+function saveCanvas(canvas, fileName) {
+
+    return new Promise((resolve, reject) => {
 
         canvas.toBlob((blob) => {
 
@@ -1126,7 +1166,7 @@ function exportPage(page, inner, box, button, fileName) {
 
         }, "image/png");
 
-    })).then((blob) => {
+    }).then((blob) => {
 
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
@@ -1138,15 +1178,33 @@ function exportPage(page, inner, box, button, fileName) {
         link.remove();
         window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 
-    }).catch((error) => {
+    });
 
-        window.alert(
-            "이미지 저장에 실패했습니다.\n"
-            + "외부 사이트의 캐릭터 그림이 저장을 막았을 수 있습니다.\n\n"
-            + error.message
-        );
+}
 
-    }).then(restore, restore);
+/**
+ * 만든 그림을 화면 위에 띄운다(인앱 브라우저용). 길게 눌러 저장할 수 있게
+ * 파일 주소(blob:)가 아닌 그림 데이터 주소(data:)를 쓴다.
+ *
+ * @param {String} dataUrl
+ *        PNG 그림 데이터 주소.
+ */
+function showSavedImage(dataUrl) {
+
+    const overlay = element("div", "sheet-saved");
+    const panel = element("div", "sheet-saved__panel");
+    const close = element("button", "sheet-plain-button sheet-saved__close", "닫기");
+    const image = document.createElement("img");
+
+    close.type = "button";
+    close.addEventListener("click", () => overlay.remove());
+    image.src = dataUrl;
+    image.alt = "시트 이미지";
+    image.className = "sheet-saved__image";
+
+    panel.append(element("p", "sheet-saved__hint", LONG_PRESS_HINT), close, image);
+    overlay.append(panel);
+    document.body.append(overlay);
 
 }
 
@@ -1396,6 +1454,22 @@ function render(payload) {
         [renderNightPage("첫날 밤", buildNightOrder(payload, characters, "firstNight")), "첫날 밤"],
         [renderNightPage("다른 밤", buildNightOrder(payload, characters, "otherNight")), "다른 밤"]
     ].filter(Boolean).forEach(([page, label]) => wrapper.append(frame(page, label, fileBase)));
+
+    // 카카오톡으로 받은 공유 링크: 기본 브라우저로 여는 길을 맨 위에 둔다.
+    if (getShareToken() && isKakaoTalk()) {
+
+        const banner = element("div", "sheet-external");
+        const open = element("button", "sheet-plain-button sheet-external__button", "다른 브라우저로 열기");
+
+        open.type = "button";
+        open.addEventListener("click", () => openInExternalBrowser(window.location.href));
+        banner.append(
+            element("p", "sheet-external__text", "카카오톡 브라우저에서는 이미지 저장 등 일부 기능이 제한될 수 있어요."),
+            open
+        );
+        root.append(banner);
+
+    }
 
     root.append(wrapper);
     fitPages();
