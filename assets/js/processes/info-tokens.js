@@ -25,45 +25,125 @@ InfoToken.setHolders({
     dialog: dialogHolder
 });
 
-// 캐릭터 선택 칸이 있는 정보 토큰("당신은")은 그리모어의 캐릭터 선택창을
-// 그대로 재사용해 이야기꾼이 고른 캐릭터 토큰을 보여준다.
+// 캐릭터 선택 칸이 있는 정보 토큰("당신은" 등)은 그리모어의 캐릭터 선택창을
+// 그대로 재사용해 이야기꾼이 고른 캐릭터 토큰을 보여준다. 최대 PLATE_MAX 개까지
+// 여러 개를 고를 수 있어서, 고르는 동안은 목록 아래 [확인][취소]로 끝낸다.
 const characterListDialog = SelectDialog.get();
+const PLATE_MAX = 5;
+const pickActions = lookupOne("#character-list-actions");
+const pickStatus = lookupOne("#character-list-status");
+const pickList = lookupOne("#character-list__list");
+let activePick = null;
 
-function wireCharacterSelect(token, initialToken) {
+// 지금 고른 캐릭터를 목록에 표시한다(테두리 + 고른 순서 번호).
+function markPicked(ids) {
+
+    pickList.querySelectorAll("[data-token-id]").forEach((button) => {
+
+        const order = ids.indexOf(button.dataset.tokenId);
+
+        button.classList.toggle("is-picked", order > -1);
+
+        if (order > -1) {
+            button.dataset.pickOrder = String(order + 1);
+        } else {
+            delete button.dataset.pickOrder;
+        }
+
+    });
+
+    pickStatus.textContent = `${ids.length} / ${PLATE_MAX}개 선택`;
+
+}
+
+lookupOne("#character-list-confirm").addEventListener("click", () => {
+
+    if (activePick) {
+        activePick.confirm();
+    }
+
+    characterListDialog.hide();
+
+});
+
+lookupOne("#character-list-cancel").addEventListener("click", () => {
+    characterListDialog.hide();
+});
+
+// 정보 토큰마다 접시를 비우는 방법을 모아 둔다(마도서 지우기 때 쓴다).
+const plateResets = new Set();
+
+function wireCharacterSelect(token, initialId = "") {
 
     const button = token.getCharacterSelectButton();
+    const initial = initialId ? [initialId] : [];
+    let selected = initial.slice();
+
+    const draw = () => {
+
+        TokenStore.ready((tokenStore) => {
+
+            const characters = selected
+                .map((id) => tokenStore.getCharacter(id))
+                .filter(Boolean);
+
+            token.setCharacterTokens(
+                characters.length
+                ? characters.map((character) => character.drawToken())
+                : [tokenStore.getEmptyCharacter().drawToken()]
+            );
+
+        });
+
+    };
 
     // 아무 캐릭터도 고르지 않은 초기 상태는 악마의 속임수 칸과 똑같은 빈 캐릭터
     // 토큰(크림색 원판)으로 보여준다. CSS로 흉내낸 점선 원은 쓰지 않는다.
     // 시트가 처음부터 보여줄 캐릭터를 정해 두었으면 그 토큰으로 시작한다.
-    if (initialToken) {
-        token.setCharacterToken(initialToken);
-    } else {
-        TokenStore.ready((tokenStore) => {
-            token.setCharacterToken(tokenStore.getEmptyCharacter().drawToken());
-        });
-    }
+    draw();
+
+    // 마도서 지우기: 빈 접시로(시트가 정해 둔 캐릭터가 있으면 그 캐릭터로) 되돌린다.
+    const reset = () => {
+        selected = initial.slice();
+        draw();
+    };
+
+    plateResets.add(reset);
+    token.forgetPlates = () => plateResets.delete(reset);
 
     // #character-list는 "그리모어" 접이식 패널(<details id="grimoire">) 안에 있다.
     // 그 패널이 접혀 있으면 다이얼로그를 열어도 크기가 0이 되어 화면에 보이지 않으므로
     // (general.js의 #character-select 처리와 같은 이유), 여는 동안만 강제로 펼친다.
     let grimoireWasOpen = true;
+    let picking = [];
 
     const process = {
 
         click(tokenId) {
 
-            TokenStore.ready((tokenStore) => {
-                token.setCharacterToken(tokenStore.getCharacter(tokenId).drawToken());
-            });
+            const index = picking.indexOf(tokenId);
 
-            characterListDialog.hide();
+            if (index > -1) {
+                picking.splice(index, 1);
+            } else if (picking.length < PLATE_MAX) {
+                picking.push(tokenId);
+            }
 
+            markPicked(picking);
+
+        },
+
+        confirm() {
+            selected = picking.slice();
+            draw();
         },
 
         hide() {
 
             characterListDialog.removeProcess(process);
+            activePick = null;
+            pickActions.hidden = true;
+            markPicked([]);
 
             if (!grimoireWasOpen) {
                 lookupOneCached("#grimoire").open = false;
@@ -79,12 +159,110 @@ function wireCharacterSelect(token, initialToken) {
         grimoireWasOpen = grimoireSection.open;
         grimoireSection.open = true;
 
+        picking = selected.slice();
+        activePick = process;
+        pickActions.hidden = false;
+        markPicked(picking);
+
         characterListDialog.addProcess(process);
         characterListDialog.show();
 
     });
 
 }
+
+// 악마·하수인 정보 토큰: 마도서 토큰에 적힌 참가자 이름을 골라 이름만 보여 준다.
+const namesDialog = Dialog.create(lookupOne("#info-token-names-dialog"));
+const namesList = lookupOne("#info-token-names-list");
+let activeNames = null;
+
+function padNames() {
+
+    // 이 파일이 마도서(pad)보다 먼저 불릴 수 있어 쓸 때 찾는다.
+    const pad = lookupOneCached(".js--pad").pad;
+    const names = pad.characters
+        .map(({ character }) => pad.getPlayerName(character).trim())
+        .filter(Boolean);
+
+    return Array.from(new Set(names));
+
+}
+
+lookupOne("#info-token-names-confirm").addEventListener("click", () => {
+
+    if (activeNames) {
+        activeNames.confirm(
+            Array.from(namesList.querySelectorAll(".is-picked")).map((button) => button.dataset.name)
+        );
+    }
+
+    namesDialog.hide();
+
+});
+
+lookupOne("#info-token-names-cancel").addEventListener("click", () => namesDialog.hide());
+namesDialog.on(Dialog.HIDE, () => {
+    activeNames = null;
+});
+
+namesList.addEventListener("click", ({ target }) => {
+
+    const button = target.closest("[data-name]");
+
+    if (button) {
+        button.classList.toggle("is-picked");
+    }
+
+});
+
+function wireNameSelect(token) {
+
+    let names = [];
+    const reset = () => {
+        names = [];
+        token.setNames(names);
+    };
+
+    reset();
+    plateResets.add(reset);
+
+    token.getNamesButton().addEventListener("click", () => {
+
+        // 마도서에서 이름이 바뀌었을 수 있으므로, 지금 없는 이름도 고른 상태로 남겨 둔다.
+        const choices = Array.from(new Set([...padNames(), ...names]));
+
+        namesList.innerHTML = "";
+        choices.forEach((name) => {
+
+            const item = document.createElement("li");
+            const button = document.createElement("button");
+
+            button.type = "button";
+            button.className = "button info-token-names__option";
+            button.dataset.name = name;
+            button.textContent = name;
+            button.classList.toggle("is-picked", names.includes(name));
+            item.append(button);
+            namesList.append(item);
+
+        });
+
+        lookupOne("#info-token-names-empty").hidden = choices.length > 0;
+        activeNames = {
+            confirm(picked) {
+                names = picked;
+                token.setNames(names);
+            }
+        };
+        namesDialog.show();
+
+    });
+
+}
+
+// 마도서 지우기: 정보 토큰의 캐릭터 접시·참가자 이름을 비운다(커스텀 정보 토큰은 그대로).
+Observer.create("game").on("clear", () => plateResets.forEach((reset) => reset()));
+Observer.create("game").on("plates-reset", () => plateResets.forEach((reset) => reset()));
 
 JSON.parse(buttonHolder.dataset.infoTokens).forEach((data) => {
 
@@ -93,6 +271,10 @@ JSON.parse(buttonHolder.dataset.infoTokens).forEach((data) => {
 
     if (data.characterSelect) {
         wireCharacterSelect(token);
+    }
+
+    if (data.nameSelect) {
+        wireNameSelect(token);
     }
 
 });
@@ -130,7 +312,10 @@ function cleanText(value) {
 
 function makeSheetTokens(meta, characters) {
 
-    sheetTokens.forEach((token) => token.remove());
+    sheetTokens.forEach((token) => {
+        token.remove();
+        (token.forgetPlates || (() => {}))();
+    });
     sheetTokens = [];
 
     const list = (
@@ -175,7 +360,7 @@ function makeSheetTokens(meta, characters) {
         token.draw();
 
         if (hasSlot) {
-            wireCharacterSelect(token, preset ? preset.drawToken() : null);
+            wireCharacterSelect(token, preset ? preset.getId() : "");
         }
 
         sheetTokens.push(token);

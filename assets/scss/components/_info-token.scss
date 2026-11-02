@@ -119,3 +119,63 @@
     text-shadow: 0.1em 0.1em 0.1em rgb(0 0 0 / 80%);
     margin: 1em 0;
 }
+
+// 캐릭터 접시 여러 개(최대 5): 개수가 늘수록 접시를 줄여 한 화면에 담는다.
+.info-token__character[data-count="2"],
+.info-token__character[data-count="3"],
+.info-token__character[data-count="4"],
+.info-token__character[data-count="5"] {
+    max-width: 22em;
+
+    .info-token__character-select {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.4em;
+        aspect-ratio: auto;
+    }
+}
+
+.info-token__plate {
+    display: block;
+    width: 100%;
+}
+
+.info-token__character[data-count="2"] .info-token__plate {
+    width: 7em;
+}
+
+.info-token__character[data-count="3"] .info-token__plate {
+    width: 6em;
+}
+
+.info-token__character[data-count="4"] .info-token__plate,
+.info-token__character[data-count="5"] .info-token__plate {
+    width: 5em;
+}
+
+// 악마·하수인 정보: 참가자 이름만 크게 보여 준다. 비었을 때는 작은 안내만.
+.info-token__names {
+    margin: 0.5em 0 0;
+}
+
+.info-token__names-select {
+    @extend %no-btn;
+    cursor: pointer;
+    color: #fff;
+    font-size: clamp(1.2rem, 8vw, 2.4rem);
+    font-weight: 700;
+    word-break: keep-all;
+
+    &.is-empty {
+        font-size: 1rem;
+        font-weight: 400;
+        opacity: 0.6;
+        border: 1px dashed currentColor;
+        padding: 0.3em 0.8em;
+    }
+}
+
+.info-token-names__option.is-picked {
+    box-shadow: 0 0 0 0.2em #ffd24a;
+}

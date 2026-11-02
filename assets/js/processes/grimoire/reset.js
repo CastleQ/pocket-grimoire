@@ -66,4 +66,7 @@ lookupOne("#clear-grimoire").addEventListener("click", ({ target }) => {
     // 마도서 가운데 인원 현황도 지운다 (tally.js).
     gameObserver.trigger("tally-reset");
 
+    // 정보 토큰·악마의 속임수의 캐릭터 접시도 비운다 (info-tokens.js, demon-bluffs.js).
+    gameObserver.trigger("plates-reset");
+
 });

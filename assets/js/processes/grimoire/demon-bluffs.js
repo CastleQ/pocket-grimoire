@@ -251,12 +251,16 @@ TokenStore.ready((tokenStore) => {
 
     });
 
-    gameObserver.on("clear", () => {
+    // 마도서 지우기(전설을 남기는 경우 포함): 악마의 속임수 접시를 모두 비운다.
+    const clearBluffs = () => {
 
         bluffGroups.removeAll();
         bluffGroups.addEmpty();
 
-    });
+    };
+
+    gameObserver.on("clear", clearBluffs);
+    gameObserver.on("plates-reset", clearBluffs);
 
     // #131 - highlight any orphan characters.
     gameObserver.on("characters-selected", ({ detail }) => {

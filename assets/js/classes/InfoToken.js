@@ -99,7 +99,7 @@ export default class InfoToken {
      * @return {Object}
      *         Interpretted data.
      */
-    static interpret({ raw, markup, id, colour, custom, characterSelect, characterSelectSuffix, holder, label }) {
+    static interpret({ raw, markup, id, colour, custom, characterSelect, characterSelectSuffix, nameSelect, holder, label }) {
 
         if (raw && !markup) {
             markup = markdown2html(raw);
@@ -126,6 +126,7 @@ export default class InfoToken {
             custom: Boolean(custom),
             characterSelect: Boolean(characterSelect),
             characterSelectSuffix: characterSelectSuffix || "",
+            nameSelect: Boolean(nameSelect),
             holder: holder || (custom ? "custom" : "button"),
             label: label || text
         };
@@ -204,7 +205,8 @@ export default class InfoToken {
             colour,
             custom,
             characterSelect,
-            characterSelectSuffix
+            characterSelectSuffix,
+            nameSelect
         } = this.data;
         const {
             holders,
@@ -224,6 +226,9 @@ export default class InfoToken {
             },
             ".js--info-token--character"(element) {
                 element.hidden = !characterSelect;
+            },
+            ".js--info-token--names"(element) {
+                element.hidden = !nameSelect;
             },
             ".js--info-token--character-suffix"(element) {
                 element.textContent = characterSelectSuffix;
@@ -264,7 +269,50 @@ export default class InfoToken {
      *        A drawn character token - see `CharacterToken#drawToken`.
      */
     setCharacterToken(tokenElement) {
-        empty(this.getCharacterSelectButton()).append(tokenElement);
+        this.setCharacterTokens([tokenElement]);
+    }
+
+    /**
+     * 캐릭터 접시를 여러 개(최대 5) 채운다. 개수가 늘면 CSS 가 접시를 줄여 한 화면에 담는다.
+     *
+     * @param {Array.<Element|DocumentFragment>} tokenElements
+     *        `CharacterToken#drawToken` 결과 목록.
+     */
+    setCharacterTokens(tokenElements) {
+
+        const button = empty(this.getCharacterSelectButton());
+
+        tokenElements.forEach((tokenElement) => {
+
+            const plate = document.createElement("span");
+
+            plate.className = "info-token__plate";
+            plate.append(tokenElement);
+            button.append(plate);
+
+        });
+
+        button.closest(".js--info-token--character").dataset.count = String(tokenElements.length);
+
+    }
+
+    getNamesButton() {
+        return lookupOne(".js--info-token--names-select", this.dialog);
+    }
+
+    /**
+     * 참가자 이름을 보여 준다. 비었으면 이야기꾼만 알아볼 작은 안내만 둔다.
+     *
+     * @param {Array.<String>} names
+     *        보여 줄 이름.
+     */
+    setNames(names) {
+
+        const button = this.getNamesButton();
+
+        button.classList.toggle("is-empty", !names.length);
+        button.textContent = names.length ? names.join(", ") : "+ 참가자 이름";
+
     }
 
     /**

@@ -7,6 +7,14 @@
 } %}
     {% block body %}
     <ul id="character-list__list" class="button-list button-list--reminder character-list"></ul>
+    {# 정보 토큰의 캐릭터 접시를 여러 개 고를 때만 보인다 (info-tokens.js) #}
+    <div class="character-list__actions" id="character-list-actions" hidden>
+        <p class="character-list__status" id="character-list-status" role="status" aria-live="polite"></p>
+        <ul class="button-list">
+            <li><button type="button" class="button" id="character-list-confirm">확인</button></li>
+            <li><button type="button" class="button button--warning" id="character-list-cancel">취소</button></li>
+        </ul>
+    </div>
     {% endblock %}
 {% endembed %}
 

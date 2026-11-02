@@ -10,3 +10,38 @@
     }
 
 }
+
+// 정보 토큰 캐릭터 접시를 여러 개 고를 때(info-tokens.js): 고른 캐릭터에 테두리와 순서 번호.
+.character-list [data-token-id].is-picked {
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.2em #ffd24a;
+
+    &::after {
+        content: attr(data-pick-order);
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 1.5em;
+        line-height: 1.5em;
+        border-radius: 50%;
+        background: #ffd24a;
+        color: #000;
+        font-weight: 700;
+        text-align: center;
+    }
+}
+
+// [확인][취소] — 목록이 길어도 늘 보이게 창 아래에 붙인다.
+.character-list__actions {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    padding: 0.5em 0;
+    background: inherit;
+    text-align: center;
+}
+
+.character-list__status {
+    margin: 0 0 0.5em;
+}

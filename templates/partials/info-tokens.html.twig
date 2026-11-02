@@ -2,12 +2,14 @@
     {
         id: 'isdemon',
         colour: 'red',
-        markup: 'info_tokens.info_tokens.isdemon'|trans
+        markup: 'info_tokens.info_tokens.isdemon'|trans,
+        nameSelect: true
     },
     {
         id: 'isminion',
         colour: 'red',
-        markup: 'info_tokens.info_tokens.isminion'|trans
+        markup: 'info_tokens.info_tokens.isminion'|trans,
+        nameSelect: true
     },
     {
         id: 'notinplay',
@@ -24,7 +26,8 @@
         id: 'playeris',
         colour: 'purple',
         markup: 'info_tokens.info_tokens.playeris'|trans,
-        characterSelect: true
+        characterSelect: true,
+        characterSelectSuffix: 'info_tokens.info_tokens.youare_suffix'|trans
     },
     {
         id: 'youare',
@@ -74,6 +77,21 @@
 
 <div id="info-token-dialog-holder"></div>
 
+{% embed 'includes/dialog.html.twig' with {
+    id: 'info-token-names-dialog',
+    background: 'blur',
+    title: '참가자 선택'
+} %}
+    {% block body %}
+    <p class="info-token-names__empty" id="info-token-names-empty" hidden>마도서에 입력된 참가자 이름이 없습니다.</p>
+    <ul class="button-list info-token-names__list" id="info-token-names-list"></ul>
+    <ul class="button-list mt-4">
+        <li><button type="button" class="button" id="info-token-names-confirm">확인</button></li>
+        <li><button type="button" class="button button--warning" id="info-token-names-cancel">취소</button></li>
+    </ul>
+    {% endblock %}
+{% endembed %}
+
 <template id="info-token-button-template">
     <li>
         <button type="button" class="button button--full-height js--info-token--button"></button>
@@ -90,6 +108,10 @@
         {% block body %}
         <button class="info-token__hide" type="button" aria-label="{{ 'dialog.close'|trans }}" data-dialog-hide>&times;</button>
         <p class="info-token__text js--info-token--dialog-text"></p>
+        {# 악마·하수인 정보: 마도서에 적힌 참가자 이름만 보여 준다 (캐릭터는 안 보임) #}
+        <div class="info-token__names js--info-token--names" hidden>
+            <button type="button" class="info-token__names-select js--info-token--names-select"></button>
+        </div>
         <div class="info-token__character js--info-token--character" hidden>
             <button type="button" class="info-token__character-select js--info-token--character-select" aria-label="{{ 'info_tokens.select_character'|trans }}"></button>
         </div>
