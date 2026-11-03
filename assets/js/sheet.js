@@ -47,6 +47,8 @@ const FIT_STEPS = [
 // 화면도 A4 한 장으로 보여 주는 시트 조건(CastleQ 2026-11-03): 캐릭터마다 능력 글자 수 150자 이하.
 // 인원 제한은 두지 않고, 글자를 A4_SCREEN_FONT_FLOOR 밑으로 줄여야 담기는 장만 제외한다.
 const A4_SCREEN_ABILITY_MAX = 150;
+// 글자 수 기준에서 빼 주는 캐릭터 id(CastleQ 지정). 점소이 천룡교 158자.
+const A4_SCREEN_ABILITY_EXEMPT = ["24muhub"];
 const A4_SCREEN_FONT_FLOOR = 0.7;
 
 // 요약표는 이 수보다 캐릭터(주민·외지인·하수인·악마)가 많으면 만들지 않는다.
@@ -989,7 +991,10 @@ function fitA4(page, fontFloor = 0) {
  * 화면에서도 A4 한 장으로 보여 줄 시트인지(A4_SCREEN_* 조건).
  */
 function isA4ScreenSheet(characters) {
-    return characters.every((character) => String(character.ability || "").length <= A4_SCREEN_ABILITY_MAX);
+    return characters.every((character) => (
+        A4_SCREEN_ABILITY_EXEMPT.includes(character.id)
+        || String(character.ability || "").length <= A4_SCREEN_ABILITY_MAX
+    ));
 }
 
 let a4Screen = false;
