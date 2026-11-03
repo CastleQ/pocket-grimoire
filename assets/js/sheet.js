@@ -44,10 +44,9 @@ const FIT_STEPS = [
     ["--sheet-font", 0.6, 0.02]
 ];
 
-// 화면도 A4 한 장으로 보여 주는 시트 조건: 시계피 표준 최대 인원(주민13·외지인4·하수인4·악마4) 이하,
-// 캐릭터마다 능력 글자 수가 공식 최장(마귀할멈 110자)의 +20% 이하. 글자를 이보다 더 줄여야 하면 제외.
-const A4_SCREEN_MAX = { townsfolk: 13, outsider: 4, minion: 4, demon: 4 };
-const A4_SCREEN_ABILITY_MAX = 132;
+// 화면도 A4 한 장으로 보여 주는 시트 조건(CastleQ 2026-11-03): 캐릭터마다 능력 글자 수 150자 이하.
+// 인원 제한은 두지 않고, 글자를 A4_SCREEN_FONT_FLOOR 밑으로 줄여야 담기는 장만 제외한다.
+const A4_SCREEN_ABILITY_MAX = 150;
 const A4_SCREEN_FONT_FLOOR = 0.7;
 
 // 요약표는 이 수보다 캐릭터(주민·외지인·하수인·악마)가 많으면 만들지 않는다.
@@ -990,16 +989,7 @@ function fitA4(page, fontFloor = 0) {
  * 화면에서도 A4 한 장으로 보여 줄 시트인지(A4_SCREEN_* 조건).
  */
 function isA4ScreenSheet(characters) {
-
-    const counts = {};
-
-    characters.forEach((character) => {
-        counts[character.team] = (counts[character.team] || 0) + 1;
-    });
-
-    return Object.keys(A4_SCREEN_MAX).every((team) => (counts[team] || 0) <= A4_SCREEN_MAX[team])
-        && characters.every((character) => String(character.ability || "").length <= A4_SCREEN_ABILITY_MAX);
-
+    return characters.every((character) => String(character.ability || "").length <= A4_SCREEN_ABILITY_MAX);
 }
 
 let a4Screen = false;
