@@ -60,6 +60,7 @@ cp public/whale.html docs/whale.html
 node tools/wiki/build-guide-data.js || { echo "❌ 캐릭터 가이드 데이터 점검 실패 — 위 FAIL 항목 확인"; exit 1; }
 cp public/guide.html docs/guide.html
 rm -rf docs/guide && cp -r public/guide docs/guide
+node tools/build-flavors.js
 rm -rf docs/scripts && cp -r public/scripts docs/scripts
 rm -rf docs/img && cp -r public/img docs/img
 touch docs/.nojekyll
