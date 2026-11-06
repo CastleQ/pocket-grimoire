@@ -24,6 +24,9 @@
   .char-icon img { max-width:100%; max-height:100%; }
   .char-name { font-size:1.8rem; font-weight:800; margin-bottom:10px; }
   .char-ability { font-size:1.05rem; line-height:1.6; margin-bottom:24px; }
+  /* 플레이버 문구 — 한글 위키(botc-wiki-ko)의 p.flavour 와 같은 글꼴·모양 */
+  @font-face { font-family:"Sanhayeop"; src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/Diphylleia-Regular.woff2") format("woff2"); font-weight:normal; font-display:swap; }
+  .char-flavor { font-family:"Sanhayeop", serif; font-size:16px; color:#000; font-style:italic; line-height:1.6; margin:-12px 8px 24px; word-break:keep-all; }
   .name-label { font-size:1.3rem; font-weight:800; margin:18px 0 10px; }
   .name-input { width:100%; padding:14px; font-size:1.1rem; border:3px solid #333; border-radius:6px; text-align:center; }
   .msg { font-size:1.15rem; line-height:1.7; }
@@ -85,6 +88,7 @@
     <div class="char-icon" id="char-icon"></div>
     <div class="char-name" id="char-name"></div>
     <div class="char-ability" id="char-ability"></div>
+    <div class="char-flavor hidden" id="char-flavor"></div>
     <div class="name-label">이름 입력</div>
     <input class="name-input" id="player-name" type="text" placeholder="이름을 입력하세요" autocomplete="off">
     <button class="btn" id="btn-submit">이야기꾼에게 보내기</button>
@@ -173,6 +177,7 @@ function showCharacter(detail) {
   el("char-icon").classList.remove("hidden");
   el("char-name").textContent = (detail && detail.character_name) ? detail.character_name : (claimState ? claimState.characterId : "");
   el("char-ability").textContent = (detail && detail.character_ability) ? detail.character_ability : "";
+  showFlavor(claimState ? claimState.characterId : "", detail ? detail.character_name : "");
   const icon = el("char-icon");
   icon.innerHTML = "";
   const imgUrl = detail ? detail.character_image : "";
@@ -187,6 +192,24 @@ function showCharacter(detail) {
   unloadGuardActive = true;
   guideAllowed = true;
   updateGuideButtons();
+}
+// 플레이버 문구: 내장 시트 JSON에 있으면 그것(scripts/flavors.json), 없으면 위키(guide/data/roles.json)에서 id → 이름 순으로 찾는다.
+function showFlavor(characterId, characterName) {
+  const box = el("char-flavor");
+  box.classList.add("hidden");
+  if (!characterId) { return; }
+  const get = function (url) { return fetch(url, { cache: "no-cache" }).then(function (res) { return res.ok ? res.json() : {}; }).catch(function () { return {}; }); };
+  Promise.all([get("scripts/flavors.json"), get("guide/data/roles.json")]).then(function (data) {
+    const sheet = data[0] || {};
+    const roles = data[1] || {};
+    let text = sheet[normaliseId(characterId)] || (roles[characterId] && roles[characterId].flavor) || "";
+    if (!text && characterName) {
+      Object.keys(roles).some(function (id) { if (roles[id].name === characterName && roles[id].flavor) { text = roles[id].flavor; return true; } return false; });
+    }
+    if (!text) { return; }
+    box.textContent = "\"" + text + "\"";
+    box.classList.remove("hidden");
+  });
 }
 function showRecover() {
   el("char-icon").classList.add("hidden");
