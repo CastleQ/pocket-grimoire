@@ -56,3 +56,14 @@ Bluffing → 블러핑 / Claim → 주장하다 / Tips & Tricks → 팁과 요�
 - 유형 아이콘(위키 메인의 물음표 그림)은 `guide/img/generic_<유형>.webp`(200px)로 둔다. 캐릭터 도감(botc-wiki-ko) 메인이 읽는다 — 이름을 바꾸지 않는다.
 - 판 로고는 `guide/img/logo_<판>.webp`로 저장하고 `guide.html`의 `EDITIONS`에 추가한다 (현재 `tb`·`bmr`·`snv`).
 - 캐릭터 그림은 저장소의 `public/img/official/<id>_0.webp`를 쓴다.
+
+## 홈브류 캐릭터 문서 (2026-11-06~)
+
+공식 위키 번역이 아닌, 내장 홈브류 시트의 캐릭터 문서도 같은 자리에 둔다. 첫 사례: 「반지의 제왕: 반지 원정대」(판 id `lotr`, 27개).
+
+- `chars/<id>.json`에 `"homebrew": "<public/scripts 시트 파일>"`, `"edition": "<홈브류 판 id>"`를 적는다. id는 시트 id 그대로(`pippin1`). `source`·`artist`·`podcast`는 없다.
+- 이름·유형·능력·플레이버는 **시트 JSON이 정본**이다. `build-guide-data.js`가 시트에서 읽어 `roles.json`에 넣고 `"homebrew": 판 id`를 붙인다. 시트 문구를 고치면 다시 굽기만 하면 된다.
+- 아이콘은 `public/img/official/<id>_0.webp`(400px)로 둔다. 위키·도감이 이 경로만 읽는다.
+- 영어 원문 점검은 건너뛴다. `{c:id}`는 숫자가 든 id도 된다.
+- PG+: `guide.html`(뽑기 화면 위키)·그리모어 보라색 버튼은 index에 id가 있으면 자동으로 연결된다. 홈브류 표시는 `guide.html`의 `HOMEBREW`.
+- 도감(botc-wiki-ko): `common.js`의 `HOMEBREW`에 판을 추가 → 메인 "홈브류 스크립트"·`edition-<id>.html`(전설 포함)에 나오고 공식 유형 페이지에는 섞이지 않는다. `og/edition-<id>.jpg`를 만들고 `tools/build-og-images.js`·`tools/build-og.js`를 돌린다.
