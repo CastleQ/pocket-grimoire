@@ -199,10 +199,14 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in;
         bmr: { alt: "Bad Moon Rising", logo: "guide/img/logo_bmr.webp" },
         snv: { alt: "Sects & Violets", logo: "guide/img/logo_snv.webp" }
     };
+    // 홈브류 판(roles.json의 homebrew 값). 공식 위키 번역이 아니라 시트 제작자의 문서다.
+    var HOMEBREW = {
+        lotr: { name: "반지의 제왕: 반지 원정대", author: "CastleQ" }
+    };
     var TEAM_NAMES = { townsfolk: "주민", outsider: "외지인", minion: "하수인", demon: "악마", traveller: "여행자", fabled: "전설", loric: "설화" };
 
     var params = new URLSearchParams(window.location.search);
-    var id = (params.get("id") || "").replace(/[^a-z_]/g, "");
+    var id = (params.get("id") || "").replace(/[^a-z0-9_]/g, "");
     var page = document.getElementById("page");
     var roles = {};
     var translated = [];
@@ -248,7 +252,7 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in;
         return esc(text)
             .replace(/\{ability\}/g, esc(self.ability))
             .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
-            .replace(/\{c:([a-z_]+)\}/g, function (all, roleId) {
+            .replace(/\{c:([a-z0-9_]+)\}/g, function (all, roleId) {
                 return roleLabel(roleId);
             });
     }
@@ -276,17 +280,22 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in;
 
         var self = roles[guide.id];
         var edition = EDITIONS[guide.edition];
+        var homebrew = HOMEBREW[self.homebrew];
         var html = "";
 
         html += "<h1 class=\"title\">" + esc(self.name) + "</h1>";
-        html += "<h3 id=\"tagline\">시계탑에 흐른 피 위키에서</h3>";
+        html += "<h3 id=\"tagline\">" + (homebrew
+            ? "홈브류 「" + esc(homebrew.name) + "」"
+            : "시계탑에 흐른 피 위키에서") + "</h3>";
 
         html += "<div id=\"character-details\">";
         html += "<div class=\"masked\">" + mask();
         html += "<img class=\"icon\" src=\"img/official/" + esc(guide.id) + "_0.webp\" alt=\"\">";
         html += "<span class=\"details-label\">정보</span>";
         html += "<table><tr><td>유형</td><td>" + esc(TEAM_NAMES[self.team] || "") + "</td></tr>";
-        html += "<tr><td>아티스트</td><td>" + esc(guide.artist || "") + "</td></tr></table>";
+        html += homebrew
+            ? "<tr><td>제작</td><td>" + esc(homebrew.author) + " (홈브류)</td></tr></table>"
+            : "<tr><td>아티스트</td><td>" + esc(guide.artist || "") + "</td></tr></table>";
         if (self.flavor) {
             html += "<p class=\"flavour\">\"" + esc(self.flavor) + "\"</p>";
         }
@@ -320,9 +329,12 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in;
             html += "</section>";
         });
 
-        html += "<div class=\"credit\">이 페이지는 Blood on the Clocktower 공식 위키 문서(판 " + esc(guide.source.oldid) +
-            ", " + esc(guide.source.lastEdited) + " 수정)를 제작사 TPI의 Community Created Content 정책에 의거하여 한국어로 번역한 페이지입니다. " +
-            "<button type=\"button\" id=\"open-original\">원문(영어) 보기</button></div>";
+        html += homebrew
+            ? "<div class=\"credit\">이 페이지는 " + esc(homebrew.author) + "가 만든 홈브류 스크립트 「" + esc(homebrew.name) +
+                "」의 캐릭터 문서입니다. 공식 캐릭터가 아닙니다.</div>"
+            : "<div class=\"credit\">이 페이지는 Blood on the Clocktower 공식 위키 문서(판 " + esc(guide.source.oldid) +
+                ", " + esc(guide.source.lastEdited) + " 수정)를 제작사 TPI의 Community Created Content 정책에 의거하여 한국어로 번역한 페이지입니다. " +
+                "<button type=\"button\" id=\"open-original\">원문(영어) 보기</button></div>";
 
         page.innerHTML = html;
 
@@ -335,7 +347,8 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in;
             });
         }
 
-        document.getElementById("open-original").addEventListener("click", function () {
+        var openOriginal = document.getElementById("open-original");
+        openOriginal && openOriginal.addEventListener("click", function () {
             if (window.confirm("원문 위키는 캐릭터 그림이 화면에 크게 보입니다.\n주변 사람에게 보이지 않는지 확인하세요.\n\n원문을 여시겠어요?")) {
                 window.open("https://wiki.bloodontheclocktower.com/" + encodeURIComponent(guide.source.page), "_blank", "noopener");
             }
