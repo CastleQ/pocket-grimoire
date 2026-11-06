@@ -88,6 +88,10 @@ const wikiDataReady = Promise.all([
 
     guideIds = Array.isArray(ids) ? ids : [];
     Object.entries(roles || {}).forEach(([id, role]) => {
+        // 홈브류 캐릭터(roles.homebrew)는 id 로만 찾는다. 이름으로 찾으면 다른 시트의 같은 이름 캐릭터와 섞인다.
+        if (role.homebrew) {
+            return;
+        }
         officialByName[squash(role.name)] = id;
         officialTeam[id] = role.team;
     });

@@ -13,7 +13,11 @@
 //  2-2. public/guide/data/catalog.json 생성 — 캐릭터 도감 사이트(botc-wiki-ko)용 분류 목록.
 //  3. 점검 (하나라도 FAIL이면 종료 코드 1)
 //     - 번역 파일의 {c:id}가 roles.json에 모두 있는가
-//     - 번역 파일과 영어 원문(tools/wiki/src)의 칸 구조가 같은가
+//     - 번역 파일과 영어 원문(tools/wiki/src)의 칸 구조가 같은가 (홈브류는 원문이 없어 건너뛴다)
+//
+// 홈브류 가이드: chars/<id>.json에 "homebrew": "<public/scripts 시트 파일>"이 있으면
+//   이름·유형·능력·대사·그림은 그 시트 JSON에서 가져오고(시트가 정본), roles에 "homebrew": 판 id를 붙인다.
+//   id는 시트 id 그대로(예: pippin1). 판(edition)은 홈브류 판 id(예: lotr), 도감 목록 순서는 시트 순서.
 //
 // 여러 번 실행해도 결과가 같다 (C-7).
 
@@ -29,6 +33,30 @@ const charsDir = path.join(dataDir, "chars");
 
 const master = JSON.parse(fs.readFileSync(masterPath, "utf8"));
 const appIds = new Set(JSON.parse(fs.readFileSync(appDataPath, "utf8")).map((c) => c.id));
+
+// 홈브류 가이드(시트에 딸린 캐릭터) 목록 — roles·catalog에 함께 쓴다.
+const guideFiles = fs.readdirSync(charsDir).filter((file) => file.endsWith(".json")).sort();
+const homebrewOrder = {};
+const homebrewRoles = {};
+guideFiles.forEach((file) => {
+    const guide = JSON.parse(fs.readFileSync(path.join(charsDir, file), "utf8"));
+    if (!guide.homebrew) {
+        return;
+    }
+    const sheet = JSON.parse(fs.readFileSync(path.join(root, "public", "scripts", guide.homebrew), "utf8"));
+    const entry = sheet.find((item) => item && item.id === guide.id);
+    if (!entry) {
+        throw new Error(file + ": 시트 " + guide.homebrew + "에 " + guide.id + " 캐릭터가 없음");
+    }
+    homebrewOrder[guide.edition] = sheet.filter((item) => item && item.id !== "_meta").map((item) => item.id);
+    homebrewRoles[guide.id] = {
+        name: entry.name,
+        team: entry.team,
+        ability: entry.ability || "",
+        flavor: entry.flavor || "",
+        homebrew: guide.edition
+    };
+});
 
 // 1. roles.json
 const roles = {};
@@ -47,6 +75,7 @@ master.forEach((entry) => {
         flavor: entry.flavor || ""
     };
 });
+Object.assign(roles, homebrewRoles);
 fs.writeFileSync(path.join(dataDir, "roles.json"), JSON.stringify(roles) + "\n");
 console.log(`roles.json: 캐릭터 ${Object.keys(roles).length}개`);
 
@@ -70,10 +99,7 @@ fs.writeFileSync(path.join(dataDir, "jinxes.json"), JSON.stringify(jinxes) + "\n
 console.log(`jinxes.json: 징크스가 있는 캐릭터 ${Object.keys(jinxes).length}개`);
 
 // 2. index.json
-const guides = fs.readdirSync(charsDir)
-    .filter((file) => file.endsWith(".json"))
-    .map((file) => file.replace(/\.json$/, ""))
-    .sort();
+const guides = guideFiles.map((file) => file.replace(/\.json$/, ""));
 fs.writeFileSync(path.join(dataDir, "index.json"), JSON.stringify(guides) + "\n");
 console.log(`index.json: 번역 ${guides.length}개 (${guides.join(", ")})`);
 
@@ -86,6 +112,7 @@ if (!orderMatch) {
     throw new Error("assets/js/data/official-order.js에서 OFFICIAL_ORDER 표를 찾지 못함");
 }
 const officialOrder = new Function("return " + orderMatch[1])();
+// 홈브류 판은 공식 판 뒤에 온다(정렬 순위가 목록 길이 이상).
 const EDITION_RANK = ["tb", "bmr", "snv", "exp"];
 const TEAM_RANK = ["townsfolk", "outsider", "minion", "demon", "traveller", "fabled", "loric"];
 function rankOf(list, value) {
@@ -100,7 +127,8 @@ const catalog = guides
     })
     .sort((a, b) => rankOf(EDITION_RANK, a.edition) - rankOf(EDITION_RANK, b.edition)
         || rankOf(TEAM_RANK, a.team) - rankOf(TEAM_RANK, b.team)
-        || rankOf(officialOrder[a.edition] || [], a.id) - rankOf(officialOrder[b.edition] || [], b.id)
+        || String(a.edition).localeCompare(String(b.edition))
+        || rankOf(officialOrder[a.edition] || homebrewOrder[a.edition] || [], a.id) - rankOf(officialOrder[b.edition] || homebrewOrder[b.edition] || [], b.id)
         || a.name.localeCompare(b.name, "ko"));
 fs.writeFileSync(path.join(dataDir, "catalog.json"), JSON.stringify(catalog) + "\n");
 console.log(`catalog.json: 도감 목록 ${catalog.length}개`);
@@ -123,7 +151,7 @@ guides.forEach((id) => {
         problems.push("roles.json에 이 캐릭터가 없음");
     }
 
-    const unknown = (JSON.stringify(ko).match(/\{c:([a-z_]+)\}/g) || [])
+    const unknown = (JSON.stringify(ko).match(/\{c:([a-z0-9_]+)\}/g) || [])
         .map((mark) => mark.slice(3, -1))
         .filter((roleId) => !roles[roleId]);
     if (unknown.length) {
@@ -131,7 +159,9 @@ guides.forEach((id) => {
     }
 
     const srcPath = path.join(srcDir, id + ".json");
-    if (!fs.existsSync(srcPath)) {
+    if (ko.homebrew) {
+        // 홈브류: 영어 원문이 없다. 시트에 있는 캐릭터인지는 위에서 확인했다.
+    } else if (!fs.existsSync(srcPath)) {
         problems.push("영어 원문 없음 (tools/wiki/src/" + id + ".json)");
     } else {
         const en = JSON.parse(fs.readFileSync(srcPath, "utf8"));
@@ -160,7 +190,7 @@ if (fs.existsSync(pagesDir)) {
         const id = file.replace(/\.json$/, "");
         const ko = JSON.parse(fs.readFileSync(path.join(pagesDir, file), "utf8"));
         const problems = [];
-        const unknown = (JSON.stringify(ko).match(/\{c:([a-z_]+)\}/g) || [])
+        const unknown = (JSON.stringify(ko).match(/\{c:([a-z0-9_]+)\}/g) || [])
             .map((mark) => mark.slice(3, -1))
             .filter((roleId) => !roles[roleId]);
         if (unknown.length) {

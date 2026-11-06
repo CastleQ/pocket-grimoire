@@ -144,6 +144,7 @@ let unloadGuardActive = false;
 // 캐릭터 가이드: 번역이 있는 캐릭터 목록(guide/data/index.json)과, 가이드를 열어도 되는 상태인지.
 // 이름을 이야기꾼에게 보낸 뒤의 완료 화면에서만 연다(가이드를 읽느라 이름 보내기를 미루지 않도록). 캐릭터를 실제로 보여준 흐름에서만 허용한다. 재접속 복구 화면에서는 열지 않는다.
 let guideIds = [];
+let claimRoles = {}; // guide/data/roles.json (플레이버·홈브류 판별에 함께 쓴다)
 let guideAllowed = false;
 // 시트 제작자 위키가 있는 홈브류 캐릭터(scripts/sheet-wikis.json): id → 그 위키의 캐릭터 위치(#id)
 let sheetWikiById = {};
@@ -202,6 +203,8 @@ function showFlavor(characterId, characterName) {
   Promise.all([get("scripts/flavors.json"), get("guide/data/roles.json")]).then(function (data) {
     const sheet = data[0] || {};
     const roles = data[1] || {};
+    claimRoles = roles;
+    updateGuideButtons();
     let text = sheet[normaliseId(characterId)] || (roles[characterId] && roles[characterId].flavor) || "";
     if (!text && characterName) {
       Object.keys(roles).some(function (id) { if (roles[id].name === characterName && roles[id].flavor) { text = roles[id].flavor; return true; } return false; });
@@ -229,6 +232,9 @@ function hasGuide() {
   return !!(guideAllowed && claimState && claimState.characterId && (guideIds.indexOf(claimState.characterId) !== -1 || sheetWikiUrl()));
 }
 function updateGuideButtons() {
+  // 홈브류 캐릭터 문서(roles.homebrew)는 공식 위키 번역이 아니므로 "공식"을 빼고 부른다.
+  var role = claimState && claimRoles[claimState.characterId];
+  el("btn-guide-done").textContent = (role && role.homebrew) ? "캐릭터 Wiki 읽어보기" : "캐릭터 공식 Wiki 읽어보기";
   el("btn-guide-done").classList.toggle("hidden", !hasGuide() || el("screen-done").classList.contains("hidden"));
   // 이름을 보낸 직후: 가이드가 있으면 버튼 안내, 없으면(번역 전 캐릭터) 예전처럼 "닫으셔도 됩니다"
   var submitted = el("screen-done").classList.contains("is-submitted");
