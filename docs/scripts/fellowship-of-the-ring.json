@@ -56,12 +56,13 @@
   {
     "id": "pippin1",
     "name": "피핀",
+    "flavor": "지혜로운 사람도 필요할 테니까요. 이런... 임무에는, 모험에는, 뭐가 됐든요!.......그럼 넌 빠져야지, 피핀.",
     "image": "https://i.imgur.com/qubBEJt.png",
     "team": "townsfolk",
     "firstNight": 55,
     "firstNightReminder": "피핀에게 *함께 사망* 리마인더를 둡니다. 운반자에 *운반자* 리마인더를 둡니다. 현재 운반자를 가리켜 피핀에게 알려줍니다.",
     "otherNight": 64,
-    "otherNightReminder": "운반자가 악마에게 죽었다면, 피핀도 함께 사망합니다. 피핀이 사망할 때, 운반자가 살아있다면 운반자를 악팀에게 공개합니다.",
+    "otherNightReminder": "운반자가 악마에게 죽었다면, 피핀도 함께 사망합니다. 피핀이 사망할 때, 운반자가 살아있다면 운반자를 악팀에게 공개합니다. 피핀이 운반 중이라면 반지를 빼앗아 임의의 참가자(일반적으로 악팀)에게 줍니다.",
     "reminders": [
       "함께 사망",
       "운반자"
@@ -72,6 +73,7 @@
   {
     "id": "elrond1",
     "name": "엘론드",
+    "flavor": "오직 하나의 선택뿐이다. 반지는 파괴되어야 한다.",
     "image": "https://i.imgur.com/cg6Jify.png",
     "team": "townsfolk",
     "firstNight": 63,
@@ -88,6 +90,7 @@
   {
     "id": "sam1",
     "name": "샘",
+    "flavor": "아직 이 세상에 선함이 남아 있다는 믿음이겠죠. 그건 싸워서 지킬 가치가 있어요.",
     "image": "https://i.imgur.com/LivpNpw.png",
     "team": "townsfolk",
     "firstNight": 70,
@@ -100,6 +103,7 @@
   {
     "id": "merry1",
     "name": "메리",
+    "flavor": "우릴 자루에 묶어서 집으로 보내지 않는 한 막을 수는 없을걸요!",
     "image": "https://i.imgur.com/9dsdoRc.png",
     "team": "townsfolk",
     "firstNight": 72,
@@ -112,6 +116,7 @@
   {
     "id": "whitegandalf1",
     "name": "백색의 간달프",
+    "flavor": "간달프? 그래... 다들 나를 그렇게 불렀지...",
     "image": "https://i.imgur.com/2XSMgPt.png",
     "team": "townsfolk",
     "firstNight": 71,
@@ -124,6 +129,7 @@
   {
     "id": "gimli1",
     "name": "김리",
+    "flavor": "그 코끼리는 하나로 밖에 안 쳐줄거야!!",
     "image": "https://i.imgur.com/Zmw2oPr.png",
     "team": "townsfolk",
     "otherNight": 68,
@@ -134,6 +140,7 @@
   {
     "id": "faramir1",
     "name": "파라미르",
+    "flavor": "이런 대단한 물건이 내게 왔단 말이지!",
     "image": "https://i.imgur.com/11nDVpu.png",
     "team": "townsfolk",
     "otherNight": 75,
@@ -144,6 +151,7 @@
   {
     "id": "legolas1",
     "name": "레골라스",
+    "flavor": "그리고 내 활도 함께할거요.",
     "image": "https://i.imgur.com/PdPMSmh.png",
     "team": "townsfolk",
     "otherNight": 81,
@@ -154,6 +162,7 @@
   {
     "id": "eowyn1",
     "name": "에오윈",
+    "flavor": "I am no man.",
     "image": "https://i.imgur.com/2Alqwm9.png",
     "team": "townsfolk",
     "otherNight": 83,
@@ -168,6 +177,7 @@
   {
     "id": "tolkien1",
     "name": "J.R.R.톨킨",
+    "flavor": "땅 속 어느 굴에 한 호빗이 살고 있었다.......자, 내가 돌아왔어.",
     "image": "https://i.imgur.com/r2VREc0.png",
     "team": "townsfolk",
     "otherNight": 91,
@@ -188,6 +198,7 @@
   {
     "id": "boromir1",
     "name": "보로미르",
+    "flavor": "끝까지 그대를 따랐을 거야. 나의 형제... 나의 대장... 나의 왕이시여.",
     "image": "https://i.imgur.com/5dAymLJ.png",
     "team": "townsfolk",
     "otherNight": 58,
@@ -201,6 +212,7 @@
   {
     "id": "gandalf1",
     "name": "간달프",
+    "flavor": "너는 지나갈 수 없다!",
     "image": "https://i.imgur.com/KfYDDkH.png",
     "team": "townsfolk",
     "otherNight": 62,
@@ -211,6 +223,7 @@
   {
     "id": "frodo1",
     "name": "프로도",
+    "flavor": "반지가 제게 오지 않았더라면 좋았을 텐데... 차라리 이 모든 일이 일어나지 않았더라면...",
     "image": "https://i.imgur.com/aGU6Mq3.png",
     "team": "townsfolk",
     "setup": true,
@@ -219,6 +232,7 @@
   {
     "id": "aragorn1",
     "name": "아라곤",
+    "flavor": "오늘 우리는 싸울 것이다! 이 선한 세계의 그대들이 사랑하는 모든 이들을 두고, 나 그대들에게 명하노니, 일어나라! 서녘의 인간들이여!",
     "image": "https://i.imgur.com/1jWClh4.png",
     "team": "townsfolk",
     "otherNight": 0,
@@ -227,11 +241,12 @@
       "보호"
     ],
     "setup": false,
-    "ability": "악마가 아니라면, 운반자는 죽지 않습니다. 당신이 운반 중이라면, 이웃한 살아있는 참가자가 모두 선해야 이 능력이 발동됩니다."
+    "ability": "운반자가 악마가 아니라면, 운반자는 죽지 않습니다. 당신이 운반 중이라면, 이웃한 살아있는 참가자가 모두 선해야 이 능력이 발동됩니다."
   },
   {
     "id": "denethor1",
     "name": "데네소르 2세",
+    "flavor": "곤도르의 통치권은 내게 있다! 다른 누구도 아닌 내게!",
     "image": "https://i.imgur.com/Q8RGYu8.png",
     "team": "outsider",
     "otherNight": 60,
@@ -242,16 +257,18 @@
   {
     "id": "gollum1",
     "name": "골룸",
+    "flavor": "마이 프레셔스...!",
     "image": "https://i.imgur.com/KEYeqH3.png",
     "team": "outsider",
     "otherNight": 20,
     "otherNightReminder": "선택한 참가자가 운반 중이라면, 그에게 반지를 뺏어옵니다.",
-    "setup": true,
+    "setup": false,
     "ability": "매일 밤* 참가자 1명을 선택해 운반중이라면 반지를 뺏어옵니다. 운반 중 최후의 4인까지 생존 시 단독 승리합니다."
   },
   {
     "id": "bilbo1",
     "name": "빌보",
+    "flavor": "그건 내가 찾은 거야. 내 생일 선물이라고!",
     "image": "https://i.imgur.com/b9DoPI2.png",
     "team": "outsider",
     "firstNight": 3,
@@ -265,6 +282,7 @@
   {
     "id": "oathbreakers1",
     "name": "맹세를 어긴 자들",
+    "flavor": "이 길은 닫혔다. 이곳은 죽은 자들이 만들었으며... 죽은 자들이 지킨다. 이 길은 닫혔다. 이제 넌 죽어야 한다.",
     "image": "https://i.imgur.com/GzGHy4Y.png",
     "team": "outsider",
     "remindersGlobal": [
@@ -287,6 +305,7 @@
   {
     "id": "nazgul1",
     "name": "나즈굴",
+    "flavor": "죽을 운명의 인간들에겐 아홉 반지.",
     "image": "https://i.imgur.com/ARNaJ8y.png",
     "team": "minion",
     "firstNight": 32,
@@ -302,6 +321,7 @@
   {
     "id": "witchking1",
     "name": "마술사왕",
+    "flavor": "날 방해하지 마라, 이 어리석은 자야! 어떤 살아있는 남자도 나를 죽일 수 없다!",
     "image": "https://i.imgur.com/4XjI5cR.png",
     "team": "minion",
     "otherNight": 41,
@@ -315,6 +335,7 @@
   {
     "id": "urukhai1",
     "name": "우루크하이",
+    "flavor": "얘들아, 오늘 메뉴에 다시 고기가 올라왔다!",
     "image": "https://i.imgur.com/0OZKklH.png",
     "team": "minion",
     "otherNight": 47,
@@ -328,6 +349,7 @@
   {
     "id": "grima1",
     "name": "그리마 뱀혓바닥",
+    "flavor": "옥체를 피로하게 하거나 기운을 과하게 쓰지 마옵소서. 이 성가신 손님들은 다른 이들에게 맡기십시오.",
     "image": "https://i.imgur.com/1bwxdhM.png",
     "team": "minion",
     "firstNight": 33,
@@ -343,6 +365,7 @@
   {
     "id": "shelob1",
     "name": "쉴로브",
+    "flavor": "그녀는 오직 자기 자신만을 섬기며, 생명체의 피를 마셔 몸을 불리고 어둠을 뿜어낼 뿐이었다.",
     "image": "https://i.imgur.com/oF7A18u.png",
     "team": "demon",
     "firstNight": 46,
@@ -354,11 +377,12 @@
       "사망"
     ],
     "setup": true,
-    "ability": "매일 밤, 참가자 1명을 선택합니다. 그는 중독되며 다음 날 밤에 사망하고 건강해집니다. 운반 중인 참가자를 쉴로브가 죽이면 악팀이 승리합니다. [+프로도]"
+    "ability": "매일 밤, 참가자 1명을 선택합니다. 그는 중독되며 다음 밤에 사망하고 건강해집니다. 운반 중인 참가자를 쉴로브가 죽이면 악팀이 승리합니다. [+프로도]"
   },
   {
     "id": "saruman1",
     "name": "사루만",
+    "flavor": "스스로 기꺼이 내게 협력할 기회를 주었건만, 자네는 고통의 길을 택했군. 그래, 자넨 죽음을 택했군...",
     "image": "https://i.imgur.com/AMNYdee.png",
     "team": "demon",
     "otherNight": 44,
@@ -377,6 +401,7 @@
   {
     "id": "sauron1",
     "name": "사우론",
+    "flavor": "내게서 숨을 수 없다. 네 녀석이 보인다. 이 공허 속에, 삶이란 없다. 오로지… 죽음만이 있을 뿐.",
     "image": "https://i.imgur.com/l5oPMzZ.png",
     "team": "demon",
     "otherNight": 45,
@@ -391,6 +416,7 @@
   {
     "id": "balrog1",
     "name": "발록",
+    "flavor": "드워프들은 너무 탐욕스럽고 너무 깊게 땅을 파고 들어갔지. 그리하여 카잣둠의 어둠 속에서 깨워서는 안 될 존재를 깨우고 말았다. 그것은 무어라 말할 수 없는 재앙이었다.",
     "image": "https://i.imgur.com/xnsR9Ng.png",
     "team": "demon",
     "otherNight": 46,
@@ -405,6 +431,7 @@
   {
     "id": "onering1",
     "name": "절대 반지",
+    "flavor": "손바닥 위에선 작은 금붙이일 뿐. 하지만 사흘 밤을 품고 나면, 누구라도 그 무게를 안다.",
     "image": "https://i.imgur.com/0oyQKsa.png",
     "team": "fabled",
     "firstNight": 2,
