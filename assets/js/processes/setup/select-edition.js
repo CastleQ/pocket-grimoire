@@ -459,9 +459,9 @@ export const OFFICIAL_SHEETS = [
     { value: "tb", name: "Trouble Brewing(점철되는 혼란)" },
     { value: "bmr", name: "Bad Moon Rising(피로 물든 달)" },
     { value: "snv", name: "Sects and Violets(화단에 꽃피운 이단)" },
-    { value: "garden-of-sin", file: "garden-of-sin.json", name: "죄악의 정원", preview: true },
-    { value: "graveyard", file: "graveyard.json", name: "묘지", preview: true },
-    { value: "midnight-manor", file: "midnight-manor.json", name: "한밤중에 저주받은 자의 저택에서", preview: true }
+    { value: "garden-of-sin", file: "garden-of-sin.json", name: "Garden of Sin(죄악의 정원)", preview: true },
+    { value: "graveyard", file: "graveyard.json", name: "The Tomb(묘지)", preview: true },
+    { value: "midnight-manor", file: "midnight-manor.json", name: "Midnight in the House of the Damned(한밤중에 저주받은 자의 저택에서)", preview: true }
 ];
 
 function escapeHtml(value) {
