@@ -76,3 +76,14 @@
     </form>
     {% endblock %}
 {% endembed %}
+
+{% embed 'includes/dialog.html.twig' with {
+    id: 'preview-sheet-notice',
+    background: 'blur',
+    title: '미출시 공식 스크립트'
+} %}
+    {% block body %}
+    <p style="text-align: center; word-break: keep-all;">이 시트는 미출시 공식 스크립트입니다. 출시 전 스크립트로, 공식 캐릭터 설명이나 위키는 아직 없습니다. 이 시트는 언제든지 수정되거나 삭제될 수 있습니다.</p>
+    <p class="mt-4" style="max-width: 10em; margin-inline: auto;"><button type="button" class="button" data-dialog-hide>확인</button></p>
+    {% endblock %}
+{% endembed %}

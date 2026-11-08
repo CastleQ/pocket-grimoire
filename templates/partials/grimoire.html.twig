@@ -215,6 +215,20 @@
 {% endembed %}
 
 {% embed 'includes/dialog.html.twig' with {
+    id: 'character-unreleased-confirm',
+    background: 'blur',
+    title: '미출시 캐릭터'
+} %}
+    {% block body %}
+    <p style="text-align: center; word-break: keep-all;">이 캐릭터는 아직 미출시 캐릭터입니다. 공식 캐릭터 설명이나 위키는 없습니다.<br>그래도 위키 페이지로 이동할까요?</p>
+    <ul class="button-list mt-4" style="--columns: 2; max-width: 20em; margin-inline: auto;">
+        <li><button type="button" class="button" id="character-unreleased-yes">위키 바로가기</button></li>
+        <li><button type="button" class="button" style="--bg-colour: var(--red);" data-dialog-hide>아니오</button></li>
+    </ul>
+    {% endblock %}
+{% endembed %}
+
+{% embed 'includes/dialog.html.twig' with {
     id: 'reminder-show',
     background: 'blur'
 } %}

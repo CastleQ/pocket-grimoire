@@ -70,6 +70,8 @@ const OLD_NAMES = {
 };
 const CUSTOM_SCRIPT_KEY = "pg_wiki_custom_script";
 let guideIds = [];
+// 미출시 공식 시트(클로즈베타)의 신캐릭터 id (public/scripts/unreleased.json, 뽑기 화면도 같이 읽음)
+let unreleasedIds = [];
 let officialByName = Object.create(null);
 let officialTeam = Object.create(null);
 let customScript = false;
@@ -83,10 +85,15 @@ const wikiDataReady = Promise.all([
         .then((response) => (response.ok ? response.json() : [])),
     fetch(guideBase + "guide/data/roles.json", { cache: "no-cache" })
         .then((response) => (response.ok ? response.json() : {})),
-    sheetWikiReady
-]).then(([ids, roles]) => {
+    sheetWikiReady,
+    fetch(guideBase + "scripts/unreleased.json", { cache: "no-cache" })
+        .then((response) => (response.ok ? response.json() : []))
+        .catch(() => [])
+]).then(([ids, roles, , unreleased]) => {
 
     guideIds = Array.isArray(ids) ? ids : [];
+    unreleasedIds = (Array.isArray(unreleased) ? unreleased : [])
+        .map((id) => TokenStore.normaliseId(String(id)));
     Object.entries(roles || {}).forEach(([id, role]) => {
         // 홈브류 캐릭터(roles.homebrew)는 id 로만 찾는다. 이름으로 찾으면 다른 시트의 같은 이름 캐릭터와 섞인다.
         if (role.homebrew) {
@@ -161,6 +168,11 @@ function getWikiTarget(character) {
     // 목록의 캐릭터는 캐릭터 위치(#id), 그 밖의 캐릭터(전설·설화 등)는 위키 첫 화면.
     const currentSheetWiki = getCurrentSheetWiki();
     const sheetWiki = getSheetWikiForCharacter(character.getId());
+
+    // 미출시 캐릭터: 위키 문서가 없으므로 안내창을 거쳐 도감 첫 화면으로.
+    if (unreleasedIds.includes(TokenStore.normaliseId(String(character.getId())))) {
+        return { url: WIKI_SITE_URL, subject: "", unreleased: true };
+    }
 
     if (currentSheetWiki) {
         return { url: sheetWiki || currentSheetWiki, subject: "이 캐릭터의" };
@@ -279,6 +291,7 @@ tokenObserver.on("character-click", ({ detail }) => {
     const wikiId = wikiTarget ? wikiTarget.url : "";
     showButton.dataset.wikiId = wikiId;
     showButton.dataset.wikiSubject = wikiTarget ? wikiTarget.subject : "";
+    showButton.dataset.wikiUnreleased = (wikiTarget && wikiTarget.unreleased) ? "true" : "";
     showButton.textContent = (
         wikiId
         ? showButton.dataset.labelWiki
@@ -336,6 +349,15 @@ TokenStore.ready(() => {
 
         const wikiId = target.dataset.wikiId;
 
+        if (wikiId && target.dataset.wikiUnreleased) {
+
+            unreleasedDialog.getElement().dataset.url = wikiId;
+            hideDialog(target);
+            unreleasedDialog.show();
+            return;
+
+        }
+
         if (wikiId) {
 
             wikiConfirmDialog.getElement().dataset.url = wikiId;
@@ -354,6 +376,20 @@ TokenStore.ready(() => {
         hideDialog(target);
 
     });
+
+});
+
+const unreleasedDialog = Dialog.create(lookupOneCached("#character-unreleased-confirm"));
+
+lookupOne("#character-unreleased-yes").addEventListener("click", () => {
+
+    const url = unreleasedDialog.getElement().dataset.url;
+
+    unreleasedDialog.hide();
+
+    if (url) {
+        window.open(url, "_blank", "noopener");
+    }
 
 });
 

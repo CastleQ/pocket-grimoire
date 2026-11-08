@@ -453,10 +453,15 @@ if (editionDirect && customRadio) {
 const scriptsBase = (typeof URLS !== "undefined" && URLS.scriptsBase) || "/scripts/";
 
 // 공식 시트: 파일 없이 tb/bmr/snv 에디션으로 로드. 이름은 앱 표기와 동일하게 유지.
+// file 이 있는 시트는 미출시 공식 시트(클로즈베타): public/scripts/ 의 JSON 으로 로드하고, 이름은 _meta.name 과 같아야 한다.
+// value 는 공유 링크 키(sheet-<value>.html, tools/build-sheet-og.js 와 두 곳 함께)라 바꾸지 않는다.
 export const OFFICIAL_SHEETS = [
     { value: "tb", name: "Trouble Brewing(점철되는 혼란)" },
     { value: "bmr", name: "Bad Moon Rising(피로 물든 달)" },
-    { value: "snv", name: "Sects and Violets(화단에 꽃피운 이단)" }
+    { value: "snv", name: "Sects and Violets(화단에 꽃피운 이단)" },
+    { value: "garden-of-sin", file: "garden-of-sin.json", name: "죄악의 정원", preview: true },
+    { value: "graveyard", file: "graveyard.json", name: "묘지", preview: true },
+    { value: "midnight-manor", file: "midnight-manor.json", name: "한밤중에 저주받은 자의 저택에서", preview: true }
 ];
 
 function escapeHtml(value) {
@@ -497,7 +502,7 @@ function renderSheets() {
 
                 sheets.forEach((sheet) => {
 
-                    const value = isOfficial ? sheet.value : ("sheet:" + sheet.file);
+                    const value = (isOfficial && !sheet.file) ? sheet.value : ("sheet:" + sheet.file);
                     const idBase = isOfficial ? sheet.value : sheet.file;
                     const id = "edition-" + String(idBase).replace(/[^a-z0-9]+/gi, "-");
                     const nameHTML = "<strong>" + escapeHtml(sheet.name) + "</strong>";
@@ -674,7 +679,15 @@ form.addEventListener("submit", (e) => {
                         input: null,
                         store: tokenStore,
                         isCustom: false
-                    }).then(() => setFormLoadingState(form, false));
+                    }).then(() => {
+
+                        setFormLoadingState(form, false);
+
+                        if (OFFICIAL_SHEETS.some((sheet) => sheet.preview && sheet.file === file)) {
+                            Dialog.create(lookupOne("#preview-sheet-notice")).show();
+                        }
+
+                    });
 
                 });
 

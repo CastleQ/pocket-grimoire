@@ -49,7 +49,7 @@
   /* 앱의 경고 버튼(.button--warning)과 같은 연주황 */
   .btn--cancel { background-color:#d09f67; }
   .warn-head { color:#c0141b; font-weight:800; }
-  #guide-warn-overlay .modal p { word-break:keep-all; }
+  #guide-warn-overlay .modal p, #unreleased-overlay .modal p { word-break:keep-all; }
   .guide-frame iframe { flex:1 1 auto; width:100%; border:0; background:#efe6d6; }
   .brand { display:block; width:56%; height:auto; margin:32px auto 0; }
   /* 플레이팁 댓글 — 완료 화면 위키 버튼 아래에 펼친 채로 나열 */
@@ -127,6 +127,15 @@
     </div>
   </div>
 </div>
+<div id="unreleased-overlay" class="overlay hidden">
+  <div class="modal">
+    <p>이 캐릭터는 아직 미출시 캐릭터입니다. 공식 캐릭터 설명이나 위키는 없습니다.<br>그래도 위키 페이지로 이동할까요?</p>
+    <div class="btn-row">
+      <button class="btn btn--cancel" id="unreleased-no">아니오</button>
+      <button class="btn" id="unreleased-yes">위키 바로가기</button>
+    </div>
+  </div>
+</div>
 <div id="guide-frame" class="guide-frame hidden">
   <div class="guide-frame__bar"><button class="btn" id="guide-close">닫기</button></div>
   <iframe id="guide-iframe" title="캐릭터 가이드" src="about:blank"></iframe>
@@ -149,6 +158,9 @@ let guideAllowed = false;
 // 시트 제작자 위키가 있는 홈브류 캐릭터(scripts/sheet-wikis.json): id → 그 위키의 캐릭터 위치(#id)
 let sheetWikiById = {};
 function normaliseId(id) { return String(id || "").replace(/[-_]/g, "").toLowerCase(); }
+// 미출시 공식 시트(클로즈베타)의 신캐릭터 id (scripts/unreleased.json): 위키 문서가 없어 안내창을 거쳐 도감 첫 화면으로
+let unreleasedIds = [];
+function isUnreleased() { return !!(claimState && unreleasedIds.indexOf(normaliseId(claimState.characterId)) !== -1); }
 function sheetWikiUrl() { return (claimState && sheetWikiById[normaliseId(claimState.characterId)]) || ""; }
 
 function show(id) {
@@ -229,12 +241,12 @@ function blockScreen(msg) {
 }
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]; }); }
 function hasGuide() {
-  return !!(guideAllowed && claimState && claimState.characterId && (guideIds.indexOf(claimState.characterId) !== -1 || sheetWikiUrl()));
+  return !!(guideAllowed && claimState && claimState.characterId && (guideIds.indexOf(claimState.characterId) !== -1 || sheetWikiUrl() || isUnreleased()));
 }
 function updateGuideButtons() {
   // 홈브류 캐릭터 문서(roles.homebrew)는 공식 위키 번역이 아니므로 "공식"을 빼고 부른다.
   var role = claimState && claimRoles[claimState.characterId];
-  el("btn-guide-done").textContent = (role && role.homebrew) ? "캐릭터 Wiki 읽어보기" : "캐릭터 공식 Wiki 읽어보기";
+  el("btn-guide-done").textContent = ((role && role.homebrew) || isUnreleased()) ? "캐릭터 Wiki 읽어보기" : "캐릭터 공식 Wiki 읽어보기";
   el("btn-guide-done").classList.toggle("hidden", !hasGuide() || el("screen-done").classList.contains("hidden"));
   // 이름을 보낸 직후: 가이드가 있으면 버튼 안내, 없으면(번역 전 캐릭터) 예전처럼 "닫으셔도 됩니다"
   var submitted = el("screen-done").classList.contains("is-submitted");
@@ -489,7 +501,15 @@ el("btn-submit").addEventListener("click", function () {
   });
 });
 document.querySelectorAll("[data-guide-open]").forEach(function (button) {
-  button.addEventListener("click", function () { if (hasGuide()) { el("guide-warn-overlay").classList.remove("hidden"); } });
+  button.addEventListener("click", function () {
+    if (!hasGuide()) { return; }
+    el(isUnreleased() ? "unreleased-overlay" : "guide-warn-overlay").classList.remove("hidden");
+  });
+});
+el("unreleased-no").addEventListener("click", function () { el("unreleased-overlay").classList.add("hidden"); });
+el("unreleased-yes").addEventListener("click", function () {
+  el("unreleased-overlay").classList.add("hidden");
+  window.open("https://castleq.github.io/botc-wiki-ko/", "_blank", "noopener");
 });
 el("guide-warn-no").addEventListener("click", function () { el("guide-warn-overlay").classList.add("hidden"); });
 el("guide-warn-yes").addEventListener("click", openGuide);
@@ -498,6 +518,10 @@ el("guide-close").addEventListener("click", closeGuide);
 fetch("guide/data/index.json", { cache: "no-cache" })
   .then(function (res) { return res.ok ? res.json() : []; })
   .then(function (list) { guideIds = Array.isArray(list) ? list : []; updateGuideButtons(); })
+  .catch(function () {});
+fetch("scripts/unreleased.json", { cache: "no-cache" })
+  .then(function (res) { return res.ok ? res.json() : []; })
+  .then(function (list) { unreleasedIds = (Array.isArray(list) ? list : []).map(normaliseId); updateGuideButtons(); })
   .catch(function () {});
 fetch("scripts/sheet-wikis.json", { cache: "no-cache" })
   .then(function (res) { return res.ok ? res.json() : []; })
