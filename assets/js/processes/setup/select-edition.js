@@ -687,6 +687,11 @@ form.addEventListener("submit", (e) => {
                         setFormLoadingState(form, false);
 
                         if (OFFICIAL_SHEETS.some((sheet) => sheet.preview && sheet.file === file)) {
+                            // 시트 로고(_meta.logo)를 안내 문구 위에 띄운다.
+                            const logo = lookupOne("#preview-sheet-logo");
+                            const meta = json.find((item) => item && item.id === "_meta");
+                            logo.src = (meta && meta.logo) || "";
+                            logo.parentNode.hidden = !logo.src;
                             Dialog.create(lookupOne("#preview-sheet-notice")).show();
                         }
 
