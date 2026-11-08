@@ -16,6 +16,11 @@
     position: relative;
 }
 
+// 부가 컨트롤이 있으면 긴 제목(예: "마도서 - 시트 이름")이 그 밑으로 파고들지 않게 자리를 비운다.
+.details__summary:has(.details__summary-aside) .details__heading {
+    padding-right: 6em;
+}
+
 // 헤더 우측에 부가 컨트롤(예: 토큰 잠금 토글)을 얹기 위한 슬롯.
 // summary의 기본 펼침/접힘 마커(▼)는 그대로 유지된다.
 .details__summary-aside {

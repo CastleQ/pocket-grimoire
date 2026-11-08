@@ -62,6 +62,13 @@ gameObserver.on("characters-selected", ({ detail }) => {
         reminders.map((reminder) => reminder.drawList())
     );
 
+    // 마도서 제목에 지금 시트 이름: "마도서 - 피아식별" (이름 없는 시트는 "마도서"만)
+    const heading = lookupOneCached("#grimoire .details__heading");
+    heading.dataset.title = heading.dataset.title || heading.textContent.trim();
+    heading.textContent = detail.name
+        ? heading.dataset.title + " - " + detail.name
+        : heading.dataset.title;
+
     lookupOneCached("#add-token").disabled = false;
     lookupOneCached("#add-reminder").disabled = false;
     lookupOneCached("#show-tokens").disabled = false;

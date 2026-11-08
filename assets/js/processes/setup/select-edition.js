@@ -69,7 +69,10 @@ function containsHomebrew(json) {
  */
 function autoAddFabled(characters) {
 
-    const fabled = characters.filter((character) => character.getTeam() === "fabled");
+    // 설화(loric, 예: 제노맨서·밀주업자)도 전설과 같은 자리에 둔다.
+    const fabled = characters.filter((character) => (
+        character.getTeam() === "fabled" || character.getTeam() === "loric"
+    ));
 
     if (!fabled.length) {
         return;
