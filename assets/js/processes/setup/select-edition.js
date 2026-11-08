@@ -462,8 +462,8 @@ export const OFFICIAL_SHEETS = [
     { value: "tb", name: "Trouble Brewing(점철되는 혼란)" },
     { value: "bmr", name: "Bad Moon Rising(피로 물든 달)" },
     { value: "snv", name: "Sects and Violets(화단에 꽃피운 이단)" },
-    { value: "garden-of-sin", file: "garden-of-sin.json", name: "Garden of Sin(죄악의 정원)", preview: true },
-    { value: "graveyard", file: "graveyard.json", name: "The Tomb(묘지)", preview: true },
+    { value: "garden-of-sin", file: "garden-of-sin.json", name: "Garden of Sin(죄악의 정원)", preview: true, logoWidth: "11.2em" },
+    { value: "graveyard", file: "graveyard.json", name: "The Tomb(묘지)", preview: true, logoWidth: "11.2em" },
     { value: "midnight-manor", file: "midnight-manor.json", name: "Midnight in the House of the Damned(한밤중에 저주받은 자의 저택에서)", preview: true }
 ];
 
@@ -686,12 +686,13 @@ form.addEventListener("submit", (e) => {
 
                         setFormLoadingState(form, false);
 
-                        if (OFFICIAL_SHEETS.some((sheet) => sheet.preview && sheet.file === file)) {
-                            // 시트 로고(_meta.logo)를 안내 문구 위에 띄운다.
+                        const preview = OFFICIAL_SHEETS.find((sheet) => sheet.preview && sheet.file === file);
+
+                        if (preview) {
+                            // 시트 로고: 원본(imgur PNG)보다 훨씬 가벼운 사본 public/img/preview-sheets/<value>.webp (448px)
                             const logo = lookupOne("#preview-sheet-logo");
-                            const meta = json.find((item) => item && item.id === "_meta");
-                            logo.src = (meta && meta.logo) || "";
-                            logo.parentNode.hidden = !logo.src;
+                            logo.src = scriptsBase.replace(/scripts\/$/, "") + "img/preview-sheets/" + preview.value + ".webp";
+                            logo.style.maxWidth = preview.logoWidth || "14em";
                             Dialog.create(lookupOne("#preview-sheet-notice")).show();
                         }
 
