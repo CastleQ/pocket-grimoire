@@ -1,758 +1,396 @@
 [
-    {
-        "id": "_meta",
-        "name": "Midnight in the House of the Damned(한밤중에 저주받은 자의 저택에서)",
-        "author": "steven medway",
-        "logo": "https://i.imgur.com/rlm9cux.png",
-        "hideTitle": true,
-        "background": "https://i.imgur.com/xqUblkI.jpeg",
-        "almanac": "https://botc.vnamu.com/sheets/2290/almanac?code=002da6",
-        "firstNight": [
-            "shaman1100",
-            "mole1100",
-            "copycat1100",
-            "poppygrower",
-            "magician",
-            "beekeeper1100",
-            "wizard",
-            "huntsman",
-            "damsel",
-            "pirate1100",
-            "blacksmith1100",
-            "villageidiot",
-            "bountyhunter"
-        ],
-        "otherNight": [
-            "falconer1100",
-            "taxman1100",
-            "cacklejack",
-            "poppygrower",
-            "wizard",
-            "legion",
-            "tipitipi1100",
-            "hwisp1100",
-            "fanzazz1100",
-            "huntsman",
-            "damsel",
-            "villageidiot",
-            "bountyhunter"
-        ],
-        "bootlegger": [
-            "군단 - 마술사/정치인 징크스는 존재하지 않습니다."
-        ]
-    },
-    {
-        "id": "blacksmith1100",
-        "setup": true,
-        "edition": "",
-        "name": "대장장이",
-        "team": "townsfolk",
-        "image": [
-            "https://i.imgur.com/R6dxaGS.png",
-            "https://i.imgur.com/7aFOkFQ.png"
-        ],
-        "ability": "게임 시작 시, 얼마나 많은 외지인이 게임에 참여하는지 알게 됩니다. (당신이 사망하더라도) 모든 외지인은 취합니다. [외지인 -?명~+?명]",
-        "flavor": "",
-        "reminders": [
-            "모든 외지인 취함"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "손가락을 펴서 신호를 줍니다. 모든 외지인이 취합니다. :reminder:",
-        "otherNightReminder": "",
-        "firstNight": 53.1,
-        "otherNight": 0
-    },
-    {
-        "id": "bountyhunter",
-        "setup": true,
-        "edition": "carousel",
-        "name": "현상금 사냥꾼",
-        "team": "townsfolk",
-        "image": [
-            "/img/characters/official/carousel/bountyhunter_g.webp",
-            "/img/characters/official/carousel/bountyhunter_e.webp"
-        ],
-        "ability": "게임 시작 시, 악한 플레이어 1명을 알게 됩니다. 알게 된 플레이어가 사망하면, 그날 밤 다른 악한 플레이어를 알게 됩니다. [마을주민 1명이 악한 팀]",
-        "flavor": "나는 홀로 이 거리를 걷는다. 부패의 역겨운 악취가 돌바닥 위에 짙게 배어 있고, 그 썩은 냄새는 허락도 없이 내 콧속으로 기어들어와 혐오감을 불태운다. 그리고 기대감도. 이 비참한 곳의 병은 밤이 깊을수록 자라난다. 그리고 나는... 그 병의 치료제다.",
-        "reminders": [
-            "알아냄"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [
-            {
-                "id": "kazali",
-                "reason": "카잘리가 현상금 사냥꾼을 하수인으로 만들었다면 악한 마을주민은 만들어지지 않습니다."
-            },
-            {
-                "id": "philosopher",
-                "reason": "철학자가 현상금 사냥꾼의 능력을 얻는다면, 선한 마을주민은 1명은 악한 팀 소속으로 바뀔 수도 있습니다."
-            }
-        ],
-        "firstNightReminder": "*알아냄*으로 표시된 플레이어를 가리킵니다.",
-        "otherNightReminder": "*알아냄*으로 표시된 플레이어가 오늘 낮이나 밤에 사망했다면, *알아냄*으로 표시된 새로운 플레이어를 가리킵니다.",
-        "firstNight": 69,
-        "otherNight": 88
-    },
-    {
-        "id": "pirate1100",
-        "setup": true,
-        "edition": "",
-        "name": "해적",
-        "team": "townsfolk",
-        "image": [
-            "https://i.imgur.com/1P7kxXM.png",
-            "https://i.imgur.com/N2TrI3I.png"
-        ],
-        "ability": "게임 시작 시, 얼마나 많은 해적이 게임에 참여하는지 알게 됩니다. 생존한 선한 캐릭터가 해적 뿐이라면 선팀이 승리합니다. [+0~+2 해적]",
-        "flavor": "",
-        "reminders": [],
-        "remindersGlobal": [],
-        "special": [
-            {
-                "name": "bag-duplicate",
-                "type": "selection"
-            }
-        ],
-        "jinxes": [],
-        "firstNightReminder": "손가락을 펴서 신호를 줍니다.",
-        "otherNightReminder": "",
-        "firstNight": 52.2,
-        "otherNight": 0
-    },
-    {
-        "id": "falconer1100",
-        "setup": false,
-        "edition": "",
-        "name": "응사",
-        "team": "townsfolk",
-        "image": [
-            "https://i.imgur.com/rt4fmh6.png",
-            "https://i.imgur.com/wKTIQeY.png"
-        ],
-        "ability": "매일 황혼*, 이야기꾼을 찾아가 생존한 주민이 몇 명인지 알 수 있습니다. [외지인 +0명 또는 +1명]",
-        "flavor": "",
-        "reminders": [],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "손가락을 펴서 신호를 줍니다.",
-        "firstNight": 0,
-        "otherNight": 0.9
-    },
-    {
-        "id": "villageidiot",
-        "setup": true,
-        "edition": "carousel",
-        "name": "마을 백치",
-        "team": "townsfolk",
-        "image": [
-            "/img/characters/official/carousel/villageidiot_g.webp",
-            "/img/characters/official/carousel/villageidiot_e.webp"
-        ],
-        "ability": "매일 밤, 플레이어 1명을 선택합니다: 그의 팀을 알게 됩니다. [+0~+2 마을 백치. 그중 1명은 취함.]",
-        "flavor": "장미는 파랗고, 제비꽃은 빨갛다네. 방금 말 일부러 거꾸로 한거야. 진짜야.",
-        "reminders": [
-            "취함"
-        ],
-        "remindersGlobal": [],
-        "special": [
-            {
-                "type": "selection",
-                "name": "bag-duplicate"
-            }
-        ],
-        "jinxes": [],
-        "firstNightReminder": "마을 백치가 여러 명이라면, 그중 1명을 *취함*으로 표시합니다. :reminder: 마을 백치는 각각 일어나 플레이어 1명을 선택합니다. 엄지를 펴서 신호를 줍니다.",
-        "otherNightReminder": "마을 백치는 각각 일어나 플레이어 1명을 선택합니다. 엄지를 펴서 신호를 줍니다.",
-        "firstNight": 68,
-        "otherNight": 86
-    },
-    {
-        "id": "huntsman",
-        "setup": true,
-        "edition": "carousel",
-        "name": "사냥꾼",
-        "team": "townsfolk",
-        "image": [
-            "/img/characters/official/carousel/huntsman_g.webp",
-            "/img/characters/official/carousel/huntsman_e.webp"
-        ],
-        "ability": "게임당 1번, 밤에, 생존한 플레이어 1명을 선택합니다: 아가씨를 선택했다면, 아가씨는 게임에 참여하지 않는 마을주민으로 바뀝니다. [+아가씨]",
-        "flavor": "내 오두막은 안락하고 든든하다. 도끼는 문간에 뉘어두고, 모닥불 곁에선 장화가 마르며, 엘크 스튜가 보글보글 끓어오른다... 귀 기울여라! 계곡을 울리는 저 비명 소리를! 비바람과 진창, 매섭게 몰아치는 찬바람에 늑대들의 체취는 가려졌으나, 나는 길을 잃지 않으며 내 걸음은 굳건하다. 기다려라, 지금 간다.",
-        "reminders": [
-            "능력 없음"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "사냥꾼은 플레이어 1명을 선택할 수 있습니다. :reminder: 그가 아가씨를 선택했다면: 사냥꾼을 재웁니다. 대상을 깨우고, *당신은* 정보 토큰과 바뀐 캐릭터 토큰을 보여줍니다.",
-        "otherNightReminder": "사냥꾼은 플레이어 1명을 선택할 수 있습니다. :reminder: 그가 아가씨를 선택했다면: 사냥꾼을 재웁니다. 대상을 깨우고, *당신은* 정보 토큰과 바뀐 캐릭터 토큰을 보여줍니다.",
-        "firstNight": 49,
-        "otherNight": 67
-    },
-    {
-        "id": "machinist1100",
-        "setup": true,
-        "edition": "",
-        "name": "공학자",
-        "team": "townsfolk",
-        "image": [
-            "https://i.imgur.com/7qqALiY.png",
-            "https://i.imgur.com/PxEy9sN.png"
-        ],
-        "ability": "당신의 첫 번째 낮에, (취함/중독 상태더라도) 이야기꾼을 찾아가 스크립트에 없는 캐릭터가 됩니다. [+0~+2 공학자]",
-        "flavor": "",
-        "reminders": [],
-        "remindersGlobal": [
-            "공학자입니다"
-        ],
-        "special": [
-            {
-                "name": "bag-duplicate",
-                "type": "selection"
-            },
-            {
-                "name": "replace-character",
-                "type": "reveal"
-            }
-        ],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "",
-        "firstNight": 0,
-        "otherNight": 0
-    },
-    {
-        "id": "mole1100",
-        "setup": false,
-        "edition": "",
-        "name": "밀정",
-        "team": "townsfolk",
-        "image": [
-            "https://i.imgur.com/BKBFxIG.png",
-            "https://i.imgur.com/i8NlB4H.png"
-        ],
-        "ability": "당신은 하수인입니다. 게임당 1번, 악마가 공개적으로 당신을 추측하면, (당신이 사망하거나 취함/중독 상태더라도) 당신이 속한 팀이 패배합니다.",
-        "flavor": "",
-        "reminders": [],
-        "remindersGlobal": [
-            "밀정입니다"
-        ],
-        "special": [
-            {
-                "name": "replace-character",
-                "type": "reveal"
-            }
-        ],
-        "jinxes": [],
-        "firstNightReminder": "*당신은* 토큰과 밀정의 하수인 캐릭터를 보여줍니다. 필요하다면, 그 캐릭터의 토큰을 밀정의 캐릭터 토큰과 맞바꿉니다. :reminder: 하수인 정보 단계에 밀정도 같이 깨웁니다.",
-        "otherNightReminder": "",
-        "firstNight": 8.1,
-        "otherNight": 0
-    },
-    {
-        "id": "beekeeper1100",
-        "setup": false,
-        "edition": "",
-        "name": "양봉업자",
-        "team": "townsfolk",
-        "image": [
-            "https://i.imgur.com/1DuX7Bb.png",
-            "https://i.imgur.com/KSSpGCk.png"
-        ],
-        "ability": "당신을 제외한 선한 캐릭터 3개를 선택합니다. 악마는 그 캐릭터들을 블러핑으로 받습니다.",
-        "flavor": "",
-        "reminders": [],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "선택된 캐릭터를 악마 정보 단계에 알려줍니다.",
-        "otherNightReminder": "",
-        "firstNight": 23.1,
-        "otherNight": 0
-    },
-    {
-        "id": "magician",
-        "setup": false,
-        "edition": "carousel",
-        "name": "마술사",
-        "team": "townsfolk",
-        "image": [
-            "/img/characters/official/carousel/magician_g.webp",
-            "/img/characters/official/carousel/magician_e.webp"
-        ],
-        "ability": "악마는 당신을 하수인이라고 생각합니다. 하수인들은 당신을 악마라고 생각합니다.",
-        "flavor": "하나... 둘... 수리수리... 셋... 넷... 마수리... *펑!* 자, 신사 숙녀 여러분. 보시다시피 판스워스 선장의 금주머니가 사라졌습니다! 감쪽같이, 흔적도 없이! 그럼 이만, 좋은 밤 되시길!",
-        "reminders": [],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [
-            {
-                "id": "legion",
-                "reason": "마술사는 군단과 함께 깨어나며, 악한 팀 소속으로 위장될 수 있습니다. 군단은 마술사가 게임에 참여한다는 것을 알고 있지만, 누가 마술사인지는 모릅니다."
-            },
-            {
-                "id": "marionette",
-                "reason": "마술사가 생존해 있다면, 악마는 어느 이웃이 꼭두각시인지 알 수 없습니다."
-            },
-            {
-                "id": "spy",
-                "reason": "첩자가 마도서를 볼 때, 악마와 마술사의 캐릭터 토큰은 제거됩니다."
-            },
-            {
-                "id": "vizier",
-                "reason": "재상이 게임에 참여한다면, 마술사는 능력이 없지만 재상의 능력에 면역입니다."
-            },
-            {
-                "id": "widow",
-                "reason": "미망인이 마도서를 볼 때, 악마와 마술사의 캐릭터 토큰은 제거됩니다."
-            },
-            {
-                "id": "wraith",
-                "reason": "매일 처형 단계 후, 생존한 마술사는 악령을 공개적으로 추측할 수 있습니다. 추측이 맞다면, 악마는 오늘 밤 악령을 선택해야 합니다."
-            }
-        ],
-        "firstNightReminder": "하수인 정보 단계에, 마술사와 악마를 가리킵니다. 악마 정보 단계에, 마술사와 하수인을 가리킵니다.",
-        "otherNightReminder": "",
-        "firstNight": 18,
-        "otherNight": 0
-    },
-    {
-        "id": "taxman1100",
-        "setup": false,
-        "edition": "",
-        "name": "세리",
-        "team": "townsfolk",
-        "image": [
-            "https://i.imgur.com/QibWoHl.png",
-            "https://i.imgur.com/9ydeht6.png"
-        ],
-        "ability": "악한 팀은 승리할 수 없습니다. 처음으로 악한 팀이 승리하려 할 때, 악마는 밤에 당신이 세리라는 것을 알게 됩니다.",
-        "flavor": "",
-        "reminders": [
-            "악한 팀 승리X"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "처음으로 악한 팀이 승리하려 할 때, 세리의 기록 토큰을 제거합니다. 그 후, 악마를 깨워 *이 캐릭터가 당신을 선택했습니다* 토큰과 세리의 캐릭터 토큰을 보여주고 그 플레이어를 가리킵니다.",
-        "firstNight": 0,
-        "otherNight": 4.1
-    },
-    {
-        "id": "shaman1100",
-        "setup": false,
-        "edition": "",
-        "name": "무당",
-        "team": "townsfolk",
-        "image": [
-            "https://i.imgur.com/BsjvcTw.png",
-            "https://i.imgur.com/oTKzZBO.png"
-        ],
-        "ability": "악한 플레이어들은 자신이 다른 악한 캐릭터라고 생각합니다. 이야기꾼은 그에 맞춰 행동합니다. 당신이 사망하면, 그들은 자신의 정체를 알게 됩니다.",
-        "flavor": "",
-        "reminders": [
-            "악한 팀 깨달음"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "무당이 오늘 밤이나 낮에 사망했다면 :reminder:, 악한 플레이어들을 각자 깨웁니다. *당신은* 토큰과 그들의 진짜 캐릭터 토큰을 보여줍니다.",
-        "otherNightReminder": "",
-        "firstNight": 5.1,
-        "otherNight": 0
-    },
-    {
-        "id": "poppygrower",
-        "setup": false,
-        "edition": "carousel",
-        "name": "양귀비 재배꾼",
-        "team": "townsfolk",
-        "image": [
-            "/img/characters/official/carousel/poppygrower_g.webp",
-            "/img/characters/official/carousel/poppygrower_e.webp"
-        ],
-        "ability": "하수인과 악마가 서로를 알지 못합니다. 당신이 사망하면, 그날 밤 이들은 서로를 알게 됩니다.",
-        "flavor": "깊은 숲의 숨은 수풀 속에는 검은 양귀비가 자란다. 그 향연을 보는 순간 홀리고, 짙은 향기를 맡는 순간 빛과 어둠의 신들에게 영원히 종속되어 길을 잃고 만다.",
-        "reminders": [
-            "악한 팀 깨어남"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "하수인 정보와 악마 정보 단계를 건너뜁니다. 악마를 깨웁니다. *이 캐릭터는 참여하지 않습니다* 정보 토큰을 보여줍니다. 게임에 참여하지 않은 선한 캐릭터 토큰 3개를 보여줍니다.",
-        "otherNightReminder": "양귀비 재배꾼이 오늘 밤이나 낮에 사망했다면, 모든 하수인을 깨웁니다. *이 사람이 악마입니다* 정보 토큰을 보여주고 악마를 가리킵니다. 하수인들을 재우고 악마를 깨웁니다. *이들이 당신의 하수인입니다* 정보 토큰을 보여주고 하수인들을 가리킵니다.",
-        "firstNight": 16,
-        "otherNight": 12
-    },
-    {
-        "id": "donkeywrangler1100",
-        "setup": true,
-        "edition": "",
-        "name": "당나귀 관리인",
-        "team": "outsider",
-        "image": [
-            "https://i.imgur.com/E3FH0yJ.png",
-            "https://i.imgur.com/5taG7eO.png"
-        ],
-        "ability": "당신이 지목되면, 오늘 악마가 처형되어야 합니다. 그렇지 않으면 당신이 속한 팀이 패배합니다. [당신의 토큰은 네모입니다]",
-        "flavor": "",
-        "reminders": [
-            "오늘 지목됨"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "",
-        "firstNight": 0,
-        "otherNight": 0
-    },
-    {
-        "id": "politician",
-        "setup": false,
-        "edition": "carousel",
-        "name": "정치인",
-        "team": "outsider",
-        "image": [
-            "/img/characters/official/carousel/politician_g.webp",
-            "/img/characters/official/carousel/politician_e.webp"
-        ],
-        "ability": "당신이 속한 팀의 패배에 가장 크게 기여했다면, 팀을 바꾸고 승리합니다(사망한 상태더라도).",
-        "flavor": "좋은 질문 주셔서 참으로 감사합니다. 정말입니다. 하지만 제가 보기에 여기서 질문의 진짜 의도는 말이죠...",
-        "reminders": [],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "",
-        "firstNight": 0,
-        "otherNight": 0
-    },
-    {
-        "id": "damsel",
-        "setup": false,
-        "edition": "carousel",
-        "name": "아가씨",
-        "team": "outsider",
-        "image": [
-            "/img/characters/official/carousel/damsel_g.webp",
-            "/img/characters/official/carousel/damsel_e.webp"
-        ],
-        "ability": "모든 하수인은 아가씨가 게임에 참여한다는 사실을 압니다. 하수인이 당신을 공개적으로 추측해 내면(여러명 중 단 1번만 가능), 당신이 속한 팀이 패배합니다.",
-        "flavor": "머리카락엔 손대지 마, 자기야.",
-        "reminders": [
-            "추측 사용함"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "하수인 정보 단계에, 하수인에게 아가씨 토큰을 보여줍니다. 아직 하지 않았다면, 즉시 그렇게 합니다. 아가씨가 사냥꾼에게 선택되었다면, *당신은* 정보 토큰과 바뀐 캐릭터 토큰을 보여줍니다.",
-        "otherNightReminder": "아가씨가 사냥꾼에게 선택되었다면, *당신은* 정보 토큰과 바뀐 캐릭터 토큰을 보여줍니다.",
-        "firstNight": 50,
-        "otherNight": 68
-    },
-    {
-        "id": "heretic",
-        "setup": false,
-        "edition": "carousel",
-        "name": "배교자",
-        "team": "outsider",
-        "image": [
-            "/img/characters/official/carousel/heretic_g.webp",
-            "/img/characters/official/carousel/heretic_e.webp"
-        ],
-        "ability": "승리하는 팀은 패배하고 패배하는 팀은 승리합니다(당신이 사망한 상태더라도).",
-        "flavor": "우박이 지붕을 박살 내고 대성당 창문의 유리를 산산이 깨뜨린 뒤에도, 그것은 다시 대지로 스며들어 사막의 태양 아래 죽어가는 어린양처럼 녹아내린다. 이것은 곧 광인의 우화다.",
-        "reminders": [],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [
-            {
-                "id": "baron",
-                "reason": "두 캐릭터가 동시에 게임에 참여할 수 없습니다."
-            },
-            {
-                "id": "godfather",
-                "reason": "두 캐릭터가 동시에 게임에 참여할 수 없습니다."
-            },
-            {
-                "id": "lleech",
-                "reason": "두 캐릭터가 동시에 게임에 참여할 수 없습니다."
-            },
-            {
-                "id": "pithag",
-                "reason": "두 캐릭터가 동시에 게임에 참여할 수 없습니다."
-            },
-            {
-                "id": "spy",
-                "reason": "두 캐릭터가 동시에 게임에 참여할 수 없습니다."
-            },
-            {
-                "id": "widow",
-                "reason": "두 캐릭터가 동시에 게임에 참여할 수 없습니다."
-            }
-        ],
-        "firstNightReminder": "",
-        "otherNightReminder": "",
-        "firstNight": 0,
-        "otherNight": 0
-    },
-    {
-        "id": "wizard",
-        "setup": false,
-        "edition": "carousel",
-        "name": "마법사",
-        "team": "minion",
-        "image": [
-            "/img/characters/official/carousel/wizard_e.webp",
-            "/img/characters/official/carousel/wizard_g.webp"
-        ],
-        "ability": "게임당 1번, 소원을 빌 수 있습니다. 소원이 받아들여졌다면, 대가가 따르거나 단서가 제공될 수 있습니다(소원의 특징에 따라).",
-        "flavor": "모든 남자와 모든 여자는 하나의 별이다. 사랑은 율법이며, 의지 아래에 있다.",
-        "reminders": [
-            "?",
-            "?"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "마법사의 능력에 필요한 것들을 합니다.",
-        "otherNightReminder": "마법사의 능력에 필요한 것들을 합니다.",
-        "firstNight": 36,
-        "otherNight": 20
-    },
-    {
-        "id": "copycat1100",
-        "setup": true,
-        "edition": "",
-        "name": "따라쟁이",
-        "team": "minion",
-        "image": [
-            "https://i.imgur.com/ahIsDet.png",
-            "https://i.imgur.com/i08Un26.png"
-        ],
-        "ability": "당신은 게임에 참여하는 다른 하수인 캐릭터로 위장되고, 그 능력을 가지고 있습니다. [다른 하수인이 반드시 있어야 함]",
-        "flavor": "",
-        "reminders": [],
-        "remindersGlobal": [
-            "따라쟁이입니다"
-        ],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "*당신은* 토큰과 다른 하수인 캐릭터를 보여줍니다. 필요하다면, 그 캐릭터의 토큰을 따라쟁이의 캐릭터 토큰과 맞바꿉니다. :reminder:",
-        "otherNightReminder": "",
-        "firstNight": 15.1,
-        "otherNight": 0
-    },
-    {
-        "id": "goblin",
-        "setup": false,
-        "edition": "carousel",
-        "name": "고블린",
-        "team": "minion",
-        "image": [
-            "/img/characters/official/carousel/goblin_e.webp",
-            "/img/characters/official/carousel/goblin_g.webp"
-        ],
-        "ability": "당신이 지목받았을 때 고블린이라고 공개적으로 주장한 후 그날 처형당한다면, 당신이 속한 팀이 승리합니다.",
-        "flavor": "고블린을 모욕하면 안 되는거야. 정말로, 진짜로 안 돼. 다른 얘기긴 한데... 케이크 하나 더 먹어도 돼?",
-        "reminders": [
-            "주장함"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "",
-        "firstNight": 0,
-        "otherNight": 0
-    },
-    {
-        "id": "damned1100",
-        "setup": true,
-        "edition": "",
-        "name": "저주받은 자",
-        "team": "minion",
-        "image": [
-            "https://i.imgur.com/C4Z3gnk.png",
-            "https://i.imgur.com/meNeoMW.png"
-        ],
-        "ability": "선한 플레이어가 모두 사망하면 선한 팀이 승리합니다. 악마는 생존한 마지막 저주받은 자를 죽일 수 없습니다. [+0~+2 저주받은 자]",
-        "flavor": "",
-        "reminders": [
-            "마지막"
-        ],
-        "remindersGlobal": [],
-        "special": [
-            {
-                "name": "bag-duplicate",
-                "type": "selection"
-            }
-        ],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "",
-        "firstNight": 0,
-        "otherNight": 0
-    },
-    {
-        "id": "hwisp1100",
-        "setup": false,
-        "edition": "",
-        "name": "휘스프",
-        "team": "demon",
-        "image": [
-            "https://i.imgur.com/wd18049.png",
-            "https://i.imgur.com/N5f8naC.png"
-        ],
-        "ability": "매일 밤*, 플레이어 1명을 선택합니다: 그는 사망합니다. 주민이 당신을 지목하면, 당신은 사망합니다. 매일 낮, 주민 2명이 지목하면 악한 팀이 승리합니다.",
-        "flavor": "",
-        "reminders": [
-            "사망",
-            "오늘 지목함"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "휘스프가 플레이어 1명을 선택합니다. :reminder:",
-        "firstNight": 0,
-        "otherNight": 40.1
-    },
-    {
-        "id": "legion",
-        "setup": true,
-        "edition": "carousel",
-        "name": "군단",
-        "team": "demon",
-        "image": [
-            "/img/characters/official/carousel/legion_e.webp",
-            "/img/characters/official/carousel/legion_g.webp"
-        ],
-        "ability": "매일 밤*, 플레이어 1명이 사망할 수 있습니다. 악한 팀만 투표했다면 처형이 실패합니다. 당신은 하수인으로도 위장됩니다. [대부분의 플레이어가 군단입니다]",
-        "flavor": "우리는 겨울날의 싸늘한 바람이다. 우리는 초하룻날의 그림자다. 우리는 네 찻잔 속 독이요, 네 귓가에 스미는 속삭임이다. 우리는 어디에나 존재한다.",
-        "reminders": [
-            "사망",
-            "처형 대상"
-        ],
-        "remindersGlobal": [],
-        "special": [
-            {
-                "type": "selection",
-                "name": "bag-duplicate"
-            }
-        ],
-        "jinxes": [
-            {
-                "id": "engineer",
-                "reason": "군단이 만들어지면, 모든 악한 플레이어는 군단이 됩니다. 군단이 참여 중이라면, 게임 시작 시 기계공이 이 사실을 알게 되지만, 능력이 없습니다."
-            },
-            {
-                "id": "hatter",
-                "reason": "군단이 만들어지면, 모든 악한 플레이어는 군단이 됩니다. 군단이 참여 중이라면, 모자 장수는 능력이 없습니다."
-            },
-            {
-                "id": "minstrel",
-                "reason": "군단이 오늘 처형되어 사망하면, 군단은 능력을 유지하지만 음유시인은 그가 군단이라는 사실을 알게 될 수도 있습니다."
-            },
-            {
-                "id": "politician",
-                "reason": "정치인은 군단에게 악한 팀 소속으로 위장되어 보일 수도 있습니다."
-            },
-            {
-                "id": "preacher",
-                "reason": "목사가 군단을 선택한다면, 군단은 능력을 유지하지만 전도사는 그가 군단이라는 사실을 알게 될 수도 있습니다."
-            },
-            {
-                "id": "summoner",
-                "reason": "군단이 소환되면, 모든 악한 플레이어는 군단이 됩니다."
-            },
-            {
-                "id": "zealot",
-                "reason": "광신자는 군단에게 악한 팀 소속으로 위장되어 보일 수도 있습니다.."
-            }
-        ],
-        "firstNightReminder": "",
-        "otherNightReminder": "플레이어 1명이 사망할 수도 있습니다. :reminder:",
-        "firstNight": 0,
-        "otherNight": 39
-    },
-    {
-        "id": "fanzazz1100",
-        "setup": false,
-        "edition": "",
-        "name": "팬자즈",
-        "team": "demon",
-        "image": [
-            "https://i.imgur.com/1M1UA9X.png",
-            "https://i.imgur.com/SXnN3SQ.png"
-        ],
-        "ability": "매일 밤*, 플레이어 1명을 선택합니다: 그는 사망하고, 당신은 그가 속한 팀이 됩니다. 당신이 사망하면, 당신이 속한 팀이 패배합니다. 생존한 플레이어가 2명뿐이면, 당신이 속한 팀이 승리합니다.",
-        "flavor": "",
-        "reminders": [
-            "사망"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "팬자즈가 플레이어 1명을 선택합니다. :reminder: 팬자즈가 그가 속한 팀이 됩니다.",
-        "firstNight": 0,
-        "otherNight": 50.2
-    },
-    {
-        "id": "tipitipi1100",
-        "setup": false,
-        "edition": "",
-        "name": "티피티피",
-        "team": "demon",
-        "image": [
-            "https://i.imgur.com/3H1cZYw.png",
-            "https://i.imgur.com/IpR1il3.png"
-        ],
-        "ability": "매일 밤*, 플레이어 1명이 사망합니다. 마지막 밤에, 플레이어 2명을 선택합니다: 첫 번째 플레이어는 두 번째 플레이어가 악마가 아니라는 사실에 집착해야 합니다. 그렇지 않으면, 첫 번째 플레이어가 속한 팀이 패배합니다.",
-        "flavor": "",
-        "reminders": [
-            "사망",
-            "집착",
-            "두 번째"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "플레이어 1명이 사망합니다. :reminder: 마지막 밤이라면, 티피티피가 플레이어 2명을 선택합니다. :reminder: :reminder: 티피티피를 재웁니다. 첫 번째로 선택된 플레이어를 깨웁니다. *이 캐릭터가 당신을 선택했습니다* 토큰과 티피티피 토큰을 보여주고 두 번째로 선택된 플레이어를 가리킵니다.",
-        "firstNight": 0,
-        "otherNight": 39.1
-    },
-    {
-        "id": "cacklejack",
-        "setup": false,
-        "edition": "carousel",
-        "name": "낄낄이",
-        "team": "traveller",
-        "image": [
-            "/img/characters/official/carousel/cacklejack.webp",
-            "/img/characters/official/carousel/cacklejack_g.webp",
-            "/img/characters/official/carousel/cacklejack_e.webp"
-        ],
-        "ability": "매일 낮, 플레이어 1명을 선택합니다: 오늘 밤, 다른 플레이어 1명의 캐릭터가 바뀝니다.",
-        "flavor": "전선 α를 전선 β에. 불 켜짐. 부저 정지. 끼야아잉! 팔 쭉 펴. 손가락은 코에. 가마아안히 서 있어. 보잉고-방고! 하하하!",
-        "reminders": [
-            "나 말고"
-        ],
-        "remindersGlobal": [],
-        "special": [],
-        "jinxes": [],
-        "firstNightReminder": "",
-        "otherNightReminder": "새벽이 되기 전, *나 말고*로 표시된 플레이어를 제외한 플레이어 1명을 선택합니다. 대상을 깨우고, *당신은* 정보 토큰과 그의 바뀐 캐릭터 토큰을 보여줍니다.",
-        "firstNight": 0,
-        "otherNight": 5
-    }
+  {
+    "id": "_meta",
+    "name": "Midnight in the House of the Damned(한밤중에 저주받은 자의 저택에서)",
+    "author": "할아버지(USIJ)",
+    "logo": "https://i.imgur.com/rlm9cux.png",
+    "hideTitle": true,
+    "background": "https://i.imgur.com/xqUblkI.jpeg",
+    "almanac": "https://botc.vnamu.com/sheets/2290/almanac?code=002da6",
+    "bootlegger": [
+      "군단 - 마술사/정치인 징크스는 존재하지 않습니다."
+    ]
+  },
+  {
+    "id": "blacksmith1",
+    "setup": true,
+    "edition": "",
+    "name": "대장장이",
+    "team": "townsfolk",
+    "image": [
+      "https://i.imgur.com/R6dxaGS.png",
+      "https://i.imgur.com/7aFOkFQ.png"
+    ],
+    "ability": "게임 시작 시, 얼마나 많은 외지인이 게임에 참여하는지 알게 됩니다. (당신이 사망하더라도) 모든 외지인은 취합니다. [외지인 -?명~+?명]",
+    "flavor": "",
+    "reminders": [
+      "모든 외지인 취함"
+    ],
+    "remindersGlobal": [],
+    "special": [],
+    "jinxes": [],
+    "firstNightReminder": "손가락을 펴서 신호를 줍니다. :reminder:",
+    "otherNightReminder": "",
+    "firstNight": 53.1,
+    "otherNight": 0
+  },
+  {
+    "id": "bountyhunter"
+  },
+  {
+    "id": "pirate1",
+    "setup": true,
+    "edition": "",
+    "name": "해적",
+    "team": "townsfolk",
+    "image": [
+      "https://i.imgur.com/1P7kxXM.png",
+      "https://i.imgur.com/N2TrI3I.png"
+    ],
+    "ability": "게임 시작 시, 얼마나 많은 해적이 게임에 참여하는지 알게 됩니다. 생존한 선한 캐릭터가 해적 뿐이라면 선팀이 승리합니다. [+0~+2 해적]",
+    "flavor": "",
+    "reminders": [],
+    "remindersGlobal": [],
+    "special": [
+      {
+        "name": "bag-duplicate",
+        "type": "selection"
+      }
+    ],
+    "jinxes": [],
+    "firstNightReminder": "손가락을 펴서 신호를 줍니다.",
+    "otherNightReminder": "",
+    "firstNight": 52.2,
+    "otherNight": 0
+  },
+  {
+    "id": "falconer1",
+    "setup": false,
+    "edition": "",
+    "name": "응사",
+    "team": "townsfolk",
+    "image": [
+      "https://i.imgur.com/rt4fmh6.png",
+      "https://i.imgur.com/wKTIQeY.png"
+    ],
+    "ability": "매일 황혼*, 이야기꾼을 찾아가 생존한 주민이 몇 명인지 알 수 있습니다.",
+    "flavor": "",
+    "reminders": [],
+    "remindersGlobal": [],
+    "special": [],
+    "jinxes": [],
+    "firstNightReminder": "",
+    "otherNightReminder": "손가락을 펴서 신호를 줍니다.",
+    "firstNight": 0,
+    "otherNight": 0.9
+  },
+  {
+    "id": "villageidiot"
+  },
+  {
+    "id": "huntsman"
+  },
+  {
+    "id": "machinist1",
+    "setup": true,
+    "edition": "",
+    "name": "공학자",
+    "team": "townsfolk",
+    "image": [
+      "https://i.imgur.com/7qqALiY.png",
+      "https://i.imgur.com/PxEy9sN.png"
+    ],
+    "ability": "당신의 첫 번째 낮에, (취함/중독 상태더라도) 이야기꾼을 찾아가 스크립트에 없는 캐릭터가 됩니다. [+0~+2 공학자]",
+    "flavor": "",
+    "reminders": [],
+    "remindersGlobal": [
+      "공학자입니다"
+    ],
+    "special": [
+      {
+        "name": "bag-duplicate",
+        "type": "selection"
+      },
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      }
+    ],
+    "jinxes": [],
+    "firstNightReminder": "",
+    "otherNightReminder": "",
+    "firstNight": 0,
+    "otherNight": 0
+  },
+  {
+    "id": "mole1",
+    "setup": false,
+    "edition": "",
+    "name": "밀정",
+    "team": "townsfolk",
+    "image": [
+      "https://i.imgur.com/BKBFxIG.png",
+      "https://i.imgur.com/i8NlB4H.png"
+    ],
+    "ability": "당신은 하수인입니다. 게임당 1번, 악마가 공개적으로 당신을 추측하면, (당신이 사망하거나 취함/중독 상태더라도) 당신이 속한 팀이 패배합니다.",
+    "flavor": "",
+    "reminders": [],
+    "remindersGlobal": [
+      "밀정입니다"
+    ],
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      }
+    ],
+    "jinxes": [],
+    "firstNightReminder": "*당신은* 토큰과 밀정의 하수인 캐릭터를 보여줍니다. 필요하다면, 그 캐릭터의 토큰을 밀정의 캐릭터 토큰과 맞바꿉니다. :reminder: 하수인 정보 단계에 밀정도 같이 깨웁니다.",
+    "otherNightReminder": "",
+    "firstNight": 8.1,
+    "otherNight": 0
+  },
+  {
+    "id": "beekeeper1",
+    "setup": false,
+    "edition": "",
+    "name": "양봉업자",
+    "team": "townsfolk",
+    "image": [
+      "https://i.imgur.com/1DuX7Bb.png",
+      "https://i.imgur.com/KSSpGCk.png"
+    ],
+    "ability": "당신을 제외한 선한 캐릭터 3개를 선택합니다. 악마는 그 캐릭터들을 블러핑으로 받습니다.",
+    "flavor": "",
+    "reminders": [],
+    "remindersGlobal": [],
+    "special": [],
+    "jinxes": [],
+    "firstNightReminder": "선택된 캐릭터를 악마 정보 단계에 알려줍니다.",
+    "otherNightReminder": "",
+    "firstNight": 23.1,
+    "otherNight": 0
+  },
+  {
+    "id": "magician"
+  },
+  {
+    "id": "taxman1",
+    "setup": false,
+    "edition": "",
+    "name": "세리",
+    "team": "townsfolk",
+    "image": [
+      "https://i.imgur.com/QibWoHl.png",
+      "https://i.imgur.com/9ydeht6.png"
+    ],
+    "ability": "악한 팀은 승리할 수 없습니다. 처음으로 악한 팀이 승리하려 할 때, 악마는 밤에 당신이 세리라는 것을 알게 됩니다.",
+    "flavor": "",
+    "reminders": [
+      "악한 팀 승리X"
+    ],
+    "remindersGlobal": [],
+    "special": [],
+    "jinxes": [],
+    "firstNightReminder": "",
+    "otherNightReminder": "처음으로 악한 팀이 승리하려 할 때, 세리의 기록 토큰을 제거합니다. 그 후, 악마를 깨워 *이 캐릭터가 당신을 선택했습니다* 토큰과 세리의 캐릭터 토큰을 보여주고 그 플레이어를 가리킵니다.",
+    "firstNight": 0,
+    "otherNight": 4.1
+  },
+  {
+    "id": "shaman1",
+    "setup": false,
+    "edition": "",
+    "name": "무당",
+    "team": "townsfolk",
+    "image": [
+      "https://i.imgur.com/BsjvcTw.png",
+      "https://i.imgur.com/oTKzZBO.png"
+    ],
+    "ability": "악한 플레이어들은 자신이 다른 악한 캐릭터라고 생각합니다. 이야기꾼은 그에 맞춰 행동합니다. 당신이 사망하면, 그들은 자신의 정체를 알게 됩니다.",
+    "flavor": "",
+    "reminders": [
+      "악한 팀 깨달음"
+    ],
+    "remindersGlobal": [],
+    "special": [],
+    "jinxes": [],
+    "firstNightReminder": "무당이 오늘 밤이나 낮에 사망했다면 :reminder:, 악한 플레이어들을 각자 깨웁니다. *당신은* 토큰과 그들의 진짜 캐릭터 토큰을 보여줍니다.",
+    "otherNightReminder": "",
+    "firstNight": 5.1,
+    "otherNight": 0
+  },
+  {
+    "id": "poppygrower"
+  },
+  {
+    "id": "donkeywrangler1",
+    "setup": true,
+    "edition": "",
+    "name": "당나귀 관리인",
+    "team": "outsider",
+    "image": [
+      "https://i.imgur.com/E3FH0yJ.png",
+      "https://i.imgur.com/5taG7eO.png"
+    ],
+    "ability": "당신이 지목되면, 오늘 악마가 처형되어야 합니다. 그렇지 않으면 당신이 속한 팀이 패배합니다. [당신의 토큰은 네모입니다]",
+    "flavor": "",
+    "reminders": [
+      "오늘 지목됨"
+    ],
+    "remindersGlobal": [],
+    "special": [],
+    "jinxes": [],
+    "firstNightReminder": "",
+    "otherNightReminder": "",
+    "firstNight": 0,
+    "otherNight": 0
+  },
+  {
+    "id": "politician"
+  },
+  {
+    "id": "damsel"
+  },
+  {
+    "id": "heretic"
+  },
+  {
+    "id": "wizard"
+  },
+  {
+    "id": "copycat1",
+    "setup": true,
+    "edition": "",
+    "name": "따라쟁이",
+    "team": "minion",
+    "image": [
+      "https://i.imgur.com/ahIsDet.png",
+      "https://i.imgur.com/i08Un26.png"
+    ],
+    "ability": "당신은 게임에 참여하는 다른 하수인 캐릭터로 위장되고, 그 능력을 가지고 있습니다. [다른 하수인이 반드시 있어야 함]",
+    "flavor": "",
+    "reminders": [],
+    "remindersGlobal": [
+      "따라쟁이입니다"
+    ],
+    "special": [],
+    "jinxes": [],
+    "firstNightReminder": "*당신은* 토큰과 다른 하수인 캐릭터를 보여줍니다. 필요하다면, 그 캐릭터의 토큰을 따라쟁이의 캐릭터 토큰과 맞바꿉니다. :reminder:",
+    "otherNightReminder": "",
+    "firstNight": 15.1,
+    "otherNight": 0
+  },
+  {
+    "id": "goblin"
+  },
+  {
+    "id": "damned1",
+    "setup": true,
+    "edition": "",
+    "name": "저주받은 자",
+    "team": "minion",
+    "image": [
+      "https://i.imgur.com/C4Z3gnk.png",
+      "https://i.imgur.com/meNeoMW.png"
+    ],
+    "ability": "선한 플레이어가 모두 사망하면 선한 팀이 승리합니다. 악마는 생존한 마지막 저주받은 자를 죽일 수 없습니다. [+0~+2 저주받은 자]",
+    "flavor": "",
+    "reminders": [
+      "마지막"
+    ],
+    "remindersGlobal": [],
+    "special": [
+      {
+        "name": "bag-duplicate",
+        "type": "selection"
+      }
+    ],
+    "jinxes": [],
+    "firstNightReminder": "",
+    "otherNightReminder": "",
+    "firstNight": 0,
+    "otherNight": 0
+  },
+  {
+    "id": "hwisp1",
+    "setup": false,
+    "edition": "",
+    "name": "휘스프",
+    "team": "demon",
+    "image": [
+      "https://i.imgur.com/wd18049.png",
+      "https://i.imgur.com/N5f8naC.png"
+    ],
+    "ability": "매일 밤*, 플레이어 1명을 선택합니다: 그는 사망합니다. 주민이 당신을 지목하면, 당신은 사망합니다. 매일 낮, 주민 2명이 지목하면 악한 팀이 승리합니다.",
+    "flavor": "",
+    "reminders": [
+      "사망",
+      "오늘 지목함"
+    ],
+    "remindersGlobal": [],
+    "special": [],
+    "jinxes": [],
+    "firstNightReminder": "",
+    "otherNightReminder": "휘스프가 플레이어 1명을 선택합니다. :reminder:",
+    "firstNight": 0,
+    "otherNight": 40.1
+  },
+  {
+    "id": "legion"
+  },
+  {
+    "id": "fanzazz1",
+    "setup": false,
+    "edition": "",
+    "name": "팬자즈",
+    "team": "demon",
+    "image": [
+      "https://i.imgur.com/1M1UA9X.png",
+      "https://i.imgur.com/SXnN3SQ.png"
+    ],
+    "ability": "매일 밤*, 플레이어 1명을 선택합니다: 그는 사망하고, 당신은 그가 속한 팀이 됩니다. 당신이 사망하면, 당신이 속한 팀이 패배합니다. 생존한 플레이어가 2명뿐이면, 당신이 속한 팀이 승리합니다.",
+    "flavor": "",
+    "reminders": [
+      "사망"
+    ],
+    "remindersGlobal": [],
+    "special": [],
+    "jinxes": [],
+    "firstNightReminder": "",
+    "otherNightReminder": "팬자즈가 플레이어 1명을 선택합니다. :reminder: 팬자즈가 그가 속한 팀이 됩니다.",
+    "firstNight": 0,
+    "otherNight": 50.2
+  },
+  {
+    "id": "tipitipi1",
+    "setup": false,
+    "edition": "",
+    "name": "티피티피",
+    "team": "demon",
+    "image": [
+      "https://i.imgur.com/3H1cZYw.png",
+      "https://i.imgur.com/IpR1il3.png"
+    ],
+    "ability": "매일 밤*, 플레이어 1명이 사망합니다. 마지막 밤에, 플레이어 2명을 선택합니다: 첫 번째 플레이어는 두 번째 플레이어가 악마가 아니라는 사실에 집착해야 합니다. 그렇지 않으면, 첫 번째 플레이어가 속한 팀이 패배합니다.",
+    "flavor": "",
+    "reminders": [
+      "사망",
+      "집착",
+      "두 번째"
+    ],
+    "remindersGlobal": [],
+    "special": [],
+    "jinxes": [],
+    "firstNightReminder": "",
+    "otherNightReminder": "플레이어 1명이 사망합니다. :reminder: 마지막 밤이라면, 티피티피가 플레이어 2명을 선택합니다. :reminder: :reminder: 티피티피를 재웁니다. 첫 번째로 선택된 플레이어를 깨웁니다. *이 캐릭터가 당신을 선택했습니다* 토큰과 티피티피 토큰을 보여주고 두 번째로 선택된 플레이어를 가리킵니다.",
+    "firstNight": 0,
+    "otherNight": 39.1
+  },
+  {
+    "id": "cacklejack"
+  },
+  {
+    "id": "sentinel"
+  }
 ]
