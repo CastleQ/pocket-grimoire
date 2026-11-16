@@ -231,6 +231,10 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - **Claude 클라우드 세션(관리자 계정 root)에서는 `deploy.sh`가 준비 단계에서 멈춘다.** composer가 root에서 플러그인을 꺼 버려 `symfony-cmd: not found`가 나고, 그 뒤로 배포가 진행되지 않는다. 앞에 설정을 붙여 실행한다: `COMPOSER_ALLOW_SUPERUSER=1 bash deploy.sh "커밋 메시지"`
 - **클라우드 세션의 배포 순서:** `deploy.sh`는 **지금 가지**에 커밋·푸시한다. `git fetch origin && git checkout -B main origin/main && git merge --ff-only <작업가지>` → deploy → `git push origin main:<작업가지>`. 다른 대화가 main에 먼저 배포했을 수 있으니 fetch부터 한다.
 - **클라우드 로컬 확인:** `docs/`를 `<폴더>/pocket-grimoire`로 링크해 `python3 -m http.server`로 띄우고 Playwright로 누른다. 공유 기능은 `route`로 `rpc/save_shared_sheet`·`rpc/get_shared_sheet`를 가짜 응답으로 바꿔 **실데이터를 쓰지 않는다.**
+  - 나눠주기를 누르는 확인은 **판을 먼저 골라야** 캐릭터 체크박스가 생긴다: `#select-edition-form`의 `edition` 라디오(`tb`)를 고르고 `requestSubmit()` → `#player-select input[name="character"]` 체크 → `#player-select-distribute`. `rest/v1/games`·`slots`는 `route`로 가짜 응답.
+  - 로컬 확인용으로 `bake.sh`를 돌렸으면 커밋 전에 `git checkout -- docs && git clean -fd docs`로 되돌린다(배포는 deploy.sh가 다시 굽는다).
+- **DB 변경 SQL은 CastleQ에게 주기 전에 컨테이너의 PostgreSQL 16(`/usr/lib/postgresql/16/bin`)으로 미리 시험한다.** 클러스터는 `/var/tmp/` 아래에(스크래치 폴더는 postgres 사용자가 못 씀) `su postgres -c "initdb …; pg_ctl …"`. anon·authenticated 역할과 칸 단위 권한을 실제처럼 재현해 공개 키 동작까지 본다.
+- **함수 인자 수를 바꿀 때는 `create or replace`로 안 된다** → 한 트랜잭션에서 옛 함수 `drop` + 새 함수 생성(새 인자는 `default null`로 옛 앱 호출 호환), 끝에 `notify pgrst, 'reload schema';`.
 - **내장 시트 상당수가 YAML `entry_order`와 어긋난 순서** — 현행 방침상 문제 없음.
 - **`git push`가 설명 없이 실패하면 Git LFS 훅을 의심한다.** 이 프로젝트는 LFS를 전혀 쓰지 않는데 훅만 잔재로 남아 푸시를 막은 적이 있다. 증상은 `error: failed to push some refs`뿐이고 전송 기록이 아예 없다.
   - 즉시 우회: `git push --no-verify`
