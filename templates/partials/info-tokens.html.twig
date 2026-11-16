@@ -87,7 +87,8 @@
     {% block body %}
     <p class="info-token-names__empty" id="info-token-names-empty" hidden>마도서에 입력된 참가자 이름이 없습니다.</p>
     <ul class="button-list info-token-names__list" id="info-token-names-list"></ul>
-    <ul class="button-list mt-4">
+    {# 이름 목록과 [확인][취소]가 구분되게 반 칸 더 띄움 #}
+    <ul class="button-list" style="margin-top: 1.75em">
         <li><button type="button" class="button" id="info-token-names-confirm">확인</button></li>
         <li><button type="button" class="button button--warning" id="info-token-names-cancel">취소</button></li>
     </ul>
