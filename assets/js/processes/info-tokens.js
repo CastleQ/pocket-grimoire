@@ -70,10 +70,56 @@ lookupOne("#character-list-cancel").addEventListener("click", () => {
     characterListDialog.hide();
 });
 
+// "이 캐릭터들은 게임에 없습니다": 악마의 속임수 목록처럼 마도서에 없는 선한 캐릭터만 보이고,
+// [존재하는 캐릭터·여행자·악한 캐릭터 보여주기] 토글로 넓힌다(가리는 규칙은 _character-list.scss).
+const pickFilters = lookupOne("#character-list-filters");
+const PICK_FILTERS = {
+    "#pick-show-existing": "is-show-existing",
+    "#pick-show-travellers": "is-show-travellers",
+    "#pick-show-evil": "is-show-evil"
+};
+
+Object.entries(PICK_FILTERS).forEach(([selector, className]) => {
+    lookupOne(selector).addEventListener("change", ({ target }) => {
+        pickList.classList.toggle(className, target.checked);
+    });
+});
+
+function setNotInPlayFilter(on) {
+
+    const pad = lookupOneCached(".js--pad").pad;
+    const inPlay = new Set(pad.characters.map(({ character }) => character.getId()));
+
+    TokenStore.ready((tokenStore) => {
+
+        pickList.querySelectorAll("[data-token-id]").forEach((button) => {
+
+            const item = button.closest("li") || button;
+            const character = tokenStore.getCharacter(button.dataset.tokenId);
+
+            if (on && character) {
+                item.dataset.team = character.getTeam();
+            } else {
+                delete item.dataset.team;
+            }
+
+            item.classList.toggle("is-in-play", on && inPlay.has(button.dataset.tokenId));
+
+        });
+
+    });
+
+    Object.entries(PICK_FILTERS).forEach(([selector, className]) => {
+        pickList.classList.toggle(className, !on || lookupOne(selector).checked);
+    });
+    pickFilters.hidden = !on;
+
+}
+
 // 정보 토큰마다 접시를 비우는 방법을 모아 둔다(마도서 지우기 때 쓴다).
 const plateResets = new Set();
 
-function wireCharacterSelect(token, initialId = "", max = PLATE_MAX) {
+function wireCharacterSelect(token, initialId = "", max = PLATE_MAX, notInPlay = false) {
 
     const button = token.getCharacterSelectButton();
     const initial = initialId ? [initialId] : [];
@@ -145,6 +191,10 @@ function wireCharacterSelect(token, initialId = "", max = PLATE_MAX) {
             pickActions.hidden = true;
             markPicked([]);
 
+            if (notInPlay) {
+                setNotInPlayFilter(false);
+            }
+
             if (!grimoireWasOpen) {
                 lookupOneCached("#grimoire").open = false;
             }
@@ -163,6 +213,10 @@ function wireCharacterSelect(token, initialId = "", max = PLATE_MAX) {
         activePick = process;
         pickActions.hidden = false;
         markPicked(picking, max);
+
+        if (notInPlay) {
+            setNotInPlayFilter(true);
+        }
 
         characterListDialog.addProcess(process);
         characterListDialog.show();
@@ -271,7 +325,12 @@ JSON.parse(buttonHolder.dataset.infoTokens).forEach((data) => {
 
     if (data.characterSelect) {
         // characterSelectMax: 이 토큰에서 고를 수 있는 캐릭터 수("이 캐릭터들은 게임에 없습니다"는 3)
-        wireCharacterSelect(token, "", Math.min(data.characterSelectMax || PLATE_MAX, PLATE_MAX));
+        wireCharacterSelect(
+            token,
+            "",
+            Math.min(data.characterSelectMax || PLATE_MAX, PLATE_MAX),
+            Boolean(data.characterSelectNotInPlay)
+        );
     }
 
     if (data.nameSelect) {

@@ -5,8 +5,15 @@
     background: 'blur',
     title: 'grimoire.character_list.title'|trans
 } %}
+    {% import 'macros/forms.html.twig' as forms %}
     {% block body %}
     <ul id="character-list__list" class="button-list button-list--reminder character-list"></ul>
+    {# "이 캐릭터들은 게임에 없습니다" 접시를 고를 때만 보인다 — 악마의 속임수 목록과 같은 토글 (info-tokens.js) #}
+    <ul class="no-list mt-4" id="character-list-filters" hidden>
+        {{ forms.switch({ node: 'li', label: 'grimoire.bluff_list.show_existing'|trans, name: 'pick-show', id: 'pick-show-existing', value: 'existing' }) }}
+        {{ forms.switch({ node: 'li', label: 'grimoire.bluff_list.show_travellers'|trans, name: 'pick-show', id: 'pick-show-travellers', value: 'traveller' }) }}
+        {{ forms.switch({ node: 'li', label: 'grimoire.bluff_list.show_evil'|trans, name: 'pick-show', id: 'pick-show-evil', value: 'evil' }) }}
+    </ul>
     {# 정보 토큰의 캐릭터 접시를 여러 개 고를 때만 보인다 (info-tokens.js) #}
     <div class="character-list__actions" id="character-list-actions" hidden>
         <p class="character-list__status" id="character-list-status" role="status" aria-live="polite"></p>
