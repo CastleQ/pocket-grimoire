@@ -245,8 +245,13 @@ function runDistribute(characters, storytellerName) {
         // 각 캐릭터의 이름/능력/이미지를 지금(배포 시점) 확보 — 공식+커스텀 모두 동작
         const slotData = slotCharacters.map(function (id) {
             const ch = tokenStore.getCharacter(id);
+            const team = ch ? ch.getTeam() : "";
             return {
                 character_id: id,
+                // 카드 진영 (여행자 등 그 밖은 null)
+                alignment: (team === "townsfolk" || team === "outsider") ? "good"
+                    : (team === "minion" || team === "demon") ? "evil"
+                    : null,
                 character_name: ch ? ch.getName() : id,
                 character_ability: ch ? ch.getAbility() : "",
                 character_image: ch ? ch.getImage() : ""
@@ -269,6 +274,7 @@ function runDistribute(characters, storytellerName) {
                     return {
                         game_id: createdGame.id,
                         character_id: d.character_id,
+                        alignment: d.alignment,
                         character_name: d.character_name,
                         character_ability: d.character_ability,
                         character_image: d.character_image,
