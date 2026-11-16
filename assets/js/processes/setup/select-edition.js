@@ -717,6 +717,12 @@ form.addEventListener("submit", (e) => {
                         .filter((character) => character.getEdition() === edition)
                 )
             );
+            // 공식 3종은 시트 JSON이 없으니 판 이름(tb/bmr/snv)을 로고 값으로 → 뽑기 화면이 guide/img/logo_<판>.webp를 띄운다.
+            try {
+                window.localStorage.setItem("pg_current_logo", edition);
+            } catch (ignore) {
+                // localStorage 사용 불가 시 무시
+            }
 
         }
 

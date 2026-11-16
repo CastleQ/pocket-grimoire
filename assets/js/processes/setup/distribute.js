@@ -313,7 +313,7 @@ function runDistribute(characters, storytellerName) {
                     logo = "";
                 }
                 // shortcut: 커스텀 시트 여럿이 쓰는 완전 투명 빈 로고(imgur yIFrcQd)는 빈칸만 생겨 뺀다. 다른 빈 로고가 늘면 목록으로.
-                if (/^https:\/\/\S+$/.test(logo) && logo.length <= 300 && logo.indexOf("yIFrcQd") === -1) {
+                if (/^(tb|bmr|snv)$/.test(logo) || (/^https:\/\/\S+$/.test(logo) && logo.length <= 300 && logo.indexOf("yIFrcQd") === -1)) {
                     link += "&logo=" + encodeURIComponent(logo);
                 }
                 return navigator.clipboard.writeText(link).then(function () {

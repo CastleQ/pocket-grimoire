@@ -472,8 +472,9 @@ function showStoryteller() {
 }
 // 이야기꾼이 플레이하는 시트의 로고(링크의 logo=, 시트 _meta.logo). 없거나 못 불러오면 생략.
 function showSheetLogo() {
-  const url = params.get("logo") || "";
-  if (!/^https:\/\/\S+$/.test(url)) { return; }
+  let url = params.get("logo") || "";
+  if (/^(tb|bmr|snv)$/.test(url)) { url = "guide/img/logo_" + url + ".webp"; } // 공식 3종: 판 로고
+  else if (!/^https:\/\/\S+$/.test(url)) { return; }
   const img = el("sheet-logo");
   img.onload = function () { img.classList.remove("hidden"); };
   img.onerror = function () { img.remove(); };
