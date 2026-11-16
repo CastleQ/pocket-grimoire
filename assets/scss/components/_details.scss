@@ -122,8 +122,10 @@
     }
 }
 
-// 업데이트 안내 창의 항목도 릴리즈 노트처럼 촘촘히.
+// 업데이트 안내 창의 항목도 릴리즈 노트처럼 촘촘히, 글씨는 2pt 작게.
 #update-notice-body {
+    font-size: calc(100% - 2pt);
+
     li {
         margin-bottom: 0.4em;
 
@@ -135,4 +137,29 @@
     li > ul {
         margin-top: 0.4em;
     }
+}
+
+// 업데이트 안내 창 아래: 구분선 + [앞으로 그만보기] 스위치(왼쪽)와 [확인](오른쪽) 한 줄.
+.update-notice__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    margin-top: 1.2em;
+    padding-top: 0.9em;
+    border-top: 1px solid rgb(0 0 0 / 20%);
+
+    .switch {
+        flex: none;
+        width: auto;
+        margin: 0;
+        white-space: nowrap;
+    }
+}
+
+.update-notice__ok {
+    flex: 0 1 45%;
+    width: auto;
+    padding-top: 0.35em;
+    padding-bottom: 0.35em;
 }

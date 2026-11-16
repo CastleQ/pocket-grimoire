@@ -3,10 +3,18 @@
     background: 'blur',
     title: '업데이트 안내'
 } %}
+    {% import 'macros/forms.html.twig' as forms %}
     {% block body %}
         <div id="update-notice-body"></div>
-        {# 체크하고 닫으면 이 공지는 [캐시 삭제] 뒤에도 다시 안 뜬다. 체크 없이 닫으면 캐시 삭제 때마다 다시 뜬다 (update-notice.js) #}
-        <p class="mt-4"><label><input type="checkbox" id="update-notice-dismiss"> 앞으로 그만보기</label></p>
-        <p><button type="button" class="button" data-dialog-hide>확인</button></p>
+        {# 켜고 닫으면 이 공지는 [캐시 삭제] 뒤에도 다시 안 뜬다. 끈 채로 닫으면 캐시 삭제 때마다 다시 뜬다 (update-notice.js) #}
+        <div class="update-notice__footer">
+            {{ forms.switch({
+                node: 'div',
+                label: '앞으로 그만보기',
+                name: 'update-notice-dismiss',
+                id: 'update-notice-dismiss'
+            }) }}
+            <button type="button" class="button update-notice__ok" data-dialog-hide>확인</button>
+        </div>
     {% endblock %}
 {% endembed %}
