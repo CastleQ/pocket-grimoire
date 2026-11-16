@@ -304,7 +304,18 @@ function runDistribute(characters, storytellerName) {
                 var claimBase = /\/[a-z]{2}_[A-Z]{2}(\/|$)/.test(pathname)
                     ? "/"
                     : pathname.replace(/[^/]*$/, "");
-                const link = window.location.origin + claimBase + "claim.html?game=" + createdGame.id;
+                let link = window.location.origin + claimBase + "claim.html?game=" + createdGame.id;
+                // 시트 로고가 있으면 뽑기 화면에 띄우도록 링크에 싣는다. 그림 파일(data:) 같은 긴 값은 링크가 너무 길어져 뺀다.
+                let logo = "";
+                try {
+                    logo = window.localStorage.getItem("pg_current_logo") || "";
+                } catch (ignore) {
+                    logo = "";
+                }
+                // shortcut: 커스텀 시트 여럿이 쓰는 완전 투명 빈 로고(imgur yIFrcQd)는 빈칸만 생겨 뺀다. 다른 빈 로고가 늘면 목록으로.
+                if (/^https:\/\/\S+$/.test(logo) && logo.length <= 300 && logo.indexOf("yIFrcQd") === -1) {
+                    link += "&logo=" + encodeURIComponent(logo);
+                }
                 return navigator.clipboard.writeText(link).then(function () {
                     window.alert(
                         "✅ 배포 준비 완료! 공유 링크가 클립보드에 복사되었습니다.\n\n"

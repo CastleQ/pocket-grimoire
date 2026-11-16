@@ -133,6 +133,8 @@ function announceScript(name, characters, game = null, meta = null) {
     // 배포(캐릭터 배포) 시 games.script_name + 플레이 빈도에 쓰기 위해 현재 시트 이름 저장.
     try {
         window.localStorage.setItem("pg_current_script", name || "");
+        // 뽑기 화면 위쪽에 띄울 시트 로고(_meta.logo). 없으면 빈 값 → 뽑기 화면에서 생략.
+        window.localStorage.setItem("pg_current_logo", (meta && typeof meta.logo === "string") ? meta.logo.trim() : "");
     } catch (ignore) {
         // localStorage 사용 불가 시 무시
     }
