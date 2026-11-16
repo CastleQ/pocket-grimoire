@@ -119,7 +119,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 `docs/`는 GitHub Pages가 서비스하는 공개 폴더이므로, 작업 메모나 문서를 여기에 두지 않는다.
 
 **⑬ `guide/data/`·`img/official/` 위치를 바꾸면 캐릭터 도감 사이트가 깨진다**
-별도 사이트 `CastleQ/botc-wiki-ko`(캐릭터 도감)가 PG+ 배포본의 `/pocket-grimoire/guide/data/…`(roles·index·jinxes·chars)와 `/pocket-grimoire/img/official/<id>_0.webp`, `/pocket-grimoire/guide/img/…`를 **절대 경로로 직접 읽는다.** 이 폴더·파일 이름·데이터 형식을 바꾸려면 도감 쪽도 함께 고친다.
+별도 사이트 `CastleQ/botc-wiki-ko`(캐릭터 도감)가 PG+ 배포본의 `/pocket-grimoire/guide/data/…`(roles·index·jinxes·chars)와 `/pocket-grimoire/img/official/<id>_0.webp`, `/pocket-grimoire/guide/img/…`를 **절대 경로로 직접 읽는다.** (`guide/img/logo_<판>.webp`는 PG+ 뽑기 화면 로고도 씀) 이 폴더·파일 이름·데이터 형식을 바꾸려면 도감 쪽도 함께 고친다.
 
 **⑭ Supabase 공개 키 권한을 좁히는 변경은 순서와 점검 범위를 지켜라 (실사용 중단 2회)**
 공개 키(anon) 권한을 줄이면 **이미 배포된 옛 앱**과 **그 표를 쓰는 DB 함수**가 함께 깨진다. 증상은 `permission denied for table …`(401, 42501) — 나눠주기 저장 실패, 플레이어 뽑기(claim) 실패로 나타났다.
@@ -208,6 +208,8 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | 시트 열기/공유 연결 | `assets/js/processes/setup/character-sheet.js` |
 | 커스텀 시트 아카이브 | `assets/js/processes/setup/script-archive.js` |
 | 온라인 배포 | `assets/js/processes/setup/distribute.js` |
+| 뽑기 화면 시트 로고 | `select-edition.js`가 `pg_current_logo`(시트 `_meta.logo`, 공식 3종은 `tb`·`bmr`·`snv`) 저장 → `distribute.js`가 링크에 `&logo=` → `public/claim.html`이 표시(공식은 `guide/img/logo_<판>.webp`). 투명 빈 로고 `yIFrcQd`는 제외 |
+| 캐릭터 고르기 목록 숨김 규칙 | `_character-list.scss` — 항목에 `data-team`·`is-in-play`가 있고 목록에 `is-show-*`가 없으면 가림. 악마의 속임수와 "이 캐릭터들은 게임에 없습니다" 접시(`info-tokens.js`, 열 때만 붙임)가 함께 씀 |
 | **캐릭터 가이드**(공식 위키 번역) | `public/guide.html` / `public/guide/data/` / `tools/wiki/` — 작업 방법은 `tools/wiki/README.md` · 도감 사이트가 이 데이터를 읽음(함정 ⑬) |
 | 공식 3종 순번표 | `assets/js/data/official-order.js` |
 | 공식 아이콘 매핑 ⚠️ | `assets/data/role-images.json` |
@@ -225,7 +227,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - **대형 시트**는 A4 하한까지 줄여도 초과해 확인창이 뜬다. **의도된 동작.**
 - **일부 시트의 밤 지시문 누락** — 시트 JSON에 `firstNightReminder`가 없는 **데이터 문제**다. 코드 문제가 아니다.
 - `edition`이 빈칸인 실험 캐릭터는 **기본 3종에 원래 안 나온다.**
-- **무해한 노이즈:** Xdebug 연결 실패 / `site.webmanifest`·`favicon.svg` 404 / `_wdt/` 연결 거부 / Git LFS 훅 경고 / Node 20 deprecated. **전부 무시.**
+- **무해한 노이즈:** Xdebug 연결 실패 / 개발 서버(`/ko_KR/`)의 `img/favicon-*.png` 404(파비콘은 상대 경로라 배포본에서만 맞음) / `_wdt/` 연결 거부 / Git LFS 훅 경고 / Node 20 deprecated. **전부 무시.**
 - ⚠️ **`Jinx: unable to find target role`은 무해하지 않다.** 함정 ⑩ 참조.
 - **Codespace 파이썬이 손상돼 있다**(`shutil` 없음). 네트워크·파일 작업은 Node나 curl로 한다.
 - **Claude 클라우드 세션(관리자 계정 root)에서는 `deploy.sh`가 준비 단계에서 멈춘다.** composer가 root에서 플러그인을 꺼 버려 `symfony-cmd: not found`가 나고, 그 뒤로 배포가 진행되지 않는다. 앞에 설정을 붙여 실행한다: `COMPOSER_ALLOW_SUPERUSER=1 bash deploy.sh "커밋 메시지"`
