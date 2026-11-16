@@ -49,22 +49,24 @@
     "name": "시계공",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/clockmaker.png",
     "team": "townsfolk",
-    "ability": "첫날 밤, 악마와 하수인 사이의 가장 가까운 거리를 배웁니다.",
+    "ability": "게임 시작 시, 악마와 가장 가까운 하수인 사이의 거리를 알게 됩니다.",
     "firstNight": 44,
     "otherNight": 0,
-    "firstNightReminder": "시계공을 깨우고, 악마와 하수인 사이의 가장 가까운 거리를 손짓으로 알려줍니다."
+    "firstNightReminder": "손가락을 펴서 신호를 줍니다."
   },
   {
     "id": "jingcaisanxuanyi111",
     "name": "귀족",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/noble.png",
     "team": "townsfolk",
-    "ability": "첫날 밤, 당신은 세 명의 참가자를 알게 됩니다: 그들 중 오직 한 명만이 사악합니다.",
+    "ability": "게임 시작 시, 참가자 3명 중 1명이 악한 팀임을 알게 됩니다(3명 중 단 1명만 악한 팀).",
     "firstNight": 49,
     "otherNight": 0,
-    "firstNightReminder": "귀족을 깨우고, 세 명의 플레이어를 가리킵니다. 이 세 명의 플레이어 중 오직 한 명만이 사악한 플레이어입니다.",
+    "firstNightReminder": "*알아냄*으로 표시된 참가자 3명을 가리킵니다.",
     "reminders": [
-      "알려짐"
+      "알아냄",
+      "알아냄",
+      "알아냄"
     ]
   },
   {
@@ -93,15 +95,19 @@
   },
   {
     "id": "caibuduide111",
-    "name": "저글러",
+    "name": "곡예사",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/juggler.png",
     "team": "townsfolk",
-    "ability": "첫날 낮, 당신은 임의의 참가자의 캐릭터를 공개적으로 다섯 번까지 추측할 수 있습니다. 그날 밤, 정확하게 추측한 캐릭터의 수를 알게 됩니다.",
+    "ability": "당신의 첫 번째 낮에, 공개적으로 참가자들의 캐릭터를 최대 5번까지 추측합니다. 그날 밤, 그중 몇 개나 맞혔는지를 알게 됩니다.",
     "firstNight": 0,
     "otherNight": 89,
-    "otherNightReminder": "만약 저글러가 오늘 낮에 능력을 사용했다면, 저글러를 깨우고 낮에 정확하게 추측한 횟수를 손짓으로 알려줍니다.",
+    "otherNightReminder": "손가락을 펴서 신호를 줍니다.",
     "reminders": [
-      "추측 정확"
+      "정답",
+      "정답",
+      "정답",
+      "정답",
+      "정답"
     ]
   },
   {
@@ -109,23 +115,23 @@
     "name": "예언자",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/oracle.png",
     "team": "townsfolk",
-    "ability": "매일 밤(첫날 제외), 당신은 사망한 플레이어 중 몇 명이 사악한지 알게 됩니다.",
+    "ability": "매일 밤*, 사망한 참가자 가운데 몇 명이나 악한 팀인지를 알게 됩니다.",
     "firstNight": 0,
     "otherNight": 87,
-    "otherNightReminder": "예언자를 깨우고, 현재 사망한 플레이어 중 사악한 플레이어의 수를 손짓으로 알려줍니다."
+    "otherNightReminder": "손가락을 펴서 신호를 줍니다."
   },
   {
     "id": "qiaozhong111",
     "name": "포고꾼",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/town_crier.png",
     "team": "townsfolk",
-    "ability": "매일 밤(첫날 제외), 당신은 오늘 낮에 하수인이 지명했는지 여부를 알게 됩니다.",
+    "ability": "매일 밤*, 오늘 낮에 하수인이 지명에 나섰는지를 알게 됩니다.",
     "firstNight": 0,
     "otherNight": 86,
-    "otherNightReminder": "마을 공고인을 깨우고, 오늘 낮에 하수인이 지명했는지 여부를 고개를 끄덕이거나 저어 알려줍니다.",
+    "otherNightReminder": "고개를 젓거나 끄덕입니다.",
     "reminders": [
-      "하수인 미지명",
-      "하수인 지명됨"
+      "하수인이 지명함",
+      "하수인이 지명하지 않음"
     ]
   },
   {
@@ -144,10 +150,10 @@
   },
   {
     "id": "huojin111",
-    "name": "자폐증 천재",
+    "name": "백치천재",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/savant.png",
     "team": "townsfolk",
-    "ability": "매일 낮, 이야기꾼을 방문해 2가지 명제를 듣습니다. 하나는 거짓이고, 하나는 진실입니다.",
+    "ability": "매일 낮, 개인적으로 이야기꾼을 찾아가 두 가지 정보를 알게 됩니다. 그 중 하나는 진실이고 다른 하나는 거짓입니다.",
     "firstNight": 0,
     "otherNight": 0
   },
@@ -167,25 +173,25 @@
     "name": "점쟁이",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/fortune_teller.png",
     "team": "townsfolk",
-    "ability": "매일 밤, 2명의 참가자를 선택하고 그들 중 악마가 있는지 알게 됩니다. 선한 참가자 1명은 당신의 능력에 의해 악마로 간주됩니다.",
+    "ability": "매일 밤, 참가자 2명을 선택합니다: 그중 악마가 있는지 알게 됩니다. 단, 선한 참가자 중 1명이 당신에게는 악마로 위장되어 보입니다.",
     "firstNight": 40,
     "otherNight": 81,
-    "firstNightReminder": "점쟁이를 깨우고, 두 명의 플레이어를 선택하게 합니다. 고개를 끄덕이거나 저어 그들 중 악마가 있는지 알려줍니다.",
-    "otherNightReminder": "점쟁이를 깨우고, 두 명의 플레이어를 선택하게 합니다. 고개를 끄덕이거나 저어 그들 중 악마가 있는지 알려줍니다.",
+    "firstNightReminder": "점쟁이가 참가자 2명을 선택합니다. 그중 악마 또는 *허상*이 있다면 고개를 끄덕입니다.",
+    "otherNightReminder": "점쟁이가 참가자 2명을 선택합니다. 그중 악마 또는 *허상*이 있다면 고개를 끄덕입니다.",
     "reminders": [
-      "붉은청어"
+      "허상"
     ]
   },
   {
     "id": "xitele111",
-    "name": "예술가",
+    "name": "화가",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/artist.png",
     "team": "townsfolk",
-    "ability": "게임 중 한 번, 당신은 낮에 비밀리에 이야기꾼이 예/아니오로 답하는 질문을 할 수 있습니다.",
+    "ability": "게임당 1번, 낮 동안, 개인적으로 이야기꾼에게 예/아니오로 답할 수 있는 질문을 합니다.",
     "firstNight": 0,
     "otherNight": 0,
     "reminders": [
-      "능력 상실"
+      "능력 없음"
     ]
   },
   {
@@ -193,13 +199,13 @@
     "name": "재봉사",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/seamstress.png",
     "team": "townsfolk",
-    "ability": "게임 중 한 번, 밤에 참가자 두 명(본인 제외)을 선택하고 그 둘이 같은 성향인지 확인할 수 있습니다.",
+    "ability": "게임당 1번, 밤에, (당신을 제외하고) 참가자 2명을 선택합니다: 그들이 같은 소속인지 아닌지를 알게 됩니다.",
     "firstNight": 46,
     "otherNight": 88,
-    "firstNightReminder": "재봉사를 깨우고, 고개를 저어 능력을 사용하지 않을 수도 있고, 자신을 제외한 두 명의 플레이어를 선택할 수도 있습니다. 고개를 끄덕이거나 저어 선택된 플레이어들이 같은 진영인지 알려줍니다.",
-    "otherNightReminder": "만약 재봉사가 능력을 사용하지 않았다면, 재봉사를 깨우고, 고개를 저어 능력을 사용하지 않을 수도 있고, 자신을 제외한 두 명의 플레이어를 선택할 수도 있습니다. 고개를 끄덕이거나 저어 선택된 플레이어들이 같은 진영인지 알려줍니다.",
+    "firstNightReminder": "재봉사가 참가자 2명을 선택할 수도 있습니다. 고개를 젓거나 끄덕입니다. :reminder:",
+    "otherNightReminder": "재봉사가 참가자 2명을 선택할 수도 있습니다. 고개를 젓거나 끄덕입니다. :reminder:",
     "reminders": [
-      "능력 상실"
+      "능력 없음"
     ]
   },
   {
@@ -220,11 +226,11 @@
     "name": "식인종",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/cannibal.png",
     "team": "townsfolk",
-    "ability": "당신은 직전에 처형으로 사망한 참가자의 능력을 갖습니다. 그 참가자가 사악하다면, 다음 선한 참가자가 처형으로 사망할 때까지 당신은 중독됩니다.",
+    "ability": "최근에 처형당해 사망한 캐릭터의 능력을 갖습니다. 그가 악한 팀이었다면, 선한 참가자가 처형으로 사망하기 전까지 당신은 중독됩니다.",
     "firstNight": 0,
     "otherNight": 0,
     "reminders": [
-      "오늘 사망",
+      "점심 식사",
       "중독"
     ]
   },
@@ -247,7 +253,7 @@
     "name": "얼뜨기",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/klutz.png",
     "team": "outsider",
-    "ability": "당신이 사망했음을 알게 되었을 때, 살아있는 참가자 한 명을 공개적으로 선택해야 합니다. 그가 사악하다면, 당신의 진영이 패배합니다.",
+    "ability": "당신이 사망했음을 알게 될 때, 생존한 참가자 1명을 공개적으로 선택합니다: 그가 악한 참가자라면, 당신이 속한 팀이 패배합니다.",
     "firstNight": 0,
     "otherNight": 0
   },
@@ -278,13 +284,13 @@
   },
   {
     "id": "chousha111",
-    "name": "문차일드",
+    "name": "달의 자손",
     "image": "https://oss.gstonegames.com/data_file/clocktower/web/icons/moonchild.png",
     "team": "outsider",
-    "ability": "당신이 사망했음을 알게 되었을 때, 살아있는 참가자 한 명을 공개적으로 선택해야 합니다. 그가 선하다면, 그날 밤에 그는 사망합니다.",
+    "ability": "당신이 사망했음을 알게 될 때, 생존한 참가자 1명을 공개적으로 선택합니다. 그가 선한 참가자라면, 오늘 밤 그는 사망합니다.",
     "firstNight": 0,
     "otherNight": 64,
-    "otherNightReminder": "만약 문차일드가 오늘 낮에 자신의 능력을 사용하여 선량한 플레이어를 선택했다면, 그 플레이어는 사망합니다.",
+    "otherNightReminder": "달의 자손의 조건이 충족되었다면, 선한 참가자 1명이 사망합니다. :reminder:",
     "reminders": [
       "사망"
     ]
