@@ -16,9 +16,15 @@
     position: relative;
 }
 
-// 부가 컨트롤이 있으면 긴 제목(예: "마도서 - 시트 이름")이 그 밑으로 파고들지 않게 자리를 비운다.
+// 부가 컨트롤이 있으면 긴 제목(예: "마도서 - 시트 이름")은 한 줄로 두고 넘치면 …으로 줄인다.
+// 7.5em = 펼침 마커(▼) + 우측 컨트롤 자리.
 .details__summary:has(.details__summary-aside) .details__heading {
-    padding-right: 6em;
+    display: inline-block;
+    max-width: calc(100% - 7.5em);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
 }
 
 // 헤더 우측에 부가 컨트롤(예: 토큰 잠금 토글)을 얹기 위한 슬롯.

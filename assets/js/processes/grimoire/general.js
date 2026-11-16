@@ -68,6 +68,7 @@ gameObserver.on("characters-selected", ({ detail }) => {
     heading.textContent = detail.name
         ? heading.dataset.title + " - " + detail.name
         : heading.dataset.title;
+    heading.title = heading.textContent; // …으로 잘려도 길게 누르거나 마우스를 올리면 전체 이름
 
     lookupOneCached("#add-token").disabled = false;
     lookupOneCached("#add-reminder").disabled = false;
