@@ -52,6 +52,7 @@
   #guide-warn-overlay .modal p, #unreleased-overlay .modal p { word-break:keep-all; }
   .guide-frame iframe { flex:1 1 auto; width:100%; border:0; background:#efe6d6; }
   .brand { display:block; width:56%; height:auto; margin:32px auto 0; }
+  .sheet-logo { display:block; max-width:80%; max-height:30vh; width:auto; height:auto; margin:0 auto 20px; }
   /* 플레이팁 댓글 — 완료 화면 위키 버튼 아래에 펼친 채로 나열 */
   .tips { margin-top:22px; text-align:left; display:flex; flex-direction:column; gap:10px; }
   .tips-write { display:flex; flex-direction:column; }
@@ -80,6 +81,7 @@
 <body>
 <div class="wrap">
   <div id="screen-gate">
+    <img class="sheet-logo hidden" id="sheet-logo" alt="">
     <div class="title" id="gate-title" style="visibility: hidden; word-break: keep-all;">실제로 플레이 할<br>사람만 확인 해주세요!</div>
     <button class="btn" id="btn-reveal">내 캐릭터 확인하기</button>
     <img class="brand" src="img/by-castle-q.webp" alt="by Castle_Q" width="523" height="197">
@@ -468,12 +470,22 @@ function showStoryteller() {
     .catch(function () {})
     .then(function () { title.style.visibility = ""; });
 }
+// 이야기꾼이 플레이하는 시트의 로고(링크의 logo=, 시트 _meta.logo). 없거나 못 불러오면 생략.
+function showSheetLogo() {
+  const url = params.get("logo") || "";
+  if (!/^https:\/\/\S+$/.test(url)) { return; }
+  const img = el("sheet-logo");
+  img.onload = function () { img.classList.remove("hidden"); };
+  img.onerror = function () { img.remove(); };
+  img.src = url;
+}
 function init() {
   if (!gameId) { blockScreen("잘못된 링크입니다.<br>게임 정보가 없습니다."); return; }
   const st = loadState();
   if (st && st.submitted) { blockScreen("이미 캐릭터를 확인하고<br>이야기꾼에게 보냈습니다.<br><br>이 링크는 다시 사용할 수 없습니다."); return; }
   if (st && st.claimed) { claimState = st; showRecover(); return; }
   show("screen-gate");
+  showSheetLogo();
   showStoryteller();
 }
 el("btn-reveal").addEventListener("click", function () { el("confirm-overlay").classList.remove("hidden"); });
