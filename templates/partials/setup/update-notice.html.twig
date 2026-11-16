@@ -5,6 +5,8 @@
 } %}
     {% block body %}
         <div id="update-notice-body"></div>
-        <p class="mt-4"><button type="button" class="button" data-dialog-hide>확인했어요</button></p>
+        {# 체크하고 닫으면 이 공지는 [캐시 삭제] 뒤에도 다시 안 뜬다. 체크 없이 닫으면 캐시 삭제 때마다 다시 뜬다 (update-notice.js) #}
+        <p class="mt-4"><label><input type="checkbox" id="update-notice-dismiss"> 앞으로 그만보기</label></p>
+        <p><button type="button" class="button" data-dialog-hide>확인</button></p>
     {% endblock %}
 {% endembed %}

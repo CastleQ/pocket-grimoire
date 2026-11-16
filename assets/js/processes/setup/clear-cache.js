@@ -52,6 +52,9 @@ lookupOne("#cache-form").addEventListener("submit", (e) => {
     // 캐시 삭제(초기화) 때는 기억해 둔 이야기꾼 이름도 지운다.
     clearStorytellerName();
 
+    // 업데이트 안내를 본 기록도 지운다 → [앞으로 그만보기]를 안 했으면 다음 접속 때 다시 뜬다(update-notice.js).
+    store.setNotice("");
+
     // 지워진 저장값을 화면에 반영한다 (마도서 인원 현황 등).
     Observer.create("game").trigger("cache-cleared");
 

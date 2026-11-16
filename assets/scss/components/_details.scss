@@ -121,3 +121,18 @@
         margin-top: 0.3em;
     }
 }
+
+// 업데이트 안내 창의 항목도 릴리즈 노트처럼 촘촘히.
+#update-notice-body {
+    li {
+        margin-bottom: 0.4em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    li > ul {
+        margin-top: 0.4em;
+    }
+}
