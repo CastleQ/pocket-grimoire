@@ -228,7 +228,7 @@ info_tokens:
     info_tokens:
         isdemon: 이 사람이 <strong>악마</strong>입니다
         isminion: 이들이 당신의 <strong>하수인</strong>입니다
-        notinplay: 그 캐릭터들은 게임에 <strong>없습니다</strong>
+        notinplay: 이 캐릭터들은 게임에 <strong>없습니다</strong>
         nominatetoday: 오늘 <strong>지명</strong>하셨나요?
         playeris: <strong>이 참가자</strong>는
         votetoday: 오늘 당신은 <strong>투표</strong>했나요?

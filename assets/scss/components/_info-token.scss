@@ -176,6 +176,11 @@
     }
 }
 
+// 이름 버튼은 아래 [확인](파랑)과 헷갈리지 않게 초록(정보 토큰 "이 캐릭터가 당신을 선택했습니다"와 같은 색).
+.info-token-names__option {
+    --bg-colour: var(--green);
+}
+
 .info-token-names__option.is-picked {
     box-shadow: 0 0 0 0.2em #ffd24a;
 }

@@ -36,7 +36,7 @@ const pickList = lookupOne("#character-list__list");
 let activePick = null;
 
 // 지금 고른 캐릭터를 목록에 표시한다(테두리 + 고른 순서 번호).
-function markPicked(ids) {
+function markPicked(ids, max = PLATE_MAX) {
 
     pickList.querySelectorAll("[data-token-id]").forEach((button) => {
 
@@ -52,7 +52,7 @@ function markPicked(ids) {
 
     });
 
-    pickStatus.textContent = `${ids.length} / ${PLATE_MAX}개 선택`;
+    pickStatus.textContent = `${ids.length} / ${max}개 선택`;
 
 }
 
@@ -73,7 +73,7 @@ lookupOne("#character-list-cancel").addEventListener("click", () => {
 // 정보 토큰마다 접시를 비우는 방법을 모아 둔다(마도서 지우기 때 쓴다).
 const plateResets = new Set();
 
-function wireCharacterSelect(token, initialId = "") {
+function wireCharacterSelect(token, initialId = "", max = PLATE_MAX) {
 
     const button = token.getCharacterSelectButton();
     const initial = initialId ? [initialId] : [];
@@ -125,11 +125,11 @@ function wireCharacterSelect(token, initialId = "") {
 
             if (index > -1) {
                 picking.splice(index, 1);
-            } else if (picking.length < PLATE_MAX) {
+            } else if (picking.length < max) {
                 picking.push(tokenId);
             }
 
-            markPicked(picking);
+            markPicked(picking, max);
 
         },
 
@@ -162,7 +162,7 @@ function wireCharacterSelect(token, initialId = "") {
         picking = selected.slice();
         activePick = process;
         pickActions.hidden = false;
-        markPicked(picking);
+        markPicked(picking, max);
 
         characterListDialog.addProcess(process);
         characterListDialog.show();
@@ -270,7 +270,8 @@ JSON.parse(buttonHolder.dataset.infoTokens).forEach((data) => {
     token.draw();
 
     if (data.characterSelect) {
-        wireCharacterSelect(token);
+        // characterSelectMax: 이 토큰에서 고를 수 있는 캐릭터 수("이 캐릭터들은 게임에 없습니다"는 3)
+        wireCharacterSelect(token, "", Math.min(data.characterSelectMax || PLATE_MAX, PLATE_MAX));
     }
 
     if (data.nameSelect) {
