@@ -510,9 +510,11 @@ function renderSheets() {
                     const value = (isOfficial && !sheet.file) ? sheet.value : ("sheet:" + sheet.file);
                     const idBase = isOfficial ? sheet.value : sheet.file;
                     const id = "edition-" + String(idBase).replace(/[^a-z0-9]+/gi, "-");
-                    const nameHTML = "<strong>" + escapeHtml(sheet.name) + "</strong>";
-                    // 미리보기(베타) 시트는 이름 끝 글자 오른쪽 위에 BETA 리본(띄어쓰기 없이 붙임, 윗줄은 안 가리게)
-                    const betaHTML = sheet.preview ? '<img src="' + scriptsBase.replace(/scripts\/$/, "") + 'img/beta.png" alt="BETA" style="display:inline-block;height:1.4em;width:auto;vertical-align:top;margin:-0.1em 0 -0.3em -0.05em">' : "";
+                    // 미리보기(베타) 시트: 이름 첫 글자 왼쪽 위 모서리 뒤에 BETA 리본을 깐다(글자 흐름에서 빼서 줄 맞춤 유지, 글자가 리본 위로).
+                    const nameHTML = sheet.preview
+                        ? '<img src="' + scriptsBase.replace(/scripts\/$/, "") + 'img/beta.png" alt="BETA" style="position:absolute;left:-0.3em;top:-0.45em;height:1.4em;width:auto;pointer-events:none">'
+                            + '<strong style="position:relative">' + escapeHtml(sheet.name) + "</strong>"
+                        : "<strong>" + escapeHtml(sheet.name) + "</strong>";
                     const authorHTML = sheet.author ? " by " + escapeHtml(sheet.author) : "";
 
                     const li = document.createElement("li");
@@ -522,7 +524,7 @@ function renderSheets() {
                         + '<input type="radio" name="edition" value="' + escapeHtml(value) + '" id="' + id + '" class="radio__input" data-sheet-name="' + escapeHtml(sheet.name) + '">'
                         + '<span class="radio__render"></span>'
                         + '</span>'
-                        + '<span class="radio__label">' + nameHTML + betaHTML + authorHTML + '</span>'
+                        + '<span class="radio__label"' + (sheet.preview ? ' style="position:relative"' : "") + '>' + nameHTML + authorHTML + '</span>'
                         + '</label>'
                     );
                     list.append(li);
