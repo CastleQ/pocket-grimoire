@@ -1,4 +1,5 @@
 import Observer from "../../classes/Observer.js";
+import Store from "../../classes/Store.js";
 import Dialog from "../../classes/Dialog.js";
 import {
     lookupOne,
@@ -68,5 +69,19 @@ lookupOne("#clear-grimoire").addEventListener("click", ({ target }) => {
 
     // 정보 토큰·악마의 속임수의 캐릭터 접시도 비운다 (info-tokens.js, demon-bluffs.js).
     gameObserver.trigger("plates-reset");
+
+});
+
+// 시트를 바꿀 때 마도서(토큰·리마인더)나 악마의 속임수에 캐릭터가 남아 있으면 [마도서 지우기]를 경고창과 함께 그대로 진행한다.
+gameObserver.on("sheet-change", () => {
+
+    const bluffs = Store.create("pocket-grimoire").data.bluffs;
+    const hasBluffs = Boolean(bluffs && Array.isArray(bluffs.groups) && bluffs.groups.some(
+        (group) => group && Array.isArray(group.set) && group.set.some(Boolean)
+    ));
+
+    if (pad.characters.length || pad.reminders.length || hasBluffs) {
+        lookupOne("#clear-grimoire").click();
+    }
 
 });

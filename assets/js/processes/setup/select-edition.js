@@ -139,6 +139,10 @@ function announceScript(name, characters, game = null, meta = null) {
         // localStorage 사용 불가 시 무시
     }
 
+    // 사용자가 시트를 바꿀 때만(새로고침 복원은 store.js가 따로 부름): 마도서에 남은 게 있으면 지우기 확인(reset.js).
+    // 새 시트의 전설 자동 추가(autoAddFabled)보다 먼저 지워야 하므로 여기서 부른다.
+    Observer.create("game").trigger("sheet-change");
+
     Observer.create("game").trigger("characters-selected", {
         name,
         characters,

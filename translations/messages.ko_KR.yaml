@@ -144,7 +144,7 @@ grimoire:
         show_tokens: 토큰 보여주기
         reset_height: 공식 Wiki 사이트 바로가기
         clear_grimoire: 마도서 지우기
-        clear_grimoire_warning: 모든 토큰을 정말로 지우시겠습니까?
+        clear_grimoire_warning: 마도서의 모든 토큰을 정말로 지우시겠습니까?
         show_night_order: 밤순서 보여주기
         character_size: 캐릭터 토큰 크기
         reminder_size: 알림토큰 크기
