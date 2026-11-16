@@ -259,6 +259,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - 데이터베이스 접속 상세와 운영 조회문
 - 시트 공유 기능의 방어 설계 상세
 - 과거 종결된 버그의 상세 이력, 채택하지 않은 설계안
+- 캐릭터 뽑기(`claim.html` · DB 함수 `claim_slot` · `slots`의 `alignment`·`player_key` 칸)의 서버 쪽 동작 설계 — 계획서 `/workspaces/pgplus-notes/plans/2026-11-16-claim-weight.md`. 공개하면 안 되는 운영 설계라 비공개 저장소에만 둔다. 이 기능을 고치기 전에 반드시 그 계획서를 먼저 읽는다
 
 **이 내용들은 `/workspaces/pgplus-notes/pgplus_REF_v5.md`(별도 비공개 저장소)에 있다.** 위 항목이 필요한 작업이면 그 파일을 검색해서 읽어라. 내용을 이 문서(CLAUDE.md)나 공개 저장소 어디에도 옮겨 적지 마라.
 
