@@ -509,8 +509,8 @@ function renderSheets() {
                     const idBase = isOfficial ? sheet.value : sheet.file;
                     const id = "edition-" + String(idBase).replace(/[^a-z0-9]+/gi, "-");
                     const nameHTML = "<strong>" + escapeHtml(sheet.name) + "</strong>";
-                    // 미리보기(베타) 시트는 이름 끝에 BETA 리본
-                    const betaHTML = sheet.preview ? ' <img src="' + scriptsBase.replace(/scripts\/$/, "") + 'img/beta.png" alt="BETA" style="display:inline-block;height:1em;width:auto;vertical-align:-0.1em">' : "";
+                    // 미리보기(베타) 시트는 이름 끝 글자 오른쪽 위에 BETA 리본(띄어쓰기 없이 붙임, 윗줄은 안 가리게)
+                    const betaHTML = sheet.preview ? '<img src="' + scriptsBase.replace(/scripts\/$/, "") + 'img/beta.png" alt="BETA" style="display:inline-block;height:1.4em;width:auto;vertical-align:top;margin:-0.1em 0 -0.3em -0.05em">' : "";
                     const authorHTML = sheet.author ? " by " + escapeHtml(sheet.author) : "";
 
                     const li = document.createElement("li");
