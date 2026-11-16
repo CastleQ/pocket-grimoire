@@ -20,7 +20,7 @@ const OFFICIAL = [
     // 미출시 공식 시트(클로즈베타). 파일은 public/scripts/ 에 있지만 manifest 가 아니라 OFFICIAL_SHEETS 에 있다.
     { key: "garden-of-sin", title: "죄악의 정원" },
     { key: "graveyard", title: "묘지" },
-    { key: "midnight-manor", title: "한밤중에 저주받은 자의 저택에서" }
+    { key: "midnight-manor", title: "저주받은 자들의 저택의 밤" }
 ];
 
 function escapeAttr(value) {

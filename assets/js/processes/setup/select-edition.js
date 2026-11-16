@@ -464,7 +464,7 @@ export const OFFICIAL_SHEETS = [
     { value: "snv", name: "Sects and Violets(화단에 꽃피운 이단)" },
     { value: "garden-of-sin", file: "garden-of-sin.json", name: "Garden of Sin(죄악의 정원)", preview: true, logoWidth: "11.2em" },
     { value: "graveyard", file: "graveyard.json", name: "The Tomb(묘지)", preview: true, logoWidth: "11.2em" },
-    { value: "midnight-manor", file: "midnight-manor.json", name: "Midnight in the House of the Damned(한밤중에 저주받은 자의 저택에서)", preview: true }
+    { value: "midnight-manor", file: "midnight-manor.json", name: "Midnight in the House of the Damned(저주받은 자들의 저택의 밤)", preview: true }
 ];
 
 function escapeHtml(value) {
@@ -509,6 +509,8 @@ function renderSheets() {
                     const idBase = isOfficial ? sheet.value : sheet.file;
                     const id = "edition-" + String(idBase).replace(/[^a-z0-9]+/gi, "-");
                     const nameHTML = "<strong>" + escapeHtml(sheet.name) + "</strong>";
+                    // 미리보기(베타) 시트는 이름 끝에 BETA 리본
+                    const betaHTML = sheet.preview ? ' <img src="' + scriptsBase.replace(/scripts\/$/, "") + 'img/beta.png" alt="BETA" style="display:inline-block;height:1em;width:auto;vertical-align:-0.1em">' : "";
                     const authorHTML = sheet.author ? " by " + escapeHtml(sheet.author) : "";
 
                     const li = document.createElement("li");
@@ -518,7 +520,7 @@ function renderSheets() {
                         + '<input type="radio" name="edition" value="' + escapeHtml(value) + '" id="' + id + '" class="radio__input" data-sheet-name="' + escapeHtml(sheet.name) + '">'
                         + '<span class="radio__render"></span>'
                         + '</span>'
-                        + '<span class="radio__label">' + nameHTML + authorHTML + '</span>'
+                        + '<span class="radio__label">' + nameHTML + betaHTML + authorHTML + '</span>'
                         + '</label>'
                     );
                     list.append(li);
