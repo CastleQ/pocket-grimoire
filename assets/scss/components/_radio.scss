@@ -8,6 +8,7 @@
 .radio__wrapper {
     display: inline-block;
     width: 1em;
+    flex-shrink: 0; // 긴 이름 옆에서 동그라미가 눌려 작아지지 않게
     aspect-ratio: 1 / 1;
     vertical-align: middle;
 }
