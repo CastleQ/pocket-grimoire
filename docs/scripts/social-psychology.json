@@ -3,7 +3,6 @@
     "id": "_meta",
     "author": "DAVE B",
     "name": "심리사회 v1.1",
-    "logo": "https://www.bloodstar.xyz/p/kotpgus/SocialPsychology/_meta.png",
     "hideTitle": true,
     "firstNight": [
       "dusk",
@@ -48,8 +47,8 @@
     "id": "40town",
     "name": "기사",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/40_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/57_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/knight_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/knight_1.webp"
     ],
     "team": "townsfolk",
     "ability": "게임 시작 시, 악마가 아닌 참가자 2명을 알게 됩니다.",
@@ -66,8 +65,8 @@
     "id": "town",
     "name": "세탁부",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/washerwoman_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/washerwoman_1.webp"
     ],
     "team": "townsfolk",
     "ability": "게임 시작 시, 참가자 2명 중 1명이 특정 주민임을 알게 됩니다.",
@@ -84,8 +83,8 @@
     "id": "1town",
     "name": "사서",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/1_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/1_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/librarian_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/librarian_1.webp"
     ],
     "team": "townsfolk",
     "ability": "게임 시작 시, 참가자 2명 중 1명이 특정 외지인임을 (또는 게임에 참여하는 외지인이 없음을) 알게 됩니다.",
@@ -102,8 +101,8 @@
     "id": "14town",
     "name": "꿈꾸는 자",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/14_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/14_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/dreamer_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/dreamer_1.webp"
     ],
     "team": "townsfolk",
     "ability": "매일 밤, (당신과 여행자를 제외하고) 참가자 1명을 선택합니다: 선한 캐릭터 하나와 악한 캐릭터 하나를 알게 됩니다. 둘 중 하나가 그의 정체입니다.",
@@ -117,8 +116,8 @@
     "id": "42town",
     "name": "열기구 조종사",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/42_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/44_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/balloonist_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/balloonist_1.webp"
     ],
     "team": "townsfolk",
     "ability": "매일 밤, 직전 밤과는 다른 유형에 속한 캐릭터 참가자 1명을 알게 됩니다. [외지인 +0명 또는 +1명]",
@@ -140,8 +139,8 @@
     "id": "61town",
     "name": "알사히르",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/61_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/41_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/alsaahir_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/alsaahir_1.webp"
     ],
     "team": "townsfolk",
     "ability": "매일 낮, 공개적으로 누가 하수인이고 악마인지 추측합니다. 성공하면 선한 팀이 승리합니다.",
@@ -153,8 +152,8 @@
     "id": "59town",
     "name": "야경꾼",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/59_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/60_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/nightwatchman_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/nightwatchman_1.webp"
     ],
     "team": "townsfolk",
     "ability": "게임당 1번, 밤에 참가자 1명을 선택합니다: 그는 당신이 야경꾼임을 알게 됩니다.",
@@ -171,8 +170,8 @@
     "id": "33town",
     "name": "궁정대신",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/33_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/33_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/courtier_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/courtier_1.webp"
     ],
     "team": "townsfolk",
     "ability": "게임당 1번, 밤에, 캐릭터 1개를 선택합니다: 그 캐릭터인 참가자는 3일 밤낮 동안 취합니다.",
@@ -192,8 +191,8 @@
     "id": "58town",
     "name": "낚시꾼",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/58_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/52_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/fisherman_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/fisherman_1.webp"
     ],
     "team": "townsfolk",
     "ability": "게임당 1번, 낮 동안, 이야기꾼을 방문하여 당신의 팀이 승리하기 위한 조언을 구합니다.",
@@ -208,8 +207,8 @@
     "id": "22town",
     "name": "철학자",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/22_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/22_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/philosopher_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/philosopher_1.webp"
     ],
     "team": "townsfolk",
     "ability": "게임당 1번, 밤에, 선한 캐릭터 1명을 선택합니다: 그의 능력을 얻습니다. 그 캐릭터가 이미 게임에 참여하고 있다면, 그는 취합니다.",
@@ -229,8 +228,8 @@
     "id": "60town",
     "name": "연금술사",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/60_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/40_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/alchemist_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/alchemist_1.webp"
     ],
     "team": "townsfolk",
     "ability": "당신은 하수인 하나의 능력을 갖습니다. 이 능력을 사용할 때, 이야기꾼이 다른 선택을 하라고 지시할 수도 있습니다.",
@@ -283,8 +282,8 @@
     "id": "10town",
     "name": "까마귀지기",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/10_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/10_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/ravenkeeper_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/ravenkeeper_1.webp"
     ],
     "team": "townsfolk",
     "ability": "밤에 사망하면, 깨어나서 참가자 1명을 선택합니다: 그의 캐릭터를 알게 됩니다.",
@@ -297,8 +296,8 @@
     "id": "62town",
     "name": "양귀비 재배꾼",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgusv7/town/62_town.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvTown/63_evtown.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/poppygrower_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/poppygrower_1.webp"
     ],
     "team": "townsfolk",
     "ability": "하수인과 악마가 서로를 알지 못합니다. 당신이 사망하면, 그날 밤 이들은 서로를 알게 됩니다.",
@@ -315,8 +314,8 @@
     "id": "19_out",
     "name": "밀고자",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/out/19_out.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvOut/21_evout.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/snitch_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/snitch_1.webp"
     ],
     "team": "outsider",
     "ability": "각 하수인은 블러핑용 캐릭터 3명을 알게 됩니다.",
@@ -329,8 +328,8 @@
     "id": "4_out",
     "name": "변종",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/out/4_out.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvOut/4_evout.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/mutant_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/mutant_1.webp"
     ],
     "team": "outsider",
     "ability": "당신이 \"외지인\"이라는 사실에 집착한다면, 당신은 처형당할 수도 있습니다.",
@@ -342,8 +341,8 @@
     "id": "5_out",
     "name": "이발사",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/out/5_out.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvOut/6_evout.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/barber_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/barber_1.webp"
     ],
     "team": "outsider",
     "ability": "오늘 낮 또는 오늘 밤에 사망했다면, 악마는 참가자 2명(다른 악마는 제외)을 선택하여 그 두 명의 캐릭터를 맞바꿀 수 있습니다.",
@@ -359,8 +358,8 @@
     "id": "12_out",
     "name": "아가씨",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/out/12_out.png",
-      "https://www.bloodstar.xyz/p/kotpgus/EvOut/12_evout.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/damsel_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/damsel_1.webp"
     ],
     "team": "outsider",
     "ability": "모든 하수인은 아가씨가 게임에 참여한다는 사실을 압니다. 하수인이 당신을 공개적으로 추측해 내면(여러명 중 단 1번만 가능), 당신이 속한 팀이 패배합니다.",
@@ -377,8 +376,8 @@
     "id": "17_min1",
     "name": "공포의 전령",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/MIN1/17_min1.png",
-      "https://www.bloodstar.xyz/p/kotpgus/GoodMin/14_goodmin.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/fearmonger_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/fearmonger_1.webp"
     ],
     "team": "minion",
     "ability": "매일 밤, 참가자 1명을 선택합니다: 당신이 그를 지명하여 처형하면, 그가 속한 팀이 패배합니다. 당신이 새로운 참가자를 선택하면 모두가 알게 됩니다.",
@@ -395,8 +394,8 @@
     "id": "22_min1",
     "name": "사이코패스",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/MIN1/22_min1.png",
-      "https://www.bloodstar.xyz/p/kotpgus/GoodMin/20_goodmin.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/psychopath_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/psychopath_1.webp"
     ],
     "team": "minion",
     "ability": "매일 낮, 지명 절차 전에, 공개적으로 참가자 1명을 선택할 수 있습니다: 그는 사망합니다. 당신이 처형당하면, 가위바위보에 질 경우에만 사망합니다.",
@@ -408,8 +407,8 @@
     "id": "13_min1",
     "name": "고블린",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/MIN1/13_min1.png",
-      "https://www.bloodstar.xyz/p/kotpgus/GoodMin/15_goodmin.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/goblin_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/goblin_1.webp"
     ],
     "team": "minion",
     "ability": "당신이 지명받았을 때 고블린이라고 공개적으로 주장한 후 그날 처형당한다면, 당신이 속한 팀이 승리합니다.",
@@ -424,8 +423,8 @@
     "id": "9_min1",
     "name": "암살자",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/MIN1/9_min1.png",
-      "https://www.bloodstar.xyz/p/kotpgus/GoodMin/10_goodmin.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/assassin_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/assassin_1.webp"
     ],
     "team": "minion",
     "ability": "게임당 1번, 밤*에, 참가자 1명을 선택합니다: 그는 이유불문 사망합니다.",
@@ -442,8 +441,8 @@
     "id": "20_min1",
     "name": "폭탄마",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/MIN1/20_min1.png",
-      "https://www.bloodstar.xyz/p/kotpgus/GoodMin/13_goodmin.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/boomdandy_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/boomdandy_1.webp"
     ],
     "team": "minion",
     "ability": "당신이 처형당하면, 참가자 3명 외에 모두 사망합니다. 10부터 1까지 카운트다운 후, 가장 많은 참가자가 가리킨 참가자가 사망합니다.",
@@ -462,8 +461,8 @@
     "id": "10demon",
     "name": "카잘리",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/DEMon/10_demon.png",
-      "https://www.bloodstar.xyz/p/kotpgus/GoodEv/10_goodev.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/kazali_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/kazali_1.webp"
     ],
     "team": "demon",
     "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. [당신은 하수인 참가자와 캐릭터를 직접 선택할 수 있습니다. 외지인 -?명~+?명]",
@@ -481,8 +480,8 @@
     "id": "demon",
     "name": "임프",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/DEMon/_demon.png",
-      "https://www.bloodstar.xyz/p/kotpgus/GoodEv/_goodev.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/imp_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/imp_1.webp"
     ],
     "team": "demon",
     "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. 이 방법으로 자결하면, 하수인 1명이 임프가 됩니다.",
@@ -498,8 +497,8 @@
     "id": "1demon",
     "name": "팡 구",
     "image": [
-      "https://www.bloodstar.xyz/p/kotpgus/DEMon/1_demon.png",
-      "https://www.bloodstar.xyz/p/kotpgus/GoodEv/1_goodev.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/fanggu_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/fanggu_1.webp"
     ],
     "team": "demon",
     "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. 이 능력으로 사망한 첫 외지인만이 악한 팡 구가 되고 당신이 대신 사망합니다. [외지인 +1명]",
