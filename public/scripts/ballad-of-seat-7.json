@@ -4,7 +4,6 @@
     "author": "TrashWarlock",
     "name": "7번 시트의 발라드 v6.0.0",
     "hideTitle": true,
-    "logo": "https://www.bloodstar.xyz/p/kotpgusv7/TheBalladofSeat7-v6/_meta.png",
     "background": "https://release.botc.app/wc25/background.webp",
     "bootlegger": [
       "7번 자리는 비어있습니다. 비어있는 자리의 캐릭터는 임의적인 선택을 합니다. 게임당 한번, 이야기꾼이 7번 시트 캐릭터를 대신해서 발언 할 수 있습니다."
@@ -55,7 +54,7 @@
   {
     "id": "4theballadofseat7",
     "name": "귀족",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/4_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/noble_0.webp",
     "team": "townsfolk",
     "ability": "게임 시작 시, 참가자 3명 중 1명이 악한 팀임을 알게 됩니다(3명 중 단 1명만 악한 팀).",
     "firstNight": 23,
@@ -71,7 +70,7 @@
   {
     "id": "5theballadofseat7",
     "name": "사서",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/5_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/librarian_0.webp",
     "team": "townsfolk",
     "ability": "게임 시작 시, 참가자 2명 중 1명이 특정 외지인임을 (또는 게임에 참여하는 외지인이 없음을) 알게 됩니다.",
     "firstNight": 20,
@@ -86,7 +85,7 @@
   {
     "id": "6theballadofseat7",
     "name": "수행자",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/6_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/shugenja_0.webp",
     "team": "townsfolk",
     "ability": "게임 시작 시, 가장 가까운 악한 참가자가 시계 방향에 있는지 반시계 방향에 있는지 알게 됩니다. 동거리라면, 이 정보는 임의로 주어집니다.",
     "firstNight": 25,
@@ -97,7 +96,7 @@
   {
     "id": "7theballadofseat7",
     "name": "열기구 조종사",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/7_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/balloonist_0.webp",
     "team": "townsfolk",
     "ability": "매일 밤, 직전 밤과는 다른 유형에 속한 캐릭터 참가자 1명을 알게 됩니다. [외지인 +0명 또는 +1명]",
     "firstNight": 24,
@@ -117,7 +116,7 @@
   {
     "id": "8theballadofseat7",
     "name": "마을 백치",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/8_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/villageidiot_0.webp",
     "team": "townsfolk",
     "special": [
       {
@@ -138,7 +137,7 @@
   {
     "id": "9theballadofseat7",
     "name": "꿈꾸는 자",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/9_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/dreamer_0.webp",
     "team": "townsfolk",
     "ability": "매일 밤, (당신과 여행자를 제외하고) 참가자 1명을 선택합니다: 선한 캐릭터 하나와 악한 캐릭터 하나를 알게 됩니다. 둘 중 하나가 그의 정체입니다.",
     "firstNight": 21,
@@ -150,7 +149,7 @@
   {
     "id": "10theballadofseat7",
     "name": "예언자",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/10_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/oracle_0.webp",
     "team": "townsfolk",
     "ability": "매일 밤*, 사망한 참가자 가운데 몇 명이나 악한 팀인지를 알게 됩니다.",
     "firstNight": 0,
@@ -161,7 +160,7 @@
   {
     "id": "11theballadofseat7",
     "name": "여관 주인",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/11_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/innkeeper_0.webp",
     "team": "townsfolk",
     "ability": "매일 밤*, 참가자 2명을 선택합니다: 이들은 오늘 밤 사망할 수 없으나, 그중 1명은 황혼까지 취합니다.",
     "firstNight": 0,
@@ -177,7 +176,7 @@
   {
     "id": "12theballadofseat7",
     "name": "재봉사",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/12_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/seamstress_0.webp",
     "team": "townsfolk",
     "ability": "게임당 1번, 밤에, (당신을 제외하고) 참가자 2명을 선택합니다: 그들이 같은 소속인지 아닌지를 알게 됩니다.",
     "firstNight": 22,
@@ -192,7 +191,7 @@
   {
     "id": "13theballadofseat7",
     "name": "낚시꾼",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/13_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/fisherman_0.webp",
     "team": "townsfolk",
     "ability": "게임당 1번, 낮 동안, 이야기꾼을 방문하여 당신의 팀이 승리하기 위한 조언을 구합니다.",
     "firstNight": 0,
@@ -205,7 +204,7 @@
   {
     "id": "14theballadofseat7",
     "name": "농부",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/14_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/farmer_0.webp",
     "team": "townsfolk",
     "ability": "당신이 밤에 사망하면, 생존한 선한 참가자 1명이 농부가 됩니다.",
     "firstNight": 0,
@@ -223,7 +222,7 @@
   {
     "id": "15theballadofseat7",
     "name": "성결자",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/15_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/virgin_0.webp",
     "team": "townsfolk",
     "ability": "처음으로 지명당했을 때, 당신을 지명한 참가자가 주민이라면, 그는 즉시 처형당합니다.",
     "firstNight": 0,
@@ -236,7 +235,7 @@
   {
     "id": "16theballadofseat7",
     "name": "마술사",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/16_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/magician_0.webp",
     "team": "townsfolk",
     "ability": "악마는 당신을 하수인이라고 생각합니다. 하수인들은 당신을 악마라고 생각합니다.",
     "firstNight": 14,
@@ -247,7 +246,7 @@
   {
     "id": "17theballadofseat7",
     "name": "주정뱅이",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/17_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/drunk_0.webp",
     "team": "outsider",
     "ability": "당신은 자신이 주정뱅이라는 사실을 모릅니다. 대신 다른 주민 캐릭터라고 착각하지만, 사실은 주정뱅이입니다.",
     "special": [
@@ -274,7 +273,7 @@
   {
     "id": "18theballadofseat7",
     "name": "은둔자",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/18_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/recluse_0.webp",
     "team": "outsider",
     "ability": "당신은 악한 팀 소속의 하수인 또는 악마로 위장될 수도 있습니다(사망한 상태에서도).",
     "firstNight": 0,
@@ -284,7 +283,7 @@
   {
     "id": "19theballadofseat7",
     "name": "성자",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/19_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/saint_0.webp",
     "team": "outsider",
     "ability": "당신이 처형으로 사망하면, 당신이 속한 팀이 패배합니다.",
     "firstNight": 0,
@@ -294,7 +293,7 @@
   {
     "id": "20theballadofseat7",
     "name": "아가씨",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/20_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/damsel_0.webp",
     "team": "outsider",
     "ability": "모든 하수인은 아가씨가 게임에 참여한다는 사실을 압니다. 하수인이 당신을 공개적으로 추측해 내면(여러명 중 단 1번만 가능), 당신이 속한 팀이 패배합니다.",
     "firstNight": 19,
@@ -309,7 +308,7 @@
   {
     "id": "21theballadofseat7",
     "name": "하피",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/21_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/harpy_0.webp",
     "team": "minion",
     "ability": "매일 밤 참가자 2명을 선택합니다: 다음 날, 첫 번째 참가자는 두 번째 참가자가 악한 팀이라는 사실에 집착해야 합니다. 그렇지 않으면, 둘 중 하나 또는 둘 다 사망할 수 있습니다.",
     "firstNight": 17,
@@ -325,7 +324,7 @@
   {
     "id": "22theballadofseat7",
     "name": "폭탄마",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/22_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/boomdandy_0.webp",
     "team": "minion",
     "special": [
       {
@@ -342,7 +341,7 @@
   {
     "id": "23theballadofseat7",
     "name": "탕녀",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/23_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/scarletwoman_0.webp",
     "team": "minion",
     "ability": "참가자가 5명 이상(여행자는 세지 않음) 생존해 있는 상황에서 악마가 사망하면, 당신이 악마가 됩니다.",
     "firstNight": 0,
@@ -356,7 +355,7 @@
   {
     "id": "24theballadofseat7",
     "name": "과학자",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/24_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/boffin_0.webp",
     "team": "minion",
     "ability": "악마는 (악마가 취함/중독 상태더라도) 게임에 참여하지 않는 선한 캐릭터의 능력을 갖습니다. 악마와 당신은 그 능력을 알게 됩니다.",
     "jinxes": [
@@ -380,7 +379,7 @@
   {
     "id": "25theballadofseat7",
     "name": "남작",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/25_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/baron_0.webp",
     "team": "minion",
     "ability": "외지인이 추가로 게임에 참여합니다. [외지인 +2명]",
     "firstNight": 0,
@@ -391,7 +390,7 @@
   {
     "id": "26theballadofseat7",
     "name": "푸카",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/26_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/pukka_0.webp",
     "team": "demon",
     "ability": "매일 밤, 참가자 1명을 선택합니다: 그는 중독됩니다. 이전에 당신이 중독시켰던 참가자는 사망하고, 건강한 상태가 됩니다.",
     "firstNight": 18,
@@ -407,7 +406,7 @@
   {
     "id": "27theballadofseat7",
     "name": "임프",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/27_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/imp_0.webp",
     "team": "demon",
     "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. 이 방법으로 자결하면, 하수인 1명이 임프가 됩니다.",
     "firstNight": 0,
@@ -421,7 +420,7 @@
   {
     "id": "28theballadofseat7",
     "name": "비고르모르티스",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/28_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/vigormortis_0.webp",
     "team": "demon",
     "ability": "매일 밤*, 참가자 1명을 선택합니다: 그는 사망합니다. 당신이 죽인 하수인은 능력을 유지하며, 그와 가까운 양쪽 이웃 주민 중 1명이 중독됩니다. [외지인 -1명]",
     "firstNight": 0,
@@ -442,7 +441,6 @@
   {
     "id": "29theballadofseat7",
     "name": "하수인 정보",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/29_theballadofseat7.png",
     "team": "demon",
     "ability": "첫 날밤, 하수인들에게 서로를 알려주고 악마를 알려주세요",
     "special": [
@@ -464,7 +462,6 @@
         "name": "bag-disabled"
       }
     ],
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/30_theballadofseat7.png",
     "team": "demon",
     "ability": "첫 날밤, 악마에게 하수인들을 알려주세요 참가중이지 않은 선한 캐릭터 3개를 알려주세요",
     "firstNight": 16,
@@ -474,7 +471,7 @@
   {
     "id": "2theballadofseat7",
     "name": "희생양",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/2_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/scapegoat_0.webp",
     "team": "traveller",
     "ability": "당신의 팀 소속 참가자 1명이 처형당하면, 당신이 대신 처형당할 수도 있습니다.",
     "firstNight": 0,
@@ -489,7 +486,7 @@
   {
     "id": "3theballadofseat7",
     "name": "매춘부",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/3_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/harlot_0.webp",
     "team": "traveller",
     "ability": "매일 밤*, 생존한 참가자 1명을 선택합니다: 그가 동의한다면, 그의 캐릭터를 알게 되지만 둘 다 사망할 수도 있습니다.",
     "firstNight": 0,
@@ -504,7 +501,7 @@
   {
     "id": "theballadofseat7",
     "name": "노움",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/gnome_0.webp",
     "team": "traveller",
     "ability": "게임 시작 시, 모든 참가자는 당신과 같은 팀에 속한 참가자 1명을 알게 됩니다 그를 지명한 참가자를 죽일 수 있습니다.",
     "firstNight": 0,
@@ -517,7 +514,7 @@
   {
     "id": "1theballadofseat7",
     "name": "관료",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/1_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/bureaucrat_0.webp",
     "team": "traveller",
     "ability": "매일 밤, (당신을 제외하고) 참가자 1명을 선택합니다: 다음 날, 그의 투표는 3표로 계산합니다.",
     "firstNight": 12,
@@ -533,7 +530,6 @@
   {
     "id": "35theballadofseat7",
     "name": "무서운 속삭임",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/35_theballadofseat7.png",
     "team": "fabled",
     "ability": "7번 시트는 게임 당 두 번 발언할 수 있습니다.  한 번은 비공개로, 한 번은 공개로.",
     "firstNight": 0,
@@ -545,7 +541,6 @@
   {
     "id": "34theballadofseat7",
     "name": "할머니의 원리",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/34_theballadofseat7.png",
     "team": "fabled",
     "ability": "첫날 밤, 1시가 시작될 때,  1명의 참가자는 7번 자리를 지키기 위해 선택되었다는 사실을 알게 됩니다. 7번 자리가 처형이 되면 그 참가자도 사망할 수 있습니다.",
     "firstNight": 11,
@@ -558,7 +553,6 @@
   {
     "id": "33theballadofseat7",
     "name": "집에 있는 기억 상실",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/33_theballadofseat7.png",
     "team": "fabled",
     "ability": "게임 중에 새로운 참가자 7번 시트에 앉으면 이야기꾼은  그들이 남아서 자리를 대신할 수 있도록 허락할 수 있습니다.  그러나 그들은 역할이나 사전 정보를 전혀 알지 못합니다.",
     "firstNight": 0,
@@ -570,7 +564,7 @@
   {
     "id": "32theballadofseat7",
     "name": "밀주업자",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/32_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/bootlegger_0.webp",
     "team": "fabled",
     "ability": "이 스크립트에는 홈브루 캐릭터나 규칙이 있습니다.",
     "firstNight": 0,
@@ -580,7 +574,7 @@
   {
     "id": "31theballadofseat7",
     "name": "진",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/31_theballadofseat7.png",
+    "image": "https://castleq.github.io/pocket-grimoire/img/official/djinn_0.webp",
     "team": "fabled",
     "ability": "진의 특수 규칙을 사용합니다. 이 규칙을 모두에게 알립니다.",
     "firstNight": 0,
@@ -590,7 +584,6 @@
   {
     "id": "71theballadofseat7",
     "name": "7번 좌석 상승 ",
-    "image": "https://www.bloodstar.xyz/p/kotpgus/TheBalladofSeat7/71_theballadofseat7.png",
     "team": "fabled",
     "ability": "7번시트의 좌석이 상승하였습니다. 이제 하루에 한번씩 만약 좌석이 여전히 투표권이 있다면, 이야기꾼은 한 명의 후보를 지명하여 투표 할 수 있습니다.(단 다른 지명이 이루어지기 전에 반드시 이루어 져야 합니다.)",
     "firstNight": 0,
