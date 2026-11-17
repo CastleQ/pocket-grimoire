@@ -1,5 +1,6 @@
 {
     "id": "fallofrome",
+    "homebrew": "fall-of-rome.json",
     "sections": [
         {
             "key": "synopsis",

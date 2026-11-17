@@ -197,7 +197,9 @@ if (fs.existsSync(pagesDir)) {
             problems.push("모르는 캐릭터 표시: " + Array.from(new Set(unknown)).join(", "));
         }
         const srcPath = path.join(srcPagesDir, file);
-        if (!fs.existsSync(srcPath)) {
+        if (ko.homebrew) {
+            // 홈브류 판 소개: 영어 원문이 없다(시트 제작자 문서).
+        } else if (!fs.existsSync(srcPath)) {
             problems.push("영어 원문 없음 (tools/wiki/src-pages/" + file + ")");
         } else {
             const en = JSON.parse(fs.readFileSync(srcPath, "utf8"));
