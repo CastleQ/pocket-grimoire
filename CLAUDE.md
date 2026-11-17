@@ -145,6 +145,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - **수정본 시트를 받으면 JSON을 통째로 덮어쓰고 `_meta.name`만 기존 PG+ 이름으로 되돌린다**(CastleQ 방침). 새 시트는 먼저 기존 manifest에 같은 이름이 있는지 확인한다(갱신일 수 있음).
   - **덮어쓰기 전에 옛 JSON과 새 JSON을 캐릭터 id·항목(키)별로 대조한다.** 값이 바뀐 것(수정)은 그대로 덮어쓴다. 옛 쪽에만 있고 새 쪽에서 **사라지는** 캐릭터·항목(예: PG+가 따로 넣은 `flavor`)이 있으면 덮어쓰기 전에 목록을 보여 주고 CastleQ에게 되묻는다. 예: `fall-of-rome.json`의 `flavor` 27개는 PG+가 제작자 연감에서 넣은 것이다(2026-11-17).
 - **manifest의 `file` 이름은 `[a-z0-9-]+.json`만, 한 번 정하면 바꾸지 않는다.** 이 이름이 공유 링크 주소 `sheet-<파일이름>.html`이 되어(§8 시트 링크 미리보기), 바꾸거나 시트를 빼면 이미 퍼진 그 시트의 공유 링크가 404가 된다. 시트를 뺄 때는 CastleQ에게 이 점을 알린다.
+- **`bloodstar.xyz`는 주소가 사라졌다(2026-11 확인, DNS 없음·보관소 사본 없음).** 시트 그림·로고에 이 주소가 있으면 앱에서 깨진다. 공식 캐릭터는 이름·유형·능력을 대조해 `https://castleq.github.io/pocket-grimoire/img/official/<공식id>_0.webp`(선악 두 장이면 `_1`도)로, 구할 곳 없는 그림은 `image`를 지운다(앱이 유형 기본 그림을 넣음). 홈브류 원본은 botchomebrew.wiki의 `assets/media/full/art/<slug>-<스크립트>.png.webp`(591px)에 있을 수 있다 → `img/official/<id>_0.webp`(400px)로 넣고 시트 주소를 바꾼다.
 
 ---
 
@@ -239,6 +240,8 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - **DB 변경 SQL은 CastleQ에게 주기 전에 컨테이너의 PostgreSQL 16(`/usr/lib/postgresql/16/bin`)으로 미리 시험한다.** 클러스터는 `/var/tmp/` 아래에(스크래치 폴더는 postgres 사용자가 못 씀) `su postgres -c "initdb …; pg_ctl …"`. anon·authenticated 역할과 칸 단위 권한을 실제처럼 재현해 공개 키 동작까지 본다.
 - **함수 인자 수를 바꿀 때는 `create or replace`로 안 된다** → 한 트랜잭션에서 옛 함수 `drop` + 새 함수 생성(새 인자는 `default null`로 옛 앱 호출 호환), 끝에 `notify pgrst, 'reload schema';`.
 - **내장 시트 상당수가 YAML `entry_order`와 어긋난 순서** — 현행 방침상 문제 없음.
+- **클라우드 시트 그림 확인(실제 앱 흐름):** Playwright로 앱을 열고 `input[name=edition][value="sheet:<파일>.json"]` 체크 → `#select-edition-form`의 `requestSubmit()` → `window.open`을 막고 `#open-sheet` 클릭 → `localStorage.pg-sheet-data`가 생기면 `sheet.html`을 열어 `naturalWidth`가 0인 `img`를 센다. 고친 시트는 `route`로 `scripts/<파일>.json`을 작업 파일로 바꿔 배포 전에 본다.
+- **클라우드 저장소는 얕게 받아서(shallow)** `status.sh` 세션 기록 칸이 ⚠️(커밋 없음)일 수 있고, 푸시 후 원격 표시가 낡아 "안 올린 커밋" 경고가 뜰 수 있다 → `git fetch --depth=60 origin +refs/heads/<가지>:refs/remotes/origin/<가지>`로 갱신(깊이를 너무 작게 받으면 main과 이어짐 확인이 실패).
 - **`git push`가 설명 없이 실패하면 Git LFS 훅을 의심한다.** 이 프로젝트는 LFS를 전혀 쓰지 않는데 훅만 잔재로 남아 푸시를 막은 적이 있다. 증상은 `error: failed to push some refs`뿐이고 전송 기록이 아예 없다.
   - 즉시 우회: `git push --no-verify`
   - 근본 해결: `.git/hooks/`의 lfs 관련 훅 4개 제거. 이 폴더는 커밋되지 않으므로 **Codespace 재구축 시 되살아날 수 있다.**

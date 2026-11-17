@@ -65,5 +65,7 @@ Bluffing → 블러핑 / Claim → 주장하다 / Tips & Tricks → 팁과 요�
 - 이름·유형·능력·플레이버는 **시트 JSON이 정본**이다. `build-guide-data.js`가 시트에서 읽어 `roles.json`에 넣고 `"homebrew": 판 id`를 붙인다. 시트 문구를 고치면 다시 굽기만 하면 된다.
 - 아이콘은 `public/img/official/<id>_0.webp`(400px)로 둔다. 위키·도감이 이 경로만 읽는다.
 - 영어 원문 점검은 건너뛴다. `{c:id}`는 숫자가 든 id도 된다.
+- 판 소개(줄거리·게임 방식)는 `pages/<판 id>.json`에 `"homebrew": "<시트 파일>"`을 넣는다(영어 원문 점검 제외, 도감에서 TPI 출처 문구 안 붙음). 판 페이지는 `p` 블록만 그린다.
+- 시트에 플레이버가 없으면 문서에 안 나온다 → 필요하면 시트 JSON에 `flavor`를 넣는다(수정본 덮어쓰기 때 대조 규칙 §5). 두 번째 사례: 「로마의 몰락」(`fallofrome`, 32개, 제작자 연감 md를 변환).
 - PG+: `guide.html`(뽑기 화면 위키)·그리모어 보라색 버튼은 index에 id가 있으면 자동으로 연결된다. 홈브류 표시는 `guide.html`의 `HOMEBREW`.
 - 도감(botc-wiki-ko): `common.js`의 `HOMEBREW`에 판을 추가 → 메인 "홈브류 스크립트"·`edition-<id>.html`(전설 포함)에 나오고 공식 유형 페이지에는 섞이지 않는다. `og/edition-<id>.jpg`를 만들고 `tools/build-og-images.js`·`tools/build-og.js`를 돌린다.
