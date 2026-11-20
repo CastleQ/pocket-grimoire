@@ -111,7 +111,8 @@ gameObserver.on("characters-selected", ({ detail }) => {
 
     nightOrder.reset();
     nightOrder.setCharacters(characters);
-    addNightInfoSteps(characters, detail.meta);
+    // 정보 단계 자리는 전설·여행자까지 넣고 계산한다(예: 관문은 하수인 정보보다 먼저).
+    addNightInfoSteps(detail.characters, detail.meta);
     nightOrder.drawAllNightOrders();
 
 });

@@ -2494,7 +2494,7 @@
     "name": "Tor",
     "edition": "",
     "team": "loric",
-    "firstNightReminder": "",
+    "firstNightReminder": "Skip Minion Info and Demon Info.",
     "otherNightReminder": "If a player died tonight, show the *YOU ARE* info token, their character token, & a thumbs up or thumbs down.",
     "reminders": [],
     "setup": true,
