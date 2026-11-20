@@ -30,6 +30,7 @@ import {
     resolveInfoOrders,
     pickInfoOrder
 } from "./utils/night-info.js";
+import { setCharacterImage } from "./utils/image-fallback.js";
 
 const STORAGE_KEY = "pg-sheet-data";
 
@@ -278,7 +279,7 @@ function renderCharacter(character) {
     const icon = element("div", "sheet-role__icon");
     const image = document.createElement("img");
 
-    image.src = characterImage(character);
+    setCharacterImage(image, characterImage(character), character.team);
     image.alt = "";
     icon.append(image);
 
@@ -635,7 +636,7 @@ function nightIcon(row, className) {
 
         const image = document.createElement("img");
 
-        image.src = row.image;
+        setCharacterImage(image, row.image, row.team);
         image.alt = "";
         icon.append(image);
 
@@ -739,7 +740,7 @@ function summaryEntry(character, text) {
     const icon = element("div", "sheet-summary__icon");
     const image = document.createElement("img");
 
-    image.src = characterImage(character);
+    setCharacterImage(image, characterImage(character), character.team);
     image.alt = "";
     icon.append(image);
 
@@ -829,7 +830,7 @@ function renderSummaryPage(payload, characters) {
 
                 const image = document.createElement("img");
 
-                image.src = characterImage(character);
+                setCharacterImage(image, characterImage(character), character.team);
                 image.alt = character.name || character.id;
                 icons.append(image);
 

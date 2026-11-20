@@ -146,6 +146,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
   - **덮어쓰기 전에 옛 JSON과 새 JSON을 캐릭터 id·항목(키)별로 대조한다.** 값이 바뀐 것(수정)은 그대로 덮어쓴다. 옛 쪽에만 있고 새 쪽에서 **사라지는** 캐릭터·항목(예: PG+가 따로 넣은 `flavor`)이 있으면 덮어쓰기 전에 목록을 보여 주고 CastleQ에게 되묻는다. 예: `fall-of-rome.json`의 `flavor` 27개는 PG+가 제작자 연감에서 넣은 것이다(2026-11-17).
 - **manifest의 `file` 이름은 `[a-z0-9-]+.json`만, 한 번 정하면 바꾸지 않는다.** 이 이름이 공유 링크 주소 `sheet-<파일이름>.html`이 되어(§8 시트 링크 미리보기), 바꾸거나 시트를 빼면 이미 퍼진 그 시트의 공유 링크가 404가 된다. 시트를 뺄 때는 CastleQ에게 이 점을 알린다.
 - **`bloodstar.xyz`는 주소가 사라졌다(2026-11 확인, DNS 없음·보관소 사본 없음).** 시트 그림·로고에 이 주소가 있으면 앱에서 깨진다. 공식 캐릭터는 이름·유형·능력을 대조해 `https://castleq.github.io/pocket-grimoire/img/official/<공식id>_0.webp`(선악 두 장이면 `_1`도)로, 구할 곳 없는 그림은 `image`를 지운다(앱이 유형 기본 그림을 넣음). 홈브류 원본은 botchomebrew.wiki의 `assets/media/full/art/<slug>-<스크립트>.png.webp`(591px)에 있을 수 있다 → `img/official/<id>_0.webp`(400px)로 넣고 시트 주소를 바꾼다.
+- **시트 그림은 외부 주소에 두지 않고 저장소에 넣는다.** 외부 사이트는 사라질 수 있고(bloodstar), 살아 있어도 CORS가 없으면 시트 저장 때 아이콘이 빠진다(klutzbanana — 함정 ④). `node tools/patch-selfhost-images.js <시트.json> <로고키> [원본 script.json]`이 그림을 `img/official/<id>_<n>.webp`·로고를 `guide/img/logo_<로고키>.webp`로 받아 주소를 바꾼다(여러 번 실행 안전). klutzbanana 원본 데이터는 `https://klutzbanana.com/api/public/scripts/<시트id>/script.json`(페이지 주소의 `/scripts/<시트id>/`).
 
 ---
 
@@ -216,6 +217,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | 공식 3종 순번표 | `assets/js/data/official-order.js` |
 | 공식 아이콘 매핑 ⚠️ | `assets/data/role-images.json` |
 | 아이콘 | `public/img/official/` / `assets/img/download.png` |
+| 캐릭터 그림 깨짐 대비 | `assets/js/utils/image-fallback.js` `setCharacterImage()` — 그림이 안 열리면 유형 아이콘(`img/icons/<유형>.webp`)으로 바꿔 끼움. 캐릭터 그림을 넣는 곳은 `.src =` 대신 이것을 쓴다(토큰·알림 토큰·징크스·시트 화면) |
 | 시트 모달 | `templates/partials/setup/character-sheet.html.twig` |
 | 번역 | `translations/messages.ko_KR.yaml` (하위 들여쓰기 **8칸**) |
 | 미사용 자료 | `assets/data/_unused/` (되살리는 법은 그 안 `README.md`) |

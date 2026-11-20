@@ -8,6 +8,7 @@ import {
 import {
     appendReminderText,
 } from "../utils/rich-text.js";
+import { setCharacterImage } from "../utils/image-fallback.js";
 
 const emptyProperty = Symbol("empty");
 const customProperty = Symbol("custom");
@@ -534,6 +535,7 @@ export default class CharacterToken extends Token {
             setup
         } = this.data;
         const image = this.getImage();
+        const imageTeam = this.data.team;
 
         return this.constructor.templates.token.draw({
             ".js--character--leaves"(element) {
@@ -546,7 +548,7 @@ export default class CharacterToken extends Token {
 
             },
             ".js--character--image"(element) {
-                element.src = image;
+                setCharacterImage(element, image, imageTeam);
             },
             ".js--character--name"(element) {
                 element.textContent = name;
@@ -594,11 +596,12 @@ export default class CharacterToken extends Token {
             setup
         } = this.data;
         const image = this.getImage();
+        const imageTeam = this.data.team;
         const isBagDuplicate = this.hasSpecialData("selection", "bag-duplicate");
 
         return this.constructor.templates.select.draw({
             ".js--character-select--image"(element) {
-                element.src = image;
+                setCharacterImage(element, image, imageTeam);
             },
             ".js--character-select--name"(element) {
 
@@ -652,6 +655,7 @@ export default class CharacterToken extends Token {
             otherNightReminder
         } = this.data;
         const image = this.getImage();
+        const imageTeam = this.data.team;
 
         return this.constructor.templates.nightOrder.draw({
             ".js--night-info--wrapper"(element) {
@@ -665,7 +669,7 @@ export default class CharacterToken extends Token {
 
             },
             ".js--night-info--icon"(element) {
-                element.src = image;
+                setCharacterImage(element, image, imageTeam);
             },
             ".js--night-info--role"(element) {
                 element.textContent = name;

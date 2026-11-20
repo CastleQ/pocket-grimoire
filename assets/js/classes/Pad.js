@@ -12,6 +12,7 @@ import {
 import {
     isNumeric
 } from "../utils/numbers.js";
+import { setCharacterImage } from "../utils/image-fallback.js";
 
 /**
  * Handles tokens being added to the main pad section.
@@ -448,7 +449,7 @@ export default class Pad {
         const image = element && element.querySelector(".js--character--image");
 
         if (image) {
-            image.src = character.getImage();
+            setCharacterImage(image, character.getImage(), character.data.team);
         }
 
         this.observer.trigger("image-toggle", {

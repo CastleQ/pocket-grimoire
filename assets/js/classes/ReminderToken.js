@@ -1,5 +1,6 @@
 import Token from "./Token.js";
 import Template from "./Template.js";
+import { setCharacterImage } from "../utils/image-fallback.js";
 
 /**
  * A version of {@link Token} for reminder tokens.
@@ -112,7 +113,8 @@ export default class ReminderToken extends Token {
             image,
             text,
             characterName,
-            isCustom
+            isCustom,
+            team
         } = this.data;
         // image가 선/악 배열이면 기본색([0])을 사용한다.
         const src = Array.isArray(image) ? (image[0] || "") : (image || "");
@@ -133,7 +135,11 @@ export default class ReminderToken extends Token {
                 element.textContent = isCustom ? customLabel : "";
             },
             ".js--reminder--image"(element) {
-                element.src = isCustom ? TRANSPARENT_PIXEL : src;
+                if (isCustom) {
+                    element.src = TRANSPARENT_PIXEL;
+                } else {
+                    setCharacterImage(element, src, team);
+                }
                 const root = element.closest(".reminder");
                 if (root) {
                     root.classList.toggle("is-custom", Boolean(isCustom));

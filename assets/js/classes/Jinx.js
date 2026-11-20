@@ -1,5 +1,6 @@
 import CharacterToken from "./CharacterToken";
 import Observer from "./Observer";
+import { setCharacterImage } from "../utils/image-fallback.js";
 
 /**
  * Manages a Jinx.
@@ -334,7 +335,7 @@ export default class Jinx {
             return;
         }
 
-        element.src = character.getImage();
+        setCharacterImage(element, character.getImage(), character.data.team);
         element.alt = character.getName();
         element.title = character.getName();
 

@@ -271,7 +271,8 @@ export default class TokenStore {
             isGlobal,
             id: reminderId,
             characterId: id,
-            characterName: name
+            characterName: name,
+            team: data.team
         });
 
         this.reminders[reminderId] = reminder;
