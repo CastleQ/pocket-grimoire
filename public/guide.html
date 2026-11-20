@@ -299,7 +299,7 @@ body.is-revealed .masked > .mask { opacity: 0; transition: opacity 1.5s ease-in;
         html += "<span class=\"details-label\">정보</span>";
         html += "<table><tr><td>유형</td><td>" + esc(TEAM_NAMES[self.team] || "") + "</td></tr>";
         html += homebrew
-            ? "<tr><td>제작</td><td>" + esc(homebrew.author) + " (홈브류)</td></tr></table>"
+            ? "<tr><td>제작</td><td>" + esc(homebrew.author) + "</td></tr></table>"
             : "<tr><td>아티스트</td><td>" + esc(guide.artist || "") + "</td></tr></table>";
         if (self.flavor) {
             html += "<p class=\"flavour\">\"" + esc(self.flavor) + "\"</p>";

@@ -3,6 +3,8 @@
 //
 // - 그 시트를 불러온 상태에서는 보라색 Wiki 버튼이 모두 이 위키로 간다(공식 위키로 가지 않음).
 //   목록의 캐릭터는 위키의 캐릭터 위치(#id), 그 밖(전설·설화 등 공식 캐릭터, 메뉴 버튼)은 위키 첫 화면.
+// - "menuOnly": true 이면 마도서 메뉴의 [공식 Wiki 사이트 바로가기]만 이 주소로 가고,
+//   캐릭터 토큰 버튼은 평소대로 PG+ 위키(guide.html)로 간다. 예: 도감에 판 페이지가 있는 홈브류.
 // - 뽑기 화면(public/claim.html)도 같은 파일을 읽는다(캐릭터 id 기준).
 import Observer from "../classes/Observer.js";
 import TokenStore from "../classes/TokenStore.js";
@@ -30,6 +32,7 @@ export const sheetWikiReady = fetch(scriptsBase + "sheet-wikis.json", { cache: "
         )).map((entry) => ({
             name: typeof entry.name === "string" ? entry.name : "",
             url: entry.url,
+            menuOnly: entry.menuOnly === true,
             ids: entry.ids.map((id) => TokenStore.normaliseId(String(id))),
             rawIds: entry.ids.map(String)
         }));
@@ -60,6 +63,16 @@ Observer.create("game").on("characters-selected", ({ detail }) => {
  */
 export function getCurrentSheetWiki() {
     return currentUrl;
+}
+
+/**
+ * 캐릭터 토큰 버튼용: 메뉴 전용(menuOnly) 위키면 "", 아니면 getCurrentSheetWiki()와 같다.
+ *
+ * @return {String}
+ */
+export function getCurrentSheetWikiForCharacters() {
+    const entry = findByName(currentName);
+    return (entry && !entry.menuOnly) ? entry.url : "";
 }
 
 /**

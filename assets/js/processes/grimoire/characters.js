@@ -6,7 +6,7 @@ import Template from "../../classes/Template.js";
 import TokenStore from "../../classes/TokenStore.js";
 import {
     sheetWikiReady,
-    getCurrentSheetWiki,
+    getCurrentSheetWikiForCharacters,
     getSheetWikiForCharacter
 } from "../../utils/sheet-wiki.js";
 import TokenDialog from "../../classes/TokenDialog.js";
@@ -166,7 +166,7 @@ function getWikiTarget(character) {
 
     // 제작자 위키가 있는 시트를 불러온 상태: 어떤 캐릭터든 공식 위키 대신 그 위키로.
     // 목록의 캐릭터는 캐릭터 위치(#id), 그 밖의 캐릭터(전설·설화 등)는 위키 첫 화면.
-    const currentSheetWiki = getCurrentSheetWiki();
+    const currentSheetWiki = getCurrentSheetWikiForCharacters();
     const sheetWiki = getSheetWikiForCharacter(character.getId());
 
     // 미출시 캐릭터: 위키 문서가 없으므로 안내창을 거쳐 도감 첫 화면으로.
