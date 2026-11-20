@@ -3,16 +3,16 @@
     "js/main": {
       "js": [
         "/pocket-grimoire/build/runtime.e6391ebb.js",
-        "/pocket-grimoire/build/847.2efaa3eb.js",
-        "/pocket-grimoire/build/js/main.c0ee4766.js"
+        "/pocket-grimoire/build/183.b9932a9c.js",
+        "/pocket-grimoire/build/js/main.f2b0d6ca.js"
       ]
     },
     "js/sheet": {
       "js": [
         "/pocket-grimoire/build/runtime.e6391ebb.js",
         "/pocket-grimoire/build/120.eaf362f0.js",
-        "/pocket-grimoire/build/847.2efaa3eb.js",
-        "/pocket-grimoire/build/js/sheet.51195a12.js"
+        "/pocket-grimoire/build/183.b9932a9c.js",
+        "/pocket-grimoire/build/js/sheet.8f1dffeb.js"
       ]
     },
     "js/dialog": {
@@ -48,10 +48,10 @@
   },
   "integrity": {
     "/pocket-grimoire/build/runtime.e6391ebb.js": "sha384-pqXPwarSc7nLcP6NzAFF2+HgJS/Pj0hVWFSGl76Kb6AYl4NBeCJ/n3pieejoPVgp",
-    "/pocket-grimoire/build/847.2efaa3eb.js": "sha384-B7GN3bBP8b9ZxLy4VInxKEbBCimTJ/HbutP9iG2h6iCS8Ttne0e9MsGlCZ8NFj/7",
-    "/pocket-grimoire/build/js/main.c0ee4766.js": "sha384-U/CQozQT2U8U0cpF8jHJHy8Vmc3BRhk2DqpSmz/xrDT2UxKqJAjYkGg2GVQjW5lD",
+    "/pocket-grimoire/build/183.b9932a9c.js": "sha384-zUB8RikuKWqQ84O2j0ysZJ9Yaacf5CwTxdLlqUG2Sgp89guMLAYHLBjymfXnmtSg",
+    "/pocket-grimoire/build/js/main.f2b0d6ca.js": "sha384-x06tS9xXKmXANafxJDp/iTKNNqKKh98l46c/bKnagcpHU+/BTiukAmxIkMBgkzST",
     "/pocket-grimoire/build/120.eaf362f0.js": "sha384-M81qz06UsWtoPsT4LLHvK+ocOFQ+T8peQT7A6Dt/WKojKbtrpeIVbbVQwZy+8nC8",
-    "/pocket-grimoire/build/js/sheet.51195a12.js": "sha384-JDFJhpRAbVuVA/pZ8rGvF5BtSc3XRg0WSoQPmhuCf1sVeUUyyW5DR+hAfmezgE46",
+    "/pocket-grimoire/build/js/sheet.8f1dffeb.js": "sha384-8NW8zqzCytIFnYObJXKJVKsTB9YuWLqvh1WrTpk+pqLubUEjAEc7Mq3xPj4fFbsW",
     "/pocket-grimoire/build/js/dialog.6ab8707a.js": "sha384-hzLraqI7tLGK6dsjy+ccm5r0HHTmBqxzpsHPr8LQyoQ2wmfJO/U80jUNyMduxFKq",
     "/pocket-grimoire/build/css/main.260f787c.css": "sha384-U2qz7wVwl3nlIwpfh3jEmcQ4t5tw8a8Rj3e9mAUrtmQrqpfnMVVISwWhy/qjMGQz",
     "/pocket-grimoire/build/css/sheet.e96e2828.css": "sha384-zlBITgtg+p7M2eAklSnGJoGww7XMMGZ1f8O0Ps4MgWfaZBoI3ldVCXhWzVvaw/pI",

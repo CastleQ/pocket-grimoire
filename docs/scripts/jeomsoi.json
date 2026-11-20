@@ -3,7 +3,7 @@
     "id": "_meta",
     "name": "🖐🏻점소이! 여기 술 한잔!",
     "author": "",
-    "logo": "https://user-images.klutzbanana.com/iklvju9lf1yfm8eryo25d6db.png",
+    "logo": "https://castleq.github.io/pocket-grimoire/guide/img/logo_jeomsoi.webp",
     "hideTitle": true,
     "almanac": "https://klutzbanana.com/scripts/jj7k3zzwp6/%EC%A0%90%EC%86%8C%EC%9D%B4!%20%EC%97%AC%EA%B8%B0%20%EC%88%A0%20%ED%95%9C%EC%9E%94!",
     "firstNight": [
@@ -55,6 +55,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/muhub_0.webp"
     ]
   },
   {
@@ -74,6 +77,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/1muhub_0.webp"
     ]
   },
   {
@@ -94,6 +100,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/2muhub_0.webp"
     ]
   },
   {
@@ -114,6 +123,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/3muhub_0.webp"
     ]
   },
   {
@@ -130,6 +142,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/5muhub_0.webp"
     ]
   },
   {
@@ -148,6 +163,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/6muhub_0.webp"
     ]
   },
   {
@@ -165,6 +183,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/7muhub_0.webp"
     ]
   },
   {
@@ -178,6 +199,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/8muhub_0.webp"
     ]
   },
   {
@@ -195,6 +219,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/10muhub_0.webp"
     ]
   },
   {
@@ -212,6 +239,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/4muhub_0.webp"
     ]
   },
   {
@@ -235,6 +265,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/9muhub_0.webp"
     ]
   },
   {
@@ -253,6 +286,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/11muhub_0.webp"
     ]
   },
   {
@@ -268,6 +304,9 @@
         "type": "selection",
         "name": "bag-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/12muhub_0.webp"
     ]
   },
   {
@@ -280,6 +319,9 @@
     "reminders": [
       "중독",
       "처형 성공"
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/16muhub_0.webp"
     ]
   },
   {
@@ -304,6 +346,9 @@
         "type": "selection",
         "name": "good-duplicate"
       }
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/13muhub_0.webp"
     ]
   },
   {
@@ -313,6 +358,9 @@
     "ability": "당신과 가장 멀거나, 가장 가까운 선한 참가자 1명은 만취합니다.(당신이 죽어도) 당신이 그 참가자를 지명하고 처형한다면, 사악한 참가자 중 1명이 만취합니다.",
     "reminders": [
       "만취"
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/14muhub_0.webp"
     ]
   },
   {
@@ -323,6 +371,9 @@
     "reminders": [
       "초대장",
       "초대장"
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/15muhub_0.webp"
     ]
   },
   {
@@ -335,6 +386,9 @@
     "reminders": [
       "중독",
       "중독(시계)"
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/18muhub_0.webp"
     ]
   },
   {
@@ -346,6 +400,9 @@
     "otherNightReminder": "낮에 처형된 참가자의 캐릭터 유형을 모용가에게 알려줍니다. 모용가가 그 유형의 캐릭터 1개를 선택하며, 참가 중이 아니라면 모용가의 캐릭터 토큰을 그 캐릭터로 교체하고 보여줍니다.",
     "reminders": [
       "모용가"
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/19muhub_0.webp"
     ]
   },
   {
@@ -358,6 +415,9 @@
     "reminders": [
       "사망",
       "사망"
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/20muhub_0.webp"
     ]
   },
   {
@@ -367,6 +427,9 @@
     "ability": "매일 낮마다, 모든 참가자의 캐릭터를 공개적으로 추측할 수 있습니다.(사망하더라도) 이야기꾼은 정확하게 맞춘 수를 발표합니다. 모든 참가자의 캐릭터를 정확히 추측한다면, 악팀이 승리합니다.",
     "reminders": [
       "추측 정확"
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/17muhub_0.webp"
     ]
   },
   {
@@ -382,6 +445,9 @@
       "정상",
       "반전",
       "사망"
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/21muhub_0.webp"
     ]
   },
   {
@@ -396,6 +462,9 @@
     "reminders": [
       "능력부여",
       "사망"
+    ],
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/22muhub_0.webp"
     ]
   },
   {
@@ -412,7 +481,10 @@
       "사망",
       "중독"
     ],
-    "setup": true
+    "setup": true,
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/24muhub_0.webp"
+    ]
   },
   {
     "id": "23muhub",
@@ -427,7 +499,10 @@
       "사망",
       "사망"
     ],
-    "setup": true
+    "setup": true,
+    "image": [
+      "https://castleq.github.io/pocket-grimoire/img/official/23muhub_0.webp"
+    ]
   },
   "bootlegger"
 ]

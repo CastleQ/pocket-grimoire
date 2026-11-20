@@ -3,7 +3,7 @@
     "id": "_meta",
     "name": "🐈‍이상한 나라에서 길을 잃어버리다.",
     "author": "Tom R",
-    "logo": "https://user-images.klutzbanana.com/x603n1cxglsuubhy9039rfyo.png",
+    "logo": "https://castleq.github.io/pocket-grimoire/guide/img/logo_wonderland.webp",
     "background": "https://i.imgur.com/byR50BV.png",
     "firstNight": [
       "dusk",
@@ -45,7 +45,7 @@
     "id": "wandering_wonderland",
     "name": "방랑",
     "image": [
-      "https://user-images.klutzbanana.com/kjybz79ixfvzkw8cbcorjco2.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/wandering_wonderland_0.webp"
     ],
     "team": "fabled",
     "ability": "방랑 표시가 있는 캐릭터는 방랑 토큰을 사용합니다.\n따로 정해지지 않았다면, 방랑 토큰은 매일 밤* 시작 시 전날 밤과 같은 방향으로 1칸 이동합니다.\n선한 방랑 토큰은 자신이 아닌 플레이어에게서 시작하며, 죽은 플레이어와 악한 플레이어를 건너뜁니다. 단, 외지인의 방랑 토큰은 악한 플레이어를 건너뛰지 않습니다.\n악한 방랑 토큰은 자신에게서 시작하며, 죽은 플레이어와 악한 플레이어를 건너뜁니다.",
@@ -58,8 +58,8 @@
     "id": "tweedles_wonderland",
     "name": "트위들 형제",
     "image": [
-      "https://user-images.klutzbanana.com/ebt7msa8lwdlrcm2ordl8dyo.png",
-      "https://user-images.klutzbanana.com/wt3k5pbd47p46u25uvn3kjw6.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/tweedles_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/tweedles_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "시작할 때 플레이어 1명을 압니다. 그 플레이어는 다른 트위들 형제입니다. 그 플레이어가 죽으면 당신도 죽습니다. [+1 트위들 형제]",
@@ -78,8 +78,8 @@
     "id": "cheshirecat_wonderland",
     "name": "체셔 캣",
     "image": [
-      "https://user-images.klutzbanana.com/rsz14o759lteurbsebvpuh3b.png",
-      "https://user-images.klutzbanana.com/pjaknnchics2cu31vpmn87eq.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/cheshirecat_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/cheshirecat_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "매일 밤, 당신의 방랑 토큰이 올라간 플레이어의 캐릭터를 압니다. [방랑]",
@@ -104,8 +104,8 @@
     "id": "gryphon_wonderland",
     "name": "그리폰",
     "image": [
-      "https://user-images.klutzbanana.com/kvft7mtp0xiu1rkx95rwv1qu.png",
-      "https://user-images.klutzbanana.com/l4ruchqfi4eclpbklgch9i1g.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/gryphon_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/gryphon_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "매일 밤*, 자신을 제외한, 전날 밤과 다른 플레이어 1명을 선택합니다. 그 플레이어는 황혼까지 하수인과 악마의 능력에 면역입니다.",
@@ -121,8 +121,8 @@
     "id": "dormouse_wonderland",
     "name": "겨울잠 생쥐",
     "image": [
-      "https://user-images.klutzbanana.com/daxykv35d4e4jdv805fwz39e.png",
-      "https://user-images.klutzbanana.com/s3fr1s7sfqnbpntjyi034pwx.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/dormouse_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/dormouse_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "매일 밤*, 오늘 당신이 지목하거나 투표하지 않았다면, 플레이어 1명을 선택합니다. 그 플레이어는 황혼까지 취합니다.",
@@ -139,8 +139,8 @@
     "id": "madhatter_wonderland",
     "name": "모자 장수",
     "image": [
-      "https://user-images.klutzbanana.com/hmg9qp1egragavm85fe5l3uz.png",
-      "https://user-images.klutzbanana.com/j23qiqrq7ngnmg2ssf0uom37.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/madhatter_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/madhatter_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "매일 밤*, 살아있는 플레이어 1명을 선택합니다. 당신은 황혼까지 그 플레이어의 능력을 가집니다. 당신과 그 플레이어 중 한 명은 황혼까지 취합니다.",
@@ -157,8 +157,8 @@
     "id": "whitequeen_wonderland",
     "name": "하얀 여왕",
     "image": [
-      "https://user-images.klutzbanana.com/d0io5obc545hhszbptyook0b.png",
-      "https://user-images.klutzbanana.com/q02evgwt5jwk0vve51m4hv6n.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/whitequeen_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/whitequeen_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "첫째 날 낮에, 공개적으로 캐릭터를 최대 6개 추측합니다. 그날 밤, 그중 참여하지 않는 캐릭터가 몇 개인지 압니다.",
@@ -179,8 +179,8 @@
     "id": "bayard_wonderland",
     "name": "베이야드",
     "image": [
-      "https://user-images.klutzbanana.com/mfr0f01yvms28or7tp7q30jd.png",
-      "https://user-images.klutzbanana.com/bi2lvatk74otdpjay4fkelay.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/bayard_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/bayard_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "매일 낮, 이야기꾼을 찾아가 살아있는 플레이어 1명을 선택할 수 있습니다. 그 플레이어 위에 있는 방랑 토큰의 개수를 압니다.",
@@ -191,8 +191,8 @@
     "id": "alice_wonderland",
     "name": "앨리스",
     "image": [
-      "https://user-images.klutzbanana.com/p1nl45fywpev1w2fhoc5mdiu.png",
-      "https://user-images.klutzbanana.com/nta5hdo1txkconni54om74r2.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/alice_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/alice_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "게임 중 한 번, 공개적으로 살아있는 모든 캐릭터를 추측합니다. 모두 맞히면 당신의 팀이 승리합니다. 살아있는 플레이어가 3명뿐이면 이 능력을 잃습니다.",
@@ -206,8 +206,8 @@
     "id": "whiterabbit_wonderland",
     "name": "하얀 토끼",
     "image": [
-      "https://user-images.klutzbanana.com/quhnl8i6fk96fpcd5a66ijua.png",
-      "https://user-images.klutzbanana.com/yebat52ytfp6ghq9g2w5kbvy.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/whiterabbit_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/whiterabbit_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "게임 중 한 번, 밤에 남은 밤 단계를 모두 건너뛸 수 있습니다.",
@@ -223,8 +223,8 @@
     "id": "dodo_wonderland",
     "name": "도도새",
     "image": [
-      "https://user-images.klutzbanana.com/ndhhq1gara82pii2qm4pxbcj.png",
-      "https://user-images.klutzbanana.com/izqkrodkaor48azs1pmmxa9t.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/dodo_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/dodo_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "게임 중 한 번, 낮에 이야기꾼을 찾아갑니다. 당신의 살아있는 이웃 중 한 명의 캐릭터를 압니다.",
@@ -238,8 +238,8 @@
     "id": "rose_wonderland",
     "name": "장미",
     "image": [
-      "https://user-images.klutzbanana.com/xu16iq47t2okt7i7gdfzwo5j.png",
-      "https://user-images.klutzbanana.com/xj6v97ri4vpqdye75x6c4y5y.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/rose_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/rose_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "매일 밤*, 방랑 토큰이 당신에게 도착했는지 압니다.",
@@ -252,8 +252,8 @@
     "id": "kingofhearts_wonderland",
     "name": "하트 왕",
     "image": [
-      "https://user-images.klutzbanana.com/jp02yqqsp3myizyit1w6jqc6.png",
-      "https://user-images.klutzbanana.com/z2wi670rqvvryzkw4jhdk2qe.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/kingofhearts_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/kingofhearts_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "당신의 방랑 토큰이 올라간 플레이어는 오늘 처형되어도 죽지 않습니다. 당신이 죽어 있어도 적용됩니다. 살아있는 플레이어가 3명뿐이면 이 능력을 잃습니다. [방랑]",
@@ -269,8 +269,8 @@
     "id": "frogfootman_wonderland",
     "name": "개구리 시종",
     "image": [
-      "https://user-images.klutzbanana.com/t827kffbse31ndehrabskhjj.png",
-      "https://user-images.klutzbanana.com/ayiw9t4dzsekmcxql5snvjfo.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/frogfootman_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/frogfootman_wonderland_1.webp"
     ],
     "team": "townsfolk",
     "ability": "당신이 처음 지목되면, 그날 밤 당신을 지목한 플레이어의 캐릭터를 압니다.",
@@ -287,8 +287,8 @@
     "id": "caterpillar_wonderland",
     "name": "애벌레",
     "image": [
-      "https://user-images.klutzbanana.com/ax4y282uohq0776txb4bpciv.png",
-      "https://user-images.klutzbanana.com/r8igp7y0j5kuf12nr4ffyy2e.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/caterpillar_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/caterpillar_wonderland_1.webp"
     ],
     "team": "outsider",
     "ability": "매일 밤, 당신의 살아있는 주민 이웃 중 1명이 취합니다. 전날 밤과는 다른 플레이어여야 합니다.",
@@ -306,8 +306,8 @@
     "id": "duchess_wonderland",
     "name": "공작부인",
     "image": [
-      "https://user-images.klutzbanana.com/edzhzgdey1lnxwno8ddjvkyp.png",
-      "https://user-images.klutzbanana.com/pdnr39ogivkcqusghkjd8dte.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/duchess_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/duchess_wonderland_1.webp"
     ],
     "team": "outsider",
     "ability": "매일 밤*, 당신의 방랑 토큰이 올라간 캐릭터의 진영을 알고, 당신은 그 진영이 됩니다. [방랑]",
@@ -326,8 +326,8 @@
     "id": "marchhare_wonderland",
     "name": "3월 토끼",
     "image": [
-      "https://user-images.klutzbanana.com/de7a07cwddrms4bngddqryxq.png",
-      "https://user-images.klutzbanana.com/m8nud4jrg97h39yp36lkz5wm.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/marchhare_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/marchhare_wonderland_1.webp"
     ],
     "team": "outsider",
     "ability": "오늘 당신이 처형으로 죽었다면, 오늘 밤 악마는 플레이어 1명을 선택할 수 있습니다. 그 플레이어는 죽습니다.",
@@ -341,8 +341,8 @@
     "id": "mockturtle_wonderland",
     "name": "짭북이",
     "image": [
-      "https://user-images.klutzbanana.com/ieet9og984u1ytf49811j1hu.png",
-      "https://user-images.klutzbanana.com/fir3vcap91qs1q0c28m2oqon.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/mockturtle_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/mockturtle_wonderland_1.webp"
     ],
     "team": "outsider",
     "ability": "당신은 자신이 체셔 캣이라고 생각하지만, 짭북이입니다. 거짓 정보를 받을 수 있습니다. [방랑]",
@@ -374,8 +374,8 @@
     "id": "bandersnatch_wonderland",
     "name": "밴더스내치",
     "image": [
-      "https://user-images.klutzbanana.com/lzwexx6660edzajuzp1qifyc.png",
-      "https://user-images.klutzbanana.com/xrxeg7qq9tk3t9fg5uezayfb.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/bandersnatch_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/bandersnatch_wonderland_1.webp"
     ],
     "team": "minion",
     "ability": "시작할 때 참여하는 캐릭터 1개를 압니다. 게임 중 한 번, 공개적으로 그 캐릭터인 플레이어를 추측합니다. 맞히면 그 플레이어와 그 플레이어의 살아있는 이웃 중 1명이 죽습니다.",
@@ -392,8 +392,8 @@
     "id": "cook_wonderland",
     "name": "요리사",
     "image": [
-      "https://user-images.klutzbanana.com/k8bywe6c9blem9iplsd86qim.png",
-      "https://user-images.klutzbanana.com/c9mnyzg9kaupj8hcxm54bsng.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/cook_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/cook_wonderland_1.webp"
     ],
     "team": "minion",
     "ability": "매일 밤*, 당신의 방랑 토큰이 올라간 플레이어는 황혼까지 중독됩니다. 당신이 죽어 있어도 적용됩니다. [방랑]",
@@ -408,8 +408,8 @@
     "id": "jubjubbird_wonderland",
     "name": "쥬브쥬브 새",
     "image": [
-      "https://user-images.klutzbanana.com/hrqfoynwcqx2car9lqk8if7f.png",
-      "https://user-images.klutzbanana.com/y39z0gte3suv5vwn40bnw0jb.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/jubjubbird_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/jubjubbird_wonderland_1.webp"
     ],
     "team": "minion",
     "ability": "매일 밤*, 오늘 당신이 투표했다면 플레이어 1명을 선택합니다. 그 플레이어는 오늘 밤 깨어나지 않습니다. [+1 외지인]",
@@ -426,8 +426,8 @@
     "id": "cardguard_wonderland",
     "name": "카드 병사",
     "image": [
-      "https://user-images.klutzbanana.com/zbbpnt6un0zko213g3452mx0.png",
-      "https://user-images.klutzbanana.com/x5ybn6v0fh5mxy8noc4ju2aq.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/cardguard_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/cardguard_wonderland_1.webp"
     ],
     "team": "minion",
     "ability": "게임 중 한 번, 악한 플레이어가 처형되었을 때, 그 플레이어는 죽지 않을 수 있습니다. [-1 외지인]",
@@ -441,8 +441,8 @@
     "id": "queenofhearts_wonderland",
     "name": "하트 여왕",
     "image": [
-      "https://user-images.klutzbanana.com/uy5lo5abqpldgzijbzbkg944.png",
-      "https://user-images.klutzbanana.com/vj9xmios4zgadskmf182hldx.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/queenofhearts_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/queenofhearts_wonderland_1.webp"
     ],
     "team": "demon",
     "ability": "매일 밤*, 플레이어 1명을 선택합니다. 그 플레이어는 죽습니다. 오늘 당신이 지목되었다면 대신 2명을 선택합니다.",
@@ -460,8 +460,8 @@
     "id": "jabberwocky_wonderland",
     "name": "재버워키",
     "image": [
-      "https://user-images.klutzbanana.com/lh6x9xjbkpzcymx72vi8qt4m.png",
-      "https://user-images.klutzbanana.com/jplv6760jh14eb8ec47sh252.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/jabberwocky_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/jabberwocky_wonderland_1.webp"
     ],
     "team": "demon",
     "ability": "매일 밤*, 플레이어 1명을 선택합니다. 그 플레이어는 죽습니다. 당신을 처음 지목한 선한 플레이어는 언제든 죽을 수 있습니다.",
@@ -479,8 +479,8 @@
     "id": "knaveofhearts_wonderland",
     "name": "하트 잭",
     "image": [
-      "https://user-images.klutzbanana.com/u8ls9c2h5symg0o3jd4w4cq8.png",
-      "https://user-images.klutzbanana.com/e4b7tlinsrsf01u1z0gcvlqq.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/knaveofhearts_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/knaveofhearts_wonderland_1.webp"
     ],
     "team": "demon",
     "ability": "매일 밤*, 플레이어 1명을 선택합니다. 그 플레이어는 죽습니다. 오늘 외지인이 처형되었다면 대신 2명을 선택합니다. [+1 외지인]",
@@ -498,8 +498,8 @@
     "id": "time_wonderland",
     "name": "시간",
     "image": [
-      "https://user-images.klutzbanana.com/jaf5a11d4gw98hsvobz1iao8.png",
-      "https://user-images.klutzbanana.com/aubzl779ac1f7ysvav3z74ye.png"
+      "https://castleq.github.io/pocket-grimoire/img/official/time_wonderland_0.webp",
+      "https://castleq.github.io/pocket-grimoire/img/official/time_wonderland_1.webp"
     ],
     "team": "demon",
     "ability": "매일 밤*, 플레이어 1명을 선택합니다. 그 플레이어는 죽습니다. 이미 죽은 플레이어를 이 능력으로 선택했다면, 당신의 방랑 토큰이 1칸 더 이동합니다. 당신의 방랑 토큰이 당신에게 돌아오면 당신의 팀이 승리합니다. [방랑]",
