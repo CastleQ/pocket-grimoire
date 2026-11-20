@@ -146,7 +146,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
   - **덮어쓰기 전에 옛 JSON과 새 JSON을 캐릭터 id·항목(키)별로 대조한다.** 값이 바뀐 것(수정)은 그대로 덮어쓴다. 옛 쪽에만 있고 새 쪽에서 **사라지는** 캐릭터·항목(예: PG+가 따로 넣은 `flavor`)이 있으면 덮어쓰기 전에 목록을 보여 주고 CastleQ에게 되묻는다. 예: `fall-of-rome.json`의 `flavor` 27개는 PG+가 제작자 연감에서 넣은 것이다(2026-11-17).
 - **manifest의 `file` 이름은 `[a-z0-9-]+.json`만, 한 번 정하면 바꾸지 않는다.** 이 이름이 공유 링크 주소 `sheet-<파일이름>.html`이 되어(§8 시트 링크 미리보기), 바꾸거나 시트를 빼면 이미 퍼진 그 시트의 공유 링크가 404가 된다. 시트를 뺄 때는 CastleQ에게 이 점을 알린다.
 - **`bloodstar.xyz`는 주소가 사라졌다(2026-11 확인, DNS 없음·보관소 사본 없음).** 시트 그림·로고에 이 주소가 있으면 앱에서 깨진다. 공식 캐릭터는 이름·유형·능력을 대조해 `https://castleq.github.io/pocket-grimoire/img/official/<공식id>_0.webp`(선악 두 장이면 `_1`도)로, 구할 곳 없는 그림은 `image`를 지운다(앱이 유형 기본 그림을 넣음). 홈브류 원본은 botchomebrew.wiki의 `assets/media/full/art/<slug>-<스크립트>.png.webp`(591px)에 있을 수 있다 → `img/official/<id>_0.webp`(400px)로 넣고 시트 주소를 바꾼다.
-- **시트 그림은 외부 주소에 두지 않고 저장소에 넣는다.** 외부 사이트는 사라질 수 있고(bloodstar), 살아 있어도 CORS가 없으면 시트 저장 때 아이콘이 빠진다(klutzbanana — 함정 ④). `node tools/patch-selfhost-images.js <시트.json> <로고키> [원본 script.json]`이 그림을 `img/official/<id>_<n>.webp`·로고를 `guide/img/logo_<로고키>.webp`로 받아 주소를 바꾼다(여러 번 실행 안전). klutzbanana 원본 데이터는 `https://klutzbanana.com/api/public/scripts/<시트id>/script.json`(페이지 주소의 `/scripts/<시트id>/`).
+- **시트 그림은 외부 주소에 두지 않고 저장소에 넣는다.** 외부 사이트는 사라질 수 있고(bloodstar), 살아 있어도 CORS가 없으면 시트 저장 때 아이콘이 빠진다(klutzbanana — 함정 ④). `node tools/patch-selfhost-images.js <시트.json> <로고키> [원본 script.json]`이 그림을 `img/official/<id>_<n>.webp`·로고를 `guide/img/logo_<로고키>.webp`로 받아 주소를 바꾼다(여러 번 실행 안전). klutzbanana 원본 데이터는 `https://klutzbanana.com/api/public/scripts/<시트id>/script.json`(페이지 주소의 `/scripts/<시트id>/`). 캐릭터별 연감 해설(`almanacDetails`)·플레이버는 `…/<시트id>/characters`, 판 소개글은 `…/<시트id>`의 `almanacIntroduction` — 홈브류 위키 문서 원고로 쓴다(점소이 2026-11-20).
 
 ---
 
@@ -217,6 +217,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | 공식 3종 순번표 | `assets/js/data/official-order.js` |
 | 공식 아이콘 매핑 ⚠️ | `assets/data/role-images.json` |
 | 아이콘 | `public/img/official/` / `assets/img/download.png` |
+| 시트별 위키 버튼 주소 | `public/scripts/sheet-wikis.json` + `assets/js/utils/sheet-wiki.js` — 항목이 있으면 그 시트의 보라색 위키 버튼이 그 주소로. `"menuOnly": true`면 마도서 메뉴 [공식 Wiki 사이트 바로가기]만 그 주소(예: 점소이 → 도감 `edition-jeomsoi.html`), 캐릭터 토큰은 PG+ 위키(`guide.html`) |
 | 캐릭터 그림 깨짐 대비 | `assets/js/utils/image-fallback.js` `setCharacterImage()` — 그림이 안 열리면 유형 아이콘(`img/icons/<유형>.webp`)으로 바꿔 끼움. 캐릭터 그림을 넣는 곳은 `.src =` 대신 이것을 쓴다(토큰·알림 토큰·징크스·시트 화면) |
 | 시트 모달 | `templates/partials/setup/character-sheet.html.twig` |
 | 번역 | `translations/messages.ko_KR.yaml` (하위 들여쓰기 **8칸**) |
@@ -242,6 +243,8 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - **DB 변경 SQL은 CastleQ에게 주기 전에 컨테이너의 PostgreSQL 16(`/usr/lib/postgresql/16/bin`)으로 미리 시험한다.** 클러스터는 `/var/tmp/` 아래에(스크래치 폴더는 postgres 사용자가 못 씀) `su postgres -c "initdb …; pg_ctl …"`. anon·authenticated 역할과 칸 단위 권한을 실제처럼 재현해 공개 키 동작까지 본다.
 - **함수 인자 수를 바꿀 때는 `create or replace`로 안 된다** → 한 트랜잭션에서 옛 함수 `drop` + 새 함수 생성(새 인자는 `default null`로 옛 앱 호출 호환), 끝에 `notify pgrst, 'reload schema';`.
 - **내장 시트 상당수가 YAML `entry_order`와 어긋난 순서** — 현행 방침상 문제 없음.
+- **클라우드 마도서 토큰 확인:** 판을 고른 뒤 `#character-list__list li`(숨어 있어 `innerText`가 빔 → `textContent`로 찾기) 클릭 → `#character-list-confirm` → 패드의 `.js--token--wrapper`를 **페이지 안에서 `element.click()`**(Playwright `click()`으로는 토큰 창이 안 열림) → `#character-show-token`의 `dataset.wikiId`가 위키 버튼 주소. 메뉴 위키 버튼은 `#reset-height`(이름과 달리 위키 버튼) → `#character-wiki-confirm`의 `dataset.url`. 그리모어 그림은 `loading="lazy"`라 그림 수를 셀 때는 `eager`로 바꾼다.
+- **Bash 안전 검사 오탐:** 명령 안 heredoc에 `$$`(Playwright `page.$$`)가 있으면 삭제 명령으로 오인해 막힌다 → 스크립트는 Write 도구로 파일을 만들고 `node 파일`로 실행.
 - **클라우드 시트 그림 확인(실제 앱 흐름):** Playwright로 앱을 열고 `input[name=edition][value="sheet:<파일>.json"]` 체크 → `#select-edition-form`의 `requestSubmit()` → `window.open`을 막고 `#open-sheet` 클릭 → `localStorage.pg-sheet-data`가 생기면 `sheet.html`을 열어 `naturalWidth`가 0인 `img`를 센다. 고친 시트는 `route`로 `scripts/<파일>.json`을 작업 파일로 바꿔 배포 전에 본다.
 - **클라우드 저장소는 얕게 받아서(shallow)** `status.sh` 세션 기록 칸이 ⚠️(커밋 없음)일 수 있고, 푸시 후 원격 표시가 낡아 "안 올린 커밋" 경고가 뜰 수 있다 → `git fetch --depth=60 origin +refs/heads/<가지>:refs/remotes/origin/<가지>`로 갱신(깊이를 너무 작게 받으면 main과 이어짐 확인이 실패).
 - **`git push`가 설명 없이 실패하면 Git LFS 훅을 의심한다.** 이 프로젝트는 LFS를 전혀 쓰지 않는데 훅만 잔재로 남아 푸시를 막은 적이 있다. 증상은 `error: failed to push some refs`뿐이고 전송 기록이 아예 없다.
