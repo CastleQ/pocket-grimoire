@@ -7,7 +7,8 @@ import {
 import {
     NOTICE_ID,
     NOTICE_TITLE,
-    NOTICE_ITEMS
+    NOTICE_ITEMS,
+    NOTICE_IMAGES
 } from "../constants/notice.js";
 
 const store = Store.create(STORE_KEY);
@@ -73,6 +74,56 @@ function drawItem(entry) {
 
 }
 
+// 설명 그림 묶음: 옆으로 밀어 넘기고(scroll-snap), 아래 점(pip)으로 지금 몇 번째인지 보여 준다.
+function drawGallery(images) {
+
+    const gallery = document.createElement("div");
+    const track = document.createElement("div");
+    const pips = document.createElement("div");
+
+    gallery.className = "notice-gallery";
+    track.className = "notice-gallery__track";
+    pips.className = "notice-gallery__pips";
+
+    images.forEach(({ src, alt }, index) => {
+
+        const image = document.createElement("img");
+        const pip = document.createElement("button");
+
+        image.src = src;
+        image.alt = alt;
+        image.className = "notice-gallery__image";
+        track.append(image);
+
+        pip.type = "button";
+        pip.className = "notice-gallery__pip";
+        pip.setAttribute("aria-label", (index + 1) + "번째 그림");
+        pip.addEventListener("click", () => {
+            track.scrollTo({ left: track.clientWidth * index, behavior: "smooth" });
+        });
+        pips.append(pip);
+
+    });
+
+    const mark = () => {
+
+        const current = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+
+        Array.from(pips.children).forEach((pip, index) => {
+            pip.classList.toggle("is-current", index === current);
+        });
+
+    };
+
+    track.addEventListener("scroll", mark, { passive: true });
+    mark();
+
+    gallery.append(track, pips);
+
+    return gallery;
+
+}
+
 // 알릴 내용이 없으면 아무것도 하지 않는다.
 if (NOTICE_ID && NOTICE_ITEMS.length) {
 
@@ -98,6 +149,10 @@ if (NOTICE_ID && NOTICE_ITEMS.length) {
             body.textContent = "";
             body.append(heading);
             body.append(list);
+
+            if (NOTICE_IMAGES && NOTICE_IMAGES.length) {
+                body.append(drawGallery(NOTICE_IMAGES));
+            }
 
             const notice = Dialog.create(dialog);
 

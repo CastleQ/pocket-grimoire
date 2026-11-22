@@ -139,6 +139,52 @@
     }
 }
 
+// 업데이트 안내 창의 설명 그림: 옆으로 밀어 넘김 + 아래 점(pip). update-notice.js drawGallery().
+.notice-gallery {
+    margin-top: 1em;
+}
+
+.notice-gallery__track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    border-radius: 0.4em;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.notice-gallery__image {
+    flex: 0 0 100%;
+    width: 100%;
+    max-height: 45vh;
+    object-fit: contain;
+    scroll-snap-align: center;
+}
+
+.notice-gallery__pips {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-top: 0.6em;
+}
+
+.notice-gallery__pip {
+    width: 0.6em;
+    height: 0.6em;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(0 0 0 / 25%);
+    cursor: pointer;
+
+    &.is-current {
+        background-color: #542152;
+    }
+}
+
 // 업데이트 안내 창 아래: 구분선 + [앞으로 그만보기] 스위치(왼쪽)와 [확인](오른쪽) 한 줄.
 .update-notice__footer {
     display: flex;
