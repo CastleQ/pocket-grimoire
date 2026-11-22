@@ -76,6 +76,7 @@ lookupOneCached("#open-sheet").addEventListener("click", () => {
     const url = new URL("sheet.html", window.location.href);
     // 참가자용 마도서는 같은 화면에서 넘어간다(웨일 모바일 창에서 새 창 시트가 깨졌다). 뒤로 가기로 돌아오면 메모는 그대로 복원된다.
     if (IS_PLAY_MODE) {
+        url.searchParams.set("back", "1");
         window.location.href = url.toString();
         return;
     }

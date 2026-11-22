@@ -1495,6 +1495,19 @@ function render(payload) {
     root.innerHTML = "";
     root.className = "body-sheet";
 
+    // 참가자용 마도서에서 같은 화면으로 넘어온 경우(?back=1): 돌아가는 버튼을 맨 위에 둔다.
+    if (new URLSearchParams(window.location.search).get("back") === "1") {
+
+        const bar = element("div", "sheet-external");
+        const back = element("button", "sheet-plain-button sheet-external__button", "← 마도서로 돌아가기");
+
+        back.type = "button";
+        back.addEventListener("click", () => window.history.back());
+        bar.append(back);
+        root.append(bar);
+
+    }
+
     if (!payload || !payload.characters || !payload.characters.length) {
 
         root.append(element(
