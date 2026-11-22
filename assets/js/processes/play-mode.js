@@ -124,6 +124,13 @@ if (IS_PLAY_MODE) {
     lookupOne("#play-mode-exit").href = window.location.pathname;
     lookupOne("#play-mode-inapp").hidden = !isInAppBrowser();
 
+    // [캐릭터 시트]는 공유·QR 창 없이 바로 시트 화면을 연다.
+    // 캡처 단계에서 막아야 body 의 data-dialog 위임(setup/general.js)이 창을 띄우지 않는다.
+    lookupOne("#qr-code-button").addEventListener("click", (event) => {
+        event.stopPropagation();
+        lookupOne("#open-sheet").click();
+    }, true);
+
 }
 
 if (IS_PLAY_MODE && PLAY_IS_NEW) {
@@ -157,11 +164,14 @@ if (IS_PLAY_MODE && PLAY_IS_NEW) {
 
         placeSeats(tokenStore);
 
-        // 참가자 메모에는 밤 순서 숫자가 헷갈리기만 하므로 처음엔 끈다(토큰설정에서 다시 켤 수 있음).
-        // "input"은 저장(store.js), "change"는 화면 반영(grimoire/general.js)용.
-        const nightOrder = lookupOne("#show-night-order");
-        nightOrder.checked = false;
-        ["input", "change"].forEach((type) => nightOrder.dispatchEvent(new Event(type, { bubbles: true })));
+        // 처음 켜 둘 설정(나중에 참가자가 바꿀 수 있음). "input"은 저장(store.js), "change"는 화면 반영용.
+        // - 접시의 밤 순서 숫자: 참가자 메모에는 헷갈리기만 하므로 끔
+        // - 밤 순서 [플레이중이 아닌 캐릭터 표시]: 켬 (접시에 올린 캐릭터는 플레이 중으로 따로 표시됨)
+        [["#show-night-order", false], ["#show-all", true]].forEach(([selector, checked]) => {
+            const input = lookupOne(selector);
+            input.checked = checked;
+            ["input", "change"].forEach((type) => input.dispatchEvent(new Event(type, { bubbles: true })));
+        });
 
         markPlaySetupDone();
         showStatus("");
