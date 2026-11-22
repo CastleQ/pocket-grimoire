@@ -126,6 +126,13 @@ if (IS_PLAY_MODE && PLAY_IS_NEW) {
         });
 
         placeSeats(tokenStore);
+
+        // 참가자 메모에는 밤 순서 숫자가 헷갈리기만 하므로 처음엔 끈다(토큰설정에서 다시 켤 수 있음).
+        // "input"은 저장(store.js), "change"는 화면 반영(grimoire/general.js)용.
+        const nightOrder = lookupOne("#show-night-order");
+        nightOrder.checked = false;
+        ["input", "change"].forEach((type) => nightOrder.dispatchEvent(new Event(type, { bubbles: true })));
+
         markPlaySetupDone();
         showStatus("");
 
