@@ -1,3 +1,4 @@
+import { STORE_KEY } from "../../utils/play-mode.js";
 import Store from "../../classes/Store.js";
 import Observer from "../../classes/Observer.js";
 import Template from "../../classes/Template.js";
@@ -19,7 +20,7 @@ import {
 } from "../../constants/language.js";
 import roleImages from "../../../data/role-images.json";
 
-const store = Store.create("pocket-grimoire");
+const store = Store.create(STORE_KEY);
 const gameObserver = Observer.create("game");
 
 // 공식 캐릭터 이미지를 마스터 데이터(role-images.json)로 교체한다.

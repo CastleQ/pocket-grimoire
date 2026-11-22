@@ -57,7 +57,7 @@ function sbHeaders() {
 /**
  * 장부에 시트를 저장하고 링크 번호(토큰)를 받아온다.
  */
-function saveSharedSheet(payload) {
+export function saveSharedSheet(payload) {
 
     return fetch(SUPABASE_URL + "/rest/v1/rpc/save_shared_sheet", {
         method: "POST",
@@ -80,6 +80,27 @@ function saveSharedSheet(payload) {
         }
 
         return token;
+
+    });
+
+}
+
+/**
+ * 장부에서 시트를 받아온다(참가자용 마도서가 쓴다). 시트 페이지 sheet.js 에도 같은 통로가 있다.
+ */
+export function fetchSharedSheet(token) {
+
+    return fetch(SUPABASE_URL + "/rest/v1/rpc/get_shared_sheet", {
+        method: "POST",
+        headers: sbHeaders(),
+        body: JSON.stringify({ p_token: token })
+    }).then(function (response) {
+
+        if (!response.ok) {
+            throw new Error("서버 응답 " + response.status);
+        }
+
+        return response.json();
 
     });
 
@@ -118,7 +139,7 @@ function legacyCopy(text) {
 /**
  * 클립보드에 넣는다. 실패해도 예외를 던지지 않고 false 를 돌려준다.
  */
-function copyLink(text) {
+export function copyLink(text) {
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
 
@@ -137,7 +158,7 @@ function copyLink(text) {
 /**
  * 결과를 화면에 보여준다. 글자는 textContent 로만 넣는다.
  */
-function showResult(container, message, link) {
+export function showResult(container, message, link) {
 
     window.clearInterval(closeTimer);
     container.textContent = "";

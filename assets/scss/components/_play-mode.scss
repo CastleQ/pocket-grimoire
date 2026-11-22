@@ -1,0 +1,36 @@
+// 참가자용 마도서(?play=…). html.is-play-mode 는 assets/js/utils/play-mode.js 가 붙인다.
+.play-mode-banner {
+    display: none;
+}
+
+.is-play-mode {
+
+    .play-mode-banner {
+        display: block;
+        margin-block: 1em;
+        padding: 0.75em 1em;
+        border-radius: 0.5em;
+        background-color: #542152;
+        color: #fff;
+        word-break: keep-all;
+
+        > * + * {
+            margin-top: 0.5em;
+        }
+
+        a {
+            color: inherit;
+            font-weight: bold;
+        }
+    }
+
+    // 이야기꾼 전용 메뉴는 숨긴다(시트 고르기·나눠주기·정보 토큰·밤 순서·노트·속임수 등).
+    .play-hide,
+    #night-order,
+    #info-tokens,
+    #storyteller-notes,
+    #acknowledgements,
+    #release-notes {
+        display: none !important;
+    }
+}

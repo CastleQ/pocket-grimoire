@@ -1,3 +1,4 @@
+import { STORE_KEY } from "../utils/play-mode.js";
 import Store from "../classes/Store.js";
 import Observer from "../classes/Observer.js";
 import TokenStore from "../classes/TokenStore.js";
@@ -19,7 +20,7 @@ import {
     compareVersions
 } from "../utils/numbers.js";
 
-const store = Store.create("pocket-grimoire");
+const store = Store.create(STORE_KEY);
 const gameObserver = Observer.create("game");
 const tokenObserver = Observer.create("token");
 const infoTokenObserver = Observer.create("info-token");

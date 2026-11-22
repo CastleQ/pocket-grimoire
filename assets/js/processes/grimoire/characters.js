@@ -793,7 +793,8 @@ gameObserver.on("characters-selected", ({ detail }) => {
 
         pad.characters.forEach(({ character, token }) => {
 
-            if (["traveller", "fabled", "loric"].includes(character.getTeam())) {
+            // 빈 접시(참가자용 마도서)는 어느 시트에도 없으니 경고하지 않는다.
+            if (character.isEmpty() || ["traveller", "fabled", "loric"].includes(character.getTeam())) {
                 return;
             }
 

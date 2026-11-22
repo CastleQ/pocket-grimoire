@@ -1,61 +1,17 @@
 <button type="button" class="button button--full-height" id="export-game" data-dialog="#game-export">{{ 'grimoire.export.title'|trans }}</button>
 
-{# 1단계: 내보내기 선택 (assets/js/processes/grimoire/export.js) #}
+{# 참가자용 마도서 링크 만들기 (assets/js/processes/grimoire/export.js) #}
 {% embed 'includes/dialog.html.twig' with {
     id: 'game-export',
     background: 'blur',
     title: 'grimoire.export.title'|trans
 } %}
     {% block body %}
-    <p style="text-align: center; word-break: keep-all;">마도서를 복사할까요?</p>
-    <div class="mt-4" style="display: grid; gap: 0.75em; max-width: 20em; margin-inline: auto;">
-        {% for option in [
-            { id: 'export-blank', label: '캐릭터와 알람토큰 지우고 내보내기' },
-            { id: 'export-winner', label: '승패 표시하기' }
-        ] %}
-        <label for="{{ option.id }}" class="radio">
-            <span class="radio__wrapper">
-                <input type="checkbox" id="{{ option.id }}" class="radio__input">
-                <span class="radio__render"></span>
-            </span>
-            <span class="radio__label">{{ option.label }}</span>
-        </label>
-        {% endfor %}
-    </div>
-    <ul class="button-list mt-4" style="--columns: 2; max-width: 20em; margin-inline: auto;">
-        <li><button type="button" class="button" id="export-yes">네</button></li>
-        <li><button type="button" class="button" style="--bg-colour: var(--red);" data-dialog-hide>아니오</button></li>
+    <p style="text-align: center; word-break: keep-all;">참가자용 마도서 링크를 만듭니다.<br>단톡방에 올리면 참가자들이 각자 폰에서 이 시트와 참가자 이름이 적힌 빈 접시로 메모할 수 있습니다.</p>
+    <p class="mt-4" style="text-align: center; word-break: keep-all;">캐릭터와 알림 토큰은 링크에 담기지 않습니다.</p>
+    <ul class="button-list mt-4" style="max-width: 20em; margin-inline: auto;">
+        <li><button type="button" class="button" id="export-make">링크 만들기</button></li>
     </ul>
-    {% endblock %}
-{% endembed %}
-
-{# 2단계: 승패 선택 ([승패 표시하기]를 체크했을 때만) #}
-{% embed 'includes/dialog.html.twig' with {
-    id: 'game-export-winner',
-    background: 'blur',
-    title: 'grimoire.export.title'|trans
-} %}
-    {% block body %}
-    <p style="text-align: center; word-break: keep-all;">어느팀이 승리했나요?</p>
-    <ul class="button-list mt-4" style="--columns: 2; max-width: 20em; margin-inline: auto;">
-        <li><button type="button" class="button" data-export-winner="good">선팀 승</button></li>
-        <li><button type="button" class="button button--warning" data-export-winner="evil">악팀 승</button></li>
-    </ul>
-    {% endblock %}
-{% endembed %}
-
-{# 3단계: 완성된 그림 + 복사·저장 #}
-{% embed 'includes/dialog.html.twig' with {
-    id: 'game-export-result',
-    background: 'blur',
-    title: 'grimoire.export.title'|trans
-} %}
-    {% block body %}
-    <p id="export-status" style="text-align: center; word-break: keep-all;" role="status" aria-live="polite"></p>
-    <img src="" alt="마도서 그림" id="export-image" class="mx-auto" style="display: block; max-width: 100%; height: auto;" hidden>
-    <ul class="button-list mt-4" style="--columns: 2; max-width: 20em; margin-inline: auto;">
-        <li><button type="button" class="button" id="export-copy" disabled>클립보드에 복사</button></li>
-        <li><button type="button" class="button" id="export-save" disabled>이미지로 저장</button></li>
-    </ul>
+    <div class="mt-4" id="export-result" role="status" aria-live="polite" hidden></div>
     {% endblock %}
 {% endembed %}

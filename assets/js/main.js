@@ -32,6 +32,7 @@ import "./processes/acknowledgements.js";
 import "./processes/update-notice.js";
 
 import "./processes/store.js";
+import "./processes/play-mode.js";
 
 import "./processes/setup/distribute.js";
 import "./processes/setup/whale-bucket.js";

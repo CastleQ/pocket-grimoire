@@ -1,3 +1,4 @@
+import { STORE_KEY } from "../utils/play-mode.js";
 import Store from "../classes/Store.js";
 import Dialog from "../classes/Dialog.js";
 import {
@@ -9,7 +10,7 @@ import {
     NOTICE_ITEMS
 } from "../constants/notice.js";
 
-const store = Store.create("pocket-grimoire");
+const store = Store.create(STORE_KEY);
 
 // 항목 안의 [글자](https://주소) 를 새 창 링크로 바꿔 붙인다. 나머지는 글자 그대로.
 // 글자에 대괄호를 보이고 싶으면 [[글자]](주소) — 안쪽 [ ]까지 링크 글자가 된다.

@@ -1,3 +1,4 @@
+import { STORE_KEY } from "../../utils/play-mode.js";
 import Store from "../../classes/Store.js";
 import Dialog from "../../classes/Dialog.js";
 import Observer from "../../classes/Observer.js";
@@ -9,7 +10,7 @@ import {
     announceInput
 } from "../../utils/elements.js";
 
-const store = Store.create("pocket-grimoire");
+const store = Store.create(STORE_KEY);
 const clears = lookupCached("input[name=\"clear\"]");
 
 lookupOne("#clear-all").addEventListener("change", ({ target }) => {

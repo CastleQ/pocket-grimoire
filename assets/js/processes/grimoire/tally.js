@@ -4,6 +4,7 @@
 //
 // 기준 인원은 "캐릭터 뽑기"·"모두 추가"·"캐릭터 나눠주기" 시점의 플레이어 수를
 // 저장해 쓴다. 마도서 지우기 또는 캐시 삭제(토큰 지우기)로 사라진다.
+import { STORE_KEY } from "../../utils/play-mode.js";
 import Observer from "../../classes/Observer.js";
 import Store from "../../classes/Store.js";
 import {
@@ -16,7 +17,7 @@ import {
 
 const gameObserver = Observer.create("game");
 const tokenObserver = Observer.create("token");
-const store = Store.create("pocket-grimoire");
+const store = Store.create(STORE_KEY);
 const pad = lookupOneCached(".js--pad").pad;
 const tally = lookupOne("#grimoire-tally");
 

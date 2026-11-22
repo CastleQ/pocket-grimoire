@@ -212,6 +212,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | 시트 열기/공유 연결 | `assets/js/processes/setup/character-sheet.js` |
 | 커스텀 시트 아카이브 | `assets/js/processes/setup/script-archive.js` |
 | 온라인 배포 | `assets/js/processes/setup/distribute.js` |
+| **참가자용 마도서** (게임 내보내기) | 만들기 `assets/js/processes/grimoire/export.js` → 링크 `?play=<시트 공유 번호>&g=<이름·접시 위치 비율>`. 받기: `assets/js/utils/play-mode.js`(판별·**따로 쓰는 저장 칸 `pocket-grimoire-play`** — `Store.create`는 반드시 `STORE_KEY`로) + `assets/js/processes/play-mode.js`(시트 받아 빈 접시 깔기). 숨길 메뉴는 `play-hide` 클래스·`_play-mode.scss` |
 | 뽑기 화면 시트 로고 | `select-edition.js`가 `pg_current_logo`(시트 `_meta.logo`, 공식 3종은 `tb`·`bmr`·`snv`) 저장 → `distribute.js`가 링크에 `&logo=` → `public/claim.html`이 표시(공식은 `guide/img/logo_<판>.webp`). 투명 빈 로고 `yIFrcQd`는 제외 |
 | 캐릭터 고르기 목록 숨김 규칙 | `_character-list.scss` — 항목에 `data-team`·`is-in-play`가 있고 목록에 `is-show-*`가 없으면 가림. 악마의 속임수와 "이 캐릭터들은 게임에 없습니다" 접시(`info-tokens.js`, 열 때만 붙임)가 함께 씀 |
 | **캐릭터 가이드**(공식 위키 번역) | `public/guide.html` / `public/guide/data/` / `tools/wiki/` — 작업 방법은 `tools/wiki/README.md` · 도감 사이트가 이 데이터를 읽음(함정 ⑬). 가이드 징크스(`jinxes.json`)는 `build-guide-data.js`가 bake 결과 `docs/data/jinx.json`에서 만든다 → 징크스 번역을 바꾸면 bake 뒤에 돌린다(안 그러면 옛 문장으로 되돌아감) |

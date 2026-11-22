@@ -1,3 +1,4 @@
+import { STORE_KEY } from "../utils/play-mode.js";
 import { VERSION } from "../constants/version.js";
 import Store from "../classes/Store.js";
 
@@ -22,7 +23,7 @@ function createScript(url) {
 
 }
 
-const store = Store.create("pocket-grimoire");
+const store = Store.create(STORE_KEY);
 
 if (window.location.hostname !== "127.0.0.1") {
 

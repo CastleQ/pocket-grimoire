@@ -35,15 +35,15 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="pad-wrapper__icon"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="currentColor" d="M246.6 361.4C252.9 367.6 256 375.8 256 384s-3.125 16.38-9.375 22.62l-96 96c-12.5 12.5-32.75 12.5-45.25 0l-96-96c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L96 402.8v-293.5L54.63 150.6c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l96-96c12.5-12.5 32.75-12.5 45.25 0l96 96C252.9 111.6 256 119.8 256 128s-3.125 16.38-9.375 22.62c-12.5 12.5-32.75 12.5-45.25 0L160 109.3v293.5l41.38-41.38C213.9 348.9 234.1 348.9 246.6 361.4z"/></svg>
     </div>
 
-    {% include 'partials/grimoire/demon-bluffs.html.twig' %}
+    <div class="play-hide">{% include 'partials/grimoire/demon-bluffs.html.twig' %}</div>
 
     <ul class="button-list mt-4">
         <li>{% include 'partials/grimoire/add-token.html.twig' %}</li>
         <li>{% include 'partials/grimoire/add-reminder.html.twig' %}</li>
         <li>{% include 'partials/grimoire/add-traveller.html.twig' %}</li>
         <li>{% include 'partials/grimoire/add-fabled.html.twig' %}</li>
-        <li>{% include 'partials/grimoire/show-tokens.html.twig' %}</li>
-        <li>{% include 'partials/grimoire/export-game.html.twig' %}</li>
+        <li class="play-hide">{% include 'partials/grimoire/show-tokens.html.twig' %}</li>
+        <li class="play-hide">{% include 'partials/grimoire/export-game.html.twig' %}</li>
         <li><button type="button" class="button button--full-height" id="reset-height" style="--bg-colour: #542152; color: #fff; word-break: keep-all;">{{ 'grimoire.grimoire.reset_height'|trans }}</button></li>
         <li><button type="button" class="button button--full-height button--warning" id="clear-grimoire" data-confirm="{{ 'grimoire.grimoire.clear_grimoire_warning'|trans }}">{{ 'grimoire.grimoire.clear_grimoire'|trans }}</button></li>
     </ul>
