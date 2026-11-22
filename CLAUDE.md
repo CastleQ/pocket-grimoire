@@ -111,8 +111,8 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 
 **⑪ 공식 `firstNight` 숫자와 정발 마스터는 눈금이 다르다**
 `characters.json`의 숫자는 **황혼·정보 단계를 빼고** 매겨져 있다. 정발 마스터(`tools/official-master.json`)는 **포함**해서 1부터 센다. 둘 다 맞는 값이며 섞어 쓰면 순서가 어긋난다.
-관계식: **정발 값 = `assets/data/night-order.json` 배열 위치 + 1**.
-정보 단계 위치는 `night-info.js`의 이웃 보간으로 구한다.
+관계식: **정발 값 = `assets/data/night-order.json` 배열 위치 + 1**. 단 정발 마스터의 `otherNight`는 위치 그대로(1 작음)라 외부 자료(위치+1)와 비교할 때 주의.
+정보 단계 위치는 `night-info.js`의 이웃 보간으로 구한다. 마도서(`night-order.js`)도 보간에 여행자·전설·로릭을 넣는다(관문이 첫날 밤 정보 단계 앞에 깨기 때문, 2026-11-20).
 
 **⑫ `docs/` 아래는 전부 자동 생성물이다**
 `docs/data/` · `docs/scripts/` · `docs/img/` 모두 `bake.sh`가 매번 지우고 다시 만든다. 고칠 곳은 **`public/scripts/`** 와 `assets/data/`다.
@@ -145,6 +145,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - **수정본 시트를 받으면 JSON을 통째로 덮어쓰고 `_meta.name`만 기존 PG+ 이름으로 되돌린다**(CastleQ 방침). 새 시트는 먼저 기존 manifest에 같은 이름이 있는지 확인한다(갱신일 수 있음).
   - **덮어쓰기 전에 옛 JSON과 새 JSON을 캐릭터 id·항목(키)별로 대조한다.** 값이 바뀐 것(수정)은 그대로 덮어쓴다. 옛 쪽에만 있고 새 쪽에서 **사라지는** 캐릭터·항목(예: PG+가 따로 넣은 `flavor`)이 있으면 덮어쓰기 전에 목록을 보여 주고 CastleQ에게 되묻는다. 예: `fall-of-rome.json`의 `flavor` 27개는 PG+가 제작자 연감에서 넣은 것이다(2026-11-17).
 - **manifest의 `file` 이름은 `[a-z0-9-]+.json`만, 한 번 정하면 바꾸지 않는다.** 이 이름이 공유 링크 주소 `sheet-<파일이름>.html`이 되어(§8 시트 링크 미리보기), 바꾸거나 시트를 빼면 이미 퍼진 그 시트의 공유 링크가 404가 된다. 시트를 뺄 때는 CastleQ에게 이 점을 알린다.
+- **용어:** PG+ 데이터(앱·가이드·징크스·징크스 원고 `tools/wiki/jinx-ko`)는 `참가자·지명`(2026-10 통일), AAB 규칙 위키·외부 번역 자료는 `플레이어·지목`. 외부 자료와 대조할 때는 용어를 먼저 맞춰 바꾼 뒤 비교한다. 공식 영어 최신 데이터: `https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-release/main/resources/data/{roles,nightsheet}.json`.
 - **`bloodstar.xyz`는 주소가 사라졌다(2026-11 확인, DNS 없음·보관소 사본 없음).** 시트 그림·로고에 이 주소가 있으면 앱에서 깨진다. 공식 캐릭터는 이름·유형·능력을 대조해 `https://castleq.github.io/pocket-grimoire/img/official/<공식id>_0.webp`(선악 두 장이면 `_1`도)로, 구할 곳 없는 그림은 `image`를 지운다(앱이 유형 기본 그림을 넣음). 홈브류 원본은 botchomebrew.wiki의 `assets/media/full/art/<slug>-<스크립트>.png.webp`(591px)에 있을 수 있다 → `img/official/<id>_0.webp`(400px)로 넣고 시트 주소를 바꾼다.
 - **시트 그림은 외부 주소에 두지 않고 저장소에 넣는다.** 외부 사이트는 사라질 수 있고(bloodstar), 살아 있어도 CORS가 없으면 시트 저장 때 아이콘이 빠진다(klutzbanana — 함정 ④). `node tools/patch-selfhost-images.js <시트.json> <로고키> [원본 script.json]`이 그림을 `img/official/<id>_<n>.webp`·로고를 `guide/img/logo_<로고키>.webp`로 받아 주소를 바꾼다(여러 번 실행 안전). klutzbanana 원본 데이터는 `https://klutzbanana.com/api/public/scripts/<시트id>/script.json`(페이지 주소의 `/scripts/<시트id>/`). 캐릭터별 연감 해설(`almanacDetails`)·플레이버는 `…/<시트id>/characters`, 판 소개글은 `…/<시트id>`의 `almanacIntroduction` — 홈브류 위키 문서 원고로 쓴다(점소이 2026-11-20).
 
@@ -213,7 +214,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | 온라인 배포 | `assets/js/processes/setup/distribute.js` |
 | 뽑기 화면 시트 로고 | `select-edition.js`가 `pg_current_logo`(시트 `_meta.logo`, 공식 3종은 `tb`·`bmr`·`snv`) 저장 → `distribute.js`가 링크에 `&logo=` → `public/claim.html`이 표시(공식은 `guide/img/logo_<판>.webp`). 투명 빈 로고 `yIFrcQd`는 제외 |
 | 캐릭터 고르기 목록 숨김 규칙 | `_character-list.scss` — 항목에 `data-team`·`is-in-play`가 있고 목록에 `is-show-*`가 없으면 가림. 악마의 속임수와 "이 캐릭터들은 게임에 없습니다" 접시(`info-tokens.js`, 열 때만 붙임)가 함께 씀 |
-| **캐릭터 가이드**(공식 위키 번역) | `public/guide.html` / `public/guide/data/` / `tools/wiki/` — 작업 방법은 `tools/wiki/README.md` · 도감 사이트가 이 데이터를 읽음(함정 ⑬) |
+| **캐릭터 가이드**(공식 위키 번역) | `public/guide.html` / `public/guide/data/` / `tools/wiki/` — 작업 방법은 `tools/wiki/README.md` · 도감 사이트가 이 데이터를 읽음(함정 ⑬). 가이드 징크스(`jinxes.json`)는 `build-guide-data.js`가 bake 결과 `docs/data/jinx.json`에서 만든다 → 징크스 번역을 바꾸면 bake 뒤에 돌린다(안 그러면 옛 문장으로 되돌아감) |
 | 공식 3종 순번표 | `assets/js/data/official-order.js` |
 | 공식 아이콘 매핑 ⚠️ | `assets/data/role-images.json` |
 | 아이콘 | `public/img/official/` / `assets/img/download.png` |
