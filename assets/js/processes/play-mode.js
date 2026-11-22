@@ -18,6 +18,9 @@ import {
     fetchSharedSheet
 } from "./setup/sheet-share.js";
 import {
+    storeSheetPayload
+} from "./setup/character-sheet.js";
+import {
     lookupOne
 } from "../utils/elements.js";
 import {
@@ -124,12 +127,28 @@ if (IS_PLAY_MODE) {
     lookupOne("#play-mode-exit").href = window.location.pathname;
     lookupOne("#play-mode-inapp").hidden = !isInAppBrowser();
 
-    // [캐릭터 시트]는 공유·QR 창 없이 바로 시트 화면을 연다.
-    // 캡처 단계에서 막아야 body 의 data-dialog 위임(setup/general.js)이 창을 띄우지 않는다.
-    lookupOne("#qr-code-button").addEventListener("click", (event) => {
-        event.stopPropagation();
-        lookupOne("#open-sheet").click();
-    }, true);
+    // [캐릭터 시트]는 공유·QR 창 없이 새 탭으로 시트 화면을 연다.
+    // 진짜 링크(a target=_blank)로 바꿔 브라우저가 직접 열게 한다. 프로그램이 대신 버튼을 눌러
+    // window.open 하던 방식은 웨일 모바일 창에서 시트가 꾸밈 없이 깨져 나왔다.
+    const sheetButton = lookupOne("#qr-code-button");
+    const sheetLink = document.createElement("a");
+
+    sheetLink.className = sheetButton.className;
+    sheetLink.textContent = sheetButton.textContent;
+    sheetLink.href = "sheet.html";
+    sheetLink.target = "_blank";
+    sheetLink.rel = "noopener";
+    sheetLink.style.cssText = "display: block; text-align: center; text-decoration: none;";
+    sheetLink.addEventListener("click", (event) => {
+
+        if (!storeSheetPayload()) {
+            event.preventDefault();
+        }
+
+    });
+    // 원래 버튼은 setup/character-sheet.js 가 켜고 끄므로 지우지 않고 숨긴다.
+    sheetButton.style.display = "none";
+    sheetButton.after(sheetLink);
 
 }
 

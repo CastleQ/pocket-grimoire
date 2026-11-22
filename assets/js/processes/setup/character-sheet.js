@@ -1,7 +1,6 @@
 import Observer from "../../classes/Observer.js";
 import { lookupOneCached } from "../../utils/elements.js";
 import { initSheetShare } from "./sheet-share.js";
-import { IS_PLAY_MODE } from "../../utils/play-mode.js";
 
 /**
  * 캐릭터 시트 열기.
@@ -60,7 +59,10 @@ gameObserver.on("characters-selected", ({ detail }) => {
 
 });
 
-lookupOneCached("#open-sheet").addEventListener("click", () => {
+/**
+ * 시트 화면(sheet.html)이 읽어 갈 지금 시트를 저장한다. 실패하면 알리고 false.
+ */
+export function storeSheetPayload() {
 
     const payload = buildSheetPayload();
 
@@ -70,17 +72,20 @@ lookupOneCached("#open-sheet").addEventListener("click", () => {
         window.localStorage.setItem(SHEET_STORAGE_KEY, JSON.stringify(payload));
     } catch (error) {
         window.alert("시트 데이터를 저장하지 못했습니다: " + error.message);
+        return false;
+    }
+
+    return true;
+
+}
+
+lookupOneCached("#open-sheet").addEventListener("click", () => {
+
+    if (!storeSheetPayload()) {
         return;
     }
 
     const url = new URL("sheet.html", window.location.href);
-    // 참가자용 마도서는 같은 화면에서 넘어간다(웨일 모바일 창에서 새 창 시트가 깨졌다). 뒤로 가기로 돌아오면 메모는 그대로 복원된다.
-    if (IS_PLAY_MODE) {
-        url.searchParams.set("back", "1");
-        window.location.href = url.toString();
-        return;
-    }
-
     window.open(url.toString(), "_blank", "noopener");
 
 });
