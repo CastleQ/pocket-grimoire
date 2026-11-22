@@ -123,8 +123,6 @@ function placeSeats(tokenStore) {
 
 if (IS_PLAY_MODE) {
 
-    // 원래 앱(이야기꾼 마도서)으로 돌아가는 링크: 주소에서 ?play=… 만 뺀다.
-    lookupOne("#play-mode-exit").href = window.location.pathname;
     lookupOne("#play-mode-inapp").hidden = !isInAppBrowser();
 
     // [캐릭터 시트]는 공유·QR 창 없이 새 탭으로 시트 화면을 연다.

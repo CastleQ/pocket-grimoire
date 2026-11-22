@@ -12,15 +12,11 @@
         border-radius: 0.5em;
         background-color: #542152;
         color: #fff;
+        text-align: center;
         word-break: keep-all;
 
         > * + * {
             margin-top: 0.5em;
-        }
-
-        a {
-            color: inherit;
-            font-weight: bold;
         }
     }
 
