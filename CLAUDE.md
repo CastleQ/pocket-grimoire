@@ -212,7 +212,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | 시트 열기/공유 연결 | `assets/js/processes/setup/character-sheet.js` |
 | 커스텀 시트 아카이브 | `assets/js/processes/setup/script-archive.js` |
 | 온라인 배포 | `assets/js/processes/setup/distribute.js` |
-| **참가자용 마도서** (게임 내보내기) | 만들기 `assets/js/processes/grimoire/export.js` → 링크 `?play=<시트 공유 번호>&g=<이름·접시 위치 비율>`. 받기: `assets/js/utils/play-mode.js`(판별·**따로 쓰는 저장 칸 `pocket-grimoire-play`** — `Store.create`는 반드시 `STORE_KEY`로) + `assets/js/processes/play-mode.js`(시트 받아 빈 접시 깔기). 숨길 메뉴는 `play-hide` 클래스·`_play-mode.scss` |
+| **참가자용 마도서** (게임 내보내기) | 만들기 `assets/js/processes/grimoire/export.js` → 링크 `?play=<시트 공유 번호>&g=<이름·접시 위치 비율>`. 받기: `assets/js/utils/play-mode.js`(판별·**따로 쓰는 저장 칸 `pocket-grimoire-play`** — `Store.create`는 반드시 `STORE_KEY`로) + `assets/js/processes/play-mode.js`(시트 받아 빈 접시 깔기). 숨길 메뉴는 `play-hide` 클래스·`_play-mode.scss`. [캐릭터 시트]는 진짜 `<a target=_blank>` 링크(`storeSheetPayload()`) |
 | 뽑기 화면 시트 로고 | `select-edition.js`가 `pg_current_logo`(시트 `_meta.logo`, 공식 3종은 `tb`·`bmr`·`snv`) 저장 → `distribute.js`가 링크에 `&logo=` → `public/claim.html`이 표시(공식은 `guide/img/logo_<판>.webp`). 투명 빈 로고 `yIFrcQd`는 제외 |
 | 캐릭터 고르기 목록 숨김 규칙 | `_character-list.scss` — 항목에 `data-team`·`is-in-play`가 있고 목록에 `is-show-*`가 없으면 가림. 악마의 속임수와 "이 캐릭터들은 게임에 없습니다" 접시(`info-tokens.js`, 열 때만 붙임)가 함께 씀 |
 | **캐릭터 가이드**(공식 위키 번역) | `public/guide.html` / `public/guide/data/` / `tools/wiki/` — 작업 방법은 `tools/wiki/README.md` · 도감 사이트가 이 데이터를 읽음(함정 ⑬). 가이드 징크스(`jinxes.json`)는 `build-guide-data.js`가 bake 결과 `docs/data/jinx.json`에서 만든다 → 징크스 번역을 바꾸면 bake 뒤에 돌린다(안 그러면 옛 문장으로 되돌아감) |
@@ -249,6 +249,9 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - **Bash 안전 검사 오탐:** 명령 안 heredoc에 `$$`(Playwright `page.$$`)가 있으면 삭제 명령으로 오인해 막힌다 → 스크립트는 Write 도구로 파일을 만들고 `node 파일`로 실행.
 - **클라우드 시트 그림 확인(실제 앱 흐름):** Playwright로 앱을 열고 `input[name=edition][value="sheet:<파일>.json"]` 체크 → `#select-edition-form`의 `requestSubmit()` → `window.open`을 막고 `#open-sheet` 클릭 → `localStorage.pg-sheet-data`가 생기면 `sheet.html`을 열어 `naturalWidth`가 0인 `img`를 센다. 고친 시트는 `route`로 `scripts/<파일>.json`을 작업 파일로 바꿔 배포 전에 본다.
 - **클라우드 저장소는 얕게 받아서(shallow)** `status.sh` 세션 기록 칸이 ⚠️(커밋 없음)일 수 있고, 푸시 후 원격 표시가 낡아 "안 올린 커밋" 경고가 뜰 수 있다 → `git fetch --depth=60 origin +refs/heads/<가지>:refs/remotes/origin/<가지>`로 갱신(깊이를 너무 작게 받으면 main과 이어짐 확인이 실패).
+- **웨일 "모바일 창"**: 넓은 PC 폭(~1300px)으로 열었다가 곧 폰 폭으로 줄인다 → 처음 폭으로 잰 배치가 틀어짐(재현: Playwright 1300px로 열고 `setViewportSize(360)`). 또 프로그램이 대신 버튼을 눌러 연 `window.open` 새 창은 CSS·JS 없이 깨짐 → 새 탭은 진짜 `<a target="_blank">` 링크로.
+- **참가자용 마도서 로컬 확인:** 이야기꾼 쪽에서 `#export-make` → `route`로 `save_shared_sheet`는 가짜 번호, `get_shared_sheet`는 저장 요청 본문을 그대로 돌려줌 → 결과 링크(`#export-result input`)를 같은 context 새 페이지로 열면 저장 칸 분리까지 확인된다.
+- **`git revert HEAD` 주의:** `deploy.sh` 뒤 HEAD는 배포 커밋(docs)이다. 코드만 되돌릴 때는 `git checkout <커밋>~1 -- 파일`.
 - **`git push`가 설명 없이 실패하면 Git LFS 훅을 의심한다.** 이 프로젝트는 LFS를 전혀 쓰지 않는데 훅만 잔재로 남아 푸시를 막은 적이 있다. 증상은 `error: failed to push some refs`뿐이고 전송 기록이 아예 없다.
   - 즉시 우회: `git push --no-verify`
   - 근본 해결: `.git/hooks/`의 lfs 관련 훅 4개 제거. 이 폴더는 커밋되지 않으므로 **Codespace 재구축 시 되살아날 수 있다.**
@@ -267,6 +270,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - 같은 항목을 `templates/partials/acknowledgements.html.twig`(사이트 안 릴리즈 노트 목록)에도 날짜 제목과 함께 **맨 위에** 추가한다(최신순)
 - **문구는 최대한 간소하게, 앱 이용자 관점에서 알아야 할 내용만 짧은 문장으로 쓴다.** 내부 구현·원인 설명은 넣지 않는다
 - 항목 안 줄바꿈은 `notice.js`에서는 `\n`, 릴리즈 노트 목록에서는 `<br>`로 쓴다
+- 설명 그림은 `NOTICE_IMAGES`(`public/img/notice/<날짜>-*.webp`, 상대 경로) — 옆으로 밀어 넘김·점 표시. 다음 공지에서 그림이 없으면 `[]`로 비운다. 참가자용 마도서(별도 저장 칸)에서는 안내가 뜨지 않는다
 
 ---
 
