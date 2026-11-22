@@ -57,34 +57,64 @@ function placeSeats(tokenStore) {
 
     grimoire.open = true;
 
-    if (PLAY_SEATS.ratio) {
-
-        const height = Math.round(padElement.getBoundingClientRect().width * PLAY_SEATS.ratio) + "px";
-
-        padElement.style.height = height;
-        gameObserver.trigger("pad-height-change", { height });
-
-    }
-
-    const { width, height } = pad.getPadDimensions();
-    const size = pad.getTokenDimensions();
-
-    PLAY_SEATS.seats.forEach(([name, x, y]) => {
+    const seats = PLAY_SEATS.seats.map(([name, x, y]) => {
 
         const { token, character } = pad.addCharacter(tokenStore.getEmptyCharacter());
-
-        pad.moveToken(
-            token,
-            x * Math.max(0, width - size.width),
-            y * Math.max(0, height - size.height),
-            pad.tokens.advanceZIndex()
-        );
 
         if (name) {
             pad.setPlayerName(character, name);
         }
 
+        return { token, x, y, zIndex: pad.tokens.advanceZIndex() };
+
     });
+
+    // 판 높이와 접시 자리를 지금 판 폭에 맞춘다.
+    function layout() {
+
+        if (PLAY_SEATS.ratio) {
+
+            const height = Math.round(padElement.getBoundingClientRect().width * PLAY_SEATS.ratio) + "px";
+
+            padElement.style.height = height;
+            gameObserver.trigger("pad-height-change", { height });
+
+        }
+
+        const { width, height } = pad.getPadDimensions();
+        const size = pad.getTokenDimensions();
+
+        seats.forEach(({ token, x, y, zIndex }) => pad.moveToken(
+            token,
+            x * Math.max(0, width - size.width),
+            y * Math.max(0, height - size.height),
+            zIndex
+        ));
+
+    }
+
+    layout();
+
+    // 웨일 "모바일 창" 등은 넓은 폭으로 열었다가 곧 줄어든다 → 그때 접시가 판 밖으로 나갔다.
+    // 참가자가 판을 처음 만지기 전까지는 폭이 바뀌면 다시 맞춘다(직접 옮긴 자리는 지킨다).
+    let lastWidth = pad.getPadDimensions().width;
+    const onResize = () => {
+
+        const { width } = pad.getPadDimensions();
+
+        if (width && width !== lastWidth) {
+            lastWidth = width;
+            layout();
+        }
+
+    };
+    const stop = () => {
+        window.removeEventListener("resize", onResize);
+        padElement.removeEventListener("pointerdown", stop);
+    };
+
+    window.addEventListener("resize", onResize);
+    padElement.addEventListener("pointerdown", stop);
 
 }
 
