@@ -24,8 +24,11 @@ import {
     lookupOne
 } from "../utils/elements.js";
 import {
-    isInAppBrowser
+    isInAppBrowser,
+    isKakaoTalk,
+    openInExternalBrowser
 } from "../utils/in-app.js";
+import Dialog from "../classes/Dialog.js";
 
 const gameObserver = Observer.create("game");
 
@@ -123,7 +126,13 @@ function placeSeats(tokenStore) {
 
 if (IS_PLAY_MODE) {
 
-    lookupOne("#play-mode-inapp").hidden = !isInAppBrowser();
+    // 앱 안 브라우저는 창을 나갔다 오면 메모(저장 공간)가 지워질 수 있다 → 시작할 때 외부 브라우저를 권한다.
+    // [다른 브라우저로 열기]는 카카오톡만 되는 통로라, 다른 앱에서는 버튼을 숨기고 그림 안내만 남긴다.
+    if (isInAppBrowser()) {
+        lookupOne("#play-inapp-open-item").hidden = !isKakaoTalk();
+        lookupOne("#play-inapp-open").addEventListener("click", () => openInExternalBrowser(window.location.href));
+        Dialog.create(lookupOne("#play-inapp")).show();
+    }
 
     // [캐릭터 시트]는 공유·QR 창 없이 새 탭으로 시트 화면을 연다.
     // 진짜 링크(a target=_blank)로 바꿔 브라우저가 직접 열게 한다. 프로그램이 대신 버튼을 눌러

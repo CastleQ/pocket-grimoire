@@ -20,9 +20,24 @@
 {# 참가자용 마도서(?play=…)에서만 보임 — assets/js/utils/play-mode.js, processes/play-mode.js #}
 <div class="play-mode-banner">
     <p><strong>참가자용 마도서</strong></p>
-    <p id="play-mode-inapp" hidden>⚠️ 카카오톡 같은 앱 안에서 열면 메모가 지워질 수 있어요. 오른쪽 위 메뉴에서 "다른 브라우저로 열기"를 눌러 주세요.</p>
     <p id="play-mode-status" role="status" aria-live="polite" hidden></p>
 </div>
+
+{# 참가자용 마도서를 앱 안 브라우저(카카오톡 등)로 열면 시작할 때 띄운다 — processes/play-mode.js #}
+{% embed 'includes/dialog.html.twig' with {
+    id: 'play-inapp',
+    background: 'blur',
+    title: '※ 외부 브라우저로 접속을 권장합니다! ※'
+} %}
+    {% block body %}
+    <p style="text-align: center; word-break: keep-all;">카카오톡 브라우저는 창을 나갔다 오면 기록이 지워질 수 있습니다.<br>게임내내 기록해둔 메모가 지워지면 마음이 아픕니다🥲</p>
+    <img src="img/notice/play-open-external.webp" alt="오른쪽 아래 ⋮ 메뉴의 [다른 브라우저로 열기]" width="666" height="720" class="mt-4" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain;">
+    <ul class="button-list mt-4" style="--columns: 1; max-width: 16em; margin-inline: auto;">
+        <li id="play-inapp-open-item"><button type="button" class="button" id="play-inapp-open">다른 브라우저로 열기</button></li>
+        <li><button type="button" class="button" style="--bg-colour: var(--red);" data-dialog-hide>취소</button></li>
+    </ul>
+    {% endblock %}
+{% endembed %}
 
 {% include 'partials/setup.html.twig' %}
 {% include 'partials/grimoire.html.twig' %}
