@@ -69,9 +69,11 @@ function containsHomebrew(json) {
  */
 function autoAddFabled(characters) {
 
-    // 설화(loric, 예: 제노맨서·밀주업자)도 전설과 같은 자리에 둔다.
+    // 설화(loric, 예: 제노맨서)도 전설과 같은 자리에 둔다.
+    // 밀주업자는 시트의 특별 규칙 안내용이라 마도서에 자동으로 올리지 않는다(CastleQ 2026-11-23). 홈브류 사본(bootlegger1 등) 포함.
     const fabled = characters.filter((character) => (
-        character.getTeam() === "fabled" || character.getTeam() === "loric"
+        (character.getTeam() === "fabled" || character.getTeam() === "loric")
+        && character.getId().replace(/\d+$/, "") !== "bootlegger"
     ));
 
     if (!fabled.length) {
