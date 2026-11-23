@@ -116,6 +116,8 @@ gameObserver.on("character-distribute", setFromPlayerCount);
 // 마도서 지우기 (전설 제거 / 전설 유지 두 경로 모두)
 gameObserver.on("clear", () => setTotal(0));
 gameObserver.on("tally-reset", () => setTotal(0));
+// 참가자용 마도서(processes/play-mode.js)가 깐 접시 수로 인원을 정한다.
+gameObserver.on("tally-set", ({ detail }) => setTotal(detail.count));
 
 // 캐시 삭제 뒤 저장값을 다시 읽는다 (토큰 지우기에 함께 지워짐).
 gameObserver.on("cache-cleared", render);

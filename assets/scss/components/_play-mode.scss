@@ -15,6 +15,11 @@
         text-align: center;
         word-break: keep-all;
 
+        // 글 아래 남던 빈 줄(문단 기본 여백)을 없앤다.
+        p {
+            margin: 0;
+        }
+
         > * + * {
             margin-top: 0.5em;
         }

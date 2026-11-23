@@ -189,6 +189,7 @@ if (IS_PLAY_MODE && PLAY_IS_NEW) {
         });
 
         placeSeats(tokenStore);
+        gameObserver.trigger("tally-set", { count: PLAY_SEATS.seats.length });
 
         // 처음 켜 둘 설정(나중에 참가자가 바꿀 수 있음). "input"은 저장(store.js), "change"는 화면 반영용.
         // - 접시의 밤 순서 숫자: 참가자 메모에는 헷갈리기만 하므로 끔
