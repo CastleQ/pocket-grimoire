@@ -187,7 +187,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | **C-11** | **가설을 세웠다 암산으로 철회하기를 반복하지 말고 즉시 실측한다.** 과거에 원인을 맞게 짚어놓고 근거 없이 철회해 2턴을 버린 적이 있다 |
 | **C-12** | **진단 명령은 최소 출력으로.** `cat 파일` 금지 → `grep -n -A 5 "앵커"`. 있나 없나만 알면 `grep -c`로 숫자만. 여러 파일은 `head -20` 상한. **한 번에 몰아서** 묻는다 |
 | **C-13** | **문서를 압축·재구성했으면 원본과 키워드 대조로 누락을 검증한다.** "검증했다"가 아니라 "대조 출력을 봤다"여야 한다. 미검출 항목은 원본에 실제로 있었는지 역으로 확인한다 |
-| **C-14** | **배포는 반드시 CastleQ의 허가를 먼저 받는다.** 작업 결과는 로컬서버에서 확인하는 것이 기본이고, CastleQ가 요청할 때만 배포한 뒤 라이브에서 확인한다. 클라우드 세션에서는 Claude가 자동 브라우저로 로컬서버를 눌러 보고 결과·스크린샷을 보고하는 것이 로컬 확인이다. 작업 가지(`claude/...`)에 올리는 것은 보관이라 허가 없이 하고, **main 반영(`deploy.sh` 포함)이 배포다**. 예외: 세션 기록(`pgplus-notes`)과 `tools/last-session-record.txt`만 바꾸는 커밋은 사이트와 무관해 배포가 아니므로 허가 없이 main에 올린다 |
+| **C-14** | **배포는 반드시 CastleQ의 허가를 먼저 받는다.** 작업 결과는 로컬서버에서 확인하는 것이 기본이고, CastleQ가 요청할 때만 배포한 뒤 라이브에서 확인한다. 클라우드 세션에서는 Claude가 자동 브라우저로 로컬서버를 눌러 보고 결과·스크린샷을 보고하는 것이 로컬 확인이다. 작업 가지(`claude/...`)에 올리는 것은 보관이라 허가 없이 하고, **main 반영(`deploy.sh` 포함)이 배포다**. 예외: 세션 기록(`BOTC-project-note`)과 `tools/last-session-record.txt`만 바꾸는 커밋은 사이트와 무관해 배포가 아니므로 허가 없이 main에 올린다 |
 | **C-15** | **작업 세션은 끝날 때 CastleQ의 확인을 받고 기록한다.** 대화 중에는 기록하지 않는다. 작업→배포→라이브 확인까지 끝났다고 판단되면(배포 없는 작업은 "끝" 같은 마무리 신호에) 개인 지침의 마무리 질문과 합쳐 한 번 묻고, 확인하면 그때 세션 기록 파일(환경·새로 알게 된 함정·커밋별 작업 내역·확인 못 한 경로·결정 사항)을 만들어 CastleQ에게 파일로 전달하고(공개 저장소에는 두지 않음), `tools/last-session-record.txt`를 "날짜 기록에 포함된 마지막 커밋번호" 한 줄로 갱신한다. 세션 시작 때 `status.sh`의 "세션 기록" 칸에 ⚠️가 뜨면 **다른 작업보다 먼저 CastleQ에게 알린다** |
 
 **긴 파일 수정의 정석:** 수백 줄짜리 파일을 대화로 옮겨 적지 말고 `tools/patch-XXX.js` 작업 지시서를 만들어 `node`로 실행한 뒤 지시서를 지운다.
@@ -203,7 +203,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 | **지시문 서식 공용** ⚠️ | `assets/js/utils/rich-text.js` — `*강조*`·`[대괄호]`·`"따옴표"`·`:reminder:`→● |
 | 그리모어 밤 순서 | `assets/js/processes/night-order.js` |
 | 업데이트 안내 | `assets/js/constants/notice.js` / `assets/js/processes/update-notice.js` / `templates/partials/setup/update-notice.html.twig` |
-| 홍보 모달 (내림) | 2026-10-01 제거. 다시 쓸 때는 보관본 `/workspaces/pgplus-notes/archive/2026-09-promo-pokemon/README.md` 참고 — **앱·뽑기 화면(`public/claim.html`) 두 곳을 함께** 고친다 |
+| 홍보 모달 (내림) | 2026-10-01 제거. 다시 쓸 때는 보관본 `/workspaces/BOTC-project-note/archive/2026-09-promo-pokemon/README.md` 참고 — **앱·뽑기 화면(`public/claim.html`) 두 곳을 함께** 고친다 |
 | 정발 번역 기준 | `tools/official-master.json` (공식 캐릭터의 단일 기준. 눈금 주의 — 함정 ⑪) |
 | 내장 시트 | `public/scripts/*.json` / `public/scripts/manifest.json` |
 | 시트 선택·`_meta` 처리 | `assets/js/processes/setup/select-edition.js` |
@@ -239,6 +239,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - **Codespace 파이썬이 손상돼 있다**(`shutil` 없음). 네트워크·파일 작업은 Node나 curl로 한다.
 - **Claude 클라우드 세션(관리자 계정 root)에서는 `deploy.sh`가 준비 단계에서 멈춘다.** composer가 root에서 플러그인을 꺼 버려 `symfony-cmd: not found`가 나고, 그 뒤로 배포가 진행되지 않는다. 앞에 설정을 붙여 실행한다: `COMPOSER_ALLOW_SUPERUSER=1 bash deploy.sh "커밋 메시지"`
 - **클라우드 세션의 배포 순서:** `deploy.sh`는 **지금 가지**에 커밋·푸시한다. `git fetch origin && git checkout -B main origin/main && git merge --ff-only <작업가지>` → deploy → `git push origin main:<작업가지>`. 다른 대화가 main에 먼저 배포했을 수 있으니 fetch부터 한다.
+  - ⚠️ **오래 이어 쓴 세션은 DB가 옛 것이다.** `setup.sh`는 DB가 있으면 다시 넣지 않아, 다른 대화가 고친 캐릭터·징크스 원고가 빠진 채 구워져 **배포가 최신 번역을 옛 문장으로 되돌린다**(2026-11-23 사고). main을 받았으면 배포 전에 `bash setup.sh --reset-db`, 배포 뒤 `git diff --stat <이전 main> HEAD -- docs/data public/guide`에 손대지 않은 파일이 없는지 본다.
 - **클라우드 로컬 확인:** `docs/`를 `<폴더>/pocket-grimoire`로 링크해 `python3 -m http.server`로 띄우고 Playwright로 누른다. 공유 기능은 `route`로 `rpc/save_shared_sheet`·`rpc/get_shared_sheet`를 가짜 응답으로 바꿔 **실데이터를 쓰지 않는다.**
   - 나눠주기를 누르는 확인은 **판을 먼저 골라야** 캐릭터 체크박스가 생긴다: `#select-edition-form`의 `edition` 라디오(`tb`)를 고르고 `requestSubmit()` → `#player-select input[name="character"]` 체크 → `#player-select-distribute`. `rest/v1/games`·`slots`는 `route`로 가짜 응답.
   - 로컬 확인용으로 `bake.sh`를 돌렸으면 커밋 전에 `git checkout -- docs && git clean -fd docs`로 되돌린다(배포는 deploy.sh가 다시 굽는다).
@@ -281,9 +282,11 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - 데이터베이스 접속 상세와 운영 조회문
 - 시트 공유 기능의 방어 설계 상세
 - 과거 종결된 버그의 상세 이력, 채택하지 않은 설계안
-- 캐릭터 뽑기(`claim.html` · DB 함수 `claim_slot` · `slots`의 `alignment`·`player_key` 칸)의 서버 쪽 동작 설계 — 계획서 `/workspaces/pgplus-notes/plans/2026-11-16-claim-weight.md`. 공개하면 안 되는 운영 설계라 비공개 저장소에만 둔다. 이 기능을 고치기 전에 반드시 그 계획서를 먼저 읽는다
+- 캐릭터 뽑기(`claim.html` · DB 함수 `claim_slot` · `slots`의 `alignment`·`player_key` 칸)의 서버 쪽 동작 설계 — 계획서 `/workspaces/BOTC-project-note/plans/2026-11-16-claim-weight.md`. 공개하면 안 되는 운영 설계라 비공개 저장소에만 둔다. 이 기능을 고치기 전에 반드시 그 계획서를 먼저 읽는다
 
-**이 내용들은 `/workspaces/pgplus-notes/pgplus_REF_v5.md`(별도 비공개 저장소)에 있다.** 위 항목이 필요한 작업이면 그 파일을 검색해서 읽어라. 내용을 이 문서(CLAUDE.md)나 공개 저장소 어디에도 옮겨 적지 마라.
+**이 내용들은 `/workspaces/BOTC-project-note/pgplus_REF_v5.md`(별도 비공개 저장소)에 있다.** 위 항목이 필요한 작업이면 그 파일을 검색해서 읽어라. 내용을 이 문서(CLAUDE.md)나 공개 저장소 어디에도 옮겨 적지 마라.
+
+**사고가 나서 복구가 필요하면 같은 비공개 저장소(`CastleQ/BOTC-project-note`)의 `복구안내.md`부터 본다.** 증상별 첫 조치와 자세한 기록 위치가 있다. 새 사고는 세션 기록에 경위를 쓰고 그 표에 한 줄 추가한다.
 
 ---
 

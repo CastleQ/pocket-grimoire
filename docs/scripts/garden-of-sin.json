@@ -6,128 +6,95 @@
     "logo": "https://i.imgur.com/aNCMI6F.png",
     "hideTitle": true,
     "background": "https://i.imgur.com/JUXrFQB.jpeg",
-    "almanac": "https://botc.vnamu.com/sheets/2289/almanac?code=01880e",
     "bootlegger": [
       "꼭두각시의 능력이 변경되었습니다."
-    ]
+    ],
+    "almanac": "https://botc.vnamu.com/sheets/2289/almanac?code=01880e"
   },
-  {
-    "id": "steward"
-  },
-  {
-    "id": "knight"
-  },
-  {
-    "id": "noble"
-  },
+  "steward",
+  "knight",
+  "noble",
   {
     "id": "stableboy1",
-    "setup": false,
-    "edition": "",
     "name": "마구간 소년",
     "team": "townsfolk",
+    "edition": "",
+    "ability": "매일 밤, 게임에 참여하는 캐릭터 1명을 알게 됩니다.",
+    "firstNightReminder": "게임에 참여하는 캐릭터 1명을 알려줍니다.",
+    "otherNightReminder": "게임에 참여하는 캐릭터 1명을 알려줍니다.",
+    "reminders": [],
+    "remindersGlobal": [],
+    "setup": false,
+    "firstNight": 68.1,
+    "otherNight": 86.1,
     "image": [
       "https://i.imgur.com/SSUg3c1.png",
       "https://i.imgur.com/XvWHTWT.png"
     ],
-    "ability": "매일 밤, 게임에 참여하는 캐릭터 1명을 알게 됩니다.",
-    "flavor": "",
-    "reminders": [],
-    "remindersGlobal": [],
-    "special": [],
     "jinxes": [],
-    "firstNightReminder": "게임에 참여하는 캐릭터 1명을 알려줍니다.",
-    "otherNightReminder": "게임에 참여하는 캐릭터 1명을 알려줍니다.",
-    "firstNight": 68.1,
-    "otherNight": 86.1
+    "flavor": "",
+    "special": []
   },
   {
-    "id": "genius1",
-    "setup": false,
+    "id": "constable1",
+    "name": "경찰관",
+    "team": "townsfolk",
     "edition": "",
+    "ability": "매일 밤, 악한 캐릭터 1개를 선택합니다: 그 캐릭터가 아닌 플레이어를 1명 이상 알게 됩니다.",
+    "firstNightReminder": "경찰관이 캐릭터를 1개 선택합니다. 그 캐릭터가 아닌 플레이어 1명 이상을 가리킵니다.",
+    "otherNightReminder": "경찰관이 캐릭터를 1개 선택합니다. 그 캐릭터가 아닌 플레이어 1명 이상을 가리킵니다.",
+    "reminders": [],
+    "remindersGlobal": [],
+    "setup": false,
+    "firstNight": 55.9,
+    "otherNight": 75.1,
+    "image": [
+      "https://i.imgur.com/g1rLfrR.png",
+      "https://i.imgur.com/Xnqbdic.png"
+    ],
+    "jinxes": [],
+    "flavor": "",
+    "special": []
+  },
+  "balloonist",
+  {
+    "id": "genius1",
     "name": "천재",
     "team": "townsfolk",
-    "image": [
-      "https://i.imgur.com/xdxb7fa.png",
-      "https://i.imgur.com/kDQUEWa.png"
-    ],
+    "edition": "",
     "ability": "매일 밤, 선한 캐릭터 1개를 선택합니다: 다음 선택까지 그의 능력을 얻습니다. 그리고 다음 밤에 취합니다.",
-    "flavor": "",
+    "firstNightReminder": "필요하다면, 천재가 선택한 캐릭터의 토큰을 천재의 캐릭터 토큰과 맞바꿉니다. :reminder:",
+    "otherNightReminder": "필요하다면, 천재가 선택한 캐릭터의 토큰을 천재의 캐릭터 토큰과 맞바꿉니다. :reminder: 천재가 자신의 능력으로 취하지 않았다면, 취합니다. :reminder: 자신의 능력으로 취했다면, 맨정신이 됩니다.",
     "reminders": [
       "취함"
     ],
     "remindersGlobal": [
       "천재입니다"
     ],
+    "setup": false,
+    "firstNight": 51.1,
+    "otherNight": 62.1,
+    "image": [
+      "https://i.imgur.com/xdxb7fa.png",
+      "https://i.imgur.com/kDQUEWa.png"
+    ],
+    "jinxes": [],
+    "flavor": "",
     "special": [
       {
         "name": "replace-character",
         "type": "reveal"
       }
-    ],
-    "jinxes": [],
-    "firstNightReminder": "필요하다면, 천재가 선택한 캐릭터의 토큰을 천재의 캐릭터 토큰과 맞바꿉니다. :reminder:",
-    "otherNightReminder": "필요하다면, 천재가 선택한 캐릭터의 토큰을 천재의 캐릭터 토큰과 맞바꿉니다. :reminder: 천재가 자신의 능력으로 취하지 않았다면, 취합니다. :reminder: 자신의 능력으로 취했다면, 맨정신이 됩니다.",
-    "firstNight": 51.1,
-    "otherNight": 62.1
-  },
-  {
-    "id": "constable1",
-    "setup": false,
-    "edition": "",
-    "name": "경찰관",
-    "team": "townsfolk",
-    "image": [
-      "https://i.imgur.com/g1rLfrR.png",
-      "https://i.imgur.com/Xnqbdic.png"
-    ],
-    "ability": "매일 밤, 악한 캐릭터 1개를 선택합니다: 그 캐릭터가 아닌 플레이어를 1명 이상 알게 됩니다.",
-    "flavor": "",
-    "reminders": [],
-    "remindersGlobal": [],
-    "special": [],
-    "jinxes": [],
-    "firstNightReminder": "경찰관이 캐릭터를 1개 선택합니다. 그 캐릭터가 아닌 플레이어 1명 이상을 가리킵니다.",
-    "otherNightReminder": "경찰관이 캐릭터를 1개 선택합니다. 그 캐릭터가 아닌 플레이어 1명 이상을 가리킵니다.",
-    "firstNight": 55.9,
-    "otherNight": 75.1
-  },
-  {
-    "id": "balloonist"
-  },
-  {
-    "id": "poet1",
-    "setup": false,
-    "edition": "",
-    "name": "시인",
-    "team": "townsfolk",
-    "image": [
-      "https://i.imgur.com/uG4Yhsk.png",
-      "https://i.imgur.com/DxLxKtw.png"
-    ],
-    "ability": "매일 밤, 플레이어 1명을 선택합니다: 그의 캐릭터 이름에 포함된 자음 중 1개(무엇인지는 알지 못하지만)가 얼마나 많은지 알게 됩니다.",
-    "flavor": "",
-    "reminders": [],
-    "remindersGlobal": [],
-    "special": [],
-    "jinxes": [],
-    "firstNightReminder": "시인이 플레이어를 1명 선택합니다. 그리고 손가락을 펴서 신호를 줍니다.",
-    "otherNightReminder": "시인이 플레이어를 1명 선택합니다. 그리고 손가락을 펴서 신호를 줍니다.",
-    "firstNight": 68.2,
-    "otherNight": 86.2
+    ]
   },
   {
     "id": "tycoon1",
-    "setup": false,
-    "edition": "",
     "name": "재벌",
     "team": "townsfolk",
-    "image": [
-      "https://i.imgur.com/L3x4wNf.png",
-      "https://i.imgur.com/A9p7yig.png"
-    ],
+    "edition": "",
     "ability": "매일 밤*, 오늘 악한 플레이어와 악수를 했다면, 그 사실을 알게 됩니다. 그동안 당신과 악수한 플레이어 중 1명이 취할 수 있습니다.",
-    "flavor": "",
+    "firstNightReminder": "",
+    "otherNightReminder": "재벌이 오늘 악한 플레이어와 악수를 했다면 알려줍니다.",
     "reminders": [
       "취함",
       "오늘 악수함",
@@ -139,176 +106,180 @@
       "오늘 악수함"
     ],
     "remindersGlobal": [],
-    "special": [],
-    "jinxes": [],
-    "firstNightReminder": "",
-    "otherNightReminder": "재벌이 오늘 악한 플레이어와 악수를 했다면 알려줍니다.",
+    "setup": false,
     "firstNight": 0,
-    "otherNight": 75.3
+    "otherNight": 75.3,
+    "image": [
+      "https://i.imgur.com/L3x4wNf.png",
+      "https://i.imgur.com/A9p7yig.png"
+    ],
+    "jinxes": [],
+    "flavor": "",
+    "special": []
   },
   {
     "id": "astrologer1",
-    "setup": false,
-    "edition": "",
     "name": "점성술사",
     "team": "townsfolk",
+    "edition": "",
+    "ability": "매일 낮, 개인적으로 이야기꾼을 찾아가 거짓 정보 1개를 알게 됩니다.",
+    "firstNightReminder": "",
+    "otherNightReminder": "",
+    "reminders": [],
+    "remindersGlobal": [],
+    "setup": false,
+    "firstNight": 0,
+    "otherNight": 0,
     "image": [
       "https://i.imgur.com/5bUM8Jx.png",
       "https://i.imgur.com/s0D3740.png"
     ],
-    "ability": "매일 낮, 개인적으로 이야기꾼을 찾아가 거짓 정보 1개를 알게 됩니다.",
-    "flavor": "",
-    "reminders": [],
-    "remindersGlobal": [],
-    "special": [],
     "jinxes": [],
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "firstNight": 0,
-    "otherNight": 0
+    "flavor": "",
+    "special": []
   },
   {
     "id": "coachman1",
-    "setup": false,
-    "edition": "",
     "name": "마부",
     "team": "townsfolk",
+    "edition": "",
+    "ability": "매일 낮, 개인적으로 이야기꾼을 찾아가 한 단어로 된 주제를 말합니다: 그 주제에 관한 진실된 정보 1개를 알게 됩니다. 이웃 2명이 다른 소속이라면, 거짓 정보를 알게 됩니다.",
+    "firstNightReminder": "",
+    "otherNightReminder": "",
+    "reminders": [],
+    "remindersGlobal": [],
+    "setup": false,
+    "firstNight": 0,
+    "otherNight": 0,
     "image": [
       "https://i.imgur.com/leJZvwV.png",
       "https://i.imgur.com/8lybERH.png"
     ],
-    "ability": "매일 낮, 개인적으로 이야기꾼을 찾아가 한 단어로 된 주제를 말합니다: 그 주제에 관한 진실된 정보 1개를 알게 됩니다. 이웃 2명이 다른 소속이라면, 거짓 정보를 알게 됩니다.",
-    "flavor": "",
-    "reminders": [],
-    "remindersGlobal": [],
-    "special": [],
     "jinxes": [],
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "firstNight": 0,
-    "otherNight": 0
+    "flavor": "",
+    "special": []
   },
   {
     "id": "messenger1",
-    "setup": false,
-    "edition": "",
     "name": "전령",
     "team": "townsfolk",
-    "image": [
-      "https://i.imgur.com/cyYdelc.png",
-      "https://i.imgur.com/VeZsl3x.png"
-    ],
+    "edition": "",
     "ability": "게임당 1번, 공개적으로 질문 1개를 할 수 있습니다. 마지막 밤에, 당신이 사망하더라도, 생존한 플레이어 1명이 답을 알게 됩니다.",
-    "flavor": "",
+    "firstNightReminder": "",
+    "otherNightReminder": "플레이어 1명을 깨워 질문의 답을 알려줍니다.",
     "reminders": [
       "능력 없음"
     ],
     "remindersGlobal": [],
-    "special": [],
-    "jinxes": [],
-    "firstNightReminder": "",
-    "otherNightReminder": "플레이어 1명을 깨워 질문의 답을 알려줍니다.",
+    "setup": false,
     "firstNight": 0,
-    "otherNight": 74.9
+    "otherNight": 74.9,
+    "image": [
+      "https://i.imgur.com/cyYdelc.png",
+      "https://i.imgur.com/VeZsl3x.png"
+    ],
+    "jinxes": [],
+    "flavor": "",
+    "special": []
   },
   {
     "id": "nun1",
-    "setup": false,
-    "edition": "",
     "name": "수녀",
     "team": "townsfolk",
+    "edition": "",
+    "ability": "선한 주민들은 취하거나 중독되거나 거짓 정보를 받을 수 없습니다.",
+    "firstNightReminder": "",
+    "otherNightReminder": "",
+    "reminders": [],
+    "remindersGlobal": [],
+    "setup": false,
+    "firstNight": 0,
+    "otherNight": 0,
     "image": [
       "https://i.imgur.com/iEO9CSu.png",
       "https://i.imgur.com/L7hAAe7.png"
     ],
-    "ability": "선한 주민들은 취하거나 중독되거나 거짓 정보를 받을 수 없습니다.",
-    "flavor": "",
-    "reminders": [],
-    "remindersGlobal": [],
-    "special": [],
     "jinxes": [],
-    "firstNightReminder": "",
-    "otherNightReminder": "",
-    "firstNight": 0,
-    "otherNight": 0
-  },
-  {
-    "id": "prisoner1",
-    "setup": false,
-    "edition": "",
-    "name": "죄수",
-    "team": "outsider",
-    "image": [
-      "https://i.imgur.com/4FWwwiB.png",
-      "https://i.imgur.com/vkJpcMY.png"
-    ],
-    "ability": "게임 시작 시, 게임에 참여하지 않은 캐릭터 1개를 알게 됩니다. 당신은 투표할 수 없으며, 과반수의 플레이어가 당신을 풀어주는 것에 찬성하면 그 캐릭터 및 그 소속이 됩니다.",
     "flavor": "",
-    "reminders": [],
-    "remindersGlobal": [
-      "죄수입니다"
-    ],
-    "special": [
-      {
-        "name": "replace-character",
-        "type": "reveal"
-      }
-    ],
-    "jinxes": [],
-    "firstNightReminder": "게임에 참여하지 않은 캐릭터 1개를 알려줍니다. 필요하다면, 그 캐릭터의 토큰을 죄수의 캐릭터 토큰과 맞바꿉니다. :reminder:",
-    "otherNightReminder": "",
-    "firstNight": 48.9,
-    "otherNight": 0
+    "special": []
   },
+  "atheist",
   {
     "id": "alewife1",
-    "setup": false,
-    "edition": "",
     "name": "주모",
     "team": "outsider",
-    "image": [
-      "https://i.imgur.com/AMsMZdY.png",
-      "https://i.imgur.com/es0x7yr.png"
-    ],
+    "edition": "",
     "ability": "당신의 첫 번째 밤에, 모든 주민은 취합니다. 당신의 첫 번째 새벽 이후에, 주민은 취하거나 중독되지 않습니다.",
-    "flavor": "",
+    "firstNightReminder": "모든 주민이 취합니다. :reminder: 그 새벽이 끝나면, 주민은 취하거나 중독되지 않습니다. :reminder:",
+    "otherNightReminder": "",
     "reminders": [
       "모든 주민 취함",
       "모든 주민 맨정신&건강"
     ],
     "remindersGlobal": [],
-    "special": [],
-    "jinxes": [],
-    "firstNightReminder": "모든 주민이 취합니다. :reminder: 그 새벽이 끝나면, 주민은 취하거나 중독되지 않습니다. :reminder:",
-    "otherNightReminder": "",
+    "setup": false,
     "firstNight": 32.1,
-    "otherNight": 0
+    "otherNight": 0,
+    "image": [
+      "https://i.imgur.com/AMsMZdY.png",
+      "https://i.imgur.com/es0x7yr.png"
+    ],
+    "jinxes": [],
+    "flavor": "",
+    "special": []
   },
   {
-    "id": "snitch"
+    "id": "prisoner1",
+    "name": "죄수",
+    "team": "outsider",
+    "edition": "",
+    "ability": "당신은 투표할 수 없습니다. 게임에 참여하지 않은 캐릭터 1개를 알고 있으며, 과반수의 플레이어가 당신을 풀어주는 것에 찬성하면 그 캐릭터 및 그 소속이 됩니다.",
+    "firstNightReminder": "게임에 참여하지 않은 캐릭터 1개를 알려줍니다. 필요하다면, 그 캐릭터의 토큰을 죄수의 캐릭터 토큰과 맞바꿉니다. :reminder:",
+    "otherNightReminder": "",
+    "reminders": [],
+    "remindersGlobal": [
+      "죄수입니다"
+    ],
+    "setup": false,
+    "firstNight": 48.9,
+    "otherNight": 0,
+    "image": [
+      "https://i.imgur.com/4FWwwiB.png",
+      "https://i.imgur.com/vkJpcMY.png"
+    ],
+    "jinxes": [],
+    "flavor": "",
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      }
+    ]
   },
-  {
-    "id": "puzzlemaster"
-  },
-  {
-    "id": "xaan"
-  },
+  "snitch",
+  "puzzlemaster",
+  "xaan",
   {
     "id": "marionettefix",
-    "setup": true,
-    "edition": "",
     "name": "꼭두각시",
     "team": "minion",
-    "image": [
-      "https://i.imgur.com/KaDb7KM.png",
-      "https://i.imgur.com/8ctZxi2.png"
-    ],
+    "edition": "",
     "ability": "당신은 주민 캐릭터라고 착각합니다. 당신은 그 캐릭터로 위장되고 & 능력을 가지고 있지만, 중독되어 있습니다. 악마는 당신이 누구인지 압니다. [당신은 악마와 이웃합니다]",
-    "flavor": "말, 말, 결국 우리에게 남은 건 그것뿐이야.",
+    "firstNightReminder": "악마를 깨웁니다. *이 플레이어는* 정보 토큰과 꼭두각시 토큰을 보여주고 꼭두각시를 가리킵니다.",
+    "otherNightReminder": "",
     "reminders": [],
     "remindersGlobal": [
       "꼭두각시입니다"
     ],
+    "setup": true,
+    "firstNight": 27,
+    "otherNight": 0,
+    "image": [
+      "https://i.imgur.com/KaDb7KM.png",
+      "https://i.imgur.com/8ctZxi2.png"
+    ],
+    "jinxes": [],
+    "flavor": "말, 말, 결국 우리에게 남은 건 그것뿐이야.",
     "special": [
       {
         "name": "bag-disabled",
@@ -318,49 +289,40 @@
         "name": "replace-character",
         "type": "reveal"
       }
-    ],
-    "jinxes": [],
-    "firstNightReminder": "악마를 깨웁니다. *이 플레이어는* 정보 토큰과 꼭두각시 토큰을 보여주고 꼭두각시를 가리킵니다.",
-    "otherNightReminder": "",
-    "firstNight": 27,
-    "otherNight": 0
+    ]
   },
   {
     "id": "amaniti1",
-    "setup": false,
-    "edition": "",
     "name": "독버섯꾼",
     "team": "minion",
-    "image": [
-      "https://i.imgur.com/RoV5Y9D.png",
-      "https://i.imgur.com/IHSxR9Y.png"
-    ],
+    "edition": "",
     "ability": "이웃이 선한 플레이어의 능력에게 거짓으로 위장됩니다.",
-    "flavor": "",
+    "firstNightReminder": "",
+    "otherNightReminder": "",
     "reminders": [
       "포자",
       "포자"
     ],
     "remindersGlobal": [],
-    "special": [],
-    "jinxes": [],
-    "firstNightReminder": "",
-    "otherNightReminder": "",
+    "setup": false,
     "firstNight": 0,
-    "otherNight": 0
+    "otherNight": 0,
+    "image": [
+      "https://i.imgur.com/RoV5Y9D.png",
+      "https://i.imgur.com/IHSxR9Y.png"
+    ],
+    "jinxes": [],
+    "flavor": "",
+    "special": []
   },
   {
     "id": "daughterofnox1",
-    "setup": false,
-    "edition": "",
     "name": "밤의 영애",
     "team": "minion",
-    "image": [
-      "https://i.imgur.com/Z4EpByh.png",
-      "https://i.imgur.com/ACdzcHx.png"
-    ],
+    "edition": "",
     "ability": "선한 플레이어가 얻는 모든 정보는 반대입니다. 각 플레이어가 처음으로 당신을 지칭할 때: 그가 선하다면 능력을 잃고, 악하다면 능력을 다시 얻습니다.",
-    "flavor": "",
+    "firstNightReminder": "",
+    "otherNightReminder": "",
     "reminders": [
       "지칭함",
       "지칭함",
@@ -378,28 +340,26 @@
       "능력 없음"
     ],
     "remindersGlobal": [],
-    "special": [],
-    "jinxes": [],
-    "firstNightReminder": "",
-    "otherNightReminder": "",
+    "setup": false,
     "firstNight": 0,
-    "otherNight": 0
+    "otherNight": 0,
+    "image": [
+      "https://i.imgur.com/7Rjx8Lv.png",
+      "https://i.imgur.com/mNdMdcv.png"
+    ],
+    "jinxes": [],
+    "flavor": "",
+    "special": []
   },
-  {
-    "id": "riot"
-  },
+  "riot",
   {
     "id": "virilus1",
-    "setup": false,
-    "edition": "",
     "name": "바이릴루스",
     "team": "demon",
-    "image": [
-      "https://i.imgur.com/Ry4Gh5V.png",
-      "https://i.imgur.com/kuHgKER.png"
-    ],
+    "edition": "",
     "ability": "매일 밤, 플레이어 1명을 선택합니다: 그는 감염됩니다. 감염된 플레이어가 지목하면 사망하고, 지목당한 플레이어가 감염됩니다. 네 번째 낮이 끝난 후, 악한 팀이 승리합니다.",
-    "flavor": "",
+    "firstNightReminder": "바이릴루스가 감염시킬 플레이어를 1명 선택합니다. :reminder:",
+    "otherNightReminder": "바이릴루스가 감염시킬 플레이어를 1명 선택합니다. :reminder: 하루가 지날 때마다 바이릴루스의 기록 토큰을 바꿉니다. :reminder:",
     "reminders": [
       "사망",
       "감염",
@@ -414,28 +374,26 @@
       "네 번째 낮"
     ],
     "remindersGlobal": [],
-    "special": [],
-    "jinxes": [],
-    "firstNightReminder": "바이릴루스가 감염시킬 플레이어를 1명 선택합니다. :reminder:",
-    "otherNightReminder": "바이릴루스가 감염시킬 플레이어를 1명 선택합니다. :reminder: 하루가 지날 때마다 바이릴루스의 기록 토큰을 바꿉니다. :reminder:",
+    "setup": false,
     "firstNight": 48.1,
-    "otherNight": 38.9
+    "otherNight": 38.9,
+    "image": [
+      "https://i.imgur.com/Ry4Gh5V.png",
+      "https://i.imgur.com/kuHgKER.png"
+    ],
+    "jinxes": [],
+    "flavor": "",
+    "special": []
   },
-  {
-    "id": "leviathan"
-  },
+  "leviathan",
   {
     "id": "therising1",
-    "setup": false,
-    "edition": "",
     "name": "오름",
     "team": "demon",
-    "image": [
-      "https://i.imgur.com/cpBeAeP.png",
-      "https://i.imgur.com/s2lWMeS.png"
-    ],
+    "edition": "",
     "ability": "당신의 첫 번째 밤에, 모든 플레이어가 사망합니다. 처형당한 플레이어는 부활합니다. 만약 생존한 플레이어가 처형당하면, 그 플레이어가 소속된 팀이 패배합니다. 여섯 번째 낮이 끝난 후, 악한 팀이 승리합니다.",
-    "flavor": "",
+    "firstNightReminder": "모든 플레이어가 사망합니다.",
+    "otherNightReminder": "하루가 지날 때마다 오름의 기록 토큰을 바꿉니다. :reminder:",
     "reminders": [
       "첫 번째 낮",
       "두 번째 낮",
@@ -445,11 +403,17 @@
       "여섯 번째 낮"
     ],
     "remindersGlobal": [],
-    "special": [],
-    "jinxes": [],
-    "firstNightReminder": "모든 플레이어가 사망합니다.",
-    "otherNightReminder": "하루가 지날 때마다 오름의 기록 토큰을 바꿉니다. :reminder:",
+    "setup": false,
     "firstNight": 77.9,
-    "otherNight": 97.1
-  }
+    "otherNight": 97.1,
+    "image": [
+      "https://i.imgur.com/cpBeAeP.png",
+      "https://i.imgur.com/s2lWMeS.png"
+    ],
+    "jinxes": [],
+    "flavor": "",
+    "special": []
+  },
+  "gnome",
+  "bootlegger"
 ]
