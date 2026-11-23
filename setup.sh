@@ -58,9 +58,23 @@ if [ "$RESET_DB" = "1" ]; then
   rm -f "$DB_PATH"
 fi
 
-if [ "$RESET_DB" = "0" ] && db_is_healthy; then
-  echo "▶ [5/6] DB 이미 정상(캐릭터 충분 + 팀 연결 정상) → 건너뜀"
+# DB 재료(assets/data/*.json) 중 DB 파일보다 새것이 있으면 낡은 DB다.
+# 다른 대화가 고친 번역을 받아 와도(merge·checkout이 수정 시각을 갱신) 옛 DB로 굽는 사고를 막는다(2026-11-23).
+newer_source() {
+  find "$PROJECT_DIR/assets/data" -name '*.json' -not -path '*/_unused/*' -newer "$DB_PATH" -print -quit 2>/dev/null
+}
+
+STALE=""
+if [ -f "$DB_PATH" ]; then
+  STALE="$(newer_source)"
+fi
+
+if [ "$RESET_DB" = "0" ] && [ -z "$STALE" ] && db_is_healthy; then
+  echo "▶ [5/6] DB 이미 정상(캐릭터 충분 + 팀 연결 정상 + 재료보다 최신) → 건너뜀"
 else
+  if [ "$RESET_DB" = "0" ] && [ -n "$STALE" ]; then
+    echo "▶ [5/6] DB가 재료보다 낡음 → 새로 구축 (예: ${STALE#$PROJECT_DIR/})"
+  fi
   echo "▶ [5/6] DB 구축 시작..."
   rm -f "$DB_PATH"
   php bin/console doctrine:database:create

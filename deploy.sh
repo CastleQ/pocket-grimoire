@@ -66,6 +66,24 @@ else
   echo "   - 에러 페이지 혼입: ✅ 없음"
 fi
 
+# DB에서 나오는 결과물이 바뀌었는데 그 재료(assets/data)는 그대로면, 옛 DB로 구웠을 가능성이 크다(2026-11-23 사고).
+# 의도한 변경이면 DATA_CHANGE_OK=1 을 앞에 붙여 다시 실행한다.
+LAST_DEPLOY=$(git log -1 --format=%H -- docs 2>/dev/null)
+if [ -z "$LAST_DEPLOY" ]; then
+  echo "   - 데이터 변화 점검: ⚠️ 이전 배포 커밋을 못 찾아 건너뜀(얕게 받은 저장소)"
+else
+  SRC_CHANGED=$(git diff --name-only "$LAST_DEPLOY" -- assets/data | head -1)
+  OUT_CHANGED=$(git status --porcelain -- docs/data public/guide/data/jinxes.json | head -5)
+  if [ -z "$SRC_CHANGED" ] && [ -n "$OUT_CHANGED" ] && [ "$DATA_CHANGE_OK" != "1" ]; then
+    echo "   - 데이터 변화 점검: ❌ 재료(assets/data)는 그대로인데 결과 데이터가 바뀜 — 옛 DB로 구웠을 수 있음"
+    echo "$OUT_CHANGED" | sed 's/^/       /'
+    echo "     → bash setup.sh --reset-db 후 다시 배포. 의도한 변경이면 DATA_CHANGE_OK=1 bash deploy.sh \"…\""
+    FAIL=1
+  else
+    echo "   - 데이터 변화 점검: ✅ 통과"
+  fi
+fi
+
 if [ "$FAIL" = "1" ]; then
   echo ""
   echo "═══════════════════════════════════════"
