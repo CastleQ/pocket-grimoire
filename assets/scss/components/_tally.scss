@@ -29,6 +29,16 @@
     }
 }
 
+// [게임 시작하기]: 숫자 아래, 토큰보다 아래 층(.tally z-index 0). 이것만 누를 수 있다.
+.tally__start {
+    width: auto;
+    margin-top: 0.5em;
+    padding: 0.3em 1em;
+    font-size: 0.75em;
+    text-shadow: none;
+    pointer-events: auto;
+}
+
 .tally__row {
     display: flex;
     align-items: center;

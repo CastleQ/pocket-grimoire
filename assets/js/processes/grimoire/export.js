@@ -17,6 +17,9 @@ import {
     lookupOne,
     lookupOneCached
 } from "../../utils/elements.js";
+import Observer from "../../classes/Observer.js";
+
+const gameObserver = Observer.create("game");
 
 // 참가자가 아닌 토큰(전설·로릭)은 자리로 치지 않는다.
 const NON_PLAYER_TEAMS = ["fabled", "loric"];
@@ -60,6 +63,37 @@ function readSeats() {
 const button = lookupOne("#export-make");
 const result = lookupOne("#export-result");
 
+// 마도서 가운데 [게임 시작하기]: 링크를 한 번 만들면 숨기고, 새 게임(시트 바꾸기·마도서 지우기)에서 다시 보인다.
+// 메뉴의 [게임 내보내기]와 같은 창을 연다(data-dialog). 새로고침해도 숨긴 상태를 기억한다.
+const START_KEY = "pg_game_link_made";
+const startButton = lookupOne("#start-game");
+
+function setLinkMade(made) {
+
+    startButton.hidden = made;
+
+    try {
+        if (made) {
+            window.localStorage.setItem(START_KEY, "1");
+        } else {
+            window.localStorage.removeItem(START_KEY);
+        }
+    } catch (ignore) {
+        // 저장 공간을 못 쓰면 새로고침 때 버튼이 다시 보일 뿐이다.
+    }
+
+}
+
+try {
+    startButton.hidden = window.localStorage.getItem(START_KEY) === "1";
+} catch (ignore) {
+    startButton.hidden = false;
+}
+
+["sheet-change", "clear"].forEach((eventName) => {
+    gameObserver.on(eventName, () => setLinkMade(false));
+});
+
 button.addEventListener("click", () => {
 
     const payload = buildSheetPayload();
@@ -89,6 +123,8 @@ button.addEventListener("click", () => {
         url.searchParams.set("g", JSON.stringify(seats));
 
         const link = url.toString();
+
+        setLinkMade(true);
 
         return copyLink(link).then((copied) => showResult(
             result,
