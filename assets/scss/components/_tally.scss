@@ -42,18 +42,18 @@
 
     @media (prefers-reduced-motion: reduce) {
         animation: none;
-        box-shadow: inset 0.1em 0.1em 0.2em rgb(255 255 255 / 30%), inset -0.1em -0.1em 0.2em rgb(0 0 0 / 30%), 0 0 0.6em 0.15em rgb(255 215 90 / 70%);
+        box-shadow: inset 0.1em 0.1em 0.2em rgb(255 255 255 / 30%), inset -0.1em -0.1em 0.2em rgb(0 0 0 / 30%), 0 0 0.6em 0.15em rgb(245 236 214 / 70%);
     }
 }
 
 @keyframes tally-start-glow {
     0%,
     100% {
-        box-shadow: inset 0.1em 0.1em 0.2em rgb(255 255 255 / 30%), inset -0.1em -0.1em 0.2em rgb(0 0 0 / 30%), 0 0 0.2em 0 rgb(255 215 90 / 40%);
+        box-shadow: inset 0.1em 0.1em 0.2em rgb(255 255 255 / 30%), inset -0.1em -0.1em 0.2em rgb(0 0 0 / 30%), 0 0 0.2em 0 rgb(245 236 214 / 40%);
     }
 
     50% {
-        box-shadow: inset 0.1em 0.1em 0.2em rgb(255 255 255 / 30%), inset -0.1em -0.1em 0.2em rgb(0 0 0 / 30%), 0 0 0.9em 0.25em rgb(255 215 90 / 90%);
+        box-shadow: inset 0.1em 0.1em 0.2em rgb(255 255 255 / 30%), inset -0.1em -0.1em 0.2em rgb(0 0 0 / 30%), 0 0 0.9em 0.25em rgb(245 236 214 / 90%);
     }
 }
 
