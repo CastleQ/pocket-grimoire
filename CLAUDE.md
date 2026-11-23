@@ -238,7 +238,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 - ⚠️ **`Jinx: unable to find target role`은 무해하지 않다.** 함정 ⑩ 참조.
 - **Codespace 파이썬이 손상돼 있다**(`shutil` 없음). 네트워크·파일 작업은 Node나 curl로 한다.
 - **Claude 클라우드 세션(관리자 계정 root)에서는 `deploy.sh`가 준비 단계에서 멈춘다.** composer가 root에서 플러그인을 꺼 버려 `symfony-cmd: not found`가 나고, 그 뒤로 배포가 진행되지 않는다. 앞에 설정을 붙여 실행한다: `COMPOSER_ALLOW_SUPERUSER=1 bash deploy.sh "커밋 메시지"`
-- **클라우드 세션의 배포 순서:** `deploy.sh`는 **지금 가지**에 커밋·푸시한다. `git fetch origin && git checkout -B main origin/main && git merge --ff-only <작업가지>` → deploy → `git push origin main:<작업가지>`. 다른 대화가 main에 먼저 배포했을 수 있으니 fetch부터 한다.
+- **클라우드 세션의 배포 순서:** `deploy.sh`는 **지금 가지**에 커밋·푸시한다. `git fetch origin && git checkout -B main origin/main && git merge --ff-only <작업가지>` → deploy → `git push origin main:<작업가지>`. 다른 대화가 main에 먼저 배포했을 수 있으니 fetch부터 한다. `merge --ff-only`가 실패하면(main이 갈라짐) 작업 가지에 `git merge origin/main`을 한 뒤 다시 한다. 검문만 시험할 때 `deploy.sh` 사본은 저장소 안에서 돌린다(맨 위에서 자기 폴더로 `cd`함).
   - ⚠️ **오래 이어 쓴 세션은 DB가 옛 것이다.** `setup.sh`는 DB가 있으면 다시 넣지 않아, 다른 대화가 고친 캐릭터·징크스 원고가 빠진 채 구워져 **배포가 최신 번역을 옛 문장으로 되돌린다**(2026-11-23 사고). → 이제 자동으로 막는다: `setup.sh`는 재료(`assets/data/*.json`)가 DB 파일보다 새것이면 DB를 다시 만들고, `deploy.sh` 검문은 재료가 그대로인데 `docs/data`·`public/guide/data/jinxes.json`이 바뀌면 중단한다(의도한 변경이면 `DATA_CHANGE_OK=1 bash deploy.sh …`).
 - **클라우드 로컬 확인:** `docs/`를 `<폴더>/pocket-grimoire`로 링크해 `python3 -m http.server`로 띄우고 Playwright로 누른다. 공유 기능은 `route`로 `rpc/save_shared_sheet`·`rpc/get_shared_sheet`를 가짜 응답으로 바꿔 **실데이터를 쓰지 않는다.**
   - 나눠주기를 누르는 확인은 **판을 먼저 골라야** 캐릭터 체크박스가 생긴다: `#select-edition-form`의 `edition` 라디오(`tb`)를 고르고 `requestSubmit()` → `#player-select input[name="character"]` 체크 → `#player-select-distribute`. `rest/v1/games`·`slots`는 `route`로 가짜 응답.
