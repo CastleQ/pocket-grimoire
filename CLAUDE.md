@@ -117,6 +117,7 @@ DB 재구축 후 캐릭터 / 진크스 / 시나리오 수를 반드시 확인한
 **⑫ `docs/` 아래는 전부 자동 생성물이다**
 `docs/data/` · `docs/scripts/` · `docs/img/` 모두 `bake.sh`가 매번 지우고 다시 만든다. 고칠 곳은 **`public/scripts/`** 와 `assets/data/`다.
 `docs/`는 GitHub Pages가 서비스하는 공개 폴더이므로, 작업 메모나 문서를 여기에 두지 않는다.
+단, `docs/` 맨 위의 단독 html(`claim.html`·`whale.html` 등, `bake.sh`의 `cp public/x.html` 줄)은 지우지 않는다 → 단독 페이지를 없앨 때는 `cp` 줄 삭제와 함께 `git rm docs/x.html`도 한다(2026-11-23 `coffee.html` 잔존).
 
 **⑬ `guide/data/`·`img/official/` 위치를 바꾸면 캐릭터 도감 사이트가 깨진다**
 별도 사이트 `CastleQ/botc-wiki-ko`(캐릭터 도감)가 PG+ 배포본의 `/pocket-grimoire/guide/data/…`(roles·index·jinxes·chars)와 `/pocket-grimoire/img/official/<id>_0.webp`, `/pocket-grimoire/guide/img/…`를 **절대 경로로 직접 읽는다.** (`guide/img/logo_<판>.webp`는 PG+ 뽑기 화면 로고도 씀) 이 폴더·파일 이름·데이터 형식을 바꾸려면 도감 쪽도 함께 고친다.
